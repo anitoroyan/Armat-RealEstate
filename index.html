@@ -12,10 +12,17 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root {
-  --ivory:#EDE0CE;--tuff:#C99B70;--walnut:#5B4637;--bronze:#A9794E;
-  --olive:#77785B;--border:#D7C4AD;--white:#FFFFFF;--muted:#796D61;
+  --ivory:#EDE0CE;
+  --tuff:#C99B70;
+  --walnut:#5B4637;
+  --bronze:#A9794E;
+  --olive:#77785B;
+  --border:#D7C4AD;
+  --white:#FFFFFF;
+  --muted:#796D61;
   --serif:"Cormorant Garamond",Georgia,serif;
-  --sans:"Montserrat",Arial,sans-serif;--container:1240px;
+  --sans:"Montserrat",Arial,sans-serif;
+  --container:1240px;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;scroll-padding-top:100px}
@@ -40,9 +47,9 @@ h2{font-size:clamp(36px,5vw,54px);line-height:1.1}
 .btn-light:hover{background:var(--tuff);color:var(--walnut);border-color:var(--tuff)}
 .announcement{background:var(--walnut);color:var(--ivory);text-align:center;padding:8px 15px;font-size:9px;letter-spacing:2px;text-transform:uppercase}
 header{position:sticky;top:0;z-index:100;background:rgba(247,243,236,.96);backdrop-filter:blur(15px);border-bottom:1px solid var(--border)}
-.navbar{min-height:100px;display:flex;align-items:center;justify-content:space-between;gap:25px}
+.navbar{min-height:135px;display:flex;align-items:center;justify-content:space-between;gap:25px}
 .brand{display:flex;align-items:center;gap:11px;flex-shrink:0}
-.brand-logo{width:230px;height:85px;max-height:none;object-fit:contain;object-position:left center;display:block}
+.brand-logo{width:300px;height:110px;max-height:none;object-fit:contain;object-position:left center;display:block}
 .brand-text{display:flex;flex-direction:column;line-height:1}
 .brand-name{font-size:30px;letter-spacing:3px}
 .brand-sub{font-size:8px;letter-spacing:2.4px;margin-top:7px;color:var(--bronze)}
@@ -72,6 +79,58 @@ header{position:sticky;top:0;z-index:100;background:rgba(247,243,236,.96);backdr
 .field label{font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase}
 .field input,.field select{width:100%;min-height:46px;border:1px solid var(--border);border-radius:0;outline:none;padding:10px 12px;background:#FFFCF8;color:var(--walnut);font-size:11px}
 .field input:focus,.field select:focus{border-color:var(--bronze)}
+.search-panel-top{display:flex;align-items:center;justify-content:space-between;gap:15px;margin-bottom:18px}
+.search-title{margin-bottom:0}
+
+/* Advanced filters — B6AD9B color palette */
+.filter-toggle{
+  min-height:42px;
+  padding:10px 17px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:9px;
+  border:1px solid #B6AD9B;
+  background:#B6AD9B;
+  color:#34352D;
+  font-size:9px;
+  font-weight:700;
+  letter-spacing:1.2px;
+  text-transform:uppercase;
+  transition:all .2s;
+}
+.filter-toggle:hover,.filter-toggle[aria-expanded="true"]{
+  background:#A69C89;
+  border-color:#A69C89;
+  color:#34352D;
+}
+.filter-toggle svg{width:15px;height:15px}
+.advanced-filters{
+  display:none;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:16px;
+  padding:22px;
+  margin-top:20px;
+  border:1px solid #D8D6C9;
+  background:#F3F1E9;
+}
+.advanced-filters.is-open{display:grid}
+.advanced-filters .field label{color:#424437}
+.advanced-filters .field input,.advanced-filters .field select{
+  background:#FFFDF8;
+  border-color:#D8D6C9;
+  color:#424437;
+}
+.advanced-filters .field input:focus,.advanced-filters .field select:focus{
+  border-color:#B6AD9B;
+  box-shadow:0 0 0 2px rgba(182,173,155,.22);
+}
+.filter-actions{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:18px}
+.filter-actions .btn{background:#B6AD9B;border-color:#B6AD9B;color:#34352D;min-width:155px}
+.filter-actions .btn:hover{background:#A69C89;border-color:#A69C89}
+.clear-filters{border:0;background:transparent;color:#68695D;font-size:10px;text-decoration:underline;text-underline-offset:4px;padding:10px}
+.filter-count{color:#68695D;font-size:10px;margin-left:auto}
+
 .section{padding:100px 0}
 .categories{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
 .category-card{position:relative;min-height:320px;overflow:hidden;color:white;background:var(--tuff)}
@@ -160,14 +219,14 @@ footer{background:#30241D;color:var(--ivory);padding:55px 0 20px}
 @media(max-width:1050px){
   .nav-links{gap:16px}
   .nav-actions .btn{display:none}
-  .search-grid{grid-template-columns:repeat(2,1fr)}
-  .search-grid .btn{width:100%}
+  .search-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .advanced-filters{grid-template-columns:repeat(2,minmax(0,1fr))}
   .listing-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
   .about-grid{gap:40px}
 }
-@media(max-width:768px){
-  .navbar{min-height:85px}
-  .brand-logo{width:180px;height:70px}
+.navbar{min-height:100px}
+.brand-logo{width:230px;height:85px;max-height:none}
+@media(max-width:760px){
   .menu-toggle{display:block}
   .nav-links{display:none;position:absolute;top:100%;left:0;right:0;padding:20px 5%;background:var(--ivory);border-bottom:1px solid var(--border);flex-direction:column;align-items:stretch;gap:0}
   .nav-links.open{display:flex}
@@ -193,7 +252,9 @@ footer{background:#30241D;color:var(--ivory);padding:55px 0 20px}
   .contact-form{padding:20px}
 }
 @media(max-width:420px){
-  .search-grid,.form-grid{grid-template-columns:1fr}
+  .search-grid,.advanced-filters,.form-grid{grid-template-columns:1fr}
+  .search-panel-top{align-items:flex-start}
+  .filter-count{width:100%;margin-left:0}
   .hero-buttons{flex-direction:column;align-items:stretch;max-width:280px}
   .footer-top{grid-template-columns:1fr}
   .footer-brand{grid-column:auto}
@@ -213,7 +274,11 @@ footer{background:#30241D;color:var(--ivory);padding:55px 0 20px}
       <img class="brand-logo" src="https://cdn.shopify.com/s/files/1/0825/4695/0390/files/Carved_Stone_A_Roots_Real_Estate_Logo.png?v=1793043014" alt="ARMAT Real Estate logo">
     </a>
     <nav class="nav-links" id="navLinks" aria-label="Main navigation">
-      <a href="#home">Home</a><a href="#properties">Properties</a><a href="#categories">Categories</a><a href="#about">About Us</a><a href="#contact">Contact</a>
+      <a href="#home">Home</a>
+      <a href="#properties">Properties</a>
+      <a href="#categories">Categories</a>
+      <a href="#about">About Us</a>
+      <a href="#contact">Contact</a>
     </nav>
     <div class="nav-actions">
       <a class="btn" href="#contact">List Your Property ↗</a>
@@ -237,17 +302,51 @@ footer{background:#30241D;color:var(--ivory);padding:55px 0 20px}
   </section>
   <div class="container search-wrap">
     <form class="search-panel" id="searchForm">
-      <div class="search-title">Find your property</div>
+      <div class="search-panel-top">
+        <div class="search-title">Find your property</div>
+        <button class="filter-toggle" type="button" id="filterToggle" aria-expanded="false" aria-controls="advancedFilters">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M4 7h16M7 12h10m-7 5h4" stroke-linecap="round"/><circle cx="8" cy="7" r="1.5" fill="currentColor"/><circle cx="15" cy="12" r="1.5" fill="currentColor"/><circle cx="12" cy="17" r="1.5" fill="currentColor"/></svg>
+          Filters <span aria-hidden="true">＋</span>
+        </button>
+      </div>
       <div class="search-grid">
-        <div class="field"><label for="searchType">Property type</label>
+        <div class="field">
+          <label for="searchType">Property type</label>
           <select id="searchType">
-            <option value="all">All properties</option><option value="Land">Land</option><option value="Apartment">Apartments</option><option value="House">Houses</option><option value="Commercial Space">Commercial Spaces</option>
+            <option value="all">All properties</option>
+            <option value="Land">Land</option>
+            <option value="Apartment">Apartments</option>
+            <option value="House">Houses</option>
+            <option value="Commercial Space">Commercial Spaces</option>
           </select>
         </div>
-        <div class="field"><label for="searchLocation">Location</label><input id="searchLocation" type="search" placeholder="e.g. Yerevan"></div>
-        <div class="field"><label for="minPrice">Min. price ($)</label><input id="minPrice" type="number" min="0" placeholder="No minimum"></div>
-        <div class="field"><label for="maxPrice">Max. price ($)</label><input id="maxPrice" type="number" min="0" placeholder="No maximum"></div>
-        <button class="btn" type="submit">Search ↗</button>
+        <div class="field">
+          <label for="searchLocation">Location</label>
+          <input id="searchLocation" type="search" placeholder="e.g. Yerevan">
+        </div>
+        <div class="field">
+          <label for="minPrice">Min. price ($)</label>
+          <input id="minPrice" type="number" min="0" placeholder="No minimum">
+        </div>
+        <div class="field">
+          <label for="maxPrice">Max. price ($)</label>
+          <input id="maxPrice" type="number" min="0" placeholder="No maximum">
+        </div>
+      </div>
+      <div class="advanced-filters" id="advancedFilters">
+        <div class="field"><label for="minArea">Min. area (m²)</label><input id="minArea" type="number" min="0" placeholder="e.g. 50"></div>
+        <div class="field"><label for="maxArea">Max. area (m²)</label><input id="maxArea" type="number" min="0" placeholder="e.g. 200"></div>
+        <div class="field"><label for="roomCount">Number of rooms</label><select id="roomCount"><option value="">Any</option><option value="1">1 room</option><option value="2">2 rooms</option><option value="3">3 rooms</option><option value="4">4 rooms</option><option value="5">5+ rooms</option></select></div>
+        <div class="field"><label for="floorNumber">Floor</label><input id="floorNumber" type="number" min="0" placeholder="Any floor"></div>
+        <div class="field"><label for="bathroomCount">Number of bathrooms</label><select id="bathroomCount"><option value="">Any</option><option value="1">1 bathroom</option><option value="2">2 bathrooms</option><option value="3">3+ bathrooms</option></select></div>
+        <div class="field"><label for="ceilingHeight">Ceiling height (m)</label><select id="ceilingHeight"><option value="">Any height</option><option value="2.5">2.5 m</option><option value="2.7">2.7 m</option><option value="3">3.0 m</option><option value="3.2">3.2 m</option><option value="3.5">3.5 m</option><option value="4">4.0 m+</option></select></div>
+        <div class="field"><label for="buildingType">Building type</label><select id="buildingType"><option value="">All types</option><option value="Stone">Stone</option><option value="Monolithic Concrete">Monolithic Concrete</option><option value="Panel">Panel</option></select></div>
+        <div class="field"><label for="propertyCondition">Status</label><select id="propertyCondition"><option value="">Any status</option><option value="Renovated">Renovated</option><option value="Average Condition">Average Condition</option><option value="Unfinished">Unfinished</option></select></div>
+      </div>
+      <div class="filter-actions">
+        <button class="btn" type="submit">Apply Filters ↗</button>
+        <button class="clear-filters" type="button" id="clearFilters">Clear all</button>
+        <span class="filter-count" id="filterCount" aria-live="polite">Showing all properties</span>
       </div>
     </form>
   </div>
@@ -261,19 +360,23 @@ footer{background:#30241D;color:var(--ivory);padding:55px 0 20px}
       <div class="categories">
         <a class="category-card" href="#properties" data-category="Land">
           <img loading="lazy" src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=900&q=80" alt="Open land with a green landscape">
-          <span class="category-arrow">↗</span><div class="category-info"><span>Build your future</span><h3>Land</h3><p>Room to grow. Space to create.</p></div>
+          <span class="category-arrow">↗</span>
+          <div class="category-info"><span>Build your future</span><h3>Land</h3><p>Room to grow. Space to create.</p></div>
         </a>
         <a class="category-card" href="#properties" data-category="Apartment">
           <img loading="lazy" src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=900&q=80" alt="Elegant contemporary apartment interior">
-          <span class="category-arrow">↗</span><div class="category-info"><span>City living</span><h3>Apartments</h3><p>Comfort, convenience, connection.</p></div>
+          <span class="category-arrow">↗</span>
+          <div class="category-info"><span>City living</span><h3>Apartments</h3><p>Comfort, convenience, connection.</p></div>
         </a>
         <a class="category-card" href="#properties" data-category="House">
           <img loading="lazy" src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=900&q=80" alt="Contemporary detached house">
-          <span class="category-arrow">↗</span><div class="category-info"><span>Made for living</span><h3>Houses</h3><p>Find the place that feels like home.</p></div>
+          <span class="category-arrow">↗</span>
+          <div class="category-info"><span>Made for living</span><h3>Houses</h3><p>Find the place that feels like home.</p></div>
         </a>
         <a class="category-card" href="#properties" data-category="Commercial Space">
           <img loading="lazy" src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=900&q=80" alt="Modern commercial office space">
-          <span class="category-arrow">↗</span><div class="category-info"><span>Space to do business</span><h3>Commercial Space</h3><p>Find the right place for your business.</p></div>
+          <span class="category-arrow">↗</span>
+          <div class="category-info"><span>Space to do business</span><h3>Commercial Space</h3><p>Find the right place for your business.</p></div>
         </a>
       </div>
     </div>
@@ -281,7 +384,11 @@ footer{background:#30241D;color:var(--ivory);padding:55px 0 20px}
   <section class="section listings-section" id="properties">
     <div class="container">
       <div class="listing-heading-row">
-        <div class="section-heading"><div class="eyebrow">Selected properties</div><h2>Find your next address.</h2><p>Explore our featured collection of land, apartments, houses and commercial spaces.</p></div>
+        <div class="section-heading">
+          <div class="eyebrow">Selected properties</div>
+          <h2>Find your next address.</h2>
+          <p>Explore our featured collection of land, apartments, houses and commercial spaces.</p>
+        </div>
         <button class="btn btn-outline" id="showAllBtn" type="button">Show All Properties ↗</button>
       </div>
       <div class="listing-grid" id="listingGrid" aria-live="polite"></div>
@@ -296,9 +403,12 @@ footer{background:#30241D;color:var(--ivory);padding:55px 0 20px}
   </section>
   <section class="section" id="about">
     <div class="container about-grid">
-      <div class="about-image-wrap"><img loading="lazy" src="https://images.unsplash.com/photo-1600607687644-c7171b42498f?auto=format&fit=crop&w=1100&q=85" alt="Warm architectural design and natural stone finishes"></div>
+      <div class="about-image-wrap">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1600607687644-c7171b42498f?auto=format&fit=crop&w=1100&q=85" alt="Warm architectural design and natural stone finishes">
+      </div>
       <div class="about-copy">
-        <div class="eyebrow">Our philosophy</div><h2>Rooted in trust.<br>Built for your future.</h2>
+        <div class="eyebrow">Our philosophy</div>
+        <h2>Rooted in trust.<br>Built for your future.</h2>
         <p>At ARMAT, we believe real estate is about more than walls, land and addresses. It's about the place where your next chapter begins.</p>
         <p>Inspired by the Armenian word for roots, ARMAT stands for belonging, stability and the foundations that connect us to a place.</p>
         <p>Whether you're searching for land, an apartment or a family home, our goal is to help you find a property that feels right for you.</p>
@@ -313,16 +423,20 @@ footer{background:#30241D;color:var(--ivory);padding:55px 0 20px}
     </div>
   </section>
   <section class="cta-section">
-    <div class="container"><div class="cta-panel">
-      <div class="eyebrow">Your next chapter starts here</div><h2>Every great story needs a place.</h2>
-      <p>Tell us what you're looking for. Let's find the land, apartment, house or commercial space that feels right for your next chapter.</p>
-      <a class="btn" href="#contact">Talk to ARMAT ↗</a>
-    </div></div>
+    <div class="container">
+      <div class="cta-panel">
+        <div class="eyebrow">Your next chapter starts here</div>
+        <h2>Every great story needs a place.</h2>
+        <p>Tell us what you're looking for. Let's find the land, apartment, house or commercial space that feels right for your next chapter.</p>
+        <a class="btn" href="#contact">Talk to ARMAT ↗</a>
+      </div>
+    </div>
   </section>
   <section class="section contact-section" id="contact">
     <div class="container contact-grid">
       <div class="contact-copy">
-        <div class="eyebrow">Get in touch</div><h2>Let's find your place.</h2>
+        <div class="eyebrow">Get in touch</div>
+        <h2>Let's find your place.</h2>
         <p>Have a property in mind, want to sell, or simply need guidance? Send us a message and tell us about your plans.</p>
         <div class="contact-detail">
           <div><strong>Our office</strong><span>Yerevan, Armenia</span></div>
@@ -335,7 +449,8 @@ footer{background:#30241D;color:var(--ivory);padding:55px 0 20px}
           <div class="field"><label for="contactName">Your name</label><input id="contactName" name="name" required placeholder="Full name"></div>
           <div class="field"><label for="contactEmail">Email address</label><input id="contactEmail" name="email" type="email" required placeholder="you@example.com"></div>
         </div>
-        <div class="field"><label for="contactInterest">I'm interested in</label>
+        <div class="field">
+          <label for="contactInterest">I'm interested in</label>
           <select id="contactInterest" name="interest">
             <option>Buying a property</option><option>Selling a property</option><option>Land</option><option>Apartment</option><option>House</option><option>Commercial Space</option><option>Other inquiry</option>
           </select>
@@ -355,15 +470,24 @@ footer{background:#30241D;color:var(--ivory);padding:55px 0 20px}
         <p>Rooted in trust. Built for your future. Helping you find land, apartments, houses and commercial spaces for the next chapter of your life.</p>
       </div>
       <div class="footer-column">
-        <h3>Explore</h3><a href="#properties">All Properties</a>
+        <h3>Explore</h3>
+        <a href="#properties">All Properties</a>
         <a href="#categories" data-footer-category="Land">Land</a>
         <a href="#categories" data-footer-category="Apartment">Apartments</a>
         <a href="#categories" data-footer-category="House">Houses</a>
         <a href="#categories" data-footer-category="Commercial Space">Commercial Spaces</a>
       </div>
-      <div class="footer-column"><h3>Get in Touch</h3><a href="#about">About ARMAT</a><a href="#contact">Contact Us</a><a href="mailto:hello@armatestate.am">Email ARMAT</a></div>
+      <div class="footer-column">
+        <h3>Get in Touch</h3>
+        <a href="#about">About ARMAT</a>
+        <a href="#contact">Contact Us</a>
+        <a href="mailto:hello@armatestate.am">Email ARMAT</a>
+      </div>
     </div>
-    <div class="footer-bottom"><span>© <span id="year"></span> ARMAT REAL ESTATE. All rights reserved.</span><span>Made with a foundation of trust · Yerevan, Armenia</span></div>
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> ARMAT REAL ESTATE. All rights reserved.</span>
+      <span>Made with a foundation of trust · Yerevan, Armenia</span>
+    </div>
   </div>
 </footer>
 <div class="modal" id="propertyModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
@@ -371,158 +495,255 @@ footer{background:#30241D;color:var(--ivory);padding:55px 0 20px}
     <button class="modal-close" id="modalClose" aria-label="Close property details">×</button>
     <img id="modalImage" src="" alt="">
     <div class="modal-content">
-      <div class="eyebrow" id="modalType"></div><h2 id="modalTitle"></h2>
+      <div class="eyebrow" id="modalType"></div>
+      <h2 id="modalTitle"></h2>
       <div class="listing-price" id="modalPrice" style="position:static;display:inline-block;margin-top:10px"></div>
-      <p id="modalDescription"></p><div class="listing-meta" id="modalMeta"></div>
+      <p id="modalDescription"></p>
+      <div class="listing-meta" id="modalMeta"></div>
       <a class="btn" id="modalContact" href="#contact">Ask About This Property ↗</a>
     </div>
   </div>
 </div>
 <script>
 const properties = [
-  {id:1,type:"House",title:"Contemporary Family Home",location:"Yerevan, Armenia",price:285000,priceLabel:"$285,000",area:220,beds:4,baths:3,image:"https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1000&q=85",description:"A contemporary home with generous living spaces and a refined architectural style. Contact ARMAT to discuss the property's details and arrange a viewing."},
-  {id:2,type:"Apartment",title:"Modern City Apartment",location:"Yerevan, Armenia",price:145000,priceLabel:"$145,000",area:95,beds:3,baths:2,image:"https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1000&q=85",description:"A modern apartment concept with a calm, light-filled interior. Contact ARMAT to learn more about available apartments and viewing options."},
-  {id:3,type:"Land",title:"Residential Land Plot",location:"Armenia",price:75000,priceLabel:"$75,000",area:800,beds:null,baths:null,image:"https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1000&q=85",description:"An example land listing for those planning to build a home of their own. Exact location, zoning, access and permitted uses must be verified before purchase."},
-  {id:4,type:"House",title:"Warm Minimalist Residence",location:"Armenia",price:220000,priceLabel:"$220,000",area:180,beds:3,baths:2,image:"https://images.unsplash.com/photo-1600607687644-c7171b42498f?auto=format&fit=crop&w=1000&q=85",description:"A minimalist residential concept with natural materials and timeless lines. Contact ARMAT for verified property information and available options."},
-  {id:5,type:"Apartment",title:"Elegant Urban Residence",location:"Yerevan, Armenia",price:118000,priceLabel:"$118,000",area:78,beds:2,baths:1,image:"https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1000&q=85",description:"An apartment concept suited to convenient city living. Ask ARMAT about actual listings, location details, building amenities and viewing availability."},
-  {id:6,type:"Land",title:"Land for Your Future Home",location:"Armenia",price:52000,priceLabel:"$52,000",area:600,beds:null,baths:null,image:"https://images.unsplash.com/photo-1472396961693-142e6e269027?auto=format&fit=crop&w=1000&q=85",description:"A sample plot listing for a future home or investment. Verify ownership, cadastral information, utilities, road access and construction permissions before making a decision."},
-  {id:7,type:"Commercial Space",title:"Modern Commercial Office",location:"Yerevan, Armenia",price:195000,priceLabel:"$195,000",area:160,beds:null,baths:2,image:"https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1000&q=85",description:"A sample commercial property listing suitable for office or business use. Verify the exact address, permitted use, ownership documents and property condition before making a decision."}
+{
+id:1,type:"House",title:"Contemporary Family Home",location:"Yerevan, Armenia",price:285000,priceLabel:"$285,000",area:220,beds:4,baths:3,floor:2,ceilingHeight:3.2,buildingType:"Monolithic Concrete",condition:"Renovated",
+image:"https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1000&q=85",
+description:"A contemporary home with generous living spaces and a refined architectural style. Contact ARMAT to discuss the property's details and arrange a viewing."
+},
+{
+id:2,type:"Apartment",title:"Modern City Apartment",location:"Yerevan, Armenia",price:145000,priceLabel:"$145,000",area:95,beds:3,baths:2,floor:8,ceilingHeight:2.7,buildingType:"Monolithic Concrete",condition:"Renovated",
+image:"https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1000&q=85",
+description:"A modern apartment concept with a calm, light-filled interior. Contact ARMAT to learn more about available apartments and viewing options."
+},
+{
+id:3,type:"Land",title:"Residential Land Plot",location:"Armenia",price:75000,priceLabel:"$75,000",area:800,beds:null,baths:null,
+image:"https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1000&q=85",
+description:"An example land listing for those planning to build a home of their own. Exact location, zoning, access and permitted uses must be verified before purchase."
+},
+{
+id:4,type:"House",title:"Warm Minimalist Residence",location:"Armenia",price:220000,priceLabel:"$220,000",area:180,beds:3,baths:2,floor:1,ceilingHeight:3,buildingType:"Stone",condition:"Average Condition",
+image:"https://images.unsplash.com/photo-1600607687644-c7171b42498f?auto=format&fit=crop&w=1000&q=85",
+description:"A minimalist residential concept with natural materials and timeless lines. Contact ARMAT for verified property information and available options."
+},
+{
+id:5,type:"Apartment",title:"Elegant Urban Residence",location:"Yerevan, Armenia",price:118000,priceLabel:"$118,000",area:78,beds:2,baths:1,floor:5,ceilingHeight:2.7,buildingType:"Panel",condition:"Renovated",
+image:"https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1000&q=85",
+description:"An apartment concept suited to convenient city living. Ask ARMAT about actual listings, location details, building amenities and viewing availability."
+},
+{
+id:6,type:"Land",title:"Land for Your Future Home",location:"Armenia",price:52000,priceLabel:"$52,000",area:600,beds:null,baths:null,
+image:"https://images.unsplash.com/photo-1472396961693-142e6e269027?auto=format&fit=crop&w=1000&q=85",
+description:"A sample plot listing for a future home or investment. Verify ownership, cadastral information, utilities, road access and construction permissions before making a decision."
+},
+{
+id:7,type:"Commercial Space",title:"Modern Commercial Office",location:"Yerevan, Armenia",price:195000,priceLabel:"$195,000",area:160,beds:null,baths:2,floor:1,ceilingHeight:3.5,buildingType:"Monolithic Concrete",condition:"Unfinished",
+image:"https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1000&q=85",
+description:"A sample commercial property listing suitable for office or business use. Verify the exact address, permitted use, ownership documents and property condition before making a decision."
+}
 ];
+
 const listingGrid=document.getElementById("listingGrid");
 const searchForm=document.getElementById("searchForm");
 const searchType=document.getElementById("searchType");
 const searchLocation=document.getElementById("searchLocation");
 const minPrice=document.getElementById("minPrice");
 const maxPrice=document.getElementById("maxPrice");
-const escapeHTML=value=>String(value??"").replace(/[&<>"']/g,char=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[char]));
+const filterToggle=document.getElementById("filterToggle");
+const advancedFilters=document.getElementById("advancedFilters");
+const filterCount=document.getElementById("filterCount");
+const getFilterValue=id=>document.getElementById(id).value;
+
+const escapeHTML=value=>String(value??"").replace(/[&<>"']/g,char=>({
+"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
+}[char]));
+
 function renderListings(items){
-  if(!items.length){
-    listingGrid.innerHTML='<div class="empty-state"><h3 style="font-family:var(--serif);font-size:30px;margin-bottom:8px">No properties found</h3><p>Try changing your filters to see more results.</p></div>';
-    return;
-  }
-  listingGrid.innerHTML=items.map(property=>`
-    <article class="listing-card">
-      <div class="listing-photo">
-        <img loading="lazy" src="${escapeHTML(property.image)}" alt="${escapeHTML(property.title)}" onerror="this.style.display='none'">
-        <span class="listing-tag">${escapeHTML(property.type)}</span>
-        <span class="listing-price">${escapeHTML(property.priceLabel)}</span>
-      </div>
-      <div class="listing-body">
-        <div class="listing-type">${escapeHTML(property.type)} · ARMAT SELECTION</div>
-        <h3>${escapeHTML(property.title)}</h3>
-        <div class="listing-address">⌖ &nbsp;${escapeHTML(property.location)}</div>
-        <div class="listing-meta">
-          ${property.area?`<span>▧ ${escapeHTML(property.area)} m²</span>`:""}
-          ${property.beds?`<span>▤ ${escapeHTML(property.beds)} beds</span>`:""}
-          ${property.baths?`<span>◇ ${escapeHTML(property.baths)} baths</span>`:""}
-        </div>
-        <div class="listing-footer">
-          <button class="text-link" type="button" data-details="${property.id}">View Details ↗</button>
-          <span style="font-family:var(--serif);font-size:21px;color:var(--bronze)">0${property.id}</span>
-        </div>
-      </div>
-    </article>
-  `).join("");
+if(!items.length){
+listingGrid.innerHTML='<div class="empty-state"><h3 style="font-family:var(--serif);font-size:30px;margin-bottom:8px">No properties found</h3><p>Try changing your filters to see more results.</p></div>';
+return;
 }
+listingGrid.innerHTML=items.map(property=>`
+<article class="listing-card">
+<div class="listing-photo">
+<img loading="lazy" src="${escapeHTML(property.image)}" alt="${escapeHTML(property.title)}" onerror="this.style.display='none'">
+<span class="listing-tag">${escapeHTML(property.type)}</span>
+<span class="listing-price">${escapeHTML(property.priceLabel)}</span>
+</div>
+<div class="listing-body">
+<div class="listing-type">${escapeHTML(property.type)} · ARMAT SELECTION</div>
+<h3>${escapeHTML(property.title)}</h3>
+<div class="listing-address">⌖ &nbsp;${escapeHTML(property.location)}</div>
+<div class="listing-meta">
+${property.area?`<span>▧ ${escapeHTML(property.area)} m²</span>`:""}
+${property.beds?`<span>▤ ${escapeHTML(property.beds)} beds</span>`:""}
+${property.baths?`<span>◇ ${escapeHTML(property.baths)} baths</span>`:""}
+</div>
+<div class="listing-footer">
+<button class="text-link" type="button" data-details="${property.id}">View Details ↗</button>
+<span style="font-family:var(--serif);font-size:21px;color:var(--bronze)">0${property.id}</span>
+</div>
+</div>
+</article>`).join("");
+}
+
 function filterProperties(){
-  const type=searchType.value;
-  const location=searchLocation.value.trim().toLowerCase();
-  const min=minPrice.value===""?null:Number(minPrice.value);
-  const max=maxPrice.value===""?null:Number(maxPrice.value);
-  if((min!==null&&min<0)||(max!==null&&max<0)||(min!==null&&max!==null&&min>max)){
-    listingGrid.innerHTML='<div class="empty-state">Please enter a valid price range.</div>';
-    return;
-  }
-  const filtered=properties.filter(property=>
-    (type==="all"||property.type===type)&&
-    (!location||property.location.toLowerCase().includes(location))&&
-    (min===null||property.price>=min)&&
-    (max===null||property.price<=max)
-  );
-  renderListings(filtered);
+const type=searchType.value;
+const location=searchLocation.value.trim().toLowerCase();
+const min=minPrice.value===""?null:Number(minPrice.value);
+const max=maxPrice.value===""?null:Number(maxPrice.value);
+const minArea=getFilterValue("minArea")===""?null:Number(getFilterValue("minArea"));
+const maxArea=getFilterValue("maxArea")===""?null:Number(getFilterValue("maxArea"));
+const rooms=getFilterValue("roomCount");
+const floor=getFilterValue("floorNumber")===""?null:Number(getFilterValue("floorNumber"));
+const baths=getFilterValue("bathroomCount");
+const ceiling=getFilterValue("ceilingHeight");
+const building=getFilterValue("buildingType");
+const condition=getFilterValue("propertyCondition");
+
+if([min,max,minArea,maxArea,floor].some(v=>v!==null&&(!Number.isFinite(v)||v<0))||
+(min!==null&&max!==null&&min>max)||
+(minArea!==null&&maxArea!==null&&minArea>maxArea)){
+listingGrid.innerHTML='<div class="empty-state">Please check your price and area ranges.</div>';
+filterCount.textContent="Please check your filters";
+return;
 }
+
+const filtered=properties.filter(property=>{
+const roomsMatch=!rooms||(rooms==="5"?Number(property.beds)>=5:Number(property.beds)===Number(rooms));
+const bathsMatch=!baths||(baths==="3"?Number(property.baths)>=3:Number(property.baths)===Number(baths));
+return(type==="all"||property.type===type)&&
+(!location||property.location.toLowerCase().includes(location))&&
+(min===null||property.price>=min)&&(max===null||property.price<=max)&&
+(minArea===null||(property.area!=null&&property.area>=minArea))&&
+(maxArea===null||(property.area!=null&&property.area<=maxArea))&&
+roomsMatch&&(floor===null||property.floor===floor)&&bathsMatch&&
+(!ceiling||(ceiling==="4"?property.ceilingHeight>=4:property.ceilingHeight===Number(ceiling)))&&
+(!building||property.buildingType===building)&&(!condition||property.condition===condition);
+});
+renderListings(filtered);
+filterCount.textContent=`Found ${filtered.length} ${filtered.length===1?"property":"properties"}`;
+}
+
+filterToggle.addEventListener("click",()=>{
+const isOpen=advancedFilters.classList.toggle("is-open");
+filterToggle.setAttribute("aria-expanded",String(isOpen));
+filterToggle.innerHTML=`${isOpen?"Hide":"Filters"} <span aria-hidden="true">${isOpen?"−":"＋"}</span>`;
+});
+
+document.getElementById("clearFilters").addEventListener("click",()=>{
+searchForm.reset();
+renderListings(properties);
+filterCount.textContent="Showing all properties";
+});
+
 searchForm.addEventListener("submit",event=>{
-  event.preventDefault();filterProperties();
-  document.getElementById("properties").scrollIntoView({behavior:"smooth"});
+event.preventDefault();
+filterProperties();
+document.getElementById("properties").scrollIntoView({behavior:"smooth"});
 });
+
 document.getElementById("showAllBtn").addEventListener("click",()=>{
-  searchType.value="all";searchLocation.value="";minPrice.value="";maxPrice.value="";
-  renderListings(properties);
+searchType.value="all";
+searchLocation.value="";
+minPrice.value="";
+maxPrice.value="";
+searchForm.reset();
+filterCount.textContent="Showing all properties";
+renderListings(properties);
 });
+
 document.querySelectorAll("[data-category]").forEach(link=>{
-  link.addEventListener("click",()=>{
-    searchType.value=link.dataset.category;searchLocation.value="";minPrice.value="";maxPrice.value="";
-    renderListings(properties.filter(p=>p.type===link.dataset.category));
-  });
+link.addEventListener("click",()=>{
+searchType.value=link.dataset.category;
+searchLocation.value="";
+minPrice.value="";
+maxPrice.value="";
+renderListings(properties.filter(p=>p.type===link.dataset.category));
 });
+});
+
 document.querySelectorAll("[data-footer-category]").forEach(link=>{
-  link.addEventListener("click",()=>{
-    searchType.value=link.dataset.footerCategory;searchLocation.value="";minPrice.value="";maxPrice.value="";
-    renderListings(properties.filter(p=>p.type===link.dataset.footerCategory));
-  });
+link.addEventListener("click",()=>{
+searchType.value=link.dataset.footerCategory;
+searchLocation.value="";
+minPrice.value="";
+maxPrice.value="";
+renderListings(properties.filter(p=>p.type===link.dataset.footerCategory));
 });
+});
+
 const modal=document.getElementById("propertyModal");
 const modalClose=document.getElementById("modalClose");
+
 listingGrid.addEventListener("click",event=>{
-  const button=event.target.closest("[data-details]");
-  if(!button)return;
-  const property=properties.find(p=>p.id===Number(button.dataset.details));
-  if(!property)return;
-  document.getElementById("modalImage").src=property.image;
-  document.getElementById("modalImage").alt=property.title;
-  document.getElementById("modalType").textContent=property.type;
-  document.getElementById("modalTitle").textContent=property.title;
-  document.getElementById("modalPrice").textContent=property.priceLabel;
-  document.getElementById("modalDescription").textContent=property.description;
-  document.getElementById("modalMeta").innerHTML=[
-    property.area?`<span>▧ ${escapeHTML(property.area)} m²</span>`:"",
-    property.beds?`<span>▤ ${escapeHTML(property.beds)} bedrooms</span>`:"",
-    property.baths?`<span>◇ ${escapeHTML(property.baths)} bathrooms</span>`:"",
-    `<span>⌖ ${escapeHTML(property.location)}</span>`
-  ].filter(Boolean).join("");
-  document.getElementById("modalContact").onclick=()=>{
-    modal.classList.remove("open");
-    document.getElementById("contactInterest").value=
-      property.type==="Land"?"Land":
-      property.type==="House"?"House":
-      property.type==="Commercial Space"?"Commercial Space":"Apartment";
-  };
-  modal.classList.add("open");modalClose.focus();
+const button=event.target.closest("[data-details]");
+if(!button)return;
+const property=properties.find(p=>p.id===Number(button.dataset.details));
+if(!property)return;
+
+document.getElementById("modalImage").src=property.image;
+document.getElementById("modalImage").alt=property.title;
+document.getElementById("modalType").textContent=property.type;
+document.getElementById("modalTitle").textContent=property.title;
+document.getElementById("modalPrice").textContent=property.priceLabel;
+document.getElementById("modalDescription").textContent=property.description;
+document.getElementById("modalMeta").innerHTML=[
+property.area?`<span>▧ ${escapeHTML(property.area)} m²</span>`:"",
+property.beds?`<span>▤ ${escapeHTML(property.beds)} bedrooms</span>`:"",
+property.baths?`<span>◇ ${escapeHTML(property.baths)} bathrooms</span>`:"",
+`<span>⌖ ${escapeHTML(property.location)}</span>`
+].filter(Boolean).join("");
+
+document.getElementById("modalContact").onclick=()=>{
+modal.classList.remove("open");
+document.getElementById("contactInterest").value=
+property.type==="Land"?"Land":
+property.type==="House"?"House":property.type==="Commercial Space"?"Commercial Space":"Apartment";
+};
+modal.classList.add("open");
+modalClose.focus();
 });
+
 function closeModal(){modal.classList.remove("open")}
 modalClose.addEventListener("click",closeModal);
 modal.addEventListener("click",event=>{if(event.target===modal)closeModal()});
 document.addEventListener("keydown",event=>{if(event.key==="Escape")closeModal()});
+
 const menuToggle=document.getElementById("menuToggle");
 const navLinks=document.getElementById("navLinks");
+
 menuToggle.addEventListener("click",()=>{
-  const isOpen=navLinks.classList.toggle("open");
-  menuToggle.setAttribute("aria-expanded",String(isOpen));
-  menuToggle.setAttribute("aria-label",isOpen?"Close navigation":"Open navigation");
-  menuToggle.textContent=isOpen?"×":"☰";
+const isOpen=navLinks.classList.toggle("open");
+menuToggle.setAttribute("aria-expanded",String(isOpen));
+menuToggle.setAttribute("aria-label",isOpen?"Close navigation":"Open navigation");
+menuToggle.textContent=isOpen?"×":"☰";
 });
+
 navLinks.querySelectorAll("a").forEach(link=>{
-  link.addEventListener("click",()=>{
-    navLinks.classList.remove("open");
-    menuToggle.setAttribute("aria-expanded","false");
-    menuToggle.textContent="☰";
-  });
+link.addEventListener("click",()=>{
+navLinks.classList.remove("open");
+menuToggle.setAttribute("aria-expanded","false");
+menuToggle.textContent="☰";
 });
+});
+
 document.getElementById("contactForm").addEventListener("submit",event=>{
-  event.preventDefault();
-  const form=event.currentTarget;
-  if(!form.reportValidity())return;
-  const data=new FormData(form);
-  const subject=encodeURIComponent("ARMAT Real Estate Inquiry — "+data.get("interest"));
-  const body=encodeURIComponent(
-    "Name: "+data.get("name")+"\n"+
-    "Email: "+data.get("email")+"\n"+
-    "Interest: "+data.get("interest")+"\n\n"+
-    "Message:\n"+data.get("message")
-  );
-  document.getElementById("formStatus").textContent="Opening your email app. Please review and send the prepared message.";
-  window.location.href="mailto:hello@armatestate.am?subject="+subject+"&body="+body;
+event.preventDefault();
+const form=event.currentTarget;
+if(!form.reportValidity())return;
+const data=new FormData(form);
+const subject=encodeURIComponent("ARMAT Real Estate Inquiry — "+data.get("interest"));
+const body=encodeURIComponent(
+"Name: "+data.get("name")+"\n"+
+"Email: "+data.get("email")+"\n"+
+"Interest: "+data.get("interest")+"\n\n"+
+"Message:\n"+data.get("message")
+);
+document.getElementById("formStatus").textContent="Opening your email app. Please review and send the prepared message.";
+window.location.href="mailto:hello@armatestate.am?subject="+subject+"&body="+body;
 });
+
 document.getElementById("year").textContent=new Date().getFullYear();
 renderListings(properties);
 </script>
