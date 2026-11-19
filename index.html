@@ -1061,8 +1061,7 @@ footer { background: #30241D; color: var(--ivory); padding: 55px 0 20px; }
 
 <script>
 // --- LOGO CONFIGURATION ---
-// REPLACE THE URL BELOW WITH YOUR ACTUAL ARMENIAN LOGO IMAGE LINK
-const armenianLogoUrl = "URL_TO_YOUR_ARMENIAN_LOGO_HERE.png"; 
+const armenianLogoUrl = "https://cdn.shopify.com/s/files/1/0825/4695/0390/files/Travertine_A_House_and_Tree_Roots_Logo.png?v=1795091459"; 
 const englishLogoUrl = "https://cdn.shopify.com/s/files/1/0825/4695/0390/files/Carved_Stone_A_Roots_Real_Estate_Logo.png?v=1793043014";
 
 let currentLang = 'en'; // Default language
@@ -1070,28 +1069,40 @@ let currentLang = 'en'; // Default language
 const langSwitch = document.getElementById('langSwitch');
 const logos = document.querySelectorAll('.brand-logo'); // Selects both header and footer logos
 
+// Function to update logo based on language
+function updateLogo(lang) {
+  const targetUrl = lang === 'hy' ? armenianLogoUrl : englishLogoUrl;
+  const targetAlt = lang === 'hy' ? "ARMAT Անշարժ Գույք լոգո" : "ARMAT Real Estate logo";
+  
+  logos.forEach(img => {
+    img.src = targetUrl;
+    img.alt = targetAlt;
+  });
+}
+
+// Initialize based on browser language
+const userLang = navigator.language || navigator.userLanguage;
+if (userLang.startsWith('hy')) {
+  currentLang = 'hy';
+  langSwitch.textContent = 'EN';
+  updateLogo('hy');
+} else {
+  langSwitch.textContent = 'HY';
+}
+
+// Toggle handler
 langSwitch.addEventListener('click', () => {
   if (currentLang === 'en') {
     // Switch to Armenian
     currentLang = 'hy';
-    langSwitch.textContent = 'EN'; // Button now shows option to go back to English
-    
-    // Update all logos to Armenian version
-    logos.forEach(img => {
-      img.src = armenianLogoUrl;
-      img.alt = "ARMAT Անշարժ Գույք լոգո"; // Optional: update alt text
-    });
+    langSwitch.textContent = 'EN'; // Button shows option to go back to English
+    updateLogo('hy');
     
   } else {
     // Switch to English
     currentLang = 'en';
-    langSwitch.textContent = 'HY'; // Button now shows option to go to Armenian
-    
-    // Update all logos to English version
-    logos.forEach(img => {
-      img.src = englishLogoUrl;
-      img.alt = "ARMAT Real Estate logo";
-    });
+    langSwitch.textContent = 'HY'; // Button shows option to go to Armenian
+    updateLogo('en');
   }
 });
 
