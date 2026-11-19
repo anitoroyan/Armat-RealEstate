@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hy">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#EDE0CE">
-<meta name="description" content="ARMAT Real Estate — Discover land, apartments, houses and commercial spaces in Armenia. Find a place to put down roots.">
-<title>ARMAT Real Estate | Find Your Place</title>
+<meta name="description" content="ARMAT Անշարժ Գույք — Հայտնաբերեք հողամասեր, բնակարաններ, տներ և առևտրային տարածքներ Հայաստանում։ Գտեք ձեր արմատները։">
+<title>ARMAT Real Estate | Գտեք Ձեր Տեղը</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -663,7 +663,7 @@ footer { background: #30241D; color: var(--ivory); padding: 55px 0 20px; }
 </head>
 
 <body>
-<div class="announcement">Find your place. Build your roots. &nbsp; · &nbsp; ARMAT REAL ESTATE</div>
+<div class="announcement" data-i18n="announcement">Find your place. Build your roots. &nbsp; · &nbsp; ARMAT REAL ESTATE</div>
 
 <header>
   <div class="container navbar">
@@ -673,19 +673,19 @@ footer { background: #30241D; color: var(--ivory); padding: 55px 0 20px; }
     </a>
 
     <nav class="nav-links" id="navLinks" aria-label="Main navigation">
-      <a href="#home">Home</a>
-      <a href="#properties">Properties</a>
-      <a href="#categories">Categories</a>
-      <a href="#about">About Us</a>
-      <a href="#contact">Contact</a>
+      <a href="#home" data-i18n="nav.home">Home</a>
+      <a href="#properties" data-i18n="nav.properties">Properties</a>
+      <a href="#categories" data-i18n="nav.categories">Categories</a>
+      <a href="#about" data-i18n="nav.about">About Us</a>
+      <a href="#contact" data-i18n="nav.contact">Contact</a>
     </nav>
 
     <div class="nav-actions">
-      <a class="btn" href="#contact">List Your Property ↗</a>
+      <a class="btn" href="#contact" data-i18n="nav.listProperty">List Your Property ↗</a>
       
       <!-- LANGUAGE SWITCHER BUTTON -->
       <button class="lang-switch" id="langSwitch" type="button" aria-label="Change Language">
-        HY
+        EN
       </button>
 
       <button class="menu-toggle" id="menuToggle" aria-label="Open navigation" aria-expanded="false">☰</button>
@@ -697,14 +697,14 @@ footer { background: #30241D; color: var(--ivory); padding: 55px 0 20px; }
   <section class="hero" id="home">
     <img class="hero-image" src="https://cdn.shopify.com/s/files/1/0825/4695/0390/files/386e645403a03f3d03363b8249734d3e.png?v=1793041343" alt="ARMAT Real Estate — Property">
     <div class="container hero-content">
-      <div class="eyebrow">A better place to begin</div>
-      <h1>Find a place<br>to put down <em>roots.</em></h1>
-      <p class="hero-copy">From the land you dream of to the home you belong in, discover real estate that feels right for your future.</p>
+      <div class="eyebrow" data-i18n="hero.eyebrow">A better place to begin</div>
+      <h1 data-i18n="hero.title">Find a place<br>to put down <em>roots.</em></h1>
+      <p class="hero-copy" data-i18n="hero.copy">From the land you dream of to the home you belong in, discover real estate that feels right for your future.</p>
       <div class="hero-buttons">
-        <a class="btn btn-light" href="#properties">Explore Properties ↗</a>
-        <a class="btn btn-outline" href="#about">Discover ARMAT</a>
+        <a class="btn btn-light" href="#properties" data-i18n="hero.exploreBtn">Explore Properties ↗</a>
+        <a class="btn btn-outline" href="#about" data-i18n="hero.discoverBtn">Discover ARMAT</a>
       </div>
-      <div class="hero-note">Land · Apartments · Houses · Commercial Spaces</div>
+      <div class="hero-note" data-i18n="hero.note">Land · Apartments · Houses · Commercial Spaces</div>
     </div>
   </section>
 
@@ -713,7 +713,7 @@ footer { background: #30241D; color: var(--ivory); padding: 55px 0 20px; }
     <form class="search-panel" id="searchForm">
 
       <div class="search-panel-top">
-        <div class="search-title">Find your property</div>
+        <div class="search-title" data-i18n="search.title">Find your property</div>
 
         <button class="filter-toggle" type="button" id="filterToggle" aria-expanded="false" aria-controls="advancedFilters">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
@@ -722,25 +722,25 @@ footer { background: #30241D; color: var(--ivory); padding: 55px 0 20px; }
             <circle cx="15" cy="12" r="1.5" fill="currentColor"/>
             <circle cx="12" cy="17" r="1.5" fill="currentColor"/>
           </svg>
-          Filters <span aria-hidden="true">＋</span>
+          <span data-i18n="search.filters">Filters</span> <span aria-hidden="true">＋</span>
         </button>
       </div>
 
       <!-- MAIN SEARCH: ONLY LOCATION AND PRICE -->
       <div class="search-grid">
         <div class="field">
-          <label for="searchLocation">Location</label>
-          <input id="searchLocation" type="search" placeholder="e.g. Yerevan">
+          <label for="searchLocation" data-i18n="search.locationLabel">Location</label>
+          <input id="searchLocation" type="search" placeholder="e.g. Yerevan" data-i18n-placeholder="search.locationPlaceholder">
         </div>
 
         <div class="field">
-          <label for="minPrice">Min. price ($)</label>
-          <input id="minPrice" type="number" min="0" placeholder="No minimum">
+          <label for="minPrice" data-i18n="search.minPriceLabel">Min. price ($)</label>
+          <input id="minPrice" type="number" min="0" placeholder="No minimum" data-i18n-placeholder="search.noMinimum">
         </div>
 
         <div class="field">
-          <label for="maxPrice">Max. price ($)</label>
-          <input id="maxPrice" type="number" min="0" placeholder="No maximum">
+          <label for="maxPrice" data-i18n="search.maxPriceLabel">Max. price ($)</label>
+          <input id="maxPrice" type="number" min="0" placeholder="No maximum" data-i18n-placeholder="search.noMaximum">
         </div>
       </div>
 
@@ -748,57 +748,57 @@ footer { background: #30241D; color: var(--ivory); padding: 55px 0 20px; }
       <div class="advanced-filters" id="advancedFilters">
 
         <div class="field">
-          <label for="searchType">Property Type</label>
+          <label for="searchType" data-i18n="search.typeLabel">Property Type</label>
           <select id="searchType">
-            <option value="all">All Properties</option>
-            <option value="Land">Land</option>
-            <option value="Apartment">Apartments</option>
-            <option value="House">Houses</option>
-            <option value="Commercial Space">Commercial Spaces</option>
+            <option value="all" data-i18n="search.allProperties">All Properties</option>
+            <option value="Land" data-i18n="search.land">Land</option>
+            <option value="Apartment" data-i18n="search.apartments">Apartments</option>
+            <option value="House" data-i18n="search.houses">Houses</option>
+            <option value="Commercial Space" data-i18n="search.commercial">Commercial Spaces</option>
           </select>
         </div>
 
         <div class="field">
-          <label for="minArea">Min. Area (m²)</label>
-          <input id="minArea" type="number" min="0" placeholder="e.g. 50">
+          <label for="minArea" data-i18n="search.minAreaLabel">Min. Area (m²)</label>
+          <input id="minArea" type="number" min="0" placeholder="e.g. 50" data-i18n-placeholder="search.areaPlaceholder">
         </div>
 
         <div class="field">
-          <label for="maxArea">Max. Area (m²)</label>
-          <input id="maxArea" type="number" min="0" placeholder="e.g. 200">
+          <label for="maxArea" data-i18n="search.maxAreaLabel">Max. Area (m²)</label>
+          <input id="maxArea" type="number" min="0" placeholder="e.g. 200" data-i18n-placeholder="search.areaPlaceholder">
         </div>
 
         <div class="field">
-          <label for="roomCount">Number of Rooms</label>
+          <label for="roomCount" data-i18n="search.roomsLabel">Number of Rooms</label>
           <select id="roomCount">
-            <option value="">Any</option>
-            <option value="1">1 Room</option>
-            <option value="2">2 Rooms</option>
-            <option value="3">3 Rooms</option>
-            <option value="4">4 Rooms</option>
-            <option value="5">5+ Rooms</option>
+            <option value="" data-i18n="search.any">Any</option>
+            <option value="1" data-i18n="search.1Room">1 Room</option>
+            <option value="2" data-i18n="search.2Rooms">2 Rooms</option>
+            <option value="3" data-i18n="search.3Rooms">3 Rooms</option>
+            <option value="4" data-i18n="search.4Rooms">4 Rooms</option>
+            <option value="5" data-i18n="search.5PlusRooms">5+ Rooms</option>
           </select>
         </div>
 
         <div class="field">
-          <label for="floorNumber">Floor</label>
-          <input id="floorNumber" type="number" min="0" placeholder="Any floor">
+          <label for="floorNumber" data-i18n="search.floorLabel">Floor</label>
+          <input id="floorNumber" type="number" min="0" placeholder="Any floor" data-i18n-placeholder="search.anyFloor">
         </div>
 
         <div class="field">
-          <label for="bathroomCount">Number of Bathrooms</label>
+          <label for="bathroomCount" data-i18n="search.bathsLabel">Number of Bathrooms</label>
           <select id="bathroomCount">
-            <option value="">Any</option>
-            <option value="1">1 Bathroom</option>
-            <option value="2">2 Bathrooms</option>
-            <option value="3">3+ Bathrooms</option>
+            <option value="" data-i18n="search.any">Any</option>
+            <option value="1" data-i18n="search.1Bath">1 Bathroom</option>
+            <option value="2" data-i18n="search.2Baths">2 Bathrooms</option>
+            <option value="3" data-i18n="search.3PlusBaths">3+ Bathrooms</option>
           </select>
         </div>
 
         <div class="field">
-          <label for="ceilingHeight">Ceiling Height (m)</label>
+          <label for="ceilingHeight" data-i18n="search.ceilingLabel">Ceiling Height (m)</label>
           <select id="ceilingHeight">
-            <option value="">Any Height</option>
+            <option value="" data-i18n="search.anyHeight">Any Height</option>
             <option value="2.5">2.5 m</option>
             <option value="2.7">2.7 m</option>
             <option value="3">3.0 m</option>
@@ -809,31 +809,31 @@ footer { background: #30241D; color: var(--ivory); padding: 55px 0 20px; }
         </div>
 
         <div class="field">
-          <label for="buildingType">Building Type</label>
+          <label for="buildingType" data-i18n="search.buildingTypeLabel">Building Type</label>
           <select id="buildingType">
-            <option value="">All Types</option>
-            <option value="Stone">Stone</option>
-            <option value="Monolithic Concrete">Monolithic Concrete</option>
-            <option value="Panel">Panel</option>
+            <option value="" data-i18n="search.allTypes">All Types</option>
+            <option value="Stone" data-i18n="search.stone">Stone</option>
+            <option value="Monolithic Concrete" data-i18n="search.monolithic">Monolithic Concrete</option>
+            <option value="Panel" data-i18n="search.panel">Panel</option>
           </select>
         </div>
 
         <div class="field">
-          <label for="propertyCondition">Status</label>
+          <label for="propertyCondition" data-i18n="search.statusLabel">Status</label>
           <select id="propertyCondition">
-            <option value="">Any Status</option>
-            <option value="Renovated">Renovated</option>
-            <option value="Average Condition">Average Condition</option>
-            <option value="Unfinished">Unfinished</option>
+            <option value="" data-i18n="search.anyStatus">Any Status</option>
+            <option value="Renovated" data-i18n="search.renovated">Renovated</option>
+            <option value="Average Condition" data-i18n="search.average">Average Condition</option>
+            <option value="Unfinished" data-i18n="search.unfinished">Unfinished</option>
           </select>
         </div>
 
       </div>
 
       <div class="filter-actions">
-        <button class="btn" type="submit">Apply Filters ↗</button>
-        <button class="clear-filters" type="button" id="clearFilters">Clear All</button>
-        <span class="filter-count" id="filterCount" aria-live="polite">Showing all properties</span>
+        <button class="btn" type="submit" data-i18n="search.applyBtn">Apply Filters ↗</button>
+        <button class="clear-filters" type="button" id="clearFilters" data-i18n="search.clearBtn">Clear All</button>
+        <span class="filter-count" id="filterCount" aria-live="polite" data-i18n="search.showingAll">Showing all properties</span>
       </div>
 
     </form>
@@ -842,9 +842,9 @@ footer { background: #30241D; color: var(--ivory); padding: 55px 0 20px; }
   <section class="section" id="categories">
     <div class="container">
       <div class="section-heading">
-        <div class="eyebrow">Explore your possibilities</div>
-        <h2>A place for every kind of dream.</h2>
-        <p>Whether you're building from the ground up or moving straight in, discover the right property for your next chapter.</p>
+        <div class="eyebrow" data-i18n="categories.eyebrow">Explore your possibilities</div>
+        <h2 data-i18n="categories.title">A place for every kind of dream.</h2>
+        <p data-i18n="categories.copy">Whether you're building from the ground up or moving straight in, discover the right property for your next chapter.</p>
       </div>
 
       <div class="categories">
@@ -852,9 +852,9 @@ footer { background: #30241D; color: var(--ivory); padding: 55px 0 20px; }
           <img loading="lazy" src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=900&q=80" alt="Open land with a green landscape">
           <span class="category-arrow">↗</span>
           <div class="category-info">
-            <span>Build your future</span>
-            <h3>Land</h3>
-            <p>Room to grow. Space to create.</p>
+            <span data-i18n="cat.land.sub">Build your future</span>
+            <h3 data-i18n="search.land">Land</h3>
+            <p data-i18n="cat.land.desc">Room to grow. Space to create.</p>
           </div>
         </a>
 
@@ -862,9 +862,9 @@ footer { background: #30241D; color: var(--ivory); padding: 55px 0 20px; }
           <img loading="lazy" src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=900&q=80" alt="Elegant contemporary apartment interior">
           <span class="category-arrow">↗</span>
           <div class="category-info">
-            <span>City living</span>
-            <h3>Apartments</h3>
-            <p>Comfort, convenience, connection.</p>
+            <span data-i18n="cat.apt.sub">City living</span>
+            <h3 data-i18n="search.apartments">Apartments</h3>
+            <p data-i18n="cat.apt.desc">Comfort, convenience, connection.</p>
           </div>
         </a>
 
@@ -872,9 +872,9 @@ footer { background: #30241D; color: var(--ivory); padding: 55px 0 20px; }
           <img loading="lazy" src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=900&q=80" alt="Contemporary detached house">
           <span class="category-arrow">↗</span>
           <div class="category-info">
-            <span>Made for living</span>
-            <h3>Houses</h3>
-            <p>Find the place that feels like home.</p>
+            <span data-i18n="cat.house.sub">Made for living</span>
+            <h3 data-i18n="search.houses">Houses</h3>
+            <p data-i18n="cat.house.desc">Find the place that feels like home.</p>
           </div>
         </a>
 
@@ -882,9 +882,9 @@ footer { background: #30241D; color: var(--ivory); padding: 55px 0 20px; }
           <img loading="lazy" src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=900&q=80" alt="Modern commercial office space">
           <span class="category-arrow">↗</span>
           <div class="category-info">
-            <span>Space to do business</span>
-            <h3>Commercial Space</h3>
-            <p>Find the right place for your business.</p>
+            <span data-i18n="cat.comm.sub">Space to do business</span>
+            <h3 data-i18n="search.commercial">Commercial Space</h3>
+            <p data-i18n="cat.comm.desc">Find the right place for your business.</p>
           </div>
         </a>
       </div>
@@ -895,11 +895,11 @@ footer { background: #30241D; color: var(--ivory); padding: 55px 0 20px; }
     <div class="container">
       <div class="listing-heading-row">
         <div class="section-heading">
-          <div class="eyebrow">Selected properties</div>
-          <h2>Find your next address.</h2>
-          <p>Explore our featured collection of land, apartments, houses and commercial spaces.</p>
+          <div class="eyebrow" data-i18n="listings.eyebrow">Selected properties</div>
+          <h2 data-i18n="listings.title">Find your next address.</h2>
+          <p data-i18n="listings.copy">Explore our featured collection of land, apartments, houses and commercial spaces.</p>
         </div>
-        <button class="btn btn-outline" id="showAllBtn" type="button">Show All Properties ↗</button>
+        <button class="btn btn-outline" id="showAllBtn" type="button" data-i18n="listings.showAllBtn">Show All Properties ↗</button>
       </div>
       <div class="listing-grid" id="listingGrid" aria-live="polite"></div>
     </div>
@@ -909,15 +909,15 @@ footer { background: #30241D; color: var(--ivory); padding: 55px 0 20px; }
     <div class="container stats-grid">
       <div>
         <div class="stat-number">01</div>
-        <div class="stat-label">Your vision comes first</div>
+        <div class="stat-label" data-i18n="stats.vision">Your vision comes first</div>
       </div>
       <div>
         <div class="stat-number">100%</div>
-        <div class="stat-label">Personalized attention</div>
+        <div class="stat-label" data-i18n="stats.attention">Personalized attention</div>
       </div>
       <div>
         <div class="stat-number">∞</div>
-        <div class="stat-label">Possibilities for your future</div>
+        <div class="stat-label" data-i18n="stats.possibilities">Possibilities for your future</div>
       </div>
     </div>
   </section>
@@ -929,20 +929,20 @@ footer { background: #30241D; color: var(--ivory); padding: 55px 0 20px; }
       </div>
 
       <div class="about-copy">
-        <div class="eyebrow">Our philosophy</div>
-        <h2>Rooted in trust.<br>Built for your future.</h2>
-        <p>At ARMAT, we believe real estate is about more than walls, land and addresses. It's about the place where your next chapter begins.</p>
-        <p>Inspired by the Armenian word for roots, ARMAT stands for belonging, stability and the foundations that connect us to a place.</p>
-        <p>Whether you're searching for land, an apartment or a family home, our goal is to help you find a property that feels right for you.</p>
+        <div class="eyebrow" data-i18n="about.eyebrow">Our philosophy</div>
+        <h2 data-i18n="about.title">Rooted in trust.<br>Built for your future.</h2>
+        <p data-i18n="about.p1">At ARMAT, we believe real estate is about more than walls, land and addresses. It's about the place where your next chapter begins.</p>
+        <p data-i18n="about.p2">Inspired by the Armenian word for roots, ARMAT stands for belonging, stability and the foundations that connect us to a place.</p>
+        <p data-i18n="about.p3">Whether you're searching for land, an apartment or a family home, our goal is to help you find a property that feels right for you.</p>
 
         <div class="about-values">
-          <div class="value-item"><strong>Trust</strong><span>Honest, attentive service</span></div>
-          <div class="value-item"><strong>Purpose</strong><span>Properties that fit your plans</span></div>
-          <div class="value-item"><strong>Connection</strong><span>A personal approach</span></div>
-          <div class="value-item"><strong>Roots</strong><span>A place to truly belong</span></div>
+          <div class="value-item"><strong data-i18n="about.val.trust">Trust</strong><span data-i18n="about.val.trustDesc">Honest, attentive service</span></div>
+          <div class="value-item"><strong data-i18n="about.val.purpose">Purpose</strong><span data-i18n="about.val.purposeDesc">Properties that fit your plans</span></div>
+          <div class="value-item"><strong data-i18n="about.val.connection">Connection</strong><span data-i18n="about.val.connectionDesc">A personal approach</span></div>
+          <div class="value-item"><strong data-i18n="about.val.roots">Roots</strong><span data-i18n="about.val.rootsDesc">A place to truly belong</span></div>
         </div>
 
-        <a class="btn" href="#contact">Let's Find Your Place ↗</a>
+        <a class="btn" href="#contact" data-i18n="about.ctaBtn">Let's Find Your Place ↗</a>
       </div>
     </div>
   </section>
@@ -950,10 +950,10 @@ footer { background: #30241D; color: var(--ivory); padding: 55px 0 20px; }
   <section class="cta-section">
     <div class="container">
       <div class="cta-panel">
-        <div class="eyebrow">Your next chapter starts here</div>
-        <h2>Every great story needs a place.</h2>
-        <p>Tell us what you're looking for. Let's find the land, apartment, house or commercial space that feels right for your next chapter.</p>
-        <a class="btn" href="#contact">Talk to ARMAT ↗</a>
+        <div class="eyebrow" data-i18n="cta.eyebrow">Your next chapter starts here</div>
+        <h2 data-i18n="cta.title">Every great story needs a place.</h2>
+        <p data-i18n="cta.copy">Tell us what you're looking for. Let's find the land, apartment, house or commercial space that feels right for your next chapter.</p>
+        <a class="btn" href="#contact" data-i18n="cta.btn">Talk to ARMAT ↗</a>
       </div>
     </div>
   </section>
@@ -961,49 +961,49 @@ footer { background: #30241D; color: var(--ivory); padding: 55px 0 20px; }
   <section class="section contact-section" id="contact">
     <div class="container contact-grid">
       <div class="contact-copy">
-        <div class="eyebrow">Get in touch</div>
-        <h2>Let's find your place.</h2>
-        <p>Have a property in mind, want to sell, or simply need guidance? Send us a message and tell us about your plans.</p>
+        <div class="eyebrow" data-i18n="contact.eyebrow">Get in touch</div>
+        <h2 data-i18n="contact.title">Let's find your place.</h2>
+        <p data-i18n="contact.copy">Have a property in mind, want to sell, or simply need guidance? Send us a message and tell us about your plans.</p>
 
         <div class="contact-detail">
-          <div><strong>Our office</strong><span>Yerevan, Armenia</span></div>
-          <div><strong>Email</strong><a href="mailto:hello@armatestate.am">hello@armatestate.am</a></div>
-          <div><strong>Working hours</strong><span>Monday – Saturday · By appointment</span></div>
+          <div><strong data-i18n="contact.officeLabel">Our office</strong><span data-i18n="contact.officeValue">Yerevan, Armenia</span></div>
+          <div><strong data-i18n="contact.emailLabel">Email</strong><a href="mailto:hello@armatestate.am">hello@armatestate.am</a></div>
+          <div><strong data-i18n="contact.hoursLabel">Working hours</strong><span data-i18n="contact.hoursValue">Monday – Saturday · By appointment</span></div>
         </div>
       </div>
 
       <form class="contact-form" id="contactForm">
         <div class="form-grid">
           <div class="field">
-            <label for="contactName">Your name</label>
-            <input id="contactName" name="name" required placeholder="Full name">
+            <label for="contactName" data-i18n="contact.nameLabel">Your name</label>
+            <input id="contactName" name="name" required placeholder="Full name" data-i18n-placeholder="contact.namePlaceholder">
           </div>
           <div class="field">
-            <label for="contactEmail">Email address</label>
-            <input id="contactEmail" name="email" type="email" required placeholder="you@example.com">
+            <label for="contactEmail" data-i18n="contact.emailFieldLabel">Email address</label>
+            <input id="contactEmail" name="email" type="email" required placeholder="you@example.com" data-i18n-placeholder="contact.emailPlaceholder">
           </div>
         </div>
 
         <div class="field">
-          <label for="contactInterest">I'm interested in</label>
+          <label for="contactInterest" data-i18n="contact.interestLabel">I'm interested in</label>
           <select id="contactInterest" name="interest">
-            <option>Buying a property</option>
-            <option>Selling a property</option>
-            <option>Land</option>
-            <option>Apartment</option>
-            <option>House</option>
-            <option>Commercial Space</option>
-            <option>Other inquiry</option>
+            <option data-i18n="contact.buying">Buying a property</option>
+            <option data-i18n="contact.selling">Selling a property</option>
+            <option data-i18n="search.land">Land</option>
+            <option data-i18n="search.apartments">Apartment</option>
+            <option data-i18n="search.houses">House</option>
+            <option data-i18n="search.commercial">Commercial Space</option>
+            <option data-i18n="contact.other">Other inquiry</option>
           </select>
         </div>
 
         <div class="field">
-          <label for="contactMessage">Your message</label>
-          <textarea id="contactMessage" name="message" required placeholder="Tell us a little about what you're looking for..."></textarea>
+          <label for="contactMessage" data-i18n="contact.messageLabel">Your message</label>
+          <textarea id="contactMessage" name="message" required placeholder="Tell us a little about what you're looking for..." data-i18n-placeholder="contact.messagePlaceholder"></textarea>
         </div>
 
-        <button class="btn" type="submit">Prepare My Inquiry ↗</button>
-        <p class="form-status" id="formStatus" role="status">This demo prepares an email; it does not send or store your information.</p>
+        <button class="btn" type="submit" data-i18n="contact.submitBtn">Prepare My Inquiry ↗</button>
+        <p class="form-status" id="formStatus" role="status" data-i18n="contact.formStatus">This demo prepares an email; it does not send or store your information.</p>
       </form>
     </div>
   </section>
@@ -1017,29 +1017,29 @@ footer { background: #30241D; color: var(--ivory); padding: 55px 0 20px; }
           <!-- Footer Logo also uses the ID siteLogo -->
           <img class="brand-logo" src="https://cdn.shopify.com/s/files/1/0825/4695/0390/files/Carved_Stone_A_Roots_Real_Estate_Logo.png?v=1793043014" alt="ARMAT Real Estate logo">
         </a>
-        <p>Rooted in trust. Built for your future. Helping you find land, apartments, houses and commercial spaces for the next chapter of your life.</p>
+        <p data-i18n="footer.brandDesc">Rooted in trust. Built for your future. Helping you find land, apartments, houses and commercial spaces for the next chapter of your life.</p>
       </div>
 
       <div class="footer-column">
-        <h3>Explore</h3>
-        <a href="#properties">All Properties</a>
-        <a href="#categories" data-footer-category="Land">Land</a>
-        <a href="#categories" data-footer-category="Apartment">Apartments</a>
-        <a href="#categories" data-footer-category="House">Houses</a>
-        <a href="#categories" data-footer-category="Commercial Space">Commercial Spaces</a>
+        <h3 data-i18n="footer.exploreTitle">Explore</h3>
+        <a href="#properties" data-i18n="search.allProperties">All Properties</a>
+        <a href="#categories" data-footer-category="Land" data-i18n="search.land">Land</a>
+        <a href="#categories" data-footer-category="Apartment" data-i18n="search.apartments">Apartments</a>
+        <a href="#categories" data-footer-category="House" data-i18n="search.houses">Houses</a>
+        <a href="#categories" data-footer-category="Commercial Space" data-i18n="search.commercial">Commercial Spaces</a>
       </div>
 
       <div class="footer-column">
-        <h3>Get in Touch</h3>
-        <a href="#about">About ARMAT</a>
-        <a href="#contact">Contact Us</a>
-        <a href="mailto:hello@armatestate.am">Email ARMAT</a>
+        <h3 data-i18n="footer.touchTitle">Get in Touch</h3>
+        <a href="#about" data-i18n="nav.about">About ARMAT</a>
+        <a href="#contact" data-i18n="nav.contact">Contact Us</a>
+        <a href="mailto:hello@armatestate.am" data-i18n="footer.emailLink">Email ARMAT</a>
       </div>
     </div>
 
     <div class="footer-bottom">
-      <span>© <span id="year"></span> ARMAT REAL ESTATE. All rights reserved.</span>
-      <span>Made with a foundation of trust · Yerevan, Armenia</span>
+      <span data-i18n="footer.copyright">© <span id="year"></span> ARMAT REAL ESTATE. All rights reserved.</span>
+      <span data-i18n="footer.madeIn">Made with a foundation of trust · Yerevan, Armenia</span>
     </div>
   </div>
 </footer>
@@ -1054,22 +1054,415 @@ footer { background: #30241D; color: var(--ivory); padding: 55px 0 20px; }
       <div class="listing-price" id="modalPrice" style="position:static;display:inline-block;margin-top:10px"></div>
       <p id="modalDescription"></p>
       <div class="listing-meta" id="modalMeta"></div>
-      <a class="btn" id="modalContact" href="#contact">Ask About This Property ↗</a>
+      <a class="btn" id="modalContact" href="#contact" data-i18n="modal.askBtn">Ask About This Property ↗</a>
     </div>
   </div>
 </div>
 
 <script>
-// --- LOGO CONFIGURATION ---
+// ==========================================
+// 🛠️ TRANSLATION CONFIGURATION
+// Edit the values below to fix translations!
+// ==========================================
+const TRANSLATIONS = {
+  en: {
+    // Announcement Bar
+    announcement: "Find your place. Build your roots. &nbsp; · &nbsp; ARMAT REAL ESTATE",
+    
+    // Navigation
+    nav: {
+      home: "Home",
+      properties: "Properties",
+      categories: "Categories",
+      about: "About Us",
+      contact: "Contact",
+      listProperty: "List Your Property ↗"
+    },
+
+    // Hero Section
+    hero: {
+      eyebrow: "A better place to begin",
+      title: "Find a place<br>to put down <em>roots.</em>",
+      copy: "From the land you dream of to the home you belong in, discover real estate that feels right for your future.",
+      exploreBtn: "Explore Properties ↗",
+      discoverBtn: "Discover ARMAT",
+      note: "Land · Apartments · Houses · Commercial Spaces"
+    },
+
+    // Search Panel
+    search: {
+      title: "Find your property",
+      filters: "Filters",
+      locationLabel: "Location",
+      locationPlaceholder: "e.g. Yerevan",
+      minPriceLabel: "Min. price ($)",
+      noMinimum: "No minimum",
+      maxPriceLabel: "Max. price ($)",
+      noMaximum: "No maximum",
+      typeLabel: "Property Type",
+      allProperties: "All Properties",
+      land: "Land",
+      apartments: "Apartments",
+      houses: "Houses",
+      commercial: "Commercial Spaces",
+      minAreaLabel: "Min. Area (m²)",
+      maxAreaLabel: "Max. Area (m²)",
+      areaPlaceholder: "e.g. 50",
+      roomsLabel: "Number of Rooms",
+      any: "Any",
+      "1Room": "1 Room",
+      "2Rooms": "2 Rooms",
+      "3Rooms": "3 Rooms",
+      "4Rooms": "4 Rooms",
+      "5PlusRooms": "5+ Rooms",
+      floorLabel: "Floor",
+      anyFloor: "Any floor",
+      bathsLabel: "Number of Bathrooms",
+      "1Bath": "1 Bathroom",
+      "2Baths": "2 Bathrooms",
+      "3PlusBaths": "3+ Bathrooms",
+      ceilingLabel: "Ceiling Height (m)",
+      anyHeight: "Any Height",
+      buildingTypeLabel: "Building Type",
+      allTypes: "All Types",
+      stone: "Stone",
+      monolithic: "Monolithic Concrete",
+      panel: "Panel",
+      statusLabel: "Status",
+      anyStatus: "Any Status",
+      renovated: "Renovated",
+      average: "Average Condition",
+      unfinished: "Unfinished",
+      applyBtn: "Apply Filters ↗",
+      clearBtn: "Clear All",
+      showingAll: "Showing all properties",
+      foundCount: "Found {count} {type}"
+    },
+
+    // Categories
+    categories: {
+      eyebrow: "Explore your possibilities",
+      title: "A place for every kind of dream.",
+      copy: "Whether you're building from the ground up or moving straight in, discover the right property for your next chapter."
+    },
+    cat: {
+      land: { sub: "Build your future", desc: "Room to grow. Space to create." },
+      apt: { sub: "City living", desc: "Comfort, convenience, connection." },
+      house: { sub: "Made for living", desc: "Find the place that feels like home." },
+      comm: { sub: "Space to do business", desc: "Find the right place for your business." }
+    },
+
+    // Listings
+    listings: {
+      eyebrow: "Selected properties",
+      title: "Find your next address.",
+      copy: "Explore our featured collection of land, apartments, houses and commercial spaces.",
+      showAllBtn: "Show All Properties ↗",
+      selectionTag: "ARMAT SELECTION",
+      viewDetails: "View Details ↗",
+      noResultsTitle: "No properties found",
+      noResultsCopy: "Try changing your filters to see more results.",
+      checkRanges: "Please check your price and area ranges."
+    },
+
+    // Stats
+    stats: {
+      vision: "Your vision comes first",
+      attention: "Personalized attention",
+      possibilities: "Possibilities for your future"
+    },
+
+    // About
+    about: {
+      eyebrow: "Our philosophy",
+      title: "Rooted in trust.<br>Built for your future.",
+      p1: "At ARMAT, we believe real estate is about more than walls, land and addresses. It's about the place where your next chapter begins.",
+      p2: "Inspired by the Armenian word for roots, ARMAT stands for belonging, stability and the foundations that connect us to a place.",
+      p3: "Whether you're searching for land, an apartment or a family home, our goal is to help you find a property that feels right for you.",
+      val: {
+        trust: "Trust", trustDesc: "Honest, attentive service",
+        purpose: "Purpose", purposeDesc: "Properties that fit your plans",
+        connection: "Connection", connectionDesc: "A personal approach",
+        roots: "Roots", rootsDesc: "A place to truly belong"
+      },
+      ctaBtn: "Let's Find Your Place ↗"
+    },
+
+    // CTA
+    cta: {
+      eyebrow: "Your next chapter starts here",
+      title: "Every great story needs a place.",
+      copy: "Tell us what you're looking for. Let's find the land, apartment, house or commercial space that feels right for your next chapter.",
+      btn: "Talk to ARMAT ↗"
+    },
+
+    // Contact
+    contact: {
+      eyebrow: "Get in touch",
+      title: "Let's find your place.",
+      copy: "Have a property in mind, want to sell, or simply need guidance? Send us a message and tell us about your plans.",
+      officeLabel: "Our office",
+      officeValue: "Yerevan, Armenia",
+      emailLabel: "Email",
+      hoursLabel: "Working hours",
+      hoursValue: "Monday – Saturday · By appointment",
+      nameLabel: "Your name",
+      namePlaceholder: "Full name",
+      emailFieldLabel: "Email address",
+      emailPlaceholder: "you@example.com",
+      interestLabel: "I'm interested in",
+      buying: "Buying a property",
+      selling: "Selling a property",
+      other: "Other inquiry",
+      messageLabel: "Your message",
+      messagePlaceholder: "Tell us a little about what you're looking for...",
+      submitBtn: "Prepare My Inquiry ↗",
+      formStatus: "Opening your email app. Please review and send the prepared message."
+    },
+
+    // Footer
+    footer: {
+      brandDesc: "Rooted in trust. Built for your future. Helping you find land, apartments, houses and commercial spaces for the next chapter of your life.",
+      exploreTitle: "Explore",
+      touchTitle: "Get in Touch",
+      emailLink: "Email ARMAT",
+      copyright: "© <span id=\"year\"></span> ARMAT REAL ESTATE. All rights reserved.",
+      madeIn: "Made with a foundation of trust · Yerevan, Armenia"
+    },
+
+    // Modal
+    modal: {
+      askBtn: "Ask About This Property ↗",
+      bedrooms: "bedrooms",
+      bathrooms: "bathrooms"
+    }
+  },
+
+  hy: {
+    // Announcement Bar
+    announcement: "Գտեք ձեր տեղը։ Ամրացրեք ձեր արմատները։ &nbsp; · &nbsp; ARMAT ԱՆՇԱՐԺ ԳՈՒՅՔ",
+    
+    // Navigation
+    nav: {
+      home: "Գլխավոր",
+      properties: "Անշարժ գույք",
+      categories: "Կատեգորիաներ",
+      about: "Մեր մասին",
+      contact: "Կապ",
+      listProperty: "Տեղադրել հայտարարություն ↗"
+    },
+
+    // Hero Section
+    hero: {
+      eyebrow: "Լավագույն սկիզբը",
+      title: "Գտեք այն վայրը,<br>որտեղ կամրացնեք <em>արմատները։</em>",
+      copy: "Հողամասից, որի մասին երազում եք, մինչև տունը, որտեղ պատկանում եք՝ հայտնաբերեք անշարժ գույք, որը համապատասխանում է ձեր ապագային։",
+      exploreBtn: "Դիտել անշարժ գույքը ↗",
+      discoverBtn: "Բացահայտել ARMAT-ը",
+      note: "Հողամասեր · Բնակարաններ · Տներ · Առևտրային տարածքներ"
+    },
+
+    // Search Panel
+    search: {
+      title: "Գտեք ձեր անշարժ գույքը",
+      filters: "Ֆիլտրեր",
+      locationLabel: "Վայր",
+      locationPlaceholder: "օր․ Երևան",
+      minPriceLabel: "Նվազագույն գին ($)",
+      noMinimum: "Առանց նվազագույնի",
+      maxPriceLabel: "Առավելագույն գին ($)",
+      noMaximum: "Առանց առավելագույնի",
+      typeLabel: "Գույքի տեսակ",
+      allProperties: "Բոլոր գույքերը",
+      land: "Հողամաս",
+      apartments: "Բնակարաններ",
+      houses: "Տներ",
+      commercial: "Առևտրային տարածքներ",
+      minAreaLabel: "Նվազագույն մակերես (մ²)",
+      maxAreaLabel: "Առավելագույն մակերես (մ²)",
+      areaPlaceholder: "օր․ 50",
+      roomsLabel: "Սենյակների քանակ",
+      any: "Ցանկացած",
+      "1Room": "1 սենյակ",
+      "2Rooms": "2 սենյակ",
+      "3Rooms": "3 սենյակ",
+      "4Rooms": "4 սենյակ",
+      "5PlusRooms": "5+ սենյակ",
+      floorLabel: "Հարկ",
+      anyFloor: "Ցանկացած հարկ",
+      bathsLabel: "Լոգասենյակների քանակ",
+      "1Bath": "1 լոգասենյակ",
+      "2Baths": "2 լոգասենյակ",
+      "3PlusBaths": "3+ լոգասենյակ",
+      ceilingLabel: "Առաստաղի բարձրություն (մ)",
+      anyHeight: "Ցանկացած բարձրություն",
+      buildingTypeLabel: "Շենքի տեսակ",
+      allTypes: "Բոլոր տեսակները",
+      stone: "Քար",
+      monolithic: "Մոնոլիտ բետոն",
+      panel: "Պանելային",
+      statusLabel: "Վիճակ",
+      anyStatus: "Ցանկացած վիճակ",
+      renovated: "Վերանորոգված",
+      average: "Միջին վիճակ",
+      unfinished: "Անավարտ",
+      applyBtn: "Կիրառել ֆիլտրեր ↗",
+      clearBtn: "Ջնջել բոլորը",
+      showingAll: "Ցուցադրվում են բոլոր գույքերը",
+      foundCount: "Գտնվել է {count} {type}"
+    },
+
+    // Categories
+    categories: {
+      eyebrow: "Հետազոտեք ձեր հնարավորությունները",
+      title: "Վայր յուրաքանչյուր երազանքի համար։",
+      copy: "Թե՛ դուք կառուցում եք զրոյից, թե՛ տեղափոխվում եք անմիջապես՝ հայտնաբերեք ճիշտ անշարժ գույքը ձեր հաջորդ փուլի համար։"
+    },
+    cat: {
+      land: { sub: "Կառուցեք ձեր ապագան", desc: "Տարածք աճելու համար։ Տարածք ստեղծագործելու համար։" },
+      apt: { sub: "Քաղաքային կյանք", desc: "Հարմարավետություն, հարմարություն, կապ։" },
+      house: { sub: "Ստեղծված ապրելու համար", desc: "Գտեք այն վայրը, որը նման է տանը։" },
+      comm: { sub: "Տարածք բիզնեսի համար", desc: "Գտեք ճիշտ վայրը ձեր բիզնեսի համար։" }
+    },
+
+    // Listings
+    listings: {
+      eyebrow: "Ընտրված անշարժ գույք",
+      title: "Գտեք ձեր հաջորդ հասցեն։",
+      copy: "Հետազոտեք մեր հողամասերի, բնակարանների, տների և առևտրային տարածքների ընտրանին։",
+      showAllBtn: "Ցուցադրել բոլոր գույքերը ↗",
+      selectionTag: "ARMAT ԸՆՏՐԱՆԻ",
+      viewDetails: "Դիտել մանրամասներ ↗",
+      noResultsTitle: "Անշարժ գույք չի գտնվել",
+      noResultsCopy: "Փորձեք փոխել ֆիլտրերը՝ ավելի շատ արդյունքներ տեսնելու համար։",
+      checkRanges: "Խնդրում ենք ստուգել գնի և մակերեսի միջակայքերը։"
+    },
+
+    // Stats
+    stats: {
+      vision: "Ձեր տեսլականը առաջնային է",
+      attention: "Անհատական ուշադրություն",
+      possibilities: "Հնարավորություններ ձեր ապագայի համար"
+    },
+
+    // About
+    about: {
+      eyebrow: "Մեր փիլիսոփայությունը",
+      title: "Արմատավորված վստահության մեջ։<br>Կառուցված ձեր ապագայի համար։",
+      p1: "ARMAT-ում մենք հավատում ենք, որ անշարժ գույքը ավելին է, քան պարզապես պատեր, հող և հասցեներ։ Դա այն վայրն է, որտեղ սկսվում է ձեր հաջորդ փուլը։",
+      p2: "Ոգեշնչված «արմատ» բառով՝ ARMAT-ը խորհրդանշում է պատկանելությունը, կայունությունը և այն հիմքերը, որոնք մեզ կապում են վայրի հետ։",
+      p3: "Թե՛ դուք փնտրում եք հողամաս, բնակարան կամ ընտանեկան տուն՝ մեր նպատակն է օգնել ձեզ գտնել այն գույքը, որը ճիշտ է ձեզ համար։",
+      val: {
+        trust: "Վստահություն", trustDesc: "Ազնիվ, ուշադիր սպասարկում",
+        purpose: "Նպատակ", purposeDesc: "Գույքեր, որոնք համապատասխանում են ձեր ծրագրերին",
+        connection: "Կապ", connectionDesc: "Անհատական մոտեցում",
+        roots: "Արմատներ", rootsDesc: "Վայր, որտեղ իսկապես պատկանում եք"
+      },
+      ctaBtn: "Գտնենք ձեր տեղը ↗"
+    },
+
+    // CTA
+    cta: {
+      eyebrow: "Ձեր հաջորդ փուլը սկսվում է այստեղ",
+      title: "Յուրաքանչյուր մեծ պատմություն վայր է պահանջում։",
+      copy: "Ասեք մեզ, թե ինչ եք փնտրում։ Եկեք գտնենք այն հողամասը, բնակարանը, տունը կամ առևտրային տարածքը, որը ճիշտ է ձեր հաջորդ փուլի համար։",
+      btn: "Կապվել ARMAT-ի հետ ↗"
+    },
+
+    // Contact
+    contact: {
+      eyebrow: "Կապ հաստատեք",
+      title: "Եկեք գտնենք ձեր տեղը։",
+      copy: "Ունե՞ք կոնկրետ գույք մտքում, ցանկանում եք վաճառել, կամ պարզապես կարիք ունեք խորհրդատվության։ Ուղարկեք մեզ հաղորդագրություն և պատմեք ձեր ծրագրերի մասին։",
+      officeLabel: "Մեր գրասենյակ",
+      officeValue: "Երևան, Հայաստան",
+      emailLabel: "Էլ. փոստ",
+      hoursLabel: "Աշխատանքային ժամեր",
+      hoursValue: "Երկուշաբթի – Շաբաթ · Ըստ նախնական պայմանավորվածության",
+      nameLabel: "Ձեր անունը",
+      namePlaceholder: "Անուն, ազգանուն",
+      emailFieldLabel: "Էլ. փոստի հասցե",
+      emailPlaceholder: "you@example.com",
+      interestLabel: "Ես հետաքրքրված եմ",
+      buying: "Գույք գնելով",
+      selling: "Գույք վաճառելով",
+      other: "Այլ հարցում",
+      messageLabel: "Ձեր հաղորդագրությունը",
+      messagePlaceholder: "Պատմեք մեզ մի փոքր այն մասին, թե ինչ եք փնտրում...",
+      submitBtn: "Պատրաստել հարցումը ↗",
+      formStatus: "Բացվում է ձեր էլ. փոստի հավելվածը։ Խնդրում ենք ստուգել և ուղարկել պատրաստված հաղորդագրությունը։"
+    },
+
+    // Footer
+    footer: {
+      brandDesc: "Արմատավորված վստահության մեջ։ Կառուցված ձեր ապագայի համար։ Օգնում ենք ձեզ գտնել հողամասեր, բնակարաններ, տներ և առևտրային տարածքներ ձեր կյանքի հաջորդ փուլի համար։",
+      exploreTitle: "Հետազոտել",
+      touchTitle: "Կապ հաստատել",
+      emailLink: "Գրել ARMAT-ին",
+      copyright: "© <span id=\"year\"></span> ARMAT REAL ESTATE. Բոլոր իրավունքները պաշտպանված են։",
+      madeIn: "Ստեղծված վստահության հիմքով · Երևան, Հայաստան"
+    },
+
+    // Modal
+    modal: {
+      askBtn: "Հարցնել այս գույքի մասին ↗",
+      bedrooms: "ննջասենյակ",
+      bathrooms: "լոգասենյակ"
+    }
+  }
+};
+
+// ==========================================
+// CORE FUNCTIONALITY BELOW
+// Do not edit unless you know what you're doing
+// ==========================================
+
 const armenianLogoUrl = "https://cdn.shopify.com/s/files/1/0825/4695/0390/files/Travertine_A_House_and_Tree_Roots_Logo.png?v=1795091459"; 
 const englishLogoUrl = "https://cdn.shopify.com/s/files/1/0825/4695/0390/files/Carved_Stone_A_Roots_Real_Estate_Logo.png?v=1793043014";
 
-let currentLang = 'en'; // Default language
+let currentLang = 'en';
 
 const langSwitch = document.getElementById('langSwitch');
-const logos = document.querySelectorAll('.brand-logo'); // Selects both header and footer logos
+const logos = document.querySelectorAll('.brand-logo');
 
-// Function to update logo based on language
+function getNestedValue(obj, path) {
+  return path.split('.').reduce((current, key) => current && current[key], obj);
+}
+
+function translatePage(lang) {
+  const t = TRANSLATIONS[lang];
+  
+  // Update all elements with data-i18n attribute
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    const value = getNestedValue(t, key);
+    if (value !== undefined) {
+      el.innerHTML = value;
+    }
+  });
+
+  // Update all placeholders
+  document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+    const key = el.getAttribute('data-i18n-placeholder');
+    const value = getNestedValue(t, key);
+    if (value !== undefined) {
+      el.placeholder = value;
+    }
+  });
+
+  // Update select options
+  document.querySelectorAll('select option[data-i18n]').forEach(option => {
+    const key = option.getAttribute('data-i18n');
+    const value = getNestedValue(t, key);
+    if (value !== undefined) {
+      option.textContent = value;
+    }
+  });
+
+  // Update HTML lang attribute
+  document.documentElement.lang = lang === 'hy' ? 'hy' : 'en';
+}
+
 function updateLogo(lang) {
   const targetUrl = lang === 'hy' ? armenianLogoUrl : englishLogoUrl;
   const targetAlt = lang === 'hy' ? "ARMAT Անշարժ Գույք լոգո" : "ARMAT Real Estate logo";
@@ -1085,23 +1478,24 @@ const userLang = navigator.language || navigator.userLanguage;
 if (userLang.startsWith('hy')) {
   currentLang = 'hy';
   langSwitch.textContent = 'EN';
+  translatePage('hy');
   updateLogo('hy');
 } else {
   langSwitch.textContent = 'HY';
+  translatePage('en');
 }
 
 // Toggle handler
 langSwitch.addEventListener('click', () => {
   if (currentLang === 'en') {
-    // Switch to Armenian
     currentLang = 'hy';
-    langSwitch.textContent = 'EN'; // Button shows option to go back to English
+    langSwitch.textContent = 'EN';
+    translatePage('hy');
     updateLogo('hy');
-    
   } else {
-    // Switch to English
     currentLang = 'en';
-    langSwitch.textContent = 'HY'; // Button shows option to go to Armenian
+    langSwitch.textContent = 'HY';
+    translatePage('en');
     updateLogo('en');
   }
 });
@@ -1247,28 +1641,31 @@ const escapeHTML = value => String(value ?? "").replace(/[&<>"']/g, char => ({
 
 function renderListings(items) {
   if (!items.length) {
-    listingGrid.innerHTML = '<div class="empty-state"><h3 style="font-family:var(--serif);font-size:30px;margin-bottom:8px">No properties found</h3><p>Try changing your filters to see more results.</p></div>';
+    const t = TRANSLATIONS[currentLang];
+    listingGrid.innerHTML = `<div class="empty-state"><h3 style="font-family:var(--serif);font-size:30px;margin-bottom:8px">${getNestedValue(t, 'listings.noResultsTitle')}</h3><p>${getNestedValue(t, 'listings.noResultsCopy')}</p></div>`;
     return;
   }
+
+  const t = TRANSLATIONS[currentLang];
 
   listingGrid.innerHTML = items.map(property => `
     <article class="listing-card">
       <div class="listing-photo">
         <img loading="lazy" src="${escapeHTML(property.image)}" alt="${escapeHTML(property.title)}" onerror="this.style.display='none'">
-        <span class="listing-tag">${escapeHTML(property.type)}</span>
+        <span class="listing-tag">${escapeHTML(getNestedValue(t, `search.${property.type.toLowerCase().replace(/ /g, '')}`) || property.type)}</span>
         <span class="listing-price">${escapeHTML(property.priceLabel)}</span>
       </div>
       <div class="listing-body">
-        <div class="listing-type">${escapeHTML(property.type)} · ARMAT SELECTION</div>
+        <div class="listing-type">${escapeHTML(getNestedValue(t, `search.${property.type.toLowerCase().replace(/ /g, '')}`) || property.type)} · ${getNestedValue(t, 'listings.selectionTag')}</div>
         <h3>${escapeHTML(property.title)}</h3>
         <div class="listing-address">⌖ &nbsp;${escapeHTML(property.location)}</div>
         <div class="listing-meta">
           ${property.area ? `<span>▧ ${escapeHTML(property.area)} m²</span>` : ""}
-          ${property.beds ? `<span>▤ ${escapeHTML(property.beds)} beds</span>` : ""}
-          ${property.baths ? `<span>◇ ${escapeHTML(property.baths)} baths</span>` : ""}
+          ${property.beds ? `<span>▤ ${escapeHTML(property.beds)} ${getNestedValue(t, 'modal.bedrooms')}</span>` : ""}
+          ${property.baths ? `<span>◇ ${escapeHTML(property.baths)} ${getNestedValue(t, 'modal.bathrooms')}</span>` : ""}
         </div>
         <div class="listing-footer">
-          <button class="text-link" type="button" data-details="${property.id}">View Details ↗</button>
+          <button class="text-link" type="button" data-details="${property.id}">${getNestedValue(t, 'listings.viewDetails')}</button>
           <span style="font-family:var(--serif);font-size:21px;color:var(--bronze)">0${property.id}</span>
         </div>
       </div>
@@ -1295,8 +1692,9 @@ function filterProperties() {
     (min !== null && max !== null && min > max) ||
     (minArea !== null && maxArea !== null && minArea > maxArea)
   ) {
-    listingGrid.innerHTML = '<div class="empty-state">Please check your price and area ranges.</div>';
-    filterCount.textContent = "Please check your filters";
+    const t = TRANSLATIONS[currentLang];
+    listingGrid.innerHTML = `<div class="empty-state">${getNestedValue(t, 'listings.checkRanges')}</div>`;
+    filterCount.textContent = getNestedValue(t, 'listings.checkRanges');
     return;
   }
 
@@ -1328,15 +1726,27 @@ function filterProperties() {
   });
 
   renderListings(filtered);
-  filterCount.textContent = `Found ${filtered.length} ${filtered.length === 1 ? "property" : "properties"}`;
+  
+  const t = TRANSLATIONS[currentLang];
+  const countText = getNestedValue(t, 'search.foundCount')
+    .replace('{count}', filtered.length)
+    .replace('{type}', filtered.length === 1 ? 
+      (filtered[0].type === 'Land' ? getNestedValue(t, 'search.land') :
+       filtered[0].type === 'Apartment' ? getNestedValue(t, 'search.apartments') :
+       filtered[0].type === 'House' ? getNestedValue(t, 'search.houses') :
+       getNestedValue(t, 'search.commercial')) 
+      : getNestedValue(t, 'search.allProperties'));
+  
+  filterCount.textContent = countText;
 }
 
 /* OPEN / CLOSE FILTERS */
 filterToggle.addEventListener("click", () => {
   const isOpen = advancedFilters.classList.toggle("is-open");
   filterToggle.setAttribute("aria-expanded", String(isOpen));
+  const t = TRANSLATIONS[currentLang];
   filterToggle.innerHTML = `
-    ${isOpen ? "Hide" : "Filters"}
+    ${isOpen ? (currentLang === 'hy' ? 'Թաքցնել' : 'Hide') : getNestedValue(t, 'search.filters')}
     <span aria-hidden="true">${isOpen ? "−" : "＋"}</span>
   `;
 });
@@ -1345,7 +1755,8 @@ filterToggle.addEventListener("click", () => {
 document.getElementById("clearFilters").addEventListener("click", () => {
   searchForm.reset();
   renderListings(properties);
-  filterCount.textContent = "Showing all properties";
+  const t = TRANSLATIONS[currentLang];
+  filterCount.textContent = getNestedValue(t, 'search.showingAll');
 });
 
 /* APPLY FILTERS */
@@ -1362,7 +1773,8 @@ document.getElementById("showAllBtn").addEventListener("click", () => {
   minPrice.value = "";
   maxPrice.value = "";
   searchForm.reset();
-  filterCount.textContent = "Showing all properties";
+  const t = TRANSLATIONS[currentLang];
+  filterCount.textContent = getNestedValue(t, 'search.showingAll');
   renderListings(properties);
 });
 
@@ -1399,26 +1811,29 @@ listingGrid.addEventListener("click", event => {
   const property = properties.find(p => p.id === Number(button.dataset.details));
   if (!property) return;
 
+  const t = TRANSLATIONS[currentLang];
+
   document.getElementById("modalImage").src = property.image;
   document.getElementById("modalImage").alt = property.title;
-  document.getElementById("modalType").textContent = property.type;
+  document.getElementById("modalType").textContent = getNestedValue(t, `search.${property.type.toLowerCase().replace(/ /g, '')}`) || property.type;
   document.getElementById("modalTitle").textContent = property.title;
   document.getElementById("modalPrice").textContent = property.priceLabel;
   document.getElementById("modalDescription").textContent = property.description;
 
   document.getElementById("modalMeta").innerHTML = [
     property.area ? `<span>▧ ${escapeHTML(property.area)} m²</span>` : "",
-    property.beds ? `<span>▤ ${escapeHTML(property.beds)} bedrooms</span>` : "",
-    property.baths ? `<span>◇ ${escapeHTML(property.baths)} bathrooms</span>` : "",
+    property.beds ? `<span>▤ ${escapeHTML(property.beds)} ${getNestedValue(t, 'modal.bedrooms')}</span>` : "",
+    property.baths ? `<span>◇ ${escapeHTML(property.baths)} ${getNestedValue(t, 'modal.bathrooms')}</span>` : "",
     `<span>⌖ ${escapeHTML(property.location)}</span>`
   ].filter(Boolean).join("");
 
   document.getElementById("modalContact").onclick = () => {
     modal.classList.remove("open");
-    document.getElementById("contactInterest").value =
-      property.type === "Land" ? "Land" :
-      property.type === "House" ? "House" :
-      property.type === "Commercial Space" ? "Commercial Space" : "Apartment";
+    const interestSelect = document.getElementById("contactInterest");
+    if (property.type === "Land") interestSelect.value = getNestedValue(t, 'search.land');
+    else if (property.type === "House") interestSelect.value = getNestedValue(t, 'search.houses');
+    else if (property.type === "Commercial Space") interestSelect.value = getNestedValue(t, 'search.commercial');
+    else interestSelect.value = getNestedValue(t, 'search.apartments');
   };
 
   modal.classList.add("open");
@@ -1475,8 +1890,8 @@ document.getElementById("contactForm").addEventListener("submit", event => {
     "Message:\n" + data.get("message")
   );
 
-  document.getElementById("formStatus").textContent =
-    "Opening your email app. Please review and send the prepared message.";
+  const t = TRANSLATIONS[currentLang];
+  document.getElementById("formStatus").textContent = getNestedValue(t, 'contact.formStatus');
 
   window.location.href =
     "mailto:hello@armatestate.am?subject=" + subject + "&body=" + body;
