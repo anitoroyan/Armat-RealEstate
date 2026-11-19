@@ -9,9 +9,29 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<!-- Added Noto Sans Armenian for beautiful, native Armenian typography -->
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&family=Noto+Sans+Armenian:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
+/* 
+  ==========================================
+  OPTIONAL: HOW TO USE "ARTI REGULAR" FONT
+  ==========================================
+  1. Upload your "Arti-Regular.otf" file to Shopify (Settings > Files).
+  2. Copy the CDN URL of the uploaded file.
+  3. Replace 'YOUR_SHOPIFY_FILE_URL_HERE.otf' with that URL.
+  4. Remove the /* and */ to uncomment this block.
+  5. Change the --sans variable below to: "Arti Regular", "Montserrat", "Noto Sans Armenian", sans-serif;
+
+  @font-face {
+    font-family: 'Arti Regular';
+    src: url('YOUR_SHOPIFY_FILE_URL_HERE.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+*/
+
 :root {
   --ivory: #EDE0CE;
   --tuff: #C99B70;
@@ -21,8 +41,9 @@
   --border: #D7C4AD;
   --white: #FFFFFF;
   --muted: #796D61;
-  --serif: "Cormorant Garamond", Georgia, serif;
-  --sans: "Montserrat", Arial, sans-serif;
+  /* Added Noto Sans Armenian as a high-quality fallback for Armenian text */
+  --serif: "Cormorant Garamond", "Noto Serif Armenian", Georgia, serif;
+  --sans: "Montserrat", "Noto Sans Armenian", Arial, sans-serif;
   --container: 1240px;
 }
 
