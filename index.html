@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -44,15 +45,15 @@ body {
    ========================================== */
 :lang(hy) body {
   font-family: "Noto Sans Armenian", "Montserrat", sans-serif;
-  font-size: 12px; /* Much smaller base size */
-  line-height: 1.9; /* More breathing room for tiny text */
+  font-size: 12px;
+  line-height: 1.9;
   letter-spacing: 0.4px;
-  font-weight: 300; /* Ultra-thin */
+  font-weight: 300;
 }
 
-:lang(hy) h1, 
-:lang(hy) h2, 
-:lang(hy) h3, 
+:lang(hy) h1,
+:lang(hy) h2,
+:lang(hy) h3,
 :lang(hy) .brand-name,
 :lang(hy) .section-heading h2,
 :lang(hy) .stat-number,
@@ -60,7 +61,7 @@ body {
 :lang(hy) .search-title,
 :lang(hy) .listing-body h3 {
   font-family: "Noto Serif Armenian", "Cormorant Garamond", serif;
-  font-weight: 400; /* Elegant thin serif for headings */
+  font-weight: 400;
   letter-spacing: -0.3px;
 }
 
@@ -78,8 +79,8 @@ body {
 :lang(hy) .hero-note,
 :lang(hy) .announcement {
   font-weight: 400;
-  letter-spacing: 2px; /* Extra spacing for tiny uppercase */
-  font-size: 8px; /* Tiny labels */
+  letter-spacing: 2px;
+  font-size: 8px;
 }
 
 :lang(hy) .hero-copy { font-size: 11px; line-height: 1.8; }
@@ -258,471 +259,163 @@ header {
   font-size: clamp(52px, 7.4vw, 88px);
   line-height: .99;
   max-width: 760px;
-  margin: 25px 0;
-  letter-spacing: -.8px;
+  margin: 18px 0 22px;
 }
 
-.hero h1 em { font-weight: 400; color: #E4C8A7; }
-.hero-copy { max-width: 450px; color: #F0E8DE; font-size: 13px; margin-bottom: 30px; }
-.hero-buttons { display: flex; flex-wrap: wrap; gap: 12px; }
-.hero-buttons .btn-outline { border-color: rgba(255,255,255,.65); color: white; }
-.hero-buttons .btn-outline:hover { background: var(--ivory); color: var(--walnut); }
-.hero-note { margin-top: 45px; font-size: 9px; letter-spacing: 2px; color: #E7D9C8; text-transform: uppercase; }
+.hero-copy { max-width: 510px; color: rgba(255,255,255,.82); font-size: 14px; }
+.hero-buttons { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+.hero-note { margin-top: 35px; color: #E5C7A0; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; }
 
-.search-wrap {
-  position: relative;
-  z-index: 3;
-  margin-top: -57px;
-}
-
-.search-panel {
-  background: var(--ivory);
-  padding: 25px;
-  border: 1px solid var(--border);
-  box-shadow: 0 18px 50px rgba(73,53,42,.12);
-}
-
-.search-title { font-family: var(--serif); font-size: 25px; margin-bottom: 17px; }
-
-.search-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 12px;
-  align-items: end;
-}
-
-.field { display: flex; flex-direction: column; gap: 7px; }
-
-.field label {
-  font-size: 9px;
-  font-weight: 700;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-}
-
-.field input, .field select {
+.search-wrap { position: relative; z-index: 3; margin-top: -70px; }
+.search-panel { background: #F7F3EC; padding: 30px; border: 1px solid var(--border); box-shadow: 0 18px 45px rgba(58,43,31,.10); }
+.search-panel-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 22px; }
+.search-title { font-family: var(--serif); font-size: 25px; }
+.search-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 16px; }
+.field { display: flex; flex-direction: column; gap: 8px; }
+.field label { color: var(--muted); font-size: 9px; font-weight: 700; letter-spacing: 1.4px; text-transform: uppercase; }
+.field input, .field select, .field textarea {
   width: 100%;
   min-height: 46px;
   border: 1px solid var(--border);
-  border-radius: 0;
-  outline: none;
-  padding: 10px 12px;
-  background: #FFFCF8;
+  background: #fff;
   color: var(--walnut);
-  font-size: 11px;
+  padding: 12px 13px;
+  outline: none;
 }
+.field input:focus, .field select:focus, .field textarea:focus { border-color: var(--bronze); }
+.filter-toggle { display: inline-flex; align-items: center; gap: 8px; background: transparent; border: 0; color: var(--walnut); font-size: 10px; font-weight: 600; }
+.filter-toggle svg { width: 18px; height: 18px; }
+.advanced-filters { display: none; grid-template-columns: repeat(4, 1fr); gap: 16px; padding-top: 22px; margin-top: 22px; border-top: 1px solid var(--border); }
+.advanced-filters.open { display: grid; }
+.search-actions { display: flex; justify-content: flex-end; gap: 10px; margin-top: 20px; }
 
-.field input:focus, .field select:focus { border-color: var(--bronze); }
+.section { padding: 110px 0; }
+.categories-section { padding-top: 100px; }
+.category-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.category-card { position: relative; min-height: 360px; overflow: hidden; color: white; background: var(--walnut); }
+.category-card::after { content: ""; position: absolute; inset: 0; background: linear-gradient(0deg, rgba(24,18,14,.8), transparent 70%); }
+.category-card img { position: absolute; inset: 0; width: 100%; height: 100%; transition: transform .6s; }
+.category-card:hover img { transform: scale(1.05); }
+.category-arrow { position: absolute; z-index: 2; top: 18px; right: 18px; width: 38px; height: 38px; display: grid; place-items: center; border: 1px solid rgba(255,255,255,.7); border-radius: 50%; }
+.category-info { position: absolute; z-index: 2; left: 22px; right: 22px; bottom: 22px; }
+.category-info span { font-size: 9px; letter-spacing: 1.5px; text-transform: uppercase; }
+.category-info h3 { font-size: 27px; margin: 7px 0; }
+.category-info p { font-size: 11px; color: rgba(255,255,255,.8); }
 
-.search-panel-top {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 15px;
-  margin-bottom: 18px;
-}
-
-.search-title { margin-bottom: 0; }
-
-.filter-toggle {
-  min-height: 42px;
-  padding: 10px 17px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 9px;
-  border: 1px solid #B6AD9B;
-  background: #B6AD9B;
-  color: #34352D;
-  font-size: 9px;
-  font-weight: 700;
-  letter-spacing: 1.2px;
-  text-transform: uppercase;
-  transition: all .2s;
-}
-
-.filter-toggle:hover,
-.filter-toggle[aria-expanded="true"] {
-  background: #A69C89;
-  border-color: #A69C89;
-  color: #34352D;
-}
-
-.filter-toggle svg { width: 15px; height: 15px; }
-
-.advanced-filters {
-  display: none;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 16px;
-  padding: 22px;
-  margin-top: 20px;
-  border: 1px solid #D8D6C9;
-  background: #F3F1E9;
-}
-
-.advanced-filters.is-open { display: grid; }
-.advanced-filters .field label { color: #424437; }
-
-.advanced-filters .field input,
-.advanced-filters .field select {
-  background: #FFFDF8;
-  border-color: #D8D6C9;
-  color: #424437;
-}
-
-.advanced-filters .field input:focus,
-.advanced-filters .field select:focus {
-  border-color: #B6AD9B;
-  box-shadow: 0 0 0 2px rgba(182,173,155,.22);
-}
-
-.filter-actions {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  flex-wrap: wrap;
-  margin-top: 18px;
-}
-
-.filter-actions .btn {
-  background: #B6AD9B;
-  border-color: #B6AD9B;
-  color: #34352D;
-  min-width: 155px;
-}
-
-.filter-actions .btn:hover {
-  background: #A69C89;
-  border-color: #A69C89;
-}
-
-.clear-filters {
-  border: 0;
-  background: transparent;
-  color: #68695D;
-  font-size: 10px;
-  text-decoration: underline;
-  text-underline-offset: 4px;
-  padding: 10px;
-}
-
-.filter-count { color: #68695D; font-size: 10px; margin-left: auto; }
-
-.section { padding: 100px 0; }
-.categories { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 18px; }
-
-.category-card {
-  position: relative;
-  min-height: 320px;
-  overflow: hidden;
-  color: white;
-  background: var(--tuff);
-}
-
-.category-card img {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  transition: transform .6s;
-}
-
-.category-card::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(0deg, rgba(32,24,19,.85), rgba(32,24,19,.03) 75%);
-}
-
-.category-card:hover img { transform: scale(1.055); }
-.category-info { position: absolute; z-index: 1; left: 25px; right: 25px; bottom: 24px; }
-.category-info span { color: #E8CBA8; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; }
-.category-info h3 { font-size: 36px; line-height: 1.1; margin: 6px 0 10px; }
-.category-info p { font-size: 11px; color: #F0E7DD; }
-
-.category-arrow {
-  position: absolute;
-  z-index: 1;
-  top: 20px;
-  right: 20px;
-  width: 38px;
-  height: 38px;
-  border: 1px solid rgba(255,255,255,.65);
-  border-radius: 50%;
-  display: grid;
-  place-items: center;
-  font-size: 17px;
-  transition: background .2s;
-}
-
-.category-card:hover .category-arrow { background: var(--ivory); color: var(--walnut); }
-
-.listings-section { background: #F0E8DC; }
-.listing-heading-row { display: flex; justify-content: space-between; align-items: end; gap: 20px; }
-.listing-heading-row .section-heading { margin-bottom: 35px; }
-.listing-grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 24px; }
-
-.listing-card {
-  background: var(--ivory);
-  border: 1px solid var(--border);
-  transition: transform .25s, box-shadow .25s;
-  min-width: 0;
-}
-
-.listing-card:hover { transform: translateY(-4px); box-shadow: 0 14px 35px rgba(73,53,42,.09); }
-.listing-photo { position: relative; height: 235px; overflow: hidden; background: var(--tuff); }
+.listing-heading-row { display: flex; align-items: flex-end; justify-content: space-between; gap: 25px; margin-bottom: 35px; }
+.listing-heading-row .section-heading { margin-bottom: 0; }
+.listing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+.listing-card { background: #F7F3EC; border: 1px solid var(--border); overflow: hidden; cursor: pointer; transition: transform .25s, box-shadow .25s; }
+.listing-card:hover { transform: translateY(-5px); box-shadow: 0 18px 35px rgba(58,43,31,.12); }
+.listing-photo { position: relative; height: 260px; overflow: hidden; background: #ddd0bf; }
 .listing-photo img { height: 100%; transition: transform .5s; }
 .listing-card:hover .listing-photo img { transform: scale(1.04); }
-
-.listing-tag {
-  position: absolute;
-  top: 14px;
-  left: 14px;
-  background: var(--ivory);
-  padding: 6px 10px;
-  font-size: 8px;
-  font-weight: 700;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-}
-
-.listing-price {
-  position: absolute;
-  bottom: 13px;
-  left: 14px;
-  background: var(--walnut);
-  color: white;
-  padding: 7px 11px;
-  font-size: 13px;
-  font-weight: 600;
-}
-
+.listing-tag { position: absolute; top: 15px; left: 15px; padding: 7px 10px; background: var(--ivory); color: var(--walnut); font-size: 8px; letter-spacing: 1px; text-transform: uppercase; }
+.listing-price { position: absolute; right: 15px; bottom: 15px; padding: 9px 12px; background: var(--walnut); color: white; font-family: var(--serif); font-size: 20px; }
 .listing-body { padding: 22px; }
-.listing-type { color: var(--bronze); font-size: 9px; font-weight: 700; letter-spacing: 1.4px; text-transform: uppercase; }
-.listing-body h3 { font-size: 27px; line-height: 1.15; margin: 7px 0; }
-.listing-address { color: var(--muted); font-size: 10px; margin-bottom: 18px; }
-
-.listing-meta {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 13px;
-  border-top: 1px solid var(--border);
-  padding-top: 14px;
-  font-size: 10px;
-  color: var(--muted);
-}
-
-.listing-meta span { display: flex; align-items: center; gap: 5px; }
-.listing-footer { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-top: 18px; }
-.text-link { color: var(--walnut); font-size: 9px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; border-bottom: 1px solid var(--bronze); padding-bottom: 4px; }
-.text-link:hover { color: var(--bronze); }
-.empty-state { grid-column: 1/-1; text-align: center; padding: 50px 20px; color: var(--muted); }
-
-.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 75px; align-items: center; }
-.about-image-wrap { position: relative; padding: 0 30px 30px 0; }
-.about-image-wrap img { height: 490px; }
-
-.about-image-wrap::after {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  right: 0;
-  bottom: 0;
-  width: 70%;
-  height: 65%;
-  border: 1px solid var(--bronze);
-}
-
-.about-copy h2 { margin: 14px 0 20px; }
-.about-copy p { color: var(--muted); margin-bottom: 17px; }
-.about-values { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 28px 0; }
-.value-item { border-top: 1px solid var(--border); padding-top: 13px; }
-.value-item strong { display: block; font-family: var(--serif); font-size: 22px; font-weight: 500; }
-.value-item span { font-size: 10px; color: var(--muted); }
+.listing-type { color: var(--bronze); font-size: 9px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; }
+.listing-body h3 { font-size: 27px; line-height: 1.1; margin: 10px 0; }
+.listing-address { color: var(--muted); font-size: 11px; }
+.listing-meta { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 17px; padding-top: 15px; border-top: 1px solid var(--border); color: var(--muted); font-size: 10px; }
+.listing-link { display: inline-block; margin-top: 18px; color: var(--bronze); font-size: 9px; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; }
+.empty-state { grid-column: 1/-1; text-align: center; padding: 65px 20px; background: #F7F3EC; border: 1px solid var(--border); }
 
 .stats { background: var(--walnut); color: var(--ivory); padding: 55px 0; }
-.stats-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; text-align: center; }
-.stat-number { font-family: var(--serif); font-size: 47px; line-height: 1.1; color: #E2C29B; }
-.stat-label { font-size: 9px; letter-spacing: 1.5px; text-transform: uppercase; margin-top: 7px; }
+.stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; text-align: center; }
+.stat-number { font-family: var(--serif); font-size: 48px; color: #E5C7A0; }
+.stat-label { font-size: 9px; letter-spacing: 1.5px; text-transform: uppercase; }
 
-.cta-section { padding: 90px 0; }
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 70px; }
+.about-image-wrap { height: 570px; overflow: hidden; }
+.about-image-wrap img { height: 100%; }
+.about-copy p { color: var(--muted); margin-top: 18px; }
+.values-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; margin-top: 32px; }
+.value-item { border-top: 1px solid var(--border); padding-top: 14px; }
+.value-item strong { display: block; font-family: var(--serif); font-size: 24px; font-weight: 500; }
+.value-item span { color: var(--muted); font-size: 11px; }
 
-.cta-panel {
-  background: var(--tuff);
-  padding: 65px 30px;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-}
+.cta-section { background: #D9C4AA; padding: 90px 0; text-align: center; }
+.cta-section .container { max-width: 800px; }
+.cta-section h2 { margin: 15px 0; }
+.cta-section p { color: var(--walnut); margin: 0 auto 25px; max-width: 600px; }
 
-.cta-panel::before, .cta-panel::after {
-  content: "";
-  position: absolute;
-  width: 190px;
-  height: 190px;
-  border: 1px solid rgba(73,53,42,.2);
-  border-radius: 50%;
-}
-
-.cta-panel::before { top: -110px; left: -65px; }
-.cta-panel::after { bottom: -120px; right: -60px; }
-.cta-panel h2 { margin: 12px 0; }
-.cta-panel p { color: #625044; margin: 0 auto 25px; max-width: 470px; font-size: 12px; }
-
-.contact-section { background: #EFE7DA; }
-.contact-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 70px; }
-.contact-copy h2 { margin: 12px 0 20px; }
-.contact-copy p { color: var(--muted); }
-.contact-detail { margin-top: 25px; display: grid; gap: 15px; }
-.contact-detail div { display: flex; flex-direction: column; gap: 2px; }
-.contact-detail strong { font-size: 10px; letter-spacing: 1px; text-transform: uppercase; }
-.contact-detail span, .contact-detail a { color: var(--muted); font-size: 12px; }
-.contact-form { background: var(--ivory); padding: 30px; border: 1px solid var(--border); }
-.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.contact-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 70px; }
+.contact-details { display: grid; gap: 25px; margin-top: 35px; }
+.contact-detail strong { display: block; font-size: 10px; letter-spacing: 1.3px; text-transform: uppercase; color: var(--bronze); }
+.contact-detail span, .contact-detail a { display: block; margin-top: 5px; }
+.contact-form { background: #F7F3EC; padding: 30px; border: 1px solid var(--border); }
 .contact-form .field { margin-bottom: 16px; }
+.contact-form textarea { min-height: 120px; resize: vertical; }
+.form-status { color: var(--muted); font-size: 11px; margin-top: 12px; }
 
-.contact-form textarea {
-  width: 100%;
-  min-height: 115px;
-  padding: 12px;
-  border: 1px solid var(--border);
-  background: #FFFCF8;
-  resize: vertical;
-  color: var(--walnut);
-  outline: none;
-  font: inherit;
-  font-size: 11px;
-}
+footer { background: #30251E; color: var(--ivory); padding: 65px 0 25px; }
+.footer-top { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 50px; padding-bottom: 45px; }
+.footer-brand .brand-logo { width: 210px; }
+.footer-brand p { max-width: 330px; color: rgba(237,224,206,.7); font-size: 11px; margin-top: 18px; }
+.footer-column { display: flex; flex-direction: column; gap: 12px; }
+.footer-column h3 { font-family: var(--sans); font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: #D7B18A; margin-bottom: 8px; }
+.footer-column a { color: rgba(237,224,206,.8); font-size: 11px; }
+.footer-column a:hover { color: white; }
+.footer-bottom { display: flex; justify-content: space-between; gap: 20px; border-top: 1px solid rgba(237,224,206,.2); padding-top: 20px; color: rgba(237,224,206,.55); font-size: 9px; }
 
-.contact-form textarea:focus { border-color: var(--bronze); }
-.form-status { margin-top: 12px; color: var(--olive); font-size: 11px; }
+.modal { position: fixed; inset: 0; z-index: 500; display: none; place-items: center; padding: 25px; background: rgba(20,15,12,.75); }
+.modal.open { display: grid; }
+.modal-card { position: relative; width: min(900px, 100%); max-height: 90vh; overflow: auto; background: var(--ivory); display: grid; grid-template-columns: 1fr 1fr; }
+.modal-card > img { height: 100%; min-height: 400px; }
+.modal-content { padding: 45px; }
+.modal-content h2 { font-size: 38px; margin-top: 10px; }
+.modal-content p { color: var(--muted); margin: 20px 0; }
+.modal-close { position: absolute; top: 12px; right: 12px; z-index: 2; width: 38px; height: 38px; border: 0; border-radius: 50%; background: var(--ivory); color: var(--walnut); font-size: 24px; }
 
-footer { background: #30241D; color: var(--ivory); padding: 55px 0 20px; }
-.footer-top { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 45px; padding-bottom: 40px; }
-.footer-brand .brand-name { color: var(--ivory); }
-.footer-brand p { color: #C4B4A4; font-size: 11px; max-width: 290px; margin-top: 18px; }
-.footer-column h3 { font-family: var(--sans); font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 16px; }
-.footer-column a { display: block; color: #C4B4A4; font-size: 11px; margin-bottom: 9px; }
-.footer-column a:hover { color: #E2C29B; }
-.footer-bottom { border-top: 1px solid rgba(255,255,255,.14); padding-top: 17px; display: flex; justify-content: space-between; gap: 15px; color: #BBAA9B; font-size: 9px; }
-
-.modal {
-  position: fixed;
-  z-index: 300;
-  inset: 0;
-  display: none;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-  background: rgba(29,22,17,.75);
-}
-
-.modal.open { display: flex; }
-
-.modal-card {
-  position: relative;
-  width: min(700px, 100%);
-  max-height: 90vh;
-  overflow-y: auto;
-  background: var(--ivory);
-}
-
-.modal-close {
-  position: absolute;
-  z-index: 2;
-  top: 12px;
-  right: 12px;
-  border: 0;
-  background: var(--ivory);
-  width: 38px;
-  height: 38px;
-  color: var(--walnut);
-  font-size: 24px;
-}
-
-.modal-card > img { height: 300px; }
-.modal-content { padding: 28px; }
-.modal-content h2 { font-size: 37px; margin: 5px 0; }
-.modal-content p { color: var(--muted); margin: 12px 0; }
-.modal-content .listing-meta { margin: 20px 0; }
-
-@media (max-width: 1050px) {
-  .nav-links { gap: 16px; }
+@media (max-width: 1000px) {
+  .nav-links { gap: 15px; }
   .nav-actions .btn { display: none; }
-  .search-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
-  .advanced-filters { grid-template-columns: repeat(2, minmax(0,1fr)); }
-  .listing-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
-  .about-grid { gap: 40px; }
+  .category-grid { grid-template-columns: repeat(2, 1fr); }
+  .listing-grid { grid-template-columns: repeat(2, 1fr); }
+  .about-grid { gap: 35px; }
 }
-
-@media (max-width: 760px) {
+@media (max-width: 700px) {
+  .navbar { min-height: 78px; }
+  .brand-logo { width: 170px; height: 65px; }
   .menu-toggle { display: block; }
-  .nav-links {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    padding: 20px 5%;
-    background: var(--ivory);
-    border-bottom: 1px solid var(--border);
-    flex-direction: column;
-    align-items: stretch;
-    gap: 0;
-  }
+  .nav-links { display: none; position: absolute; top: 100%; left: 0; right: 0; padding: 22px 5%; background: #F7F3EC; border-bottom: 1px solid var(--border); flex-direction: column; align-items: flex-start; }
   .nav-links.open { display: flex; }
-  .nav-links a { padding: 12px 0; border-bottom: 1px solid var(--border); }
-  .hero { min-height: 590px; }
-  .hero-content { padding: 75px 0 110px; }
-  .hero h1 { font-size: clamp(49px, 12vw, 70px); }
-  .search-wrap { margin-top: -45px; }
-  .search-panel { padding: 20px; }
-  .section { padding: 72px 0; }
-  .categories { grid-template-columns: 1fr; }
-  .category-card { min-height: 300px; }
-  .listing-grid { grid-template-columns: 1fr; }
-  .listing-photo { height: 260px; }
-  .listing-heading-row { display: block; }
-  .listing-heading-row > .btn { margin-top: -15px; margin-bottom: 25px; }
-  .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 35px; }
-  .about-image-wrap img { height: 350px; }
-  .about-copy { order: -1; }
+  .search-grid, .advanced-filters { grid-template-columns: 1fr 1fr; }
+  .category-grid, .listing-grid { grid-template-columns: 1fr; }
+  .listing-heading-row { align-items: flex-start; flex-direction: column; }
   .stats-grid { grid-template-columns: 1fr; gap: 30px; }
-  .footer-top { grid-template-columns: 1fr 1fr; gap: 30px; }
+  .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 35px; }
+  .about-image-wrap { height: 360px; }
+  .footer-top { grid-template-columns: 1fr 1fr; gap: 35px; }
   .footer-brand { grid-column: 1/-1; }
-  .contact-form { padding: 20px; }
+  .footer-bottom { flex-direction: column; }
+  .modal-card { grid-template-columns: 1fr; }
+  .modal-card > img { min-height: 240px; max-height: 280px; }
+  .modal-content { padding: 28px; }
 }
-
-@media (max-width: 420px) {
-  .search-grid, .advanced-filters, .form-grid { grid-template-columns: 1fr; }
-  .search-panel-top { align-items: flex-start; }
-  .filter-count { width: 100%; margin-left: 0; }
-  .hero-buttons { flex-direction: column; align-items: stretch; max-width: 280px; }
+@media (max-width: 430px) {
+  .search-grid, .advanced-filters { grid-template-columns: 1fr; }
+  .search-panel { padding: 20px; }
+  .hero h1 { font-size: 49px; }
   .footer-top { grid-template-columns: 1fr; }
   .footer-brand { grid-column: auto; }
-  .footer-bottom { flex-direction: column; }
-  .about-values { gap: 12px; }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    scroll-behavior: auto !important;
-    transition-duration: .01ms !important;
-  }
 }
 </style>
 </head>
 
 <body>
-<div class="announcement" data-i18n="announcement">Find your place. Build your roots. &nbsp; · &nbsp; ARMAT REAL ESTATE</div>
+
+<div class="announcement" data-i18n="announcement">
+  Find your place. Build your roots. · ARMAT REAL ESTATE
+</div>
 
 <header>
   <div class="container navbar">
-    <a class="brand" href="#home" aria-label="ARMAT Real Estate home">
-      <img id="siteLogo" class="brand-logo" src="https://cdn.shopify.com/s/files/1/0825/4695/0390/files/Carved_Stone_ARMAT_Real_Estate_Logo.png?v=1795111663" alt="ARMAT Real Estate logo">
+    <a class="brand" href="#home">
+      <img class="brand-logo" src="https://cdn.shopify.com/s/files/1/0825/4695/0390/files/Carved_Stone_ARMAT_Real_Estate_Logo.png?v=1795111663" alt="ARMAT Real Estate logo">
     </a>
 
-    <nav class="nav-links" id="navLinks" aria-label="Main navigation">
+    <nav class="nav-links" id="navLinks">
       <a href="#home" data-i18n="nav.home">Home</a>
       <a href="#properties" data-i18n="nav.properties">Properties</a>
       <a href="#categories" data-i18n="nav.categories">Categories</a>
@@ -731,18 +424,16 @@ footer { background: #30241D; color: var(--ivory); padding: 55px 0 20px; }
     </nav>
 
     <div class="nav-actions">
-      <a class="btn" href="#contact" data-i18n="nav.listProperty">List Your Property ↗</a>
-      <button class="lang-switch" id="langSwitch" type="button" aria-label="Change Language">
-        HY
-      </button>
-      <button class="menu-toggle" id="menuToggle" aria-label="Open navigation" aria-expanded="false">☰</button>
+      <button class="lang-switch" id="langSwitch" type="button">HY</button>
+      <button class="btn" id="accountButton" type="button">Agent Login ↗</button>
+      <button class="menu-toggle" id="menuToggle" aria-label="Open navigation" aria-expanded="false" type="button">☰</button>
     </div>
   </div>
 </header>
 
 <main>
   <section class="hero" id="home">
-    <img class="hero-image" src="https://cdn.shopify.com/s/files/1/0825/4695/0390/files/386e645403a03f3d03363b8249734d3e.png?v=1793041343" alt="ARMAT Real Estate — Property">
+    <img class="hero-image" src="https://cdn.shopify.com/s/files/1/0825/4695/0390/files/386e645403a03f3d03363b8249734d3e.png?v=1793041343" alt="ARMAT real estate">
     <div class="container hero-content">
       <div class="eyebrow" data-i18n="hero.eyebrow">A better place to begin</div>
       <h1 data-i18n="hero.title">Find a place<br>to put down <em>roots.</em></h1>
@@ -757,178 +448,122 @@ footer { background: #30241D; color: var(--ivory); padding: 55px 0 20px; }
 
   <div class="container search-wrap">
     <form class="search-panel" id="searchForm">
-
       <div class="search-panel-top">
         <div class="search-title" data-i18n="search.title">Find your property</div>
-
-        <button class="filter-toggle" type="button" id="filterToggle" aria-expanded="false" aria-controls="advancedFilters">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
-            <path d="M4 7h16M7 12h10m-7 5h4" stroke-linecap="round"/>
-            <circle cx="8" cy="7" r="1.5" fill="currentColor"/>
-            <circle cx="15" cy="12" r="1.5" fill="currentColor"/>
-            <circle cx="12" cy="17" r="1.5" fill="currentColor"/>
-          </svg>
-          <span data-i18n="search.filters">Filters</span> <span aria-hidden="true">＋</span>
+        <button class="filter-toggle" type="button" id="filterToggle" aria-expanded="false">
+          <span data-i18n="search.filters">Filters</span> ＋
         </button>
       </div>
 
       <div class="search-grid">
         <div class="field">
           <label for="searchLocation" data-i18n="search.locationLabel">Location</label>
-          <input id="searchLocation" type="search" placeholder="e.g. Yerevan" data-i18n-placeholder="search.locationPlaceholder">
+          <input id="searchLocation" type="search" placeholder="e.g. Yerevan">
         </div>
-
         <div class="field">
-          <label for="minPrice" data-i18n="search.minPriceLabel">Min. price ($)</label>
-          <input id="minPrice" type="number" min="0" placeholder="No minimum" data-i18n-placeholder="search.noMinimum">
+          <label for="minPrice" data-i18n="search.minPriceLabel">Min. price</label>
+          <input id="minPrice" type="number" min="0" placeholder="No minimum">
         </div>
-
         <div class="field">
-          <label for="maxPrice" data-i18n="search.maxPriceLabel">Max. price ($)</label>
-          <input id="maxPrice" type="number" min="0" placeholder="No maximum" data-i18n-placeholder="search.noMaximum">
+          <label for="maxPrice" data-i18n="search.maxPriceLabel">Max. price</label>
+          <input id="maxPrice" type="number" min="0" placeholder="No maximum">
         </div>
       </div>
 
       <div class="advanced-filters" id="advancedFilters">
-
         <div class="field">
           <label for="searchType" data-i18n="search.typeLabel">Property Type</label>
           <select id="searchType">
-            <option value="all" data-i18n="search.allProperties">All Properties</option>
-            <option value="Land" data-i18n="search.land">Land</option>
-            <option value="Apartment" data-i18n="search.apartments">Apartments</option>
-            <option value="House" data-i18n="search.houses">Houses</option>
-            <option value="Commercial Space" data-i18n="search.commercial">Commercial Spaces</option>
+            <option value="all">All Properties</option>
+            <option value="Land">Land</option>
+            <option value="Apartment">Apartments</option>
+            <option value="House">Houses</option>
+            <option value="Commercial Space">Commercial Spaces</option>
           </select>
         </div>
-
         <div class="field">
-          <label for="minArea" data-i18n="search.minAreaLabel">Min. Area (m²)</label>
-          <input id="minArea" type="number" min="0" placeholder="e.g. 50" data-i18n-placeholder="search.areaPlaceholder">
+          <label for="minArea">Min. Area (m²)</label>
+          <input id="minArea" type="number" min="0" placeholder="Any">
         </div>
-
         <div class="field">
-          <label for="maxArea" data-i18n="search.maxAreaLabel">Max. Area (m²)</label>
-          <input id="maxArea" type="number" min="0" placeholder="e.g. 200" data-i18n-placeholder="search.areaPlaceholder">
+          <label for="maxArea">Max. Area (m²)</label>
+          <input id="maxArea" type="number" min="0" placeholder="Any">
         </div>
-
         <div class="field">
-          <label for="roomCount" data-i18n="search.roomsLabel">Number of Rooms</label>
-          <select id="roomCount">
-            <option value="" data-i18n="search.any">Any</option>
-            <option value="1" data-i18n="search.1Room">1 Room</option>
-            <option value="2" data-i18n="search.2Rooms">2 Rooms</option>
-            <option value="3" data-i18n="search.3Rooms">3 Rooms</option>
-            <option value="4" data-i18n="search.4Rooms">4 Rooms</option>
-            <option value="5" data-i18n="search.5PlusRooms">5+ Rooms</option>
+          <label for="searchRooms">Bedrooms</label>
+          <select id="searchRooms">
+            <option value="">Any</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5+</option>
           </select>
         </div>
-
         <div class="field">
-          <label for="floorNumber" data-i18n="search.floorLabel">Floor</label>
-          <input id="floorNumber" type="number" min="0" placeholder="Any floor" data-i18n-placeholder="search.anyFloor">
-        </div>
-
-        <div class="field">
-          <label for="bathroomCount" data-i18n="search.bathsLabel">Number of Bathrooms</label>
-          <select id="bathroomCount">
-            <option value="" data-i18n="search.any">Any</option>
-            <option value="1" data-i18n="search.1Bath">1 Bathroom</option>
-            <option value="2" data-i18n="search.2Baths">2 Bathrooms</option>
-            <option value="3" data-i18n="search.3PlusBaths">3+ Bathrooms</option>
+          <label for="searchCondition">Condition</label>
+          <select id="searchCondition">
+            <option value="">Any condition</option>
+            <option value="Renovated">Renovated</option>
+            <option value="Average">Average</option>
+            <option value="Unfinished">Unfinished</option>
           </select>
         </div>
-
-        <div class="field">
-          <label for="ceilingHeight" data-i18n="search.ceilingLabel">Ceiling Height (m)</label>
-          <select id="ceilingHeight">
-            <option value="" data-i18n="search.anyHeight">Any Height</option>
-            <option value="2.5">2.5 m</option>
-            <option value="2.7">2.7 m</option>
-            <option value="3">3.0 m</option>
-            <option value="3.2">3.2 m</option>
-            <option value="3.5">3.5 m</option>
-            <option value="4">4.0 m+</option>
-          </select>
-        </div>
-
-        <div class="field">
-          <label for="buildingType" data-i18n="search.buildingTypeLabel">Building Type</label>
-          <select id="buildingType">
-            <option value="" data-i18n="search.allTypes">All Types</option>
-            <option value="Stone" data-i18n="search.stone">Stone</option>
-            <option value="Monolithic Concrete" data-i18n="search.monolithic">Monolithic Concrete</option>
-            <option value="Panel" data-i18n="search.panel">Panel</option>
-          </select>
-        </div>
-
-        <div class="field">
-          <label for="propertyCondition" data-i18n="search.statusLabel">Status</label>
-          <select id="propertyCondition">
-            <option value="" data-i18n="search.anyStatus">Any Status</option>
-            <option value="Renovated" data-i18n="search.renovated">Renovated</option>
-            <option value="Average Condition" data-i18n="search.average">Average Condition</option>
-            <option value="Unfinished" data-i18n="search.unfinished">Unfinished</option>
-          </select>
-        </div>
-
       </div>
 
-      <div class="filter-actions">
-        <button class="btn" type="submit" data-i18n="search.applyBtn">Apply Filters ↗</button>
-        <button class="clear-filters" type="button" id="clearFilters" data-i18n="search.clearBtn">Clear All</button>
-        <span class="filter-count" id="filterCount" aria-live="polite" data-i18n="search.showingAll">Showing all properties</span>
+      <div class="search-actions">
+        <button class="btn btn-outline" type="reset" id="clearFilters">Clear All</button>
+        <button class="btn" type="submit">Search Properties ↗</button>
       </div>
-
     </form>
   </div>
 
-  <section class="section" id="categories">
+  <section class="section categories-section" id="categories">
     <div class="container">
       <div class="section-heading">
         <div class="eyebrow" data-i18n="categories.eyebrow">Explore your possibilities</div>
         <h2 data-i18n="categories.title">A place for every kind of dream.</h2>
-        <p data-i18n="categories.copy">Whether you're building from the ground up or moving straight in, discover the right property for your next chapter.</p>
+        <p data-i18n="categories.copy">Discover the right property for your next chapter.</p>
       </div>
 
-      <div class="categories">
+      <div class="category-grid">
         <a class="category-card" href="#properties" data-category="Land">
-          <img loading="lazy" src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=900&q=80" alt="Open land with a green landscape">
+          <img src="https://images.unsplash.com/photo-1472396961693-142e6e269027?auto=format&fit=crop&w=900&q=80" alt="Land">
           <span class="category-arrow">↗</span>
           <div class="category-info">
-            <span data-i18n="cat.land.sub">Build your future</span>
+            <span>Build your future</span>
             <h3 data-i18n="search.land">Land</h3>
-            <p data-i18n="cat.land.desc">Room to grow. Space to create.</p>
+            <p>Room to grow. Space to create.</p>
           </div>
         </a>
 
         <a class="category-card" href="#properties" data-category="Apartment">
-          <img loading="lazy" src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=900&q=80" alt="Elegant contemporary apartment interior">
+          <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=900&q=80" alt="Apartment">
           <span class="category-arrow">↗</span>
           <div class="category-info">
-            <span data-i18n="cat.apt.sub">City living</span>
+            <span>City living</span>
             <h3 data-i18n="search.apartments">Apartments</h3>
-            <p data-i18n="cat.apt.desc">Comfort, convenience, connection.</p>
+            <p>Comfort, convenience, connection.</p>
           </div>
         </a>
 
         <a class="category-card" href="#properties" data-category="House">
-          <img loading="lazy" src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=900&q=80" alt="Contemporary detached house">
+          <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=900&q=80" alt="House">
           <span class="category-arrow">↗</span>
           <div class="category-info">
-            <span data-i18n="cat.house.sub">Made for living</span>
+            <span>Made for living</span>
             <h3 data-i18n="search.houses">Houses</h3>
-            <p data-i18n="cat.house.desc">Find the place that feels like home.</p>
+            <p>Find the place that feels like home.</p>
           </div>
         </a>
 
         <a class="category-card" href="#properties" data-category="Commercial Space">
-          <img loading="lazy" src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=900&q=80" alt="Modern commercial office space">
+          <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=900&q=80" alt="Commercial">
           <span class="category-arrow">↗</span>
           <div class="category-info">
-            <span data-i18n="cat.comm.sub">Space to do business</span>
+            <span>Space to do business</span>
             <h3 data-i18n="search.commercial">Commercial Space</h3>
-            <p data-i18n="cat.comm.desc">Find the right place for your business.</p>
+            <p>Find the right place for your business.</p>
           </div>
         </a>
       </div>
@@ -941,9 +576,9 @@ footer { background: #30241D; color: var(--ivory); padding: 55px 0 20px; }
         <div class="section-heading">
           <div class="eyebrow" data-i18n="listings.eyebrow">Selected properties</div>
           <h2 data-i18n="listings.title">Find your next address.</h2>
-          <p data-i18n="listings.copy">Explore our featured collection of land, apartments, houses and commercial spaces.</p>
+          <p data-i18n="listings.copy">Explore our featured collection of properties.</p>
         </div>
-        <button class="btn btn-outline" id="showAllBtn" type="button" data-i18n="listings.showAllBtn">Show All Properties ↗</button>
+        <button class="btn btn-outline" id="showAllBtn" type="button">Show All Properties ↗</button>
       </div>
       <div class="listing-grid" id="listingGrid" aria-live="polite"></div>
     </div>
@@ -953,15 +588,15 @@ footer { background: #30241D; color: var(--ivory); padding: 55px 0 20px; }
     <div class="container stats-grid">
       <div>
         <div class="stat-number">01</div>
-        <div class="stat-label" data-i18n="stats.vision">Your vision comes first</div>
+        <div class="stat-label">Your vision comes first</div>
       </div>
       <div>
         <div class="stat-number">100%</div>
-        <div class="stat-label" data-i18n="stats.attention">Personalized attention</div>
+        <div class="stat-label">Personalized attention</div>
       </div>
       <div>
         <div class="stat-number">∞</div>
-        <div class="stat-label" data-i18n="stats.possibilities">Possibilities for your future</div>
+        <div class="stat-label">Possibilities for your future</div>
       </div>
     </div>
   </section>
@@ -969,85 +604,69 @@ footer { background: #30241D; color: var(--ivory); padding: 55px 0 20px; }
   <section class="section" id="about">
     <div class="container about-grid">
       <div class="about-image-wrap">
-        <img loading="lazy" src="https://images.unsplash.com/photo-1600607687644-c7171b42498f?auto=format&fit=crop&w=1100&q=85" alt="Warm architectural design and natural stone finishes">
+        <img src="https://images.unsplash.com/photo-1600607687644-c7171b42498f?auto=format&fit=crop&w=1100&q=85" alt="ARMAT architecture">
       </div>
-
       <div class="about-copy">
         <div class="eyebrow" data-i18n="about.eyebrow">Our philosophy</div>
         <h2 data-i18n="about.title">Rooted in trust.<br>Built for your future.</h2>
         <p data-i18n="about.p1">At ARMAT, we believe real estate is about more than walls, land and addresses. It's about the place where your next chapter begins.</p>
         <p data-i18n="about.p2">Inspired by the Armenian word for roots, ARMAT stands for belonging, stability and the foundations that connect us to a place.</p>
-        <p data-i18n="about.p3">Whether you're searching for land, an apartment or a family home, our goal is to help you find a property that feels right for you.</p>
-
-        <div class="about-values">
-          <div class="value-item"><strong data-i18n="about.val.trust">Trust</strong><span data-i18n="about.val.trustDesc">Honest, attentive service</span></div>
-          <div class="value-item"><strong data-i18n="about.val.purpose">Purpose</strong><span data-i18n="about.val.purposeDesc">Properties that fit your plans</span></div>
-          <div class="value-item"><strong data-i18n="about.val.connection">Connection</strong><span data-i18n="about.val.connectionDesc">A personal approach</span></div>
-          <div class="value-item"><strong data-i18n="about.val.roots">Roots</strong><span data-i18n="about.val.rootsDesc">A place to truly belong</span></div>
+        <p data-i18n="about.p3">Our goal is to help you find a property that feels right for you.</p>
+        <div class="values-grid">
+          <div class="value-item"><strong>Trust</strong><span>Honest, attentive service</span></div>
+          <div class="value-item"><strong>Purpose</strong><span>Properties that fit your plans</span></div>
+          <div class="value-item"><strong>Connection</strong><span>A personal approach</span></div>
+          <div class="value-item"><strong>Roots</strong><span>A place to truly belong</span></div>
         </div>
-
-        <a class="btn" href="#contact" data-i18n="about.ctaBtn">Let's Find Your Place ↗</a>
       </div>
     </div>
   </section>
 
   <section class="cta-section">
     <div class="container">
-      <div class="cta-panel">
-        <div class="eyebrow" data-i18n="cta.eyebrow">Your next chapter starts here</div>
-        <h2 data-i18n="cta.title">Every great story needs a place.</h2>
-        <p data-i18n="cta.copy">Tell us what you're looking for. Let's find the land, apartment, house or commercial space that feels right for your next chapter.</p>
-        <a class="btn" href="#contact" data-i18n="cta.btn">Talk to ARMAT ↗</a>
-      </div>
+      <div class="eyebrow">Your next chapter starts here</div>
+      <h2>Every great story needs a place.</h2>
+      <p>Tell us what you're looking for. Let's find the land, apartment, house or commercial space that feels right for your next chapter.</p>
+      <a class="btn" href="#contact">Talk to ARMAT ↗</a>
     </div>
   </section>
 
-  <section class="section contact-section" id="contact">
+  <section class="section" id="contact">
     <div class="container contact-grid">
-      <div class="contact-copy">
+      <div>
         <div class="eyebrow" data-i18n="contact.eyebrow">Get in touch</div>
         <h2 data-i18n="contact.title">Let's find your place.</h2>
-        <p data-i18n="contact.copy">Have a property in mind, want to sell, or simply need guidance? Send us a message and tell us about your plans.</p>
-
-        <div class="contact-detail">
-          <div><strong data-i18n="contact.officeLabel">Our office</strong><span data-i18n="contact.officeValue">Yerevan, Armenia</span></div>
-          <div><strong data-i18n="contact.emailLabel">Email</strong><a href="mailto:hello@armatestate.am">hello@armatestate.am</a></div>
-          <div><strong data-i18n="contact.hoursLabel">Working hours</strong><span data-i18n="contact.hoursValue">Monday – Saturday · By appointment</span></div>
+        <p data-i18n="contact.copy">Have a property in mind, want to sell, or simply need guidance?</p>
+        <div class="contact-details">
+          <div class="contact-detail"><strong>Our office</strong><span>Yerevan, Armenia</span></div>
+          <div class="contact-detail"><strong>Email</strong><a href="mailto:hello@armatestate.am">hello@armatestate.am</a></div>
+          <div class="contact-detail"><strong>Working hours</strong><span>Monday – Saturday · By appointment</span></div>
         </div>
       </div>
 
       <form class="contact-form" id="contactForm">
-        <div class="form-grid">
-          <div class="field">
-            <label for="contactName" data-i18n="contact.nameLabel">Your name</label>
-            <input id="contactName" name="name" required placeholder="Full name" data-i18n-placeholder="contact.namePlaceholder">
-          </div>
-          <div class="field">
-            <label for="contactEmail" data-i18n="contact.emailFieldLabel">Email address</label>
-            <input id="contactEmail" name="email" type="email" required placeholder="you@example.com" data-i18n-placeholder="contact.emailPlaceholder">
-          </div>
-        </div>
-
         <div class="field">
-          <label for="contactInterest" data-i18n="contact.interestLabel">I'm interested in</label>
-          <select id="contactInterest" name="interest">
-            <option data-i18n="contact.buying">Buying a property</option>
-            <option data-i18n="contact.selling">Selling a property</option>
-            <option data-i18n="search.land">Land</option>
-            <option data-i18n="search.apartments">Apartment</option>
-            <option data-i18n="search.houses">House</option>
-            <option data-i18n="search.commercial">Commercial Space</option>
-            <option data-i18n="contact.other">Other inquiry</option>
+          <label>Your name</label>
+          <input name="name" required placeholder="Full name">
+        </div>
+        <div class="field">
+          <label>Email address</label>
+          <input name="email" type="email" required placeholder="you@example.com">
+        </div>
+        <div class="field">
+          <label>I'm interested in</label>
+          <select name="interest">
+            <option>Buying a property</option>
+            <option>Selling a property</option>
+            <option>Other inquiry</option>
           </select>
         </div>
-
         <div class="field">
-          <label for="contactMessage" data-i18n="contact.messageLabel">Your message</label>
-          <textarea id="contactMessage" name="message" required placeholder="Tell us a little about what you're looking for..." data-i18n-placeholder="contact.messagePlaceholder"></textarea>
+          <label>Your message</label>
+          <textarea name="message" required placeholder="Tell us a little about what you're looking for..."></textarea>
         </div>
-
-        <button class="btn" type="submit" data-i18n="contact.submitBtn">Prepare My Inquiry ↗</button>
-        <p class="form-status" id="formStatus" role="status" data-i18n="contact.formStatus">This demo prepares an email; it does not send or store your information.</p>
+        <button class="btn" type="submit">Prepare My Inquiry ↗</button>
+        <p class="form-status" id="formStatus">This form opens your email app.</p>
       </form>
     </div>
   </section>
@@ -1060,36 +679,33 @@ footer { background: #30241D; color: var(--ivory); padding: 55px 0 20px; }
         <a class="brand" href="#home">
           <img class="brand-logo" src="https://cdn.shopify.com/s/files/1/0825/4695/0390/files/Carved_Stone_ARMAT_Real_Estate_Logo.png?v=1795111663" alt="ARMAT Real Estate logo">
         </a>
-        <p data-i18n="footer.brandDesc">Rooted in trust. Built for your future. Helping you find land, apartments, houses and commercial spaces for the next chapter of your life.</p>
+        <p>Rooted in trust. Built for your future. Helping you find land, apartments, houses and commercial spaces for the next chapter of your life.</p>
       </div>
-
       <div class="footer-column">
-        <h3 data-i18n="footer.exploreTitle">Explore</h3>
-        <a href="#properties" data-i18n="search.allProperties">All Properties</a>
-        <a href="#categories" data-footer-category="Land" data-i18n="search.land">Land</a>
-        <a href="#categories" data-footer-category="Apartment" data-i18n="search.apartments">Apartments</a>
-        <a href="#categories" data-footer-category="House" data-i18n="search.houses">Houses</a>
-        <a href="#categories" data-footer-category="Commercial Space" data-i18n="search.commercial">Commercial Spaces</a>
+        <h3>Explore</h3>
+        <a href="#properties">All Properties</a>
+        <a href="#categories" data-footer-category="Land">Land</a>
+        <a href="#categories" data-footer-category="Apartment">Apartments</a>
+        <a href="#categories" data-footer-category="House">Houses</a>
+        <a href="#categories" data-footer-category="Commercial Space">Commercial Spaces</a>
       </div>
-
       <div class="footer-column">
-        <h3 data-i18n="footer.touchTitle">Get in Touch</h3>
-        <a href="#about" data-i18n="nav.about">About ARMAT</a>
-        <a href="#contact" data-i18n="nav.contact">Contact Us</a>
-        <a href="mailto:hello@armatestate.am" data-i18n="footer.emailLink">Email ARMAT</a>
+        <h3>Get in Touch</h3>
+        <a href="#about">About ARMAT</a>
+        <a href="#contact">Contact Us</a>
+        <a href="mailto:hello@armatestate.am">Email ARMAT</a>
       </div>
     </div>
-
     <div class="footer-bottom">
-      <span data-i18n="footer.copyright">© <span id="year"></span> ARMAT REAL ESTATE. All rights reserved.</span>
-      <span data-i18n="footer.madeIn">Made with a foundation of trust · Yerevan, Armenia</span>
+      <span>© <span id="year"></span> ARMAT REAL ESTATE. All rights reserved.</span>
+      <span>Made with a foundation of trust · Yerevan, Armenia</span>
     </div>
   </div>
 </footer>
 
-<div class="modal" id="propertyModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+<div class="modal" id="propertyModal" role="dialog" aria-modal="true">
   <div class="modal-card">
-    <button class="modal-close" id="modalClose" aria-label="Close property details">×</button>
+    <button class="modal-close" id="modalClose" aria-label="Close">×</button>
     <img id="modalImage" src="" alt="">
     <div class="modal-content">
       <div class="eyebrow" id="modalType"></div>
@@ -1097,305 +713,1053 @@ footer { background: #30241D; color: var(--ivory); padding: 55px 0 20px; }
       <div class="listing-price" id="modalPrice" style="position:static;display:inline-block;margin-top:10px"></div>
       <p id="modalDescription"></p>
       <div class="listing-meta" id="modalMeta"></div>
-      <a class="btn" id="modalContact" href="#contact" data-i18n="modal.askBtn">Ask About This Property ↗</a>
+      <a class="btn" id="modalContact" href="#contact">Ask About This Property ↗</a>
     </div>
   </div>
 </div>
 
+<!-- AGENT AUTHENTICATION MODAL -->
+<div class="modal" id="authModal" role="dialog" aria-modal="true">
+  <div class="modal-card" style="display:block;max-width:520px;max-height:90vh;margin:auto">
+    <button class="modal-close" id="authClose" type="button">×</button>
+    <div class="modal-content">
+      <div class="eyebrow">ARMAT AGENT PORTAL</div>
+      <h2 id="authHeading">Agent Login</h2>
+      <p id="authDescription">Sign in to manage your property listings.</p>
+
+      <form id="authForm">
+        <div class="field" id="authNameField" style="display:none;margin-top:18px">
+          <label>Full name</label>
+          <input id="authName" autocomplete="name">
+        </div>
+        <div class="field" style="margin-top:18px">
+          <label>Email address</label>
+          <input id="authEmail" type="email" required autocomplete="email">
+        </div>
+        <div class="field" style="margin-top:18px">
+          <label>Password</label>
+          <input id="authPassword" type="password" required minlength="6" autocomplete="current-password">
+        </div>
+        <button class="btn" id="authSubmit" type="submit" style="width:100%;margin-top:22px">Sign In ↗</button>
+      </form>
+
+      <p id="authMessage" class="form-status" role="status"></p>
+      <p style="margin-top:18px;font-size:12px">
+        <span id="authToggleText">Don't have an account?</span>
+        <button id="authToggle" type="button" style="border:0;background:none;color:var(--bronze);font-weight:700;text-decoration:underline">Create account</button>
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- AGENT DASHBOARD -->
+<div class="modal" id="dashboardModal" role="dialog" aria-modal="true">
+  <div class="modal-card" style="display:block;width:min(1000px,100%);max-height:92vh">
+    <button class="modal-close" id="dashboardClose" type="button">×</button>
+    <div class="modal-content" style="padding:35px">
+      <div class="eyebrow">ARMAT AGENT PORTAL</div>
+      <h2 style="margin:8px 0 15px">My Dashboard</h2>
+      <p id="agentWelcome">Manage your property listings.</p>
+
+      <div style="display:flex;flex-wrap:wrap;gap:10px;margin:22px 0">
+        <button class="btn" id="newPropertyButton" type="button">＋ Add Property</button>
+        <button class="btn btn-outline" id="signOutButton" type="button">Sign Out</button>
+      </div>
+
+      <div id="propertyEditor" style="display:none;border:1px solid var(--border);padding:22px;margin:20px 0;background:#F7F3EC">
+        <h3 id="editorHeading" style="font-size:27px;margin-bottom:18px">Add a property</h3>
+        <form id="propertyForm">
+          <input type="hidden" id="editPropertyId">
+          <div class="search-grid">
+            <div class="field">
+              <label>Property type *</label>
+              <select id="propertyType" required>
+                <option value="Land">Land</option>
+                <option value="Apartment">Apartment</option>
+                <option value="House">House</option>
+                <option value="Commercial Space">Commercial Space</option>
+              </select>
+            </div>
+            <div class="field">
+              <label>Title *</label>
+              <input id="propertyTitle" required maxlength="140">
+            </div>
+            <div class="field">
+              <label>Location *</label>
+              <input id="propertyLocation" required placeholder="Yerevan, Armenia">
+            </div>
+            <div class="field">
+              <label>Address</label>
+              <input id="propertyAddress">
+            </div>
+            <div class="field">
+              <label>Price *</label>
+              <input id="propertyPrice" type="number" min="0" required>
+            </div>
+            <div class="field">
+              <label>Currency</label>
+              <select id="propertyCurrency">
+                <option value="USD">USD</option>
+                <option value="AMD">AMD</option>
+                <option value="EUR">EUR</option>
+              </select>
+            </div>
+            <div class="field">
+              <label>Area (m²)</label>
+              <input id="propertyArea" type="number" min="0">
+            </div>
+            <div class="field">
+              <label>Bedrooms</label>
+              <input id="propertyBedrooms" type="number" min="0">
+            </div>
+            <div class="field">
+              <label>Bathrooms</label>
+              <input id="propertyBathrooms" type="number" min="0">
+            </div>
+            <div class="field">
+              <label>Floor</label>
+              <input id="propertyFloor" type="number" min="0">
+            </div>
+            <div class="field">
+              <label>Ceiling height (m)</label>
+              <input id="propertyCeiling" type="number" min="0" step="0.1">
+            </div>
+            <div class="field">
+              <label>Building type</label>
+              <input id="propertyBuilding" placeholder="Stone / Monolithic / Panel">
+            </div>
+            <div class="field">
+              <label>Condition</label>
+              <select id="propertyCondition">
+                <option value="">Not specified</option>
+                <option value="Renovated">Renovated</option>
+                <option value="Average">Average</option>
+                <option value="Unfinished">Unfinished</option>
+              </select>
+            </div>
+            <div class="field">
+              <label>Status</label>
+              <select id="propertyStatus">
+                <option value="published">Publish now</option>
+                <option value="draft">Save as draft</option>
+                <option value="sold">Sold</option>
+                <option value="rented">Rented</option>
+              </select>
+            </div>
+          </div>
+          <div class="field" style="margin-top:16px">
+            <label>Description</label>
+            <textarea id="propertyDescription" rows="4"></textarea>
+          </div>
+          <div class="field" style="margin-top:16px">
+            <label>Property photos (you can select multiple)</label>
+            <input id="propertyPhotos" type="file" accept="image/*" multiple>
+            <small style="color:var(--muted)">Maximum 8 photos per property. Use JPG, PNG or WEBP.</small>
+          </div>
+          <div id="photoPreview" style="display:flex;flex-wrap:wrap;gap:10px;margin-top:12px"></div>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:20px">
+            <button class="btn" id="savePropertyButton" type="submit">Save Property ↗</button>
+            <button class="btn btn-outline" id="cancelEditButton" type="button">Cancel</button>
+          </div>
+          <p id="propertyFormMessage" class="form-status" role="status"></p>
+        </form>
+      </div>
+
+      <h3 style="font-size:26px;margin:28px 0 15px">My Properties</h3>
+      <div id="agentPropertiesList" style="display:grid;gap:12px">
+        <p>Loading your properties...</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SUPABASE -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
 <script>
-const TRANSLATIONS = {
-  en: {
-    announcement: "Find your place. Build your roots. &nbsp; · &nbsp; ARMAT REAL ESTATE",
-    nav: { home: "Home", properties: "Properties", categories: "Categories", about: "About Us", contact: "Contact", listProperty: "List Your Property ↗" },
-    hero: { eyebrow: "A better place to begin", title: "Find a place<br>to put down <em>roots.</em>", copy: "From the land you dream of to the home you belong in, discover real estate that feels right for your future.", exploreBtn: "Explore Properties ↗", discoverBtn: "Discover ARMAT", note: "Land · Apartments · Houses · Commercial Spaces" },
-    search: { title: "Find your property", filters: "Filters", locationLabel: "Location", locationPlaceholder: "e.g. Yerevan", minPriceLabel: "Min. price ($)", noMinimum: "No minimum", maxPriceLabel: "Max. price ($)", noMaximum: "No maximum", typeLabel: "Property Type", allProperties: "All Properties", land: "Land", apartments: "Apartments", houses: "Houses", commercial: "Commercial Spaces", minAreaLabel: "Min. Area (m²)", maxAreaLabel: "Max. Area (m²)", areaPlaceholder: "e.g. 50", roomsLabel: "Number of Rooms", any: "Any", "1Room": "1 Room", "2Rooms": "2 Rooms", "3Rooms": "3 Rooms", "4Rooms": "4 Rooms", "5PlusRooms": "5+ Rooms", floorLabel: "Floor", anyFloor: "Any floor", bathsLabel: "Number of Bathrooms", "1Bath": "1 Bathroom", "2Baths": "2 Bathrooms", "3PlusBaths": "3+ Bathrooms", ceilingLabel: "Ceiling Height (m)", anyHeight: "Any Height", buildingTypeLabel: "Building Type", allTypes: "All Types", stone: "Stone", monolithic: "Monolithic Concrete", panel: "Panel", statusLabel: "Status", anyStatus: "Any Status", renovated: "Renovated", average: "Average Condition", unfinished: "Unfinished", applyBtn: "Apply Filters ↗", clearBtn: "Clear All", showingAll: "Showing all properties", foundCount: "Found {count} {type}" },
-    categories: { eyebrow: "Explore your possibilities", title: "A place for every kind of dream.", copy: "Whether you're building from the ground up or moving straight in, discover the right property for your next chapter." },
-    cat: { land: { sub: "Build your future", desc: "Room to grow. Space to create." }, apt: { sub: "City living", desc: "Comfort, convenience, connection." }, house: { sub: "Made for living", desc: "Find the place that feels like home." }, comm: { sub: "Space to do business", desc: "Find the right place for your business." } },
-    listings: { eyebrow: "Selected properties", title: "Find your next address.", copy: "Explore our featured collection of land, apartments, houses and commercial spaces.", showAllBtn: "Show All Properties ↗", selectionTag: "ARMAT SELECTION", viewDetails: "View Details ↗", noResultsTitle: "No properties found", noResultsCopy: "Try changing your filters to see more results.", checkRanges: "Please check your price and area ranges." },
-    stats: { vision: "Your vision comes first", attention: "Personalized attention", possibilities: "Possibilities for your future" },
-    about: { eyebrow: "Our philosophy", title: "Rooted in trust.<br>Built for your future.", p1: "At ARMAT, we believe real estate is about more than walls, land and addresses. It's about the place where your next chapter begins.", p2: "Inspired by the Armenian word for roots, ARMAT stands for belonging, stability and the foundations that connect us to a place.", p3: "Whether you're searching for land, an apartment or a family home, our goal is to help you find a property that feels right for you.", val: { trust: "Trust", trustDesc: "Honest, attentive service", purpose: "Purpose", purposeDesc: "Properties that fit your plans", connection: "Connection", connectionDesc: "A personal approach", roots: "Roots", rootsDesc: "A place to truly belong" }, ctaBtn: "Let's Find Your Place ↗" },
-    cta: { eyebrow: "Your next chapter starts here", title: "Every great story needs a place.", copy: "Tell us what you're looking for. Let's find the land, apartment, house or commercial space that feels right for your next chapter.", btn: "Talk to ARMAT ↗" },
-    contact: { eyebrow: "Get in touch", title: "Let's find your place.", copy: "Have a property in mind, want to sell, or simply need guidance? Send us a message and tell us about your plans.", officeLabel: "Our office", officeValue: "Yerevan, Armenia", emailLabel: "Email", hoursLabel: "Working hours", hoursValue: "Monday – Saturday · By appointment", nameLabel: "Your name", namePlaceholder: "Full name", emailFieldLabel: "Email address", emailPlaceholder: "you@example.com", interestLabel: "I'm interested in", buying: "Buying a property", selling: "Selling a property", other: "Other inquiry", messageLabel: "Your message", messagePlaceholder: "Tell us a little about what you're looking for...", submitBtn: "Prepare My Inquiry ↗", formStatus: "Opening your email app. Please review and send the prepared message." },
-    footer: { brandDesc: "Rooted in trust. Built for your future. Helping you find land, apartments, houses and commercial spaces for the next chapter of your life.", exploreTitle: "Explore", touchTitle: "Get in Touch", emailLink: "Email ARMAT", copyright: "© <span id=\"year\"></span> ARMAT REAL ESTATE. All rights reserved.", madeIn: "Made with a foundation of trust · Yerevan, Armenia" },
-    modal: { askBtn: "Ask About This Property ↗", bedrooms: "bedrooms", bathrooms: "bathrooms" }
-  },
-  hy: {
-    announcement: "Ամրացրեք ձեր արմատները։ &nbsp; · &nbsp; |ԱՐՄԱՏ ԱՆՇԱՐԺ ԳՈՒՅՔ",
-    nav: { home: "Գլխավոր", properties: "Բոլորը", categories: "Կատեգորիաներ", about: "Մեր մասին", contact: "Կապ", listProperty: "Տեղադրել հայտարարություն ↗" },
-    hero: { eyebrow: "Լավագույն սկիզբը", title: "Գտեք այն վայրը,<br>որտեղ կամրացնեք <em>արմատները։</em>", copy: "«Երազանքի հողատարածքից մինչև քո տուն. բացահայտի՛ր քո ապագա անկյունը»։", exploreBtn: "Դիտել բոլորը ↗", discoverBtn: "Մեր մասին", note: "Տներ· Բնակարաններ · Հողատարածքներ · Կոմերցիոն տարածքներ" },
-    search: { title: "Գտեք ձեր անշարժ գույքը", filters: "Ֆիլտրեր", locationLabel: "Վայր", locationPlaceholder: "Օր․ Երևան", minPriceLabel: "Գին (֏)", noMinimum: "Նվազագույն", maxPriceLabel: "Գին (֏)", noMaximum: "Առավելագույն", typeLabel: "Գույքի տեսակ", allProperties: "Բոլորը", houses: "Տներ", apartments: "Բնակարաններ", land: "Հողատարածքներ", commercial: "Կոմերցիոն տարածքներ", minAreaLabel: "Մակերես (մ²)", maxAreaLabel: "Մակերես (մ²)", areaPlaceholder: "Նվազագույն", roomsLabel: "Սենյակների քանակ", any: "Օր. 3", "1Room": "1 ", "2Rooms": "2 ", "3Rooms": "3 ", "4Rooms": "4 ", "5PlusRooms": "5+ ", floorLabel: "Հարկ", anyFloor: "Օր. 2", bathsLabel: "Լոգասենյակների քանակ", "1Bath": "1 ", "2Baths": "2 ", "3PlusBaths": "3+ լոգասենյակ", ceilingLabel: "Առաստաղի բարձրություն (մ)", anyHeight: "Օր. 3մ", buildingTypeLabel: "Շենքի տեսակ", allTypes: "Բոլորը", stone: "Քարե", monolithic: "Մոնոլիտ", panel: "Պանելային", statusLabel: "Վիճակ", anyStatus: "Օր. ", renovated: "Վերանորոգված", average: "Լավ", unfinished: "Անավարտ", applyBtn: "Կիրառել ↗", clearBtn: "Ջնջել բոլորը", showingAll: "Ցուցադրվում են բոլոր գույքերը", foundCount: "Գտնվել է {count} {type}" },
-    categories: { eyebrow: "Բացահայտի՛ր քո հնարավորությունները", title: "Անկյուն՝ բոլորի համար։" },
-    cat: { land: { sub: "Կառուցեք ձեր ապագան", desc: "Տարածք աճելու համար։ Տարածք ստեղծագործելու համար։" }, apt: { sub: "Քաղաքային կյանք", desc: "Հարմարավետություն, հարմարություն, կապ։" }, house: { sub: "Ստեղծված ապրելու համար", desc: "Գտեք այն վայրը, որը նման է տանը։" }, comm: { sub: "Տարածք բիզնեսի համար", desc: "Գտեք ճիշտ վայրը ձեր բիզնեսի համար։" } },
-    listings: { eyebrow: "Ընտրված անշարժ գույք", title: "Գտեք ձեր հաջորդ հասցեն։", copy: "Հետազոտեք մեր հողամասերի, բնակարանների, տների և առևտրային տարածքների ընտրանին։", showAllBtn: "Ցուցադրել բոլոր գույքերը ↗", selectionTag: "ARMAT ԸՆՏՐԱՆԻ", viewDetails: "Դիտել մանրամասներ ↗", noResultsTitle: "Անշարժ գույք չի գտնվել", noResultsCopy: "Փորձեք փոխել ֆիլտրերը՝ ավելի շատ արդյունքներ տեսնելու համար։", checkRanges: "Խնդրում ենք ստուգել գնի և մակերեսի միջակայքերը։" },
-    stats: { vision: "Ձեր տեսլականը առաջնային է", attention: "Անհատական ուշադրություն", possibilities: "Հնարավորություններ ձեր ապագայի համար" },
-    about: { eyebrow: "Մեր փիլիսոփայությունը", title: "Արմատավորված վստահության մեջ։<br>Կառուցված ձեր ապագայի համար։", p1: "ARMAT-ում մենք հավատում ենք, որ անշարժ գույքը ավելին է, քան պարզապես պատեր, հող և հասցեներ։ Դա այն վայրն է, որտեղ սկսվում է ձեր հաջորդ փուլը։", p2: "Ոգեշնչված «արմատ» բառով՝ ARMAT-ը խորհրդանշում է պատկանելությունը, կայունությունը և այն հիմքերը, որոնք մեզ կապում են վայրի հետ։", p3: "Թե՛ դուք փնտրում եք հողամաս, բնակարան կամ ընտանեկան տուն՝ մեր նպատակն է օգնել ձեզ գտնել այն գույքը, որը ճիշտ է ձեզ համար։", val: { trust: "Վստահություն", trustDesc: "Ազնիվ, ուշադիր սպասարկում", purpose: "Նպատակ", purposeDesc: "Գույքեր, որոնք համապատասխանում են ձեր ծրագրերին", connection: "Կապ", connectionDesc: "Անհատական մոտեցում", roots: "Արմատներ", rootsDesc: "Վայր, որտեղ իսկապես պատկանում եք" }, ctaBtn: "Գտնենք ձեր տեղը ↗" },
-    cta: { eyebrow: "Ձեր հաջորդ փուլը սկսվում է այստեղ", title: "Յուրաքանչյուր մեծ պատմություն վայր է պահանջում։", copy: "Ասեք մեզ, թե ինչ եք փնտրում։ Եկեք գտնենք այն հողամասը, բնակարանը, տունը կամ առևտրային տարածքը, որը ճիշտ է ձեր հաջորդ փուլի համար։", btn: "Կապվել ARMAT-ի հետ ↗" },
-    contact: { eyebrow: "Կապ հաստատեք", title: "Եկեք գտնենք ձեր տեղը։", copy: "Ունե՞ք կոնկրետ գույք մտքում, ցանկանում եք վաճառել, կամ պարզապես կարիք ունեք խորհրդատվության։ Ուղարկեք մեզ հաղորդագրություն և պատմեք ձեր ծրագրերի մասին։", officeLabel: "Մեր գրասենյակ", officeValue: "Երևան, Հայաստան", emailLabel: "Էլ. փոստ", hoursLabel: "Աշխատանքային ժամեր", hoursValue: "Երկուշաբթի – Շաբաթ · Ըստ նախնական պայմանավորվածության", nameLabel: "Ձեր անունը", namePlaceholder: "Անուն, ազգանուն", emailFieldLabel: "Էլ. փոստի հասցե", emailPlaceholder: "you@example.com", interestLabel: "Ես հետաքրքրված եմ", buying: "Գույք գնելով", selling: "Գույք վաճառելով", other: "Այլ հարցում", messageLabel: "Ձեր հաղորդագրությունը", messagePlaceholder: "Պատմեք մեզ մի փոքր այն մասին, թե ինչ եք փնտրում...", submitBtn: "Պատրաստել հարցումը ↗", formStatus: "Բացվում է ձեր էլ. փոստի հավելվածը։ Խնդրում ենք ստուգել և ուղարկել պատրաստված հաղորդագրությունը։" },
-    footer: { brandDesc: "Արմատավորված վստահության մեջ։ Կառուցված ձեր ապագայի համար։ Օգնում ենք ձեզ գտնել հողամասեր, բնակարաններ, տներ և առևտրային տարածքներ ձեր կյանքի հաջորդ փուլի համար։", exploreTitle: "Հետազոտել", touchTitle: "Կապ հաստատել", emailLink: "Գրել ARMAT-ին", copyright: "© <span id=\"year\"></span> ARMAT REAL ESTATE. Բոլոր իրավունքները պաշտպանված են։", madeIn: "Ստեղծված վստահության հիմքով · Երևան, Հայաստան" },
-    modal: { askBtn: "Հարցնել այս գույքի մասին ↗", bedrooms: "ննջասենյակ", bathrooms: "լոգասենյակ" }
+/* =========================================
+   ARMAT SUPABASE CONFIGURATION
+   ========================================= */
+
+const SUPABASE_URL = "https://aukzotrfmezqehjdspvr.supabase.co";
+const SUPABASE_ANON_KEY = "sb_publishable_ShyTXXEn9IcjN0TqZVGCdw_vHCjnYcI";
+
+const db = window.supabase.createClient(
+  SUPABASE_URL,
+  SUPABASE_ANON_KEY
+);
+
+const BUCKET = "property-images";
+
+let currentUser = null;
+let currentProfile = null;
+let allProperties = [];
+let authMode = "login";
+let selectedPhotos = [];
+
+/* =========================================
+   HELPERS
+   ========================================= */
+
+const $ = id => document.getElementById(id);
+
+function escapeHTML(value) {
+  return String(value ?? "").replace(/[&<>"']/g, char => ({
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    '"': "&quot;",
+    "'": "&#39;"
+  }[char]));
+}
+
+function money(value, currency = "USD") {
+  return new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency,
+    maximumFractionDigits: 0
+  }).format(Number(value || 0));
+}
+
+function propertyImages(property) {
+  if (property.property_images?.length) {
+    return property.property_images
+      .sort((a, b) => a.sort_order - b.sort_order)
+      .map(image => db.storage.from(BUCKET).getPublicUrl(image.storage_path).data.publicUrl);
   }
-};
 
-const armenianLogoUrl = "https://cdn.shopify.com/s/files/1/0825/4695/0390/files/Embossed_Stone_House_Logo_with_Roots.png?v=1795111663";
-const englishLogoUrl = "https://cdn.shopify.com/s/files/1/0825/4695/0390/files/Carved_Stone_ARMAT_Real_Estate_Logo.png?v=1795111663";
-
-let currentLang = 'en';
-const langSwitch = document.getElementById('langSwitch');
-const logos = document.querySelectorAll('.brand-logo');
-
-function getNestedValue(obj, path) {
-  return path.split('.').reduce((current, key) => current && current[key], obj);
+  return [];
 }
 
-function translatePage(lang) {
-  const t = TRANSLATIONS[lang];
-  document.querySelectorAll('[data-i18n]').forEach(el => {
-    const key = el.getAttribute('data-i18n');
-    const value = getNestedValue(t, key);
-    if (value !== undefined) el.innerHTML = value;
-  });
-  document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
-    const key = el.getAttribute('data-i18n-placeholder');
-    const value = getNestedValue(t, key);
-    if (value !== undefined) el.placeholder = value;
-  });
-  document.querySelectorAll('select option[data-i18n]').forEach(option => {
-    const key = option.getAttribute('data-i18n');
-    const value = getNestedValue(t, key);
-    if (value !== undefined) option.textContent = value;
-  });
-  document.documentElement.lang = lang === 'hy' ? 'hy' : 'en';
+function propertyToCard(property) {
+  const images = propertyImages(property);
+  return {
+    ...property,
+    image: images[0] || "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1000&q=85",
+    priceLabel: money(property.price, property.currency)
+  };
 }
 
-function updateLogo(lang) {
-  const targetUrl = lang === 'hy' ? armenianLogoUrl : englishLogoUrl;
-  const targetAlt = lang === 'hy' ? "ARMAT Անշարժ Գույք լոգո" : "ARMAT Real Estate logo";
-  logos.forEach(img => { img.src = targetUrl; img.alt = targetAlt; });
-}
+/* =========================================
+   LOAD PUBLIC PROPERTIES
+   ========================================= */
 
-const userLang = navigator.language || navigator.userLanguage;
-if (userLang.startsWith('hy')) {
-  currentLang = 'hy';
-  langSwitch.textContent = 'EN';
-  translatePage('hy');
-  updateLogo('hy');
-} else {
-  langSwitch.textContent = 'HY';
-  translatePage('en');
-  updateLogo('en');
-}
+async function loadProperties() {
+  const { data, error } = await db
+    .from("properties")
+    .select("*, property_images(*)")
+    .eq("status", "published")
+    .order("created_at", { ascending: false });
 
-langSwitch.addEventListener('click', () => {
-  if (currentLang === 'en') {
-    currentLang = 'hy';
-    langSwitch.textContent = 'EN';
-    translatePage('hy');
-    updateLogo('hy');
-  } else {
-    currentLang = 'en';
-    langSwitch.textContent = 'HY';
-    translatePage('en');
-    updateLogo('en');
-  }
-});
-
-const properties = [
-  { id: 1, type: "House", title: "Contemporary Family Home", location: "Yerevan, Armenia", price: 285000, priceLabel: "$285,000", area: 220, beds: 4, baths: 3, floor: 2, ceilingHeight: 3.2, buildingType: "Monolithic Concrete", condition: "Renovated", image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1000&q=85", description: "A contemporary home with generous living spaces and a refined architectural style. Contact ARMAT to discuss the property's details and arrange a viewing." },
-  { id: 2, type: "Apartment", title: "Modern City Apartment", location: "Yerevan, Armenia", price: 145000, priceLabel: "$145,000", area: 95, beds: 3, baths: 2, floor: 8, ceilingHeight: 2.7, buildingType: "Monolithic Concrete", condition: "Renovated", image: "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1000&q=85", description: "A modern apartment concept with a calm, light-filled interior. Contact ARMAT to learn more about available apartments and viewing options." },
-  { id: 3, type: "Land", title: "Residential Land Plot", location: "Armenia", price: 75000, priceLabel: "$75,000", area: 800, beds: null, baths: null, image: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1000&q=85", description: "An example land listing for those planning to build a home of their own. Exact location, zoning, access and permitted uses must be verified before purchase." },
-  { id: 4, type: "House", title: "Warm Minimalist Residence", location: "Armenia", price: 220000, priceLabel: "$220,000", area: 180, beds: 3, baths: 2, floor: 1, ceilingHeight: 3, buildingType: "Stone", condition: "Average Condition", image: "https://images.unsplash.com/photo-1600607687644-c7171b42498f?auto=format&fit=crop&w=1000&q=85", description: "A minimalist residential concept with natural materials and timeless lines. Contact ARMAT for verified property information and available options." },
-  { id: 5, type: "Apartment", title: "Elegant Urban Residence", location: "Yerevan, Armenia", price: 118000, priceLabel: "$118,000", area: 78, beds: 2, baths: 1, floor: 5, ceilingHeight: 2.7, buildingType: "Panel", condition: "Renovated", image: "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1000&q=85", description: "An apartment concept suited to convenient city living. Ask ARMAT about actual listings, location details, building amenities and viewing availability." },
-  { id: 6, type: "Land", title: "Land for Your Future Home", location: "Armenia", price: 52000, priceLabel: "$52,000", area: 600, beds: null, baths: null, image: "https://images.unsplash.com/photo-1472396961693-142e6e269027?auto=format&fit=crop&w=1000&q=85", description: "A sample plot listing for a future home or investment. Verify ownership, cadastral information, utilities, road access and construction permissions before making a decision." },
-  { id: 7, type: "Commercial Space", title: "Modern Commercial Office", location: "Yerevan, Armenia", price: 195000, priceLabel: "$195,000", area: 160, beds: null, baths: 2, floor: 1, ceilingHeight: 3.5, buildingType: "Monolithic Concrete", condition: "Unfinished", image: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1000&q=85", description: "A sample commercial property listing suitable for office or business use. Verify the exact address, permitted use, ownership documents and property condition before making a decision." }
-];
-
-const listingGrid = document.getElementById("listingGrid");
-const searchForm = document.getElementById("searchForm");
-const searchType = document.getElementById("searchType");
-const searchLocation = document.getElementById("searchLocation");
-const minPrice = document.getElementById("minPrice");
-const maxPrice = document.getElementById("maxPrice");
-const filterToggle = document.getElementById("filterToggle");
-const advancedFilters = document.getElementById("advancedFilters");
-const filterCount = document.getElementById("filterCount");
-const getFilterValue = id => document.getElementById(id).value;
-const escapeHTML = value => String(value ?? "").replace(/[&<>"']/g, char => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[char]));
-
-function renderListings(items) {
-  if (!items.length) {
-    const t = TRANSLATIONS[currentLang];
-    listingGrid.innerHTML = `<div class="empty-state"><h3 style="font-family:var(--serif);font-size:30px;margin-bottom:8px">${getNestedValue(t, 'listings.noResultsTitle')}</h3><p>${getNestedValue(t, 'listings.noResultsCopy')}</p></div>`;
+  if (error) {
+    console.error("Could not load properties:", error.message);
+    $("listingGrid").innerHTML =
+      '<div class="empty-state">Properties are temporarily unavailable.</div>';
     return;
   }
-  const t = TRANSLATIONS[currentLang];
-  listingGrid.innerHTML = items.map(property => `
-    <article class="listing-card">
+
+  allProperties = (data || []).map(propertyToCard);
+  renderListings(allProperties);
+}
+
+function renderListings(items) {
+  const grid = $("listingGrid");
+
+  if (!items.length) {
+    grid.innerHTML = `
+      <div class="empty-state">
+        <h3 style="font-family:var(--serif);font-size:30px;margin-bottom:8px">
+          No properties found
+        </h3>
+        <p>New ARMAT listings will appear here.</p>
+      </div>`;
+    return;
+  }
+
+  grid.innerHTML = items.map(property => `
+    <article class="listing-card" data-id="${escapeHTML(property.id)}">
       <div class="listing-photo">
-        <img loading="lazy" src="${escapeHTML(property.image)}" alt="${escapeHTML(property.title)}" onerror="this.style.display='none'">
-        <span class="listing-tag">${escapeHTML(getNestedValue(t, `search.${property.type.toLowerCase().replace(/ /g, '')}`) || property.type)}</span>
+        <img loading="lazy"
+          src="${escapeHTML(property.image)}"
+          alt="${escapeHTML(property.title)}">
+        <span class="listing-tag">${escapeHTML(property.type)}</span>
         <span class="listing-price">${escapeHTML(property.priceLabel)}</span>
       </div>
       <div class="listing-body">
-        <div class="listing-type">${escapeHTML(getNestedValue(t, `search.${property.type.toLowerCase().replace(/ /g, '')}`) || property.type)} · ${getNestedValue(t, 'listings.selectionTag')}</div>
+        <div class="listing-type">ARMAT REAL ESTATE</div>
         <h3>${escapeHTML(property.title)}</h3>
-        <div class="listing-address">⌖ &nbsp;${escapeHTML(property.location)}</div>
+        <div class="listing-address">⌖ ${escapeHTML(property.location)}</div>
         <div class="listing-meta">
           ${property.area ? `<span>▧ ${escapeHTML(property.area)} m²</span>` : ""}
-          ${property.beds ? `<span>▤ ${escapeHTML(property.beds)} ${getNestedValue(t, 'modal.bedrooms')}</span>` : ""}
-          ${property.baths ? `<span>◇ ${escapeHTML(property.baths)} ${getNestedValue(t, 'modal.bathrooms')}</span>` : ""}
+          ${property.bedrooms ? `<span>▤ ${escapeHTML(property.bedrooms)} bedrooms</span>` : ""}
+          ${property.bathrooms ? `<span>◇ ${escapeHTML(property.bathrooms)} bathrooms</span>` : ""}
         </div>
-        <div class="listing-footer">
-          <button class="text-link" type="button" data-details="${property.id}">${getNestedValue(t, 'listings.viewDetails')}</button>
-          <span style="font-family:var(--serif);font-size:21px;color:var(--bronze)">0${property.id}</span>
-        </div>
+        <span class="listing-link">View Details ↗</span>
       </div>
     </article>
   `).join("");
+
+  grid.querySelectorAll(".listing-card").forEach(card => {
+    card.addEventListener("click", () => {
+      const property = allProperties.find(p => p.id === card.dataset.id);
+      if (property) openProperty(property);
+    });
+  });
 }
 
-function filterProperties() {
-  const type = searchType.value;
-  const location = searchLocation.value.trim().toLowerCase();
-  const min = minPrice.value === "" ? null : Number(minPrice.value);
-  const max = maxPrice.value === "" ? null : Number(maxPrice.value);
-  const minArea = getFilterValue("minArea") === "" ? null : Number(getFilterValue("minArea"));
-  const maxArea = getFilterValue("maxArea") === "" ? null : Number(getFilterValue("maxArea"));
-  const rooms = getFilterValue("roomCount");
-  const floor = getFilterValue("floorNumber") === "" ? null : Number(getFilterValue("floorNumber"));
-  const baths = getFilterValue("bathroomCount");
-  const ceiling = getFilterValue("ceilingHeight");
-  const building = getFilterValue("buildingType");
-  const condition = getFilterValue("propertyCondition");
+/* =========================================
+   PROPERTY DETAILS
+   ========================================= */
 
-  if ([min, max, minArea, maxArea, floor].some(v => v !== null && (!Number.isFinite(v) || v < 0)) || (min !== null && max !== null && min > max) || (minArea !== null && maxArea !== null && minArea > maxArea)) {
-    const t = TRANSLATIONS[currentLang];
-    listingGrid.innerHTML = `<div class="empty-state">${getNestedValue(t, 'listings.checkRanges')}</div>`;
-    filterCount.textContent = getNestedValue(t, 'listings.checkRanges');
-    return;
+function openProperty(property) {
+  const images = propertyImages(property);
+
+  $("modalImage").src = images[0] || property.image;
+  $("modalImage").alt = property.title;
+  $("modalType").textContent = property.type;
+  $("modalTitle").textContent = property.title;
+  $("modalPrice").textContent = property.priceLabel;
+  $("modalDescription").textContent = property.description || "";
+
+  $("modalMeta").innerHTML = `
+    ${property.area ? `<span>▧ ${escapeHTML(property.area)} m²</span>` : ""}
+    ${property.bedrooms ? `<span>▤ ${escapeHTML(property.bedrooms)} bedrooms</span>` : ""}
+    ${property.bathrooms ? `<span>◇ ${escapeHTML(property.bathrooms)} bathrooms</span>` : ""}
+    <span>⌖ ${escapeHTML(property.location)}</span>
+  `;
+
+  $("modalContact").onclick = () => {
+    $("propertyModal").classList.remove("open");
+    $("contactForm").scrollIntoView({ behavior: "smooth" });
+  };
+
+  $("propertyModal").classList.add("open");
+}
+
+$("modalClose").addEventListener("click", () => {
+  $("propertyModal").classList.remove("open");
+});
+
+$("propertyModal").addEventListener("click", event => {
+  if (event.target === $("propertyModal")) {
+    $("propertyModal").classList.remove("open");
   }
+});
 
-  const filtered = properties.filter(property => {
-    const roomsMatch = !rooms || (rooms === "5" ? Number(property.beds) >= 5 : Number(property.beds) === Number(rooms));
-    const bathsMatch = !baths || (baths === "3" ? Number(property.baths) >= 3 : Number(property.baths) === Number(baths));
-    return (type === "all" || property.type === type) &&
-      (!location || property.location.toLowerCase().includes(location)) &&
-      (min === null || property.price >= min) && (max === null || property.price <= max) &&
-      (minArea === null || (property.area != null && property.area >= minArea)) && (maxArea === null || (property.area != null && property.area <= maxArea)) &&
-      roomsMatch && (floor === null || property.floor === floor) && bathsMatch &&
-      (!ceiling || (ceiling === "4" ? property.ceilingHeight >= 4 : property.ceilingHeight === Number(ceiling))) &&
-      (!building || property.buildingType === building) && (!condition || property.condition === condition);
+/* =========================================
+   SEARCH AND FILTERS
+   ========================================= */
+
+function applyFilters() {
+  const location = $("searchLocation").value.trim().toLowerCase();
+  const minPrice = Number($("minPrice").value || 0);
+  const maxPrice = Number($("maxPrice").value || Infinity);
+  const type = $("searchType").value;
+  const minArea = Number($("minArea").value || 0);
+  const maxArea = Number($("maxArea").value || Infinity);
+  const rooms = $("searchRooms").value;
+  const condition = $("searchCondition").value;
+
+  const filtered = allProperties.filter(property => {
+    const matchesLocation =
+      !location || property.location.toLowerCase().includes(location);
+
+    const matchesPrice =
+      Number(property.price) >= minPrice &&
+      Number(property.price) <= maxPrice;
+
+    const matchesType =
+      type === "all" || property.type === type;
+
+    const matchesArea =
+      Number(property.area || 0) >= minArea &&
+      Number(property.area || 0) <= maxArea;
+
+    const matchesRooms =
+      !rooms ||
+      (rooms === "5"
+        ? Number(property.bedrooms || 0) >= 5
+        : Number(property.bedrooms || 0) === Number(rooms));
+
+    const matchesCondition =
+      !condition || property.condition === condition;
+
+    return matchesLocation && matchesPrice && matchesType &&
+      matchesArea && matchesRooms && matchesCondition;
   });
 
   renderListings(filtered);
-  const t = TRANSLATIONS[currentLang];
-  const countText = getNestedValue(t, 'search.foundCount').replace('{count}', filtered.length)
-    .replace('{type}', filtered.length === 1 ? (filtered[0].type === 'Land' ? getNestedValue(t, 'search.land') : filtered[0].type === 'Apartment' ? getNestedValue(t, 'search.apartments') : filtered[0].type === 'House' ? getNestedValue(t, 'search.houses') : getNestedValue(t, 'search.commercial')) : getNestedValue(t, 'search.allProperties'));
-  filterCount.textContent = countText;
 }
 
-filterToggle.addEventListener("click", () => {
-  const isOpen = advancedFilters.classList.toggle("is-open");
-  filterToggle.setAttribute("aria-expanded", String(isOpen));
-  const t = TRANSLATIONS[currentLang];
-  filterToggle.innerHTML = `${isOpen ? (currentLang === 'hy' ? 'Թաքցնել' : 'Hide') : getNestedValue(t, 'search.filters')} <span aria-hidden="true">${isOpen ? "−" : "＋"}</span>`;
-});
-
-document.getElementById("clearFilters").addEventListener("click", () => {
-  searchForm.reset();
-  renderListings(properties);
-  filterCount.textContent = getNestedValue(TRANSLATIONS[currentLang], 'search.showingAll');
-});
-
-searchForm.addEventListener("submit", event => {
+$("searchForm").addEventListener("submit", event => {
   event.preventDefault();
-  filterProperties();
-  document.getElementById("properties").scrollIntoView({ behavior: "smooth" });
+  applyFilters();
+  $("properties").scrollIntoView({ behavior: "smooth" });
 });
 
-document.getElementById("showAllBtn").addEventListener("click", () => {
-  searchType.value = "all"; searchLocation.value = ""; minPrice.value = ""; maxPrice.value = "";
-  searchForm.reset();
-  filterCount.textContent = getNestedValue(TRANSLATIONS[currentLang], 'search.showingAll');
-  renderListings(properties);
+$("clearFilters").addEventListener("click", () => {
+  setTimeout(() => renderListings(allProperties), 0);
+});
+
+$("showAllBtn").addEventListener("click", () => {
+  $("searchForm").reset();
+  renderListings(allProperties);
+});
+
+$("filterToggle").addEventListener("click", () => {
+  const open = $("advancedFilters").classList.toggle("open");
+  $("filterToggle").setAttribute("aria-expanded", String(open));
 });
 
 document.querySelectorAll("[data-category], [data-footer-category]").forEach(link => {
   link.addEventListener("click", () => {
-    searchType.value = link.dataset.category || link.dataset.footerCategory;
-    searchLocation.value = ""; minPrice.value = ""; maxPrice.value = "";
-    renderListings(properties.filter(p => p.type === searchType.value));
+    const type = link.dataset.category || link.dataset.footerCategory;
+    $("searchType").value = type;
+    applyFilters();
   });
 });
 
-const modal = document.getElementById("propertyModal");
-const modalClose = document.getElementById("modalClose");
+/* =========================================
+   AUTHENTICATION
+   ========================================= */
 
-listingGrid.addEventListener("click", event => {
-  const button = event.target.closest("[data-details]");
-  if (!button) return;
-  const property = properties.find(p => p.id === Number(button.dataset.details));
-  if (!property) return;
-  const t = TRANSLATIONS[currentLang];
+function showAuth(mode = "login") {
+  authMode = mode;
+  $("authHeading").textContent =
+    mode === "login" ? "Agent Login" : "Create Agent Account";
 
-  document.getElementById("modalImage").src = property.image;
-  document.getElementById("modalImage").alt = property.title;
-  document.getElementById("modalType").textContent = getNestedValue(t, `search.${property.type.toLowerCase().replace(/ /g, '')}`) || property.type;
-  document.getElementById("modalTitle").textContent = property.title;
-  document.getElementById("modalPrice").textContent = property.priceLabel;
-  document.getElementById("modalDescription").textContent = property.description;
-  document.getElementById("modalMeta").innerHTML = [
-    property.area ? `<span>▧ ${escapeHTML(property.area)} m²</span>` : "",
-    property.beds ? `<span>▤ ${escapeHTML(property.beds)} ${getNestedValue(t, 'modal.bedrooms')}</span>` : "",
-    property.baths ? `<span>◇ ${escapeHTML(property.baths)} ${getNestedValue(t, 'modal.bathrooms')}</span>` : "",
-    `<span>⌖ ${escapeHTML(property.location)}</span>`
-  ].filter(Boolean).join("");
+  $("authDescription").textContent =
+    mode === "login"
+      ? "Sign in to manage your property listings."
+      : "Create an account to publish your properties.";
 
-  document.getElementById("modalContact").onclick = () => {
-    modal.classList.remove("open");
-    const interestSelect = document.getElementById("contactInterest");
-    if (property.type === "Land") interestSelect.value = getNestedValue(t, 'search.land');
-    else if (property.type === "House") interestSelect.value = getNestedValue(t, 'search.houses');
-    else if (property.type === "Commercial Space") interestSelect.value = getNestedValue(t, 'search.commercial');
-    else interestSelect.value = getNestedValue(t, 'search.apartments');
-  };
-  modal.classList.add("open");
-  modalClose.focus();
+  $("authNameField").style.display =
+    mode === "signup" ? "flex" : "none";
+
+  $("authName").required = mode === "signup";
+
+  $("authSubmit").textContent =
+    mode === "login" ? "Sign In ↗" : "Create Account ↗";
+
+  $("authToggleText").textContent =
+    mode === "login" ? "Don't have an account?" : "Already have an account?";
+
+  $("authToggle").textContent =
+    mode === "login" ? "Create account" : "Sign in";
+
+  $("authMessage").textContent = "";
+  $("authModal").classList.add("open");
+}
+
+$("accountButton").addEventListener("click", async () => {
+  if (currentUser) {
+    await openDashboard();
+  } else {
+    showAuth("login");
+  }
 });
 
-function closeModal() { modal.classList.remove("open"); }
-modalClose.addEventListener("click", closeModal);
-modal.addEventListener("click", event => { if (event.target === modal) closeModal(); });
-document.addEventListener("keydown", event => { if (event.key === "Escape") closeModal(); });
-
-const menuToggle = document.getElementById("menuToggle");
-const navLinks = document.getElementById("navLinks");
-menuToggle.addEventListener("click", () => {
-  const isOpen = navLinks.classList.toggle("open");
-  menuToggle.setAttribute("aria-expanded", String(isOpen));
-  menuToggle.setAttribute("aria-label", isOpen ? "Close navigation" : "Open navigation");
-  menuToggle.textContent = isOpen ? "×" : "☰";
-});
-navLinks.querySelectorAll("a").forEach(link => {
-  link.addEventListener("click", () => {
-    navLinks.classList.remove("open");
-    menuToggle.setAttribute("aria-expanded", "false");
-    menuToggle.textContent = "☰";
-  });
+$("authToggle").addEventListener("click", () => {
+  showAuth(authMode === "login" ? "signup" : "login");
 });
 
-document.getElementById("contactForm").addEventListener("submit", event => {
+$("authClose").addEventListener("click", () => {
+  $("authModal").classList.remove("open");
+});
+
+$("authForm").addEventListener("submit", async event => {
   event.preventDefault();
+
+  const email = $("authEmail").value.trim();
+  const password = $("authPassword").value;
+  const button = $("authSubmit");
+
+  button.disabled = true;
+  $("authMessage").textContent = "Please wait...";
+
+  try {
+    if (authMode === "signup") {
+      const fullName = $("authName").value.trim();
+
+      const { data, error } = await db.auth.signUp({
+        email,
+        password,
+        options: {
+          data: { full_name: fullName }
+        }
+      });
+
+      if (error) throw error;
+
+      if (!data.session) {
+        $("authMessage").textContent =
+          "Account created. Please check your email to confirm your account, then sign in.";
+      } else {
+        $("authMessage").textContent = "Account created successfully.";
+      }
+    } else {
+      const { error } = await db.auth.signInWithPassword({
+        email,
+        password
+      });
+
+      if (error) throw error;
+
+      $("authMessage").textContent = "Signed in successfully.";
+      $("authModal").classList.remove("open");
+      await loadCurrentUser();
+      await openDashboard();
+    }
+  } catch (error) {
+    $("authMessage").textContent = error.message || "Something went wrong.";
+  } finally {
+    button.disabled = false;
+  }
+});
+
+/* =========================================
+   USER PROFILE AND SESSION
+   ========================================= */
+
+async function loadCurrentUser() {
+  const { data: { user } } = await db.auth.getUser();
+
+  currentUser = user || null;
+  currentProfile = null;
+
+  if (!currentUser) {
+    $("accountButton").textContent = "Agent Login ↗";
+    return;
+  }
+
+  const { data: profile, error } = await db
+    .from("profiles")
+    .select("*")
+    .eq("id", currentUser.id)
+    .maybeSingle();
+
+  if (error) {
+    console.error("Profile error:", error.message);
+  }
+
+  currentProfile = profile || {
+    full_name: currentUser.user_metadata?.full_name || "Agent",
+    role: "agent"
+  };
+
+  $("accountButton").textContent = "My Dashboard ↗";
+}
+
+db.auth.onAuthStateChange((_event, session) => {
+  currentUser = session?.user || null;
+
+  setTimeout(async () => {
+    await loadCurrentUser();
+  }, 0);
+});
+
+/* =========================================
+   DASHBOARD
+   ========================================= */
+
+async function openDashboard() {
+  if (!currentUser) {
+    showAuth("login");
+    return;
+  }
+
+  $("dashboardModal").classList.add("open");
+
+  const name = currentProfile?.full_name ||
+    currentUser.user_metadata?.full_name ||
+    currentUser.email;
+
+  $("agentWelcome").textContent = "Welcome, " + name;
+
+  await loadAgentProperties();
+}
+
+$("dashboardClose").addEventListener("click", () => {
+  $("dashboardModal").classList.remove("open");
+});
+
+$("signOutButton").addEventListener("click", async () => {
+  const { error } = await db.auth.signOut();
+
+  if (error) {
+    alert(error.message);
+    return;
+  }
+
+  currentUser = null;
+  currentProfile = null;
+
+  $("dashboardModal").classList.remove("open");
+  $("accountButton").textContent = "Agent Login ↗";
+  await loadProperties();
+});
+
+async function loadAgentProperties() {
+  const list = $("agentPropertiesList");
+  list.innerHTML = "<p>Loading your properties...</p>";
+
+  let query = db
+    .from("properties")
+    .select("*, property_images(*)")
+    .order("created_at", { ascending: false });
+
+  if (currentProfile?.role !== "admin") {
+    query = query.eq("owner_id", currentUser.id);
+  }
+
+  const { data, error } = await query;
+
+  if (error) {
+    list.innerHTML =
+      `<p style="color:#a33">${escapeHTML(error.message)}</p>`;
+    return;
+  }
+
+  if (!data?.length) {
+    list.innerHTML = "<p>You have not added any properties yet.</p>";
+    return;
+  }
+
+  list.innerHTML = data.map(property => `
+    <div style="display:flex;align-items:center;gap:15px;padding:13px;border:1px solid var(--border);background:#F7F3EC;flex-wrap:wrap">
+      <div style="width:95px;height:75px;flex-shrink:0;background:#ddd">
+        <img style="height:100%" src="${
+          escapeHTML(
+            property.property_images?.length
+              ? db.storage.from(BUCKET).getPublicUrl(property.property_images[0].storage_path).data.publicUrl
+              : "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=300"
+          )
+        }" alt="">
+      </div>
+      <div style="flex:1;min-width:140px">
+        <strong>${escapeHTML(property.title)}</strong>
+        <div style="font-size:12px;color:var(--muted)">
+          ${escapeHTML(property.type)} · ${escapeHTML(property.location)}
+        </div>
+        <div style="font-size:12px">${money(property.price, property.currency)} · ${escapeHTML(property.status)}</div>
+      </div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <button class="btn btn-outline edit-property" data-id="${escapeHTML(property.id)}" type="button">Edit</button>
+        <button class="btn delete-property" data-id="${escapeHTML(property.id)}" type="button">Delete</button>
+      </div>
+    </div>
+  `).join("");
+
+  list.querySelectorAll(".edit-property").forEach(button => {
+    button.addEventListener("click", () => {
+      const property = data.find(item => item.id === button.dataset.id);
+      if (property) startEditProperty(property);
+    });
+  });
+
+  list.querySelectorAll(".delete-property").forEach(button => {
+    button.addEventListener("click", async () => {
+      const property = data.find(item => item.id === button.dataset.id);
+      if (property) await deleteProperty(property);
+    });
+  });
+}
+
+/* =========================================
+   PROPERTY FORM
+   ========================================= */
+
+$("newPropertyButton").addEventListener("click", () => {
+  resetPropertyForm();
+  $("propertyEditor").style.display = "block";
+  $("editorHeading").textContent = "Add a property";
+  $("propertyEditor").scrollIntoView({ behavior: "smooth" });
+});
+
+$("cancelEditButton").addEventListener("click", () => {
+  $("propertyEditor").style.display = "none";
+  resetPropertyForm();
+});
+
+function resetPropertyForm() {
+  $("propertyForm").reset();
+  $("editPropertyId").value = "";
+  $("photoPreview").innerHTML = "";
+  $("propertyFormMessage").textContent = "";
+  selectedPhotos = [];
+}
+
+function startEditProperty(property) {
+  $("propertyEditor").style.display = "block";
+  $("editorHeading").textContent = "Edit property";
+
+  $("editPropertyId").value = property.id;
+  $("propertyType").value = property.type;
+  $("propertyTitle").value = property.title || "";
+  $("propertyLocation").value = property.location || "";
+  $("propertyAddress").value = property.address || "";
+  $("propertyPrice").value = property.price || "";
+  $("propertyCurrency").value = property.currency || "USD";
+  $("propertyArea").value = property.area || "";
+  $("propertyBedrooms").value = property.bedrooms ?? "";
+  $("propertyBathrooms").value = property.bathrooms ?? "";
+  $("propertyFloor").value = property.floor ?? "";
+  $("propertyCeiling").value = property.ceiling_height ?? "";
+  $("propertyBuilding").value = property.building_type || "";
+  $("propertyCondition").value = property.condition || "";
+  $("propertyStatus").value = property.status || "published";
+  $("propertyDescription").value = property.description || "";
+
+  selectedPhotos = [];
+  $("propertyPhotos").value = "";
+
+  const images = propertyImages(property);
+
+  $("photoPreview").innerHTML = images.map(url => `
+    <img src="${escapeHTML(url)}"
+      style="width:90px;height:70px;object-fit:cover;border:1px solid var(--border)"
+      alt="Existing property photo">
+  `).join("");
+
+  $("propertyEditor").scrollIntoView({ behavior: "smooth" });
+}
+
+$("propertyPhotos").addEventListener("change", event => {
+  selectedPhotos = Array.from(event.target.files || []);
+
+  if (selectedPhotos.length > 8) {
+    alert("Please select no more than 8 photos at a time.");
+    selectedPhotos = selectedPhotos.slice(0, 8);
+  }
+
+  $("photoPreview").innerHTML = "";
+
+  selectedPhotos.forEach(file => {
+    if (!file.type.startsWith("image/")) return;
+
+    const url = URL.createObjectURL(file);
+    const img = document.createElement("img");
+
+    img.src = url;
+    img.style.cssText =
+      "width:90px;height:70px;object-fit:cover;border:1px solid var(--border)";
+
+    $("photoPreview").appendChild(img);
+  });
+});
+
+/* =========================================
+   UPLOAD PHOTOS
+   ========================================= */
+
+async function uploadPropertyPhotos(propertyId, files) {
+  const uploadedRows = [];
+
+  for (let i = 0; i < files.length; i++) {
+    const file = files[i];
+
+    if (!file.type.startsWith("image/")) {
+      throw new Error("Only image files can be uploaded.");
+    }
+
+    if (file.size > 10 * 1024 * 1024) {
+      throw new Error("Each photo must be smaller than 10 MB.");
+    }
+
+    const extension = file.name.split(".").pop().toLowerCase();
+    const safeName = crypto.randomUUID() + "." + extension;
+    const path = `${currentUser.id}/${propertyId}/${safeName}`;
+
+    const { error: uploadError } = await db.storage
+      .from(BUCKET)
+      .upload(path, file, {
+        cacheControl: "3600",
+        upsert: false,
+        contentType: file.type
+      });
+
+    if (uploadError) throw uploadError;
+
+    uploadedRows.push({
+      property_id: propertyId,
+      owner_id: currentUser.id,
+      storage_path: path,
+      sort_order: i
+    });
+  }
+
+  if (uploadedRows.length) {
+    const { error } = await db
+      .from("property_images")
+      .insert(uploadedRows);
+
+    if (error) throw error;
+  }
+}
+
+/* =========================================
+   SAVE OR UPDATE PROPERTY
+   ========================================= */
+
+$("propertyForm").addEventListener("submit", async event => {
+  event.preventDefault();
+
+  if (!currentUser) {
+    showAuth("login");
+    return;
+  }
+
+  const button = $("savePropertyButton");
+  button.disabled = true;
+  button.textContent = "Saving...";
+
+  try {
+    const propertyId = $("editPropertyId").value;
+
+    const payload = {
+      type: $("propertyType").value,
+      title: $("propertyTitle").value.trim(),
+      location: $("propertyLocation").value.trim(),
+      address: $("propertyAddress").value.trim() || null,
+      price: Number($("propertyPrice").value),
+      currency: $("propertyCurrency").value,
+      area: Number($("propertyArea").value) || null,
+      bedrooms: $("propertyBedrooms").value === "" ? null : Number($("propertyBedrooms").value),
+      bathrooms: $("propertyBathrooms").value === "" ? null : Number($("propertyBathrooms").value),
+      floor: $("propertyFloor").value === "" ? null : Number($("propertyFloor").value),
+      ceiling_height: Number($("propertyCeiling").value) || null,
+      building_type: $("propertyBuilding").value.trim() || null,
+      condition: $("propertyCondition").value || null,
+      status: $("propertyStatus").value,
+      description: $("propertyDescription").value.trim(),
+      updated_at: new Date().toISOString()
+    };
+
+    let savedProperty;
+
+    if (propertyId) {
+      const { data, error } = await db
+        .from("properties")
+        .update(payload)
+        .eq("id", propertyId)
+        .select()
+        .single();
+
+      if (error) throw error;
+      savedProperty = data;
+    } else {
+      payload.owner_id = currentUser.id;
+
+      const { data, error } = await db
+        .from("properties")
+        .insert(payload)
+        .select()
+        .single();
+
+      if (error) throw error;
+      savedProperty = data;
+    }
+
+    if (selectedPhotos.length) {
+      await uploadPropertyPhotos(savedProperty.id, selectedPhotos);
+    }
+
+    $("propertyFormMessage").textContent =
+      "Property saved successfully.";
+
+    selectedPhotos = [];
+
+    await loadProperties();
+    await loadAgentProperties();
+
+    $("propertyEditor").style.display = "none";
+    resetPropertyForm();
+
+  } catch (error) {
+    console.error(error);
+    $("propertyFormMessage").textContent =
+      error.message || "Could not save property.";
+  } finally {
+    button.disabled = false;
+    button.textContent = "Save Property ↗";
+  }
+});
+
+/* =========================================
+   DELETE PROPERTY
+   ========================================= */
+
+async function deleteProperty(property) {
+  if (!confirm(`Delete "${property.title}"? This cannot be undone.`)) {
+    return;
+  }
+
+  try {
+    const { data: images, error: imageError } = await db
+      .from("property_images")
+      .select("storage_path")
+      .eq("property_id", property.id);
+
+    if (imageError) throw imageError;
+
+    if (images?.length) {
+      const paths = images.map(item => item.storage_path);
+
+      const { error: storageError } = await db.storage
+        .from(BUCKET)
+        .remove(paths);
+
+      if (storageError) throw storageError;
+    }
+
+    const { error: deleteError } = await db
+      .from("properties")
+      .delete()
+      .eq("id", property.id);
+
+    if (deleteError) throw deleteError;
+
+    await loadProperties();
+    await loadAgentProperties();
+
+  } catch (error) {
+    alert("Could not delete property: " + error.message);
+  }
+}
+
+/* =========================================
+   CONTACT FORM
+   ========================================= */
+
+$("contactForm").addEventListener("submit", event => {
+  event.preventDefault();
+
   const form = event.currentTarget;
   if (!form.reportValidity()) return;
+
   const data = new FormData(form);
-  const subject = encodeURIComponent("ARMAT Real Estate Inquiry — " + data.get("interest"));
-  const body = encodeURIComponent("Name: " + data.get("name") + "\nEmail: " + data.get("email") + "\nInterest: " + data.get("interest") + "\n\nMessage:\n" + data.get("message"));
-  document.getElementById("formStatus").textContent = getNestedValue(TRANSLATIONS[currentLang], 'contact.formStatus');
-  window.location.href = "mailto:hello@armatestate.am?subject=" + subject + "&body=" + body;
+
+  const subject = encodeURIComponent(
+    "ARMAT Real Estate Inquiry — " + data.get("interest")
+  );
+
+  const body = encodeURIComponent(
+    "Name: " + data.get("name") +
+    "\nEmail: " + data.get("email") +
+    "\nInterest: " + data.get("interest") +
+    "\n\nMessage:\n" + data.get("message")
+  );
+
+  $("formStatus").textContent =
+    "Opening your email app. Please review and send the prepared message.";
+
+  window.location.href =
+    "mailto:hello@armatestate.am?subject=" + subject + "&body=" + body;
 });
 
-document.getElementById("year").textContent = new Date().getFullYear();
-renderListings(properties);
+/* =========================================
+   LANGUAGE SWITCH
+   ========================================= */
+
+let currentLang = "en";
+
+const englishLogo =
+  "https://cdn.shopify.com/s/files/1/0825/4695/0390/files/Carved_Stone_ARMAT_Real_Estate_Logo.png?v=1795111663";
+
+const armenianLogo =
+  "https://cdn.shopify.com/s/files/1/0825/4695/0390/files/Embossed_Stone_House_Logo_with_Roots.png?v=1795111663";
+
+function setLanguage(lang) {
+  currentLang = lang;
+  document.documentElement.lang = lang;
+
+  $("langSwitch").textContent = lang === "en" ? "HY" : "EN";
+
+  document.querySelectorAll(".brand-logo").forEach(img => {
+    img.src = lang === "hy" ? armenianLogo : englishLogo;
+    img.alt = lang === "hy"
+      ? "ARMAT Անշարժ Գույք լոգո"
+      : "ARMAT Real Estate logo";
+  });
+
+  const translations = {
+    en: {
+      announcement: "Find your place. Build your roots. · ARMAT REAL ESTATE",
+      home: "Home",
+      properties: "Properties",
+      categories: "Categories",
+      about: "About Us",
+      contact: "Contact",
+      eyebrow: "A better place to begin",
+      explore: "Explore Properties ↗"
+    },
+    hy: {
+      announcement: "Գտեք ձեր տեղը։ Ամրացրեք ձեր արմատները։ · ARMAT ԱՆՇԱՐԺ ԳՈՒՅՔ",
+      home: "Գլխավոր",
+      properties: "Գույքեր",
+      categories: "Կատեգորիաներ",
+      about: "Մեր մասին",
+      contact: "Կապ",
+      eyebrow: "Լավագույն սկիզբը",
+      explore: "Դիտել անշարժ գույքը ↗"
+    }
+  };
+
+  const t = translations[lang];
+
+  document.querySelector(".announcement").textContent = t.announcement;
+
+  const nav = $("navLinks").querySelectorAll("a");
+  nav[0].textContent = t.home;
+  nav[1].textContent = t.properties;
+  nav[2].textContent = t.categories;
+  nav[3].textContent = t.about;
+  nav[4].textContent = t.contact;
+
+  document.querySelector(".hero .eyebrow").textContent = t.eyebrow;
+  document.querySelector(".hero-buttons .btn-light").textContent = t.explore;
+}
+
+$("langSwitch").addEventListener("click", () => {
+  setLanguage(currentLang === "en" ? "hy" : "en");
+});
+
+/* =========================================
+   MOBILE NAVIGATION
+   ========================================= */
+
+$("menuToggle").addEventListener("click", () => {
+  const open = $("navLinks").classList.toggle("open");
+
+  $("menuToggle").setAttribute("aria-expanded", String(open));
+  $("menuToggle").textContent = open ? "×" : "☰";
+});
+
+$("navLinks").querySelectorAll("a").forEach(link => {
+  link.addEventListener("click", () => {
+    $("navLinks").classList.remove("open");
+    $("menuToggle").textContent = "☰";
+    $("menuToggle").setAttribute("aria-expanded", "false");
+  });
+});
+
+/* =========================================
+   INITIALIZATION
+   ========================================= */
+
+$("year").textContent = new Date().getFullYear();
+
+async function initializeARMAT() {
+  const browserLang = navigator.language || "en";
+
+  setLanguage(browserLang.toLowerCase().startsWith("hy") ? "hy" : "en");
+
+  await loadCurrentUser();
+  await loadProperties();
+}
+
+initializeARMAT();
+
 </script>
 </body>
 </html>
