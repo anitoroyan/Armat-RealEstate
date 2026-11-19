@@ -7,9 +7,10 @@
 <meta name="description" content="ARMAT Real Estate — Discover land, apartments, houses and commercial spaces in Armenia. Find a place to put down roots.">
 <title>ARMAT Real Estate | Find Your Place</title>
 
+<!-- ONLY loading thin (300) and regular (400) weights for minimalistic Armenian typography -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&family=Noto+Sans+Armenian:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&family=Noto+Sans+Armenian:wght@300;400&family=Noto+Serif+Armenian:wght@400;500&display=swap" rel="stylesheet">
 
 <style>
 :root {
@@ -36,6 +37,58 @@ body {
   font-size: 14px;
   line-height: 1.7;
 }
+
+/* ==========================================
+   ULTRA-MINIMALISTIC ARMENIAN TYPOGRAPHY
+   Very thin, very small, highly refined
+   ========================================== */
+:lang(hy) body {
+  font-family: "Noto Sans Armenian", "Montserrat", sans-serif;
+  font-size: 12px; /* Much smaller base size */
+  line-height: 1.9; /* More breathing room for tiny text */
+  letter-spacing: 0.4px;
+  font-weight: 300; /* Ultra-thin */
+}
+
+:lang(hy) h1, 
+:lang(hy) h2, 
+:lang(hy) h3, 
+:lang(hy) .brand-name,
+:lang(hy) .section-heading h2,
+:lang(hy) .stat-number,
+:lang(hy) .value-item strong,
+:lang(hy) .search-title,
+:lang(hy) .listing-body h3 {
+  font-family: "Noto Serif Armenian", "Cormorant Garamond", serif;
+  font-weight: 400; /* Elegant thin serif for headings */
+  letter-spacing: -0.3px;
+}
+
+:lang(hy) .btn {
+  font-weight: 400;
+  letter-spacing: 1.8px;
+  font-size: 9px;
+}
+
+:lang(hy) .eyebrow,
+:lang(hy) .listing-type,
+:lang(hy) .stat-label,
+:lang(hy) .field label,
+:lang(hy) .listing-tag,
+:lang(hy) .hero-note,
+:lang(hy) .announcement {
+  font-weight: 400;
+  letter-spacing: 2px; /* Extra spacing for tiny uppercase */
+  font-size: 8px; /* Tiny labels */
+}
+
+:lang(hy) .hero-copy { font-size: 11px; line-height: 1.8; }
+:lang(hy) .category-info p { font-size: 10px; }
+:lang(hy) .footer-brand p { font-size: 10px; }
+:lang(hy) .footer-column a { font-size: 10px; }
+:lang(hy) .contact-detail span, :lang(hy) .contact-detail a { font-size: 11px; }
+:lang(hy) .form-status { font-size: 10px; }
+:lang(hy) .empty-state { font-size: 11px; }
 
 a { color: inherit; text-decoration: none; }
 button, input, select { font: inherit; }
@@ -666,7 +719,6 @@ footer { background: #30241D; color: var(--ivory); padding: 55px 0 20px; }
 <header>
   <div class="container navbar">
     <a class="brand" href="#home" aria-label="ARMAT Real Estate home">
-      <!-- ENGLISH LOGO (Carved Stone ARMAT) -->
       <img id="siteLogo" class="brand-logo" src="https://cdn.shopify.com/s/files/1/0825/4695/0390/files/Carved_Stone_ARMAT_Real_Estate_Logo.png?v=1795111663" alt="ARMAT Real Estate logo">
     </a>
 
@@ -1006,7 +1058,6 @@ footer { background: #30241D; color: var(--ivory); padding: 55px 0 20px; }
     <div class="footer-top">
       <div class="footer-brand">
         <a class="brand" href="#home">
-          <!-- Footer Logo (ENGLISH - Carved Stone ARMAT) -->
           <img class="brand-logo" src="https://cdn.shopify.com/s/files/1/0825/4695/0390/files/Carved_Stone_ARMAT_Real_Estate_Logo.png?v=1795111663" alt="ARMAT Real Estate logo">
         </a>
         <p data-i18n="footer.brandDesc">Rooted in trust. Built for your future. Helping you find land, apartments, houses and commercial spaces for the next chapter of your life.</p>
@@ -1052,321 +1103,43 @@ footer { background: #30241D; color: var(--ivory); padding: 55px 0 20px; }
 </div>
 
 <script>
-// ==========================================
-// 🛠️ TRANSLATION CONFIGURATION
-// Edit the values below to fix translations!
-// ==========================================
 const TRANSLATIONS = {
   en: {
     announcement: "Find your place. Build your roots. &nbsp; · &nbsp; ARMAT REAL ESTATE",
-    nav: {
-      home: "Home",
-      properties: "Properties",
-      categories: "Categories",
-      about: "About Us",
-      contact: "Contact",
-      listProperty: "List Your Property ↗"
-    },
-    hero: {
-      eyebrow: "A better place to begin",
-      title: "Find a place<br>to put down <em>roots.</em>",
-      copy: "From the land you dream of to the home you belong in, discover real estate that feels right for your future.",
-      exploreBtn: "Explore Properties ↗",
-      discoverBtn: "Discover ARMAT",
-      note: "Land · Apartments · Houses · Commercial Spaces"
-    },
-    search: {
-      title: "Find your property",
-      filters: "Filters",
-      locationLabel: "Location",
-      locationPlaceholder: "e.g. Yerevan",
-      minPriceLabel: "Min. price ($)",
-      noMinimum: "No minimum",
-      maxPriceLabel: "Max. price ($)",
-      noMaximum: "No maximum",
-      typeLabel: "Property Type",
-      allProperties: "All Properties",
-      land: "Land",
-      apartments: "Apartments",
-      houses: "Houses",
-      commercial: "Commercial Spaces",
-      minAreaLabel: "Min. Area (m²)",
-      maxAreaLabel: "Max. Area (m²)",
-      areaPlaceholder: "e.g. 50",
-      roomsLabel: "Number of Rooms",
-      any: "Any",
-      "1Room": "1 Room",
-      "2Rooms": "2 Rooms",
-      "3Rooms": "3 Rooms",
-      "4Rooms": "4 Rooms",
-      "5PlusRooms": "5+ Rooms",
-      floorLabel: "Floor",
-      anyFloor: "Any floor",
-      bathsLabel: "Number of Bathrooms",
-      "1Bath": "1 Bathroom",
-      "2Baths": "2 Bathrooms",
-      "3PlusBaths": "3+ Bathrooms",
-      ceilingLabel: "Ceiling Height (m)",
-      anyHeight: "Any Height",
-      buildingTypeLabel: "Building Type",
-      allTypes: "All Types",
-      stone: "Stone",
-      monolithic: "Monolithic Concrete",
-      panel: "Panel",
-      statusLabel: "Status",
-      anyStatus: "Any Status",
-      renovated: "Renovated",
-      average: "Average Condition",
-      unfinished: "Unfinished",
-      applyBtn: "Apply Filters ↗",
-      clearBtn: "Clear All",
-      showingAll: "Showing all properties",
-      foundCount: "Found {count} {type}"
-    },
-    categories: {
-      eyebrow: "Explore your possibilities",
-      title: "A place for every kind of dream.",
-      copy: "Whether you're building from the ground up or moving straight in, discover the right property for your next chapter."
-    },
-    cat: {
-      land: { sub: "Build your future", desc: "Room to grow. Space to create." },
-      apt: { sub: "City living", desc: "Comfort, convenience, connection." },
-      house: { sub: "Made for living", desc: "Find the place that feels like home." },
-      comm: { sub: "Space to do business", desc: "Find the right place for your business." }
-    },
-    listings: {
-      eyebrow: "Selected properties",
-      title: "Find your next address.",
-      copy: "Explore our featured collection of land, apartments, houses and commercial spaces.",
-      showAllBtn: "Show All Properties ↗",
-      selectionTag: "ARMAT SELECTION",
-      viewDetails: "View Details ↗",
-      noResultsTitle: "No properties found",
-      noResultsCopy: "Try changing your filters to see more results.",
-      checkRanges: "Please check your price and area ranges."
-    },
-    stats: {
-      vision: "Your vision comes first",
-      attention: "Personalized attention",
-      possibilities: "Possibilities for your future"
-    },
-    about: {
-      eyebrow: "Our philosophy",
-      title: "Rooted in trust.<br>Built for your future.",
-      p1: "At ARMAT, we believe real estate is about more than walls, land and addresses. It's about the place where your next chapter begins.",
-      p2: "Inspired by the Armenian word for roots, ARMAT stands for belonging, stability and the foundations that connect us to a place.",
-      p3: "Whether you're searching for land, an apartment or a family home, our goal is to help you find a property that feels right for you.",
-      val: {
-        trust: "Trust", trustDesc: "Honest, attentive service",
-        purpose: "Purpose", purposeDesc: "Properties that fit your plans",
-        connection: "Connection", connectionDesc: "A personal approach",
-        roots: "Roots", rootsDesc: "A place to truly belong"
-      },
-      ctaBtn: "Let's Find Your Place ↗"
-    },
-    cta: {
-      eyebrow: "Your next chapter starts here",
-      title: "Every great story needs a place.",
-      copy: "Tell us what you're looking for. Let's find the land, apartment, house or commercial space that feels right for your next chapter.",
-      btn: "Talk to ARMAT ↗"
-    },
-    contact: {
-      eyebrow: "Get in touch",
-      title: "Let's find your place.",
-      copy: "Have a property in mind, want to sell, or simply need guidance? Send us a message and tell us about your plans.",
-      officeLabel: "Our office",
-      officeValue: "Yerevan, Armenia",
-      emailLabel: "Email",
-      hoursLabel: "Working hours",
-      hoursValue: "Monday – Saturday · By appointment",
-      nameLabel: "Your name",
-      namePlaceholder: "Full name",
-      emailFieldLabel: "Email address",
-      emailPlaceholder: "you@example.com",
-      interestLabel: "I'm interested in",
-      buying: "Buying a property",
-      selling: "Selling a property",
-      other: "Other inquiry",
-      messageLabel: "Your message",
-      messagePlaceholder: "Tell us a little about what you're looking for...",
-      submitBtn: "Prepare My Inquiry ↗",
-      formStatus: "Opening your email app. Please review and send the prepared message."
-    },
-    footer: {
-      brandDesc: "Rooted in trust. Built for your future. Helping you find land, apartments, houses and commercial spaces for the next chapter of your life.",
-      exploreTitle: "Explore",
-      touchTitle: "Get in Touch",
-      emailLink: "Email ARMAT",
-      copyright: "© <span id=\"year\"></span> ARMAT REAL ESTATE. All rights reserved.",
-      madeIn: "Made with a foundation of trust · Yerevan, Armenia"
-    },
-    modal: {
-      askBtn: "Ask About This Property ↗",
-      bedrooms: "bedrooms",
-      bathrooms: "bathrooms"
-    }
+    nav: { home: "Home", properties: "Properties", categories: "Categories", about: "About Us", contact: "Contact", listProperty: "List Your Property ↗" },
+    hero: { eyebrow: "A better place to begin", title: "Find a place<br>to put down <em>roots.</em>", copy: "From the land you dream of to the home you belong in, discover real estate that feels right for your future.", exploreBtn: "Explore Properties ↗", discoverBtn: "Discover ARMAT", note: "Land · Apartments · Houses · Commercial Spaces" },
+    search: { title: "Find your property", filters: "Filters", locationLabel: "Location", locationPlaceholder: "e.g. Yerevan", minPriceLabel: "Min. price ($)", noMinimum: "No minimum", maxPriceLabel: "Max. price ($)", noMaximum: "No maximum", typeLabel: "Property Type", allProperties: "All Properties", land: "Land", apartments: "Apartments", houses: "Houses", commercial: "Commercial Spaces", minAreaLabel: "Min. Area (m²)", maxAreaLabel: "Max. Area (m²)", areaPlaceholder: "e.g. 50", roomsLabel: "Number of Rooms", any: "Any", "1Room": "1 Room", "2Rooms": "2 Rooms", "3Rooms": "3 Rooms", "4Rooms": "4 Rooms", "5PlusRooms": "5+ Rooms", floorLabel: "Floor", anyFloor: "Any floor", bathsLabel: "Number of Bathrooms", "1Bath": "1 Bathroom", "2Baths": "2 Bathrooms", "3PlusBaths": "3+ Bathrooms", ceilingLabel: "Ceiling Height (m)", anyHeight: "Any Height", buildingTypeLabel: "Building Type", allTypes: "All Types", stone: "Stone", monolithic: "Monolithic Concrete", panel: "Panel", statusLabel: "Status", anyStatus: "Any Status", renovated: "Renovated", average: "Average Condition", unfinished: "Unfinished", applyBtn: "Apply Filters ↗", clearBtn: "Clear All", showingAll: "Showing all properties", foundCount: "Found {count} {type}" },
+    categories: { eyebrow: "Explore your possibilities", title: "A place for every kind of dream.", copy: "Whether you're building from the ground up or moving straight in, discover the right property for your next chapter." },
+    cat: { land: { sub: "Build your future", desc: "Room to grow. Space to create." }, apt: { sub: "City living", desc: "Comfort, convenience, connection." }, house: { sub: "Made for living", desc: "Find the place that feels like home." }, comm: { sub: "Space to do business", desc: "Find the right place for your business." } },
+    listings: { eyebrow: "Selected properties", title: "Find your next address.", copy: "Explore our featured collection of land, apartments, houses and commercial spaces.", showAllBtn: "Show All Properties ↗", selectionTag: "ARMAT SELECTION", viewDetails: "View Details ↗", noResultsTitle: "No properties found", noResultsCopy: "Try changing your filters to see more results.", checkRanges: "Please check your price and area ranges." },
+    stats: { vision: "Your vision comes first", attention: "Personalized attention", possibilities: "Possibilities for your future" },
+    about: { eyebrow: "Our philosophy", title: "Rooted in trust.<br>Built for your future.", p1: "At ARMAT, we believe real estate is about more than walls, land and addresses. It's about the place where your next chapter begins.", p2: "Inspired by the Armenian word for roots, ARMAT stands for belonging, stability and the foundations that connect us to a place.", p3: "Whether you're searching for land, an apartment or a family home, our goal is to help you find a property that feels right for you.", val: { trust: "Trust", trustDesc: "Honest, attentive service", purpose: "Purpose", purposeDesc: "Properties that fit your plans", connection: "Connection", connectionDesc: "A personal approach", roots: "Roots", rootsDesc: "A place to truly belong" }, ctaBtn: "Let's Find Your Place ↗" },
+    cta: { eyebrow: "Your next chapter starts here", title: "Every great story needs a place.", copy: "Tell us what you're looking for. Let's find the land, apartment, house or commercial space that feels right for your next chapter.", btn: "Talk to ARMAT ↗" },
+    contact: { eyebrow: "Get in touch", title: "Let's find your place.", copy: "Have a property in mind, want to sell, or simply need guidance? Send us a message and tell us about your plans.", officeLabel: "Our office", officeValue: "Yerevan, Armenia", emailLabel: "Email", hoursLabel: "Working hours", hoursValue: "Monday – Saturday · By appointment", nameLabel: "Your name", namePlaceholder: "Full name", emailFieldLabel: "Email address", emailPlaceholder: "you@example.com", interestLabel: "I'm interested in", buying: "Buying a property", selling: "Selling a property", other: "Other inquiry", messageLabel: "Your message", messagePlaceholder: "Tell us a little about what you're looking for...", submitBtn: "Prepare My Inquiry ↗", formStatus: "Opening your email app. Please review and send the prepared message." },
+    footer: { brandDesc: "Rooted in trust. Built for your future. Helping you find land, apartments, houses and commercial spaces for the next chapter of your life.", exploreTitle: "Explore", touchTitle: "Get in Touch", emailLink: "Email ARMAT", copyright: "© <span id=\"year\"></span> ARMAT REAL ESTATE. All rights reserved.", madeIn: "Made with a foundation of trust · Yerevan, Armenia" },
+    modal: { askBtn: "Ask About This Property ↗", bedrooms: "bedrooms", bathrooms: "bathrooms" }
   },
-
   hy: {
     announcement: "Ամրացրեք ձեր արմատները։ &nbsp; · &nbsp; |ԱՐՄԱՏ ԱՆՇԱՐԺ ԳՈՒՅՔ",
-    nav: {
-      home: "Գլխավոր",
-      properties: "Բոլորը",
-      categories: "Կատեգորիաներ",
-      about: "Մեր մասին",
-      contact: "Կապ",
-      listProperty: "Տեղադրել հայտարարություն ↗"
-    },
-    hero: {
-      eyebrow: "Լավագույն սկիզբը",
-      title: "Գտեք այն վայրը,<br>որտեղ կամրացնեք <em>արմատները։</em>",
-      copy: "«Երազանքի հողատարածքից մինչև քո տուն. բացահայտի՛ր քո ապագա անկյունը»։",
-      exploreBtn: "Դիտել բոլորը ↗",
-      discoverBtn: "Մեր մասին",
-      note: "Տներ· Բնակարաններ · Հողատարածքներ · Կոմերցիոն տարածքներ"
-    },
-    search: {
-      title: "Գտեք ձեր անշարժ գույքը",
-      filters: "Ֆիլտրեր",
-      locationLabel: "Վայր",
-      locationPlaceholder: "Օր․ Երևան",
-      minPriceLabel: "Գին (֏)",
-      noMinimum: "Նվազագույն",
-      maxPriceLabel: "Գին (֏)",
-      noMaximum: "Առավելագույն",
-      typeLabel: "Գույքի տեսակ",
-      allProperties: "Բոլորը",
-      houses: "Տներ",
-      apartments: "Բնակարաններ",
-      land: "Հողատարածքներ",
-      commercial: "Կոմերցիոն տարածքներ",
-      minAreaLabel: "Մակերես (մ²)",
-      maxAreaLabel: "Մակերես (մ²)",
-      areaPlaceholder: "Նվազագույն",
-      roomsLabel: "Սենյակների քանակ",
-      any: "Օր. 3",
-      "1Room": "1 ",
-      "2Rooms": "2 ",
-      "3Rooms": "3 ",
-      "4Rooms": "4 ",
-      "5PlusRooms": "5+ ",
-      floorLabel: "Հարկ",
-      anyFloor: "Օր. 2",
-      bathsLabel: "Լոգասենյակների քանակ",
-      "1Bath": "1 ",
-      "2Baths": "2 ",
-      "3PlusBaths": "3+ լոգասենյակ",
-      ceilingLabel: "Առաստաղի բարձրություն (մ)",
-      anyHeight: "Օր. 3մ",
-      buildingTypeLabel: "Շենքի տեսակ",
-      allTypes: "Բոլորը",
-      stone: "Քարե",
-      monolithic: "Մոնոլիտ",
-      panel: "Պանելային",
-      statusLabel: "Վիճակ",
-      anyStatus: "Օր. ",
-      renovated: "Վերանորոգված",
-      average: "Լավ",
-      unfinished: "Անավարտ",
-      applyBtn: "Կիրառել ↗",
-      clearBtn: "Ջնջել բոլորը",
-      showingAll: "Ցուցադրվում են բոլոր գույքերը",
-      foundCount: "Գտնվել է {count} {type}"
-    },
-    categories: {
-      eyebrow: "Բացահայտի՛ր քո հնարավորությունները",
-      title: "Անկյուն՝ բոլորի համար։",
-    },
-    cat: {
-      land: { sub: "Կառուցեք ձեր ապագան", desc: "Տարածք աճելու համար։ Տարածք ստեղծագործելու համար։" },
-      apt: { sub: "Քաղաքային կյանք", desc: "Հարմարավետություն, հարմարություն, կապ։" },
-      house: { sub: "Ստեղծված ապրելու համար", desc: "Գտեք այն վայրը, որը նման է տանը։" },
-      comm: { sub: "Տարածք բիզնեսի համար", desc: "Գտեք ճիշտ վայրը ձեր բիզնեսի համար։" }
-    },
-    listings: {
-      eyebrow: "Ընտրված անշարժ գույք",
-      title: "Գտեք ձեր հաջորդ հասցեն։",
-      copy: "Հետազոտեք մեր հողամասերի, բնակարանների, տների և առևտրային տարածքների ընտրանին։",
-      showAllBtn: "Ցուցադրել բոլոր գույքերը ↗",
-      selectionTag: "ARMAT ԸՆՏՐԱՆԻ",
-      viewDetails: "Դիտել մանրամասներ ↗",
-      noResultsTitle: "Անշարժ գույք չի գտնվել",
-      noResultsCopy: "Փորձեք փոխել ֆիլտրերը՝ ավելի շատ արդյունքներ տեսնելու համար։",
-      checkRanges: "Խնդրում ենք ստուգել գնի և մակերեսի միջակայքերը։"
-    },
-    stats: {
-      vision: "Ձեր տեսլականը առաջնային է",
-      attention: "Անհատական ուշադրություն",
-      possibilities: "Հնարավորություններ ձեր ապագայի համար"
-    },
-    about: {
-      eyebrow: "Մեր փիլիսոփայությունը",
-      title: "Արմատավորված վստահության մեջ։<br>Կառուցված ձեր ապագայի համար։",
-      p1: "ARMAT-ում մենք հավատում ենք, որ անշարժ գույքը ավելին է, քան պարզապես պատեր, հող և հասցեներ։ Դա այն վայրն է, որտեղ սկսվում է ձեր հաջորդ փուլը։",
-      p2: "Ոգեշնչված «արմատ» բառով՝ ARMAT-ը խորհրդանշում է պատկանելությունը, կայունությունը և այն հիմքերը, որոնք մեզ կապում են վայրի հետ։",
-      p3: "Թե՛ դուք փնտրում եք հողամաս, բնակարան կամ ընտանեկան տուն՝ մեր նպատակն է օգնել ձեզ գտնել այն գույքը, որը ճիշտ է ձեզ համար։",
-      val: {
-        trust: "Վստահություն", trustDesc: "Ազնիվ, ուշադիր սպասարկում",
-        purpose: "Նպատակ", purposeDesc: "Գույքեր, որոնք համապատասխանում են ձեր ծրագրերին",
-        connection: "Կապ", connectionDesc: "Անհատական մոտեցում",
-        roots: "Արմատներ", rootsDesc: "Վայր, որտեղ իսկապես պատկանում եք"
-      },
-      ctaBtn: "Գտնենք ձեր տեղը ↗"
-    },
-    cta: {
-      eyebrow: "Ձեր հաջորդ փուլը սկսվում է այստեղ",
-      title: "Յուրաքանչյուր մեծ պատմություն վայր է պահանջում։",
-      copy: "Ասեք մեզ, թե ինչ եք փնտրում։ Եկեք գտնենք այն հողամասը, բնակարանը, տունը կամ առևտրային տարածքը, որը ճիշտ է ձեր հաջորդ փուլի համար։",
-      btn: "Կապվել ARMAT-ի հետ ↗"
-    },
-    contact: {
-      eyebrow: "Կապ հաստատեք",
-      title: "Եկեք գտնենք ձեր տեղը։",
-      copy: "Ունե՞ք կոնկրետ գույք մտքում, ցանկանում եք վաճառել, կամ պարզապես կարիք ունեք խորհրդատվության։ Ուղարկեք մեզ հաղորդագրություն և պատմեք ձեր ծրագրերի մասին։",
-      officeLabel: "Մեր գրասենյակ",
-      officeValue: "Երևան, Հայաստան",
-      emailLabel: "Էլ. փոստ",
-      hoursLabel: "Աշխատանքային ժամեր",
-      hoursValue: "Երկուշաբթի – Շաբաթ · Ըստ նախնական պայմանավորվածության",
-      nameLabel: "Ձեր անունը",
-      namePlaceholder: "Անուն, ազգանուն",
-      emailFieldLabel: "Էլ. փոստի հասցե",
-      emailPlaceholder: "you@example.com",
-      interestLabel: "Ես հետաքրքրված եմ",
-      buying: "Գույք գնելով",
-      selling: "Գույք վաճառելով",
-      other: "Այլ հարցում",
-      messageLabel: "Ձեր հաղորդագրությունը",
-      messagePlaceholder: "Պատմեք մեզ մի փոքր այն մասին, թե ինչ եք փնտրում...",
-      submitBtn: "Պատրաստել հարցումը ↗",
-      formStatus: "Բացվում է ձեր էլ. փոստի հավելվածը։ Խնդրում ենք ստուգել և ուղարկել պատրաստված հաղորդագրությունը։"
-    },
-    footer: {
-      brandDesc: "Արմատավորված վստահության մեջ։ Կառուցված ձեր ապագայի համար։ Օգնում ենք ձեզ գտնել հողամասեր, բնակարաններ, տներ և առևտրային տարածքներ ձեր կյանքի հաջորդ փուլի համար։",
-      exploreTitle: "Հետազոտել",
-      touchTitle: "Կապ հաստատել",
-      emailLink: "Գրել ARMAT-ին",
-      copyright: "© <span id=\"year\"></span> ARMAT REAL ESTATE. Բոլոր իրավունքները պաշտպանված են։",
-      madeIn: "Ստեղծված վստահության հիմքով · Երևան, Հայաստան"
-    },
-    modal: {
-      askBtn: "Հարցնել այս գույքի մասին ↗",
-      bedrooms: "ննջասենյակ",
-      bathrooms: "լոգասենյակ"
-    }
+    nav: { home: "Գլխավոր", properties: "Բոլորը", categories: "Կատեգորիաներ", about: "Մեր մասին", contact: "Կապ", listProperty: "Տեղադրել հայտարարություն ↗" },
+    hero: { eyebrow: "Լավագույն սկիզբը", title: "Գտեք այն վայրը,<br>որտեղ կամրացնեք <em>արմատները։</em>", copy: "«Երազանքի հողատարածքից մինչև քո տուն. բացահայտի՛ր քո ապագա անկյունը»։", exploreBtn: "Դիտել բոլորը ↗", discoverBtn: "Մեր մասին", note: "Տներ· Բնակարաններ · Հողատարածքներ · Կոմերցիոն տարածքներ" },
+    search: { title: "Գտեք ձեր անշարժ գույքը", filters: "Ֆիլտրեր", locationLabel: "Վայր", locationPlaceholder: "Օր․ Երևան", minPriceLabel: "Գին (֏)", noMinimum: "Նվազագույն", maxPriceLabel: "Գին (֏)", noMaximum: "Առավելագույն", typeLabel: "Գույքի տեսակ", allProperties: "Բոլորը", houses: "Տներ", apartments: "Բնակարաններ", land: "Հողատարածքներ", commercial: "Կոմերցիոն տարածքներ", minAreaLabel: "Մակերես (մ²)", maxAreaLabel: "Մակերես (մ²)", areaPlaceholder: "Նվազագույն", roomsLabel: "Սենյակների քանակ", any: "Օր. 3", "1Room": "1 ", "2Rooms": "2 ", "3Rooms": "3 ", "4Rooms": "4 ", "5PlusRooms": "5+ ", floorLabel: "Հարկ", anyFloor: "Օր. 2", bathsLabel: "Լոգասենյակների քանակ", "1Bath": "1 ", "2Baths": "2 ", "3PlusBaths": "3+ լոգասենյակ", ceilingLabel: "Առաստաղի բարձրություն (մ)", anyHeight: "Օր. 3մ", buildingTypeLabel: "Շենքի տեսակ", allTypes: "Բոլորը", stone: "Քարե", monolithic: "Մոնոլիտ", panel: "Պանելային", statusLabel: "Վիճակ", anyStatus: "Օր. ", renovated: "Վերանորոգված", average: "Լավ", unfinished: "Անավարտ", applyBtn: "Կիրառել ↗", clearBtn: "Ջնջել բոլորը", showingAll: "Ցուցադրվում են բոլոր գույքերը", foundCount: "Գտնվել է {count} {type}" },
+    categories: { eyebrow: "Բացահայտի՛ր քո հնարավորությունները", title: "Անկյուն՝ բոլորի համար։" },
+    cat: { land: { sub: "Կառուցեք ձեր ապագան", desc: "Տարածք աճելու համար։ Տարածք ստեղծագործելու համար։" }, apt: { sub: "Քաղաքային կյանք", desc: "Հարմարավետություն, հարմարություն, կապ։" }, house: { sub: "Ստեղծված ապրելու համար", desc: "Գտեք այն վայրը, որը նման է տանը։" }, comm: { sub: "Տարածք բիզնեսի համար", desc: "Գտեք ճիշտ վայրը ձեր բիզնեսի համար։" } },
+    listings: { eyebrow: "Ընտրված անշարժ գույք", title: "Գտեք ձեր հաջորդ հասցեն։", copy: "Հետազոտեք մեր հողամասերի, բնակարանների, տների և առևտրային տարածքների ընտրանին։", showAllBtn: "Ցուցադրել բոլոր գույքերը ↗", selectionTag: "ARMAT ԸՆՏՐԱՆԻ", viewDetails: "Դիտել մանրամասներ ↗", noResultsTitle: "Անշարժ գույք չի գտնվել", noResultsCopy: "Փորձեք փոխել ֆիլտրերը՝ ավելի շատ արդյունքներ տեսնելու համար։", checkRanges: "Խնդրում ենք ստուգել գնի և մակերեսի միջակայքերը։" },
+    stats: { vision: "Ձեր տեսլականը առաջնային է", attention: "Անհատական ուշադրություն", possibilities: "Հնարավորություններ ձեր ապագայի համար" },
+    about: { eyebrow: "Մեր փիլիսոփայությունը", title: "Արմատավորված վստահության մեջ։<br>Կառուցված ձեր ապագայի համար։", p1: "ARMAT-ում մենք հավատում ենք, որ անշարժ գույքը ավելին է, քան պարզապես պատեր, հող և հասցեներ։ Դա այն վայրն է, որտեղ սկսվում է ձեր հաջորդ փուլը։", p2: "Ոգեշնչված «արմատ» բառով՝ ARMAT-ը խորհրդանշում է պատկանելությունը, կայունությունը և այն հիմքերը, որոնք մեզ կապում են վայրի հետ։", p3: "Թե՛ դուք փնտրում եք հողամաս, բնակարան կամ ընտանեկան տուն՝ մեր նպատակն է օգնել ձեզ գտնել այն գույքը, որը ճիշտ է ձեզ համար։", val: { trust: "Վստահություն", trustDesc: "Ազնիվ, ուշադիր սպասարկում", purpose: "Նպատակ", purposeDesc: "Գույքեր, որոնք համապատասխանում են ձեր ծրագրերին", connection: "Կապ", connectionDesc: "Անհատական մոտեցում", roots: "Արմատներ", rootsDesc: "Վայր, որտեղ իսկապես պատկանում եք" }, ctaBtn: "Գտնենք ձեր տեղը ↗" },
+    cta: { eyebrow: "Ձեր հաջորդ փուլը սկսվում է այստեղ", title: "Յուրաքանչյուր մեծ պատմություն վայր է պահանջում։", copy: "Ասեք մեզ, թե ինչ եք փնտրում։ Եկեք գտնենք այն հողամասը, բնակարանը, տունը կամ առևտրային տարածքը, որը ճիշտ է ձեր հաջորդ փուլի համար։", btn: "Կապվել ARMAT-ի հետ ↗" },
+    contact: { eyebrow: "Կապ հաստատեք", title: "Եկեք գտնենք ձեր տեղը։", copy: "Ունե՞ք կոնկրետ գույք մտքում, ցանկանում եք վաճառել, կամ պարզապես կարիք ունեք խորհրդատվության։ Ուղարկեք մեզ հաղորդագրություն և պատմեք ձեր ծրագրերի մասին։", officeLabel: "Մեր գրասենյակ", officeValue: "Երևան, Հայաստան", emailLabel: "Էլ. փոստ", hoursLabel: "Աշխատանքային ժամեր", hoursValue: "Երկուշաբթի – Շաբաթ · Ըստ նախնական պայմանավորվածության", nameLabel: "Ձեր անունը", namePlaceholder: "Անուն, ազգանուն", emailFieldLabel: "Էլ. փոստի հասցե", emailPlaceholder: "you@example.com", interestLabel: "Ես հետաքրքրված եմ", buying: "Գույք գնելով", selling: "Գույք վաճառելով", other: "Այլ հարցում", messageLabel: "Ձեր հաղորդագրությունը", messagePlaceholder: "Պատմեք մեզ մի փոքր այն մասին, թե ինչ եք փնտրում...", submitBtn: "Պատրաստել հարցումը ↗", formStatus: "Բացվում է ձեր էլ. փոստի հավելվածը։ Խնդրում ենք ստուգել և ուղարկել պատրաստված հաղորդագրությունը։" },
+    footer: { brandDesc: "Արմատավորված վստահության մեջ։ Կառուցված ձեր ապագայի համար։ Օգնում ենք ձեզ գտնել հողամասեր, բնակարաններ, տներ և առևտրային տարածքներ ձեր կյանքի հաջորդ փուլի համար։", exploreTitle: "Հետազոտել", touchTitle: "Կապ հաստատել", emailLink: "Գրել ARMAT-ին", copyright: "© <span id=\"year\"></span> ARMAT REAL ESTATE. Բոլոր իրավունքները պաշտպանված են։", madeIn: "Ստեղծված վստահության հիմքով · Երևան, Հայաստան" },
+    modal: { askBtn: "Հարցնել այս գույքի մասին ↗", bedrooms: "ննջասենյակ", bathrooms: "լոգասենյակ" }
   }
 };
 
-// ==========================================
-// CORE FUNCTIONALITY BELOW
-// ==========================================
-
-// ✅ UPDATED LOGO URLS
 const armenianLogoUrl = "https://cdn.shopify.com/s/files/1/0825/4695/0390/files/Embossed_Stone_House_Logo_with_Roots.png?v=1795111663";
 const englishLogoUrl = "https://cdn.shopify.com/s/files/1/0825/4695/0390/files/Carved_Stone_ARMAT_Real_Estate_Logo.png?v=1795111663";
 
 let currentLang = 'en';
-
 const langSwitch = document.getElementById('langSwitch');
 const logos = document.querySelectorAll('.brand-logo');
 
@@ -1376,45 +1149,30 @@ function getNestedValue(obj, path) {
 
 function translatePage(lang) {
   const t = TRANSLATIONS[lang];
-
   document.querySelectorAll('[data-i18n]').forEach(el => {
     const key = el.getAttribute('data-i18n');
     const value = getNestedValue(t, key);
-    if (value !== undefined) {
-      el.innerHTML = value;
-    }
+    if (value !== undefined) el.innerHTML = value;
   });
-
   document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
     const key = el.getAttribute('data-i18n-placeholder');
     const value = getNestedValue(t, key);
-    if (value !== undefined) {
-      el.placeholder = value;
-    }
+    if (value !== undefined) el.placeholder = value;
   });
-
   document.querySelectorAll('select option[data-i18n]').forEach(option => {
     const key = option.getAttribute('data-i18n');
     const value = getNestedValue(t, key);
-    if (value !== undefined) {
-      option.textContent = value;
-    }
+    if (value !== undefined) option.textContent = value;
   });
-
   document.documentElement.lang = lang === 'hy' ? 'hy' : 'en';
 }
 
 function updateLogo(lang) {
   const targetUrl = lang === 'hy' ? armenianLogoUrl : englishLogoUrl;
   const targetAlt = lang === 'hy' ? "ARMAT Անշարժ Գույք լոգո" : "ARMAT Real Estate logo";
-
-  logos.forEach(img => {
-    img.src = targetUrl;
-    img.alt = targetAlt;
-  });
+  logos.forEach(img => { img.src = targetUrl; img.alt = targetAlt; });
 }
 
-// Initialize based on browser language
 const userLang = navigator.language || navigator.userLanguage;
 if (userLang.startsWith('hy')) {
   currentLang = 'hy';
@@ -1427,7 +1185,6 @@ if (userLang.startsWith('hy')) {
   updateLogo('en');
 }
 
-// Toggle handler
 langSwitch.addEventListener('click', () => {
   if (currentLang === 'en') {
     currentLang = 'hy';
@@ -1442,123 +1199,14 @@ langSwitch.addEventListener('click', () => {
   }
 });
 
-/*
-  DEMO PROPERTY DATA:
-  Replace these sample listings, prices, locations and images with
-  verified real properties before publishing the website.
-*/
 const properties = [
-  {
-    id: 1,
-    type: "House",
-    title: "Contemporary Family Home",
-    location: "Yerevan, Armenia",
-    price: 285000,
-    priceLabel: "$285,000",
-    area: 220,
-    beds: 4,
-    baths: 3,
-    floor: 2,
-    ceilingHeight: 3.2,
-    buildingType: "Monolithic Concrete",
-    condition: "Renovated",
-    image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1000&q=85",
-    description: "A contemporary home with generous living spaces and a refined architectural style. Contact ARMAT to discuss the property's details and arrange a viewing."
-  },
-  {
-    id: 2,
-    type: "Apartment",
-    title: "Modern City Apartment",
-    location: "Yerevan, Armenia",
-    price: 145000,
-    priceLabel: "$145,000",
-    area: 95,
-    beds: 3,
-    baths: 2,
-    floor: 8,
-    ceilingHeight: 2.7,
-    buildingType: "Monolithic Concrete",
-    condition: "Renovated",
-    image: "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1000&q=85",
-    description: "A modern apartment concept with a calm, light-filled interior. Contact ARMAT to learn more about available apartments and viewing options."
-  },
-  {
-    id: 3,
-    type: "Land",
-    title: "Residential Land Plot",
-    location: "Armenia",
-    price: 75000,
-    priceLabel: "$75,000",
-    area: 800,
-    beds: null,
-    baths: null,
-    image: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1000&q=85",
-    description: "An example land listing for those planning to build a home of their own. Exact location, zoning, access and permitted uses must be verified before purchase."
-  },
-  {
-    id: 4,
-    type: "House",
-    title: "Warm Minimalist Residence",
-    location: "Armenia",
-    price: 220000,
-    priceLabel: "$220,000",
-    area: 180,
-    beds: 3,
-    baths: 2,
-    floor: 1,
-    ceilingHeight: 3,
-    buildingType: "Stone",
-    condition: "Average Condition",
-    image: "https://images.unsplash.com/photo-1600607687644-c7171b42498f?auto=format&fit=crop&w=1000&q=85",
-    description: "A minimalist residential concept with natural materials and timeless lines. Contact ARMAT for verified property information and available options."
-  },
-  {
-    id: 5,
-    type: "Apartment",
-    title: "Elegant Urban Residence",
-    location: "Yerevan, Armenia",
-    price: 118000,
-    priceLabel: "$118,000",
-    area: 78,
-    beds: 2,
-    baths: 1,
-    floor: 5,
-    ceilingHeight: 2.7,
-    buildingType: "Panel",
-    condition: "Renovated",
-    image: "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1000&q=85",
-    description: "An apartment concept suited to convenient city living. Ask ARMAT about actual listings, location details, building amenities and viewing availability."
-  },
-  {
-    id: 6,
-    type: "Land",
-    title: "Land for Your Future Home",
-    location: "Armenia",
-    price: 52000,
-    priceLabel: "$52,000",
-    area: 600,
-    beds: null,
-    baths: null,
-    image: "https://images.unsplash.com/photo-1472396961693-142e6e269027?auto=format&fit=crop&w=1000&q=85",
-    description: "A sample plot listing for a future home or investment. Verify ownership, cadastral information, utilities, road access and construction permissions before making a decision."
-  },
-  {
-    id: 7,
-    type: "Commercial Space",
-    title: "Modern Commercial Office",
-    location: "Yerevan, Armenia",
-    price: 195000,
-    priceLabel: "$195,000",
-    area: 160,
-    beds: null,
-    baths: 2,
-    floor: 1,
-    ceilingHeight: 3.5,
-    buildingType: "Monolithic Concrete",
-    condition: "Unfinished",
-    image: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1000&q=85",
-    description: "A sample commercial property listing suitable for office or business use. Verify the exact address, permitted use, ownership documents and property condition before making a decision."
-  }
+  { id: 1, type: "House", title: "Contemporary Family Home", location: "Yerevan, Armenia", price: 285000, priceLabel: "$285,000", area: 220, beds: 4, baths: 3, floor: 2, ceilingHeight: 3.2, buildingType: "Monolithic Concrete", condition: "Renovated", image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1000&q=85", description: "A contemporary home with generous living spaces and a refined architectural style. Contact ARMAT to discuss the property's details and arrange a viewing." },
+  { id: 2, type: "Apartment", title: "Modern City Apartment", location: "Yerevan, Armenia", price: 145000, priceLabel: "$145,000", area: 95, beds: 3, baths: 2, floor: 8, ceilingHeight: 2.7, buildingType: "Monolithic Concrete", condition: "Renovated", image: "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1000&q=85", description: "A modern apartment concept with a calm, light-filled interior. Contact ARMAT to learn more about available apartments and viewing options." },
+  { id: 3, type: "Land", title: "Residential Land Plot", location: "Armenia", price: 75000, priceLabel: "$75,000", area: 800, beds: null, baths: null, image: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1000&q=85", description: "An example land listing for those planning to build a home of their own. Exact location, zoning, access and permitted uses must be verified before purchase." },
+  { id: 4, type: "House", title: "Warm Minimalist Residence", location: "Armenia", price: 220000, priceLabel: "$220,000", area: 180, beds: 3, baths: 2, floor: 1, ceilingHeight: 3, buildingType: "Stone", condition: "Average Condition", image: "https://images.unsplash.com/photo-1600607687644-c7171b42498f?auto=format&fit=crop&w=1000&q=85", description: "A minimalist residential concept with natural materials and timeless lines. Contact ARMAT for verified property information and available options." },
+  { id: 5, type: "Apartment", title: "Elegant Urban Residence", location: "Yerevan, Armenia", price: 118000, priceLabel: "$118,000", area: 78, beds: 2, baths: 1, floor: 5, ceilingHeight: 2.7, buildingType: "Panel", condition: "Renovated", image: "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1000&q=85", description: "An apartment concept suited to convenient city living. Ask ARMAT about actual listings, location details, building amenities and viewing availability." },
+  { id: 6, type: "Land", title: "Land for Your Future Home", location: "Armenia", price: 52000, priceLabel: "$52,000", area: 600, beds: null, baths: null, image: "https://images.unsplash.com/photo-1472396961693-142e6e269027?auto=format&fit=crop&w=1000&q=85", description: "A sample plot listing for a future home or investment. Verify ownership, cadastral information, utilities, road access and construction permissions before making a decision." },
+  { id: 7, type: "Commercial Space", title: "Modern Commercial Office", location: "Yerevan, Armenia", price: 195000, priceLabel: "$195,000", area: 160, beds: null, baths: 2, floor: 1, ceilingHeight: 3.5, buildingType: "Monolithic Concrete", condition: "Unfinished", image: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1000&q=85", description: "A sample commercial property listing suitable for office or business use. Verify the exact address, permitted use, ownership documents and property condition before making a decision." }
 ];
 
 const listingGrid = document.getElementById("listingGrid");
@@ -1570,16 +1218,8 @@ const maxPrice = document.getElementById("maxPrice");
 const filterToggle = document.getElementById("filterToggle");
 const advancedFilters = document.getElementById("advancedFilters");
 const filterCount = document.getElementById("filterCount");
-
 const getFilterValue = id => document.getElementById(id).value;
-
-const escapeHTML = value => String(value ?? "").replace(/[&<>"']/g, char => ({
-  "&": "&amp;",
-  "<": "&lt;",
-  ">": "&gt;",
-  '"': "&quot;",
-  "'": "&#39;"
-}[char]));
+const escapeHTML = value => String(value ?? "").replace(/[&<>"']/g, char => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[char]));
 
 function renderListings(items) {
   if (!items.length) {
@@ -1587,9 +1227,7 @@ function renderListings(items) {
     listingGrid.innerHTML = `<div class="empty-state"><h3 style="font-family:var(--serif);font-size:30px;margin-bottom:8px">${getNestedValue(t, 'listings.noResultsTitle')}</h3><p>${getNestedValue(t, 'listings.noResultsCopy')}</p></div>`;
     return;
   }
-
   const t = TRANSLATIONS[currentLang];
-
   listingGrid.innerHTML = items.map(property => `
     <article class="listing-card">
       <div class="listing-photo">
@@ -1629,11 +1267,7 @@ function filterProperties() {
   const building = getFilterValue("buildingType");
   const condition = getFilterValue("propertyCondition");
 
-  if (
-    [min, max, minArea, maxArea, floor].some(v => v !== null && (!Number.isFinite(v) || v < 0)) ||
-    (min !== null && max !== null && min > max) ||
-    (minArea !== null && maxArea !== null && minArea > maxArea)
-  ) {
+  if ([min, max, minArea, maxArea, floor].some(v => v !== null && (!Number.isFinite(v) || v < 0)) || (min !== null && max !== null && min > max) || (minArea !== null && maxArea !== null && minArea > maxArea)) {
     const t = TRANSLATIONS[currentLang];
     listingGrid.innerHTML = `<div class="empty-state">${getNestedValue(t, 'listings.checkRanges')}</div>`;
     filterCount.textContent = getNestedValue(t, 'listings.checkRanges');
@@ -1641,44 +1275,21 @@ function filterProperties() {
   }
 
   const filtered = properties.filter(property => {
-    const roomsMatch = !rooms || (
-      rooms === "5"
-        ? Number(property.beds) >= 5
-        : Number(property.beds) === Number(rooms)
-    );
-
-    const bathsMatch = !baths || (
-      baths === "3"
-        ? Number(property.baths) >= 3
-        : Number(property.baths) === Number(baths)
-    );
-
+    const roomsMatch = !rooms || (rooms === "5" ? Number(property.beds) >= 5 : Number(property.beds) === Number(rooms));
+    const bathsMatch = !baths || (baths === "3" ? Number(property.baths) >= 3 : Number(property.baths) === Number(baths));
     return (type === "all" || property.type === type) &&
       (!location || property.location.toLowerCase().includes(location)) &&
-      (min === null || property.price >= min) &&
-      (max === null || property.price <= max) &&
-      (minArea === null || (property.area != null && property.area >= minArea)) &&
-      (maxArea === null || (property.area != null && property.area <= maxArea)) &&
-      roomsMatch &&
-      (floor === null || property.floor === floor) &&
-      bathsMatch &&
+      (min === null || property.price >= min) && (max === null || property.price <= max) &&
+      (minArea === null || (property.area != null && property.area >= minArea)) && (maxArea === null || (property.area != null && property.area <= maxArea)) &&
+      roomsMatch && (floor === null || property.floor === floor) && bathsMatch &&
       (!ceiling || (ceiling === "4" ? property.ceilingHeight >= 4 : property.ceilingHeight === Number(ceiling))) &&
-      (!building || property.buildingType === building) &&
-      (!condition || property.condition === condition);
+      (!building || property.buildingType === building) && (!condition || property.condition === condition);
   });
 
   renderListings(filtered);
-
   const t = TRANSLATIONS[currentLang];
-  const countText = getNestedValue(t, 'search.foundCount')
-    .replace('{count}', filtered.length)
-    .replace('{type}', filtered.length === 1 ?
-      (filtered[0].type === 'Land' ? getNestedValue(t, 'search.land') :
-       filtered[0].type === 'Apartment' ? getNestedValue(t, 'search.apartments') :
-       filtered[0].type === 'House' ? getNestedValue(t, 'search.houses') :
-       getNestedValue(t, 'search.commercial'))
-      : getNestedValue(t, 'search.allProperties'));
-
+  const countText = getNestedValue(t, 'search.foundCount').replace('{count}', filtered.length)
+    .replace('{type}', filtered.length === 1 ? (filtered[0].type === 'Land' ? getNestedValue(t, 'search.land') : filtered[0].type === 'Apartment' ? getNestedValue(t, 'search.apartments') : filtered[0].type === 'House' ? getNestedValue(t, 'search.houses') : getNestedValue(t, 'search.commercial')) : getNestedValue(t, 'search.allProperties'));
   filterCount.textContent = countText;
 }
 
@@ -1686,17 +1297,13 @@ filterToggle.addEventListener("click", () => {
   const isOpen = advancedFilters.classList.toggle("is-open");
   filterToggle.setAttribute("aria-expanded", String(isOpen));
   const t = TRANSLATIONS[currentLang];
-  filterToggle.innerHTML = `
-    ${isOpen ? (currentLang === 'hy' ? 'Թաքցնել' : 'Hide') : getNestedValue(t, 'search.filters')}
-    <span aria-hidden="true">${isOpen ? "−" : "＋"}</span>
-  `;
+  filterToggle.innerHTML = `${isOpen ? (currentLang === 'hy' ? 'Թաքցնել' : 'Hide') : getNestedValue(t, 'search.filters')} <span aria-hidden="true">${isOpen ? "−" : "＋"}</span>`;
 });
 
 document.getElementById("clearFilters").addEventListener("click", () => {
   searchForm.reset();
   renderListings(properties);
-  const t = TRANSLATIONS[currentLang];
-  filterCount.textContent = getNestedValue(t, 'search.showingAll');
+  filterCount.textContent = getNestedValue(TRANSLATIONS[currentLang], 'search.showingAll');
 });
 
 searchForm.addEventListener("submit", event => {
@@ -1706,33 +1313,17 @@ searchForm.addEventListener("submit", event => {
 });
 
 document.getElementById("showAllBtn").addEventListener("click", () => {
-  searchType.value = "all";
-  searchLocation.value = "";
-  minPrice.value = "";
-  maxPrice.value = "";
+  searchType.value = "all"; searchLocation.value = ""; minPrice.value = ""; maxPrice.value = "";
   searchForm.reset();
-  const t = TRANSLATIONS[currentLang];
-  filterCount.textContent = getNestedValue(t, 'search.showingAll');
+  filterCount.textContent = getNestedValue(TRANSLATIONS[currentLang], 'search.showingAll');
   renderListings(properties);
 });
 
-document.querySelectorAll("[data-category]").forEach(link => {
+document.querySelectorAll("[data-category], [data-footer-category]").forEach(link => {
   link.addEventListener("click", () => {
-    searchType.value = link.dataset.category;
-    searchLocation.value = "";
-    minPrice.value = "";
-    maxPrice.value = "";
-    renderListings(properties.filter(p => p.type === link.dataset.category));
-  });
-});
-
-document.querySelectorAll("[data-footer-category]").forEach(link => {
-  link.addEventListener("click", () => {
-    searchType.value = link.dataset.footerCategory;
-    searchLocation.value = "";
-    minPrice.value = "";
-    maxPrice.value = "";
-    renderListings(properties.filter(p => p.type === link.dataset.footerCategory));
+    searchType.value = link.dataset.category || link.dataset.footerCategory;
+    searchLocation.value = ""; minPrice.value = ""; maxPrice.value = "";
+    renderListings(properties.filter(p => p.type === searchType.value));
   });
 });
 
@@ -1742,10 +1333,8 @@ const modalClose = document.getElementById("modalClose");
 listingGrid.addEventListener("click", event => {
   const button = event.target.closest("[data-details]");
   if (!button) return;
-
   const property = properties.find(p => p.id === Number(button.dataset.details));
   if (!property) return;
-
   const t = TRANSLATIONS[currentLang];
 
   document.getElementById("modalImage").src = property.image;
@@ -1754,7 +1343,6 @@ listingGrid.addEventListener("click", event => {
   document.getElementById("modalTitle").textContent = property.title;
   document.getElementById("modalPrice").textContent = property.priceLabel;
   document.getElementById("modalDescription").textContent = property.description;
-
   document.getElementById("modalMeta").innerHTML = [
     property.area ? `<span>▧ ${escapeHTML(property.area)} m²</span>` : "",
     property.beds ? `<span>▤ ${escapeHTML(property.beds)} ${getNestedValue(t, 'modal.bedrooms')}</span>` : "",
@@ -1770,35 +1358,23 @@ listingGrid.addEventListener("click", event => {
     else if (property.type === "Commercial Space") interestSelect.value = getNestedValue(t, 'search.commercial');
     else interestSelect.value = getNestedValue(t, 'search.apartments');
   };
-
   modal.classList.add("open");
   modalClose.focus();
 });
 
-function closeModal() {
-  modal.classList.remove("open");
-}
-
+function closeModal() { modal.classList.remove("open"); }
 modalClose.addEventListener("click", closeModal);
-
-modal.addEventListener("click", event => {
-  if (event.target === modal) closeModal();
-});
-
-document.addEventListener("keydown", event => {
-  if (event.key === "Escape") closeModal();
-});
+modal.addEventListener("click", event => { if (event.target === modal) closeModal(); });
+document.addEventListener("keydown", event => { if (event.key === "Escape") closeModal(); });
 
 const menuToggle = document.getElementById("menuToggle");
 const navLinks = document.getElementById("navLinks");
-
 menuToggle.addEventListener("click", () => {
   const isOpen = navLinks.classList.toggle("open");
   menuToggle.setAttribute("aria-expanded", String(isOpen));
   menuToggle.setAttribute("aria-label", isOpen ? "Close navigation" : "Open navigation");
   menuToggle.textContent = isOpen ? "×" : "☰";
 });
-
 navLinks.querySelectorAll("a").forEach(link => {
   link.addEventListener("click", () => {
     navLinks.classList.remove("open");
@@ -1809,29 +1385,16 @@ navLinks.querySelectorAll("a").forEach(link => {
 
 document.getElementById("contactForm").addEventListener("submit", event => {
   event.preventDefault();
-
   const form = event.currentTarget;
   if (!form.reportValidity()) return;
-
   const data = new FormData(form);
   const subject = encodeURIComponent("ARMAT Real Estate Inquiry — " + data.get("interest"));
-
-  const body = encodeURIComponent(
-    "Name: " + data.get("name") + "\n" +
-    "Email: " + data.get("email") + "\n" +
-    "Interest: " + data.get("interest") + "\n\n" +
-    "Message:\n" + data.get("message")
-  );
-
-  const t = TRANSLATIONS[currentLang];
-  document.getElementById("formStatus").textContent = getNestedValue(t, 'contact.formStatus');
-
-  window.location.href =
-    "mailto:hello@armatestate.am?subject=" + subject + "&body=" + body;
+  const body = encodeURIComponent("Name: " + data.get("name") + "\nEmail: " + data.get("email") + "\nInterest: " + data.get("interest") + "\n\nMessage:\n" + data.get("message"));
+  document.getElementById("formStatus").textContent = getNestedValue(TRANSLATIONS[currentLang], 'contact.formStatus');
+  window.location.href = "mailto:hello@armatestate.am?subject=" + subject + "&body=" + body;
 });
 
 document.getElementById("year").textContent = new Date().getFullYear();
-
 renderListings(properties);
 </script>
 </body>
