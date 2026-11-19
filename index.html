@@ -9,7 +9,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&family=Noto+Sans+Armenian:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 :root {
@@ -21,8 +21,8 @@
   --border: #D7C4AD;
   --white: #FFFFFF;
   --muted: #796D61;
-  --serif: "Cormorant Garamond", Georgia, serif;
-  --sans: "Montserrat", Arial, sans-serif;
+  --serif: "Cormorant Garamond", "Noto Serif Armenian", Georgia, serif;
+  --sans: "Montserrat", "Noto Sans Armenian", Arial, sans-serif;
   --container: 1240px;
 }
 
@@ -124,7 +124,6 @@ header {
   flex-shrink: 0;
 }
 
-/* LOGO STYLES */
 .brand-logo {
   width: 230px;
   height: 85px;
@@ -144,7 +143,6 @@ header {
 .nav-actions { display: flex; align-items: center; gap: 14px; }
 .nav-actions .btn { min-height: 42px; padding: 10px 15px; font-size: 9px; }
 
-/* LANGUAGE SWITCHER STYLES */
 .lang-switch {
   display: inline-flex;
   align-items: center;
@@ -668,8 +666,8 @@ footer { background: #30241D; color: var(--ivory); padding: 55px 0 20px; }
 <header>
   <div class="container navbar">
     <a class="brand" href="#home" aria-label="ARMAT Real Estate home">
-      <!-- IMPORTANT: This is the ENGLISH LOGO URL (Elegant) -->
-      <img id="siteLogo" class="brand-logo" src="https://cdn.shopify.com/s/files/1/0825/4695/0390/files/Elegant_ARMAT_Real_Estate_Logo.png?v=1795093061" alt="ARMAT Real Estate logo">
+      <!-- ENGLISH LOGO (Carved Stone ARMAT) -->
+      <img id="siteLogo" class="brand-logo" src="https://cdn.shopify.com/s/files/1/0825/4695/0390/files/Carved_Stone_ARMAT_Real_Estate_Logo.png?v=1795111663" alt="ARMAT Real Estate logo">
     </a>
 
     <nav class="nav-links" id="navLinks" aria-label="Main navigation">
@@ -682,12 +680,9 @@ footer { background: #30241D; color: var(--ivory); padding: 55px 0 20px; }
 
     <div class="nav-actions">
       <a class="btn" href="#contact" data-i18n="nav.listProperty">List Your Property ↗</a>
-      
-      <!-- LANGUAGE SWITCHER BUTTON -->
       <button class="lang-switch" id="langSwitch" type="button" aria-label="Change Language">
         HY
       </button>
-
       <button class="menu-toggle" id="menuToggle" aria-label="Open navigation" aria-expanded="false">☰</button>
     </div>
   </div>
@@ -708,7 +703,6 @@ footer { background: #30241D; color: var(--ivory); padding: 55px 0 20px; }
     </div>
   </section>
 
-  <!-- PROPERTY SEARCH -->
   <div class="container search-wrap">
     <form class="search-panel" id="searchForm">
 
@@ -726,7 +720,6 @@ footer { background: #30241D; color: var(--ivory); padding: 55px 0 20px; }
         </button>
       </div>
 
-      <!-- MAIN SEARCH: ONLY LOCATION AND PRICE -->
       <div class="search-grid">
         <div class="field">
           <label for="searchLocation" data-i18n="search.locationLabel">Location</label>
@@ -744,7 +737,6 @@ footer { background: #30241D; color: var(--ivory); padding: 55px 0 20px; }
         </div>
       </div>
 
-      <!-- ALL EXTRA FILTERS INCLUDING PROPERTY TYPE -->
       <div class="advanced-filters" id="advancedFilters">
 
         <div class="field">
@@ -1014,8 +1006,8 @@ footer { background: #30241D; color: var(--ivory); padding: 55px 0 20px; }
     <div class="footer-top">
       <div class="footer-brand">
         <a class="brand" href="#home">
-          <!-- Footer Logo also uses the ID siteLogo -->
-          <img class="brand-logo" src="https://cdn.shopify.com/s/files/1/0825/4695/0390/files/Elegant_ARMAT_Real_Estate_Logo.png?v=1795093061" alt="ARMAT Real Estate logo">
+          <!-- Footer Logo (ENGLISH - Carved Stone ARMAT) -->
+          <img class="brand-logo" src="https://cdn.shopify.com/s/files/1/0825/4695/0390/files/Carved_Stone_ARMAT_Real_Estate_Logo.png?v=1795111663" alt="ARMAT Real Estate logo">
         </a>
         <p data-i18n="footer.brandDesc">Rooted in trust. Built for your future. Helping you find land, apartments, houses and commercial spaces for the next chapter of your life.</p>
       </div>
@@ -1066,10 +1058,7 @@ footer { background: #30241D; color: var(--ivory); padding: 55px 0 20px; }
 // ==========================================
 const TRANSLATIONS = {
   en: {
-    // Announcement Bar
     announcement: "Find your place. Build your roots. &nbsp; · &nbsp; ARMAT REAL ESTATE",
-    
-    // Navigation
     nav: {
       home: "Home",
       properties: "Properties",
@@ -1078,8 +1067,6 @@ const TRANSLATIONS = {
       contact: "Contact",
       listProperty: "List Your Property ↗"
     },
-
-    // Hero Section
     hero: {
       eyebrow: "A better place to begin",
       title: "Find a place<br>to put down <em>roots.</em>",
@@ -1088,8 +1075,6 @@ const TRANSLATIONS = {
       discoverBtn: "Discover ARMAT",
       note: "Land · Apartments · Houses · Commercial Spaces"
     },
-
-    // Search Panel
     search: {
       title: "Find your property",
       filters: "Filters",
@@ -1138,8 +1123,6 @@ const TRANSLATIONS = {
       showingAll: "Showing all properties",
       foundCount: "Found {count} {type}"
     },
-
-    // Categories
     categories: {
       eyebrow: "Explore your possibilities",
       title: "A place for every kind of dream.",
@@ -1151,8 +1134,6 @@ const TRANSLATIONS = {
       house: { sub: "Made for living", desc: "Find the place that feels like home." },
       comm: { sub: "Space to do business", desc: "Find the right place for your business." }
     },
-
-    // Listings
     listings: {
       eyebrow: "Selected properties",
       title: "Find your next address.",
@@ -1164,15 +1145,11 @@ const TRANSLATIONS = {
       noResultsCopy: "Try changing your filters to see more results.",
       checkRanges: "Please check your price and area ranges."
     },
-
-    // Stats
     stats: {
       vision: "Your vision comes first",
       attention: "Personalized attention",
       possibilities: "Possibilities for your future"
     },
-
-    // About
     about: {
       eyebrow: "Our philosophy",
       title: "Rooted in trust.<br>Built for your future.",
@@ -1187,16 +1164,12 @@ const TRANSLATIONS = {
       },
       ctaBtn: "Let's Find Your Place ↗"
     },
-
-    // CTA
     cta: {
       eyebrow: "Your next chapter starts here",
       title: "Every great story needs a place.",
       copy: "Tell us what you're looking for. Let's find the land, apartment, house or commercial space that feels right for your next chapter.",
       btn: "Talk to ARMAT ↗"
     },
-
-    // Contact
     contact: {
       eyebrow: "Get in touch",
       title: "Let's find your place.",
@@ -1219,8 +1192,6 @@ const TRANSLATIONS = {
       submitBtn: "Prepare My Inquiry ↗",
       formStatus: "Opening your email app. Please review and send the prepared message."
     },
-
-    // Footer
     footer: {
       brandDesc: "Rooted in trust. Built for your future. Helping you find land, apartments, houses and commercial spaces for the next chapter of your life.",
       exploreTitle: "Explore",
@@ -1229,8 +1200,6 @@ const TRANSLATIONS = {
       copyright: "© <span id=\"year\"></span> ARMAT REAL ESTATE. All rights reserved.",
       madeIn: "Made with a foundation of trust · Yerevan, Armenia"
     },
-
-    // Modal
     modal: {
       askBtn: "Ask About This Property ↗",
       bedrooms: "bedrooms",
@@ -1239,84 +1208,74 @@ const TRANSLATIONS = {
   },
 
   hy: {
-    // Announcement Bar
-    announcement: "Գտեք ձեր տեղը։ Ամրացրեք ձեր արմատները։ &nbsp; · &nbsp; ARMAT ԱՆՇԱՐԺ ԳՈՒՅՔ",
-    
-    // Navigation
+    announcement: "Ամրացրեք ձեր արմատները։ &nbsp; · &nbsp; |ԱՐՄԱՏ ԱՆՇԱՐԺ ԳՈՒՅՔ",
     nav: {
       home: "Գլխավոր",
-      properties: "Անշարժ գույք",
+      properties: "Բոլորը",
       categories: "Կատեգորիաներ",
       about: "Մեր մասին",
       contact: "Կապ",
       listProperty: "Տեղադրել հայտարարություն ↗"
     },
-
-    // Hero Section
     hero: {
       eyebrow: "Լավագույն սկիզբը",
       title: "Գտեք այն վայրը,<br>որտեղ կամրացնեք <em>արմատները։</em>",
-      copy: "Հողամասից, որի մասին երազում եք, մինչև տունը, որտեղ պատկանում եք՝ հայտնաբերեք անշարժ գույք, որը համապատասխանում է ձեր ապագային։",
-      exploreBtn: "Դիտել անշարժ գույքը ↗",
-      discoverBtn: "Բացահայտել ARMAT-ը",
-      note: "Հողամասեր · Բնակարաններ · Տներ · Առևտրային տարածքներ"
+      copy: "«Երազանքի հողատարածքից մինչև քո տուն. բացահայտի՛ր քո ապագա անկյունը»։",
+      exploreBtn: "Դիտել բոլորը ↗",
+      discoverBtn: "Մեր մասին",
+      note: "Տներ· Բնակարաններ · Հողատարածքներ · Կոմերցիոն տարածքներ"
     },
-
-    // Search Panel
     search: {
       title: "Գտեք ձեր անշարժ գույքը",
       filters: "Ֆիլտրեր",
       locationLabel: "Վայր",
-      locationPlaceholder: "օր․ Երևան",
-      minPriceLabel: "Նվազագույն գին ($)",
-      noMinimum: "Առանց նվազագույնի",
-      maxPriceLabel: "Առավելագույն գին ($)",
-      noMaximum: "Առանց առավելագույնի",
+      locationPlaceholder: "Օր․ Երևան",
+      minPriceLabel: "Գին (֏)",
+      noMinimum: "Նվազագույն",
+      maxPriceLabel: "Գին (֏)",
+      noMaximum: "Առավելագույն",
       typeLabel: "Գույքի տեսակ",
-      allProperties: "Բոլոր գույքերը",
-      land: "Հողամաս",
-      apartments: "Բնակարաններ",
+      allProperties: "Բոլորը",
       houses: "Տներ",
-      commercial: "Առևտրային տարածքներ",
-      minAreaLabel: "Նվազագույն մակերես (մ²)",
-      maxAreaLabel: "Առավելագույն մակերես (մ²)",
-      areaPlaceholder: "օր․ 50",
+      apartments: "Բնակարաններ",
+      land: "Հողատարածքներ",
+      commercial: "Կոմերցիոն տարածքներ",
+      minAreaLabel: "Մակերես (մ²)",
+      maxAreaLabel: "Մակերես (մ²)",
+      areaPlaceholder: "Նվազագույն",
       roomsLabel: "Սենյակների քանակ",
-      any: "Ցանկացած",
-      "1Room": "1 սենյակ",
-      "2Rooms": "2 սենյակ",
-      "3Rooms": "3 սենյակ",
-      "4Rooms": "4 սենյակ",
-      "5PlusRooms": "5+ սենյակ",
+      any: "Օր. 3",
+      "1Room": "1 ",
+      "2Rooms": "2 ",
+      "3Rooms": "3 ",
+      "4Rooms": "4 ",
+      "5PlusRooms": "5+ ",
       floorLabel: "Հարկ",
-      anyFloor: "Ցանկացած հարկ",
+      anyFloor: "Օր. 2",
       bathsLabel: "Լոգասենյակների քանակ",
-      "1Bath": "1 լոգասենյակ",
-      "2Baths": "2 լոգասենյակ",
+      "1Bath": "1 ",
+      "2Baths": "2 ",
       "3PlusBaths": "3+ լոգասենյակ",
       ceilingLabel: "Առաստաղի բարձրություն (մ)",
-      anyHeight: "Ցանկացած բարձրություն",
+      anyHeight: "Օր. 3մ",
       buildingTypeLabel: "Շենքի տեսակ",
-      allTypes: "Բոլոր տեսակները",
-      stone: "Քար",
-      monolithic: "Մոնոլիտ բետոն",
+      allTypes: "Բոլորը",
+      stone: "Քարե",
+      monolithic: "Մոնոլիտ",
       panel: "Պանելային",
       statusLabel: "Վիճակ",
-      anyStatus: "Ցանկացած վիճակ",
+      anyStatus: "Օր. ",
       renovated: "Վերանորոգված",
-      average: "Միջին վիճակ",
+      average: "Լավ",
       unfinished: "Անավարտ",
-      applyBtn: "Կիրառել ֆիլտրեր ↗",
+      applyBtn: "Կիրառել ↗",
       clearBtn: "Ջնջել բոլորը",
       showingAll: "Ցուցադրվում են բոլոր գույքերը",
       foundCount: "Գտնվել է {count} {type}"
     },
-
-    // Categories
     categories: {
-      eyebrow: "Հետազոտեք ձեր հնարավորությունները",
-      title: "Վայր յուրաքանչյուր երազանքի համար։",
-      copy: "Թե՛ դուք կառուցում եք զրոյից, թե՛ տեղափոխվում եք անմիջապես՝ հայտնաբերեք ճիշտ անշարժ գույքը ձեր հաջորդ փուլի համար։"
+      eyebrow: "Բացահայտի՛ր քո հնարավորությունները",
+      title: "Անկյուն՝ բոլորի համար։",
     },
     cat: {
       land: { sub: "Կառուցեք ձեր ապագան", desc: "Տարածք աճելու համար։ Տարածք ստեղծագործելու համար։" },
@@ -1324,8 +1283,6 @@ const TRANSLATIONS = {
       house: { sub: "Ստեղծված ապրելու համար", desc: "Գտեք այն վայրը, որը նման է տանը։" },
       comm: { sub: "Տարածք բիզնեսի համար", desc: "Գտեք ճիշտ վայրը ձեր բիզնեսի համար։" }
     },
-
-    // Listings
     listings: {
       eyebrow: "Ընտրված անշարժ գույք",
       title: "Գտեք ձեր հաջորդ հասցեն։",
@@ -1337,15 +1294,11 @@ const TRANSLATIONS = {
       noResultsCopy: "Փորձեք փոխել ֆիլտրերը՝ ավելի շատ արդյունքներ տեսնելու համար։",
       checkRanges: "Խնդրում ենք ստուգել գնի և մակերեսի միջակայքերը։"
     },
-
-    // Stats
     stats: {
       vision: "Ձեր տեսլականը առաջնային է",
       attention: "Անհատական ուշադրություն",
       possibilities: "Հնարավորություններ ձեր ապագայի համար"
     },
-
-    // About
     about: {
       eyebrow: "Մեր փիլիսոփայությունը",
       title: "Արմատավորված վստահության մեջ։<br>Կառուցված ձեր ապագայի համար։",
@@ -1360,16 +1313,12 @@ const TRANSLATIONS = {
       },
       ctaBtn: "Գտնենք ձեր տեղը ↗"
     },
-
-    // CTA
     cta: {
       eyebrow: "Ձեր հաջորդ փուլը սկսվում է այստեղ",
       title: "Յուրաքանչյուր մեծ պատմություն վայր է պահանջում։",
       copy: "Ասեք մեզ, թե ինչ եք փնտրում։ Եկեք գտնենք այն հողամասը, բնակարանը, տունը կամ առևտրային տարածքը, որը ճիշտ է ձեր հաջորդ փուլի համար։",
       btn: "Կապվել ARMAT-ի հետ ↗"
     },
-
-    // Contact
     contact: {
       eyebrow: "Կապ հաստատեք",
       title: "Եկեք գտնենք ձեր տեղը։",
@@ -1392,8 +1341,6 @@ const TRANSLATIONS = {
       submitBtn: "Պատրաստել հարցումը ↗",
       formStatus: "Բացվում է ձեր էլ. փոստի հավելվածը։ Խնդրում ենք ստուգել և ուղարկել պատրաստված հաղորդագրությունը։"
     },
-
-    // Footer
     footer: {
       brandDesc: "Արմատավորված վստահության մեջ։ Կառուցված ձեր ապագայի համար։ Օգնում ենք ձեզ գտնել հողամասեր, բնակարաններ, տներ և առևտրային տարածքներ ձեր կյանքի հաջորդ փուլի համար։",
       exploreTitle: "Հետազոտել",
@@ -1402,8 +1349,6 @@ const TRANSLATIONS = {
       copyright: "© <span id=\"year\"></span> ARMAT REAL ESTATE. Բոլոր իրավունքները պաշտպանված են։",
       madeIn: "Ստեղծված վստահության հիմքով · Երևան, Հայաստան"
     },
-
-    // Modal
     modal: {
       askBtn: "Հարցնել այս գույքի մասին ↗",
       bedrooms: "ննջասենյակ",
@@ -1414,12 +1359,11 @@ const TRANSLATIONS = {
 
 // ==========================================
 // CORE FUNCTIONALITY BELOW
-// Do not edit unless you know what you're doing
 // ==========================================
 
-// CORRECTED LOGO URLS
-const armenianLogoUrl = "https://cdn.shopify.com/s/files/1/0825/4695/0390/files/Travertine_A_House_and_Tree_Roots_Logo.png?v=1795091459"; 
-const englishLogoUrl = "https://cdn.shopify.com/s/files/1/0825/4695/0390/files/Elegant_ARMAT_Real_Estate_Logo.png?v=1795093061";
+// ✅ UPDATED LOGO URLS
+const armenianLogoUrl = "https://cdn.shopify.com/s/files/1/0825/4695/0390/files/Embossed_Stone_House_Logo_with_Roots.png?v=1795111663";
+const englishLogoUrl = "https://cdn.shopify.com/s/files/1/0825/4695/0390/files/Carved_Stone_ARMAT_Real_Estate_Logo.png?v=1795111663";
 
 let currentLang = 'en';
 
@@ -1432,8 +1376,7 @@ function getNestedValue(obj, path) {
 
 function translatePage(lang) {
   const t = TRANSLATIONS[lang];
-  
-  // Update all elements with data-i18n attribute
+
   document.querySelectorAll('[data-i18n]').forEach(el => {
     const key = el.getAttribute('data-i18n');
     const value = getNestedValue(t, key);
@@ -1442,7 +1385,6 @@ function translatePage(lang) {
     }
   });
 
-  // Update all placeholders
   document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
     const key = el.getAttribute('data-i18n-placeholder');
     const value = getNestedValue(t, key);
@@ -1451,7 +1393,6 @@ function translatePage(lang) {
     }
   });
 
-  // Update select options
   document.querySelectorAll('select option[data-i18n]').forEach(option => {
     const key = option.getAttribute('data-i18n');
     const value = getNestedValue(t, key);
@@ -1460,15 +1401,13 @@ function translatePage(lang) {
     }
   });
 
-  // Update HTML lang attribute
   document.documentElement.lang = lang === 'hy' ? 'hy' : 'en';
 }
 
 function updateLogo(lang) {
-  // Logic: If lang is 'hy', use Armenian logo. Otherwise use English logo.
   const targetUrl = lang === 'hy' ? armenianLogoUrl : englishLogoUrl;
   const targetAlt = lang === 'hy' ? "ARMAT Անշարժ Գույք լոգո" : "ARMAT Real Estate logo";
-  
+
   logos.forEach(img => {
     img.src = targetUrl;
     img.alt = targetAlt;
@@ -1729,21 +1668,20 @@ function filterProperties() {
   });
 
   renderListings(filtered);
-  
+
   const t = TRANSLATIONS[currentLang];
   const countText = getNestedValue(t, 'search.foundCount')
     .replace('{count}', filtered.length)
-    .replace('{type}', filtered.length === 1 ? 
+    .replace('{type}', filtered.length === 1 ?
       (filtered[0].type === 'Land' ? getNestedValue(t, 'search.land') :
        filtered[0].type === 'Apartment' ? getNestedValue(t, 'search.apartments') :
        filtered[0].type === 'House' ? getNestedValue(t, 'search.houses') :
-       getNestedValue(t, 'search.commercial')) 
+       getNestedValue(t, 'search.commercial'))
       : getNestedValue(t, 'search.allProperties'));
-  
+
   filterCount.textContent = countText;
 }
 
-/* OPEN / CLOSE FILTERS */
 filterToggle.addEventListener("click", () => {
   const isOpen = advancedFilters.classList.toggle("is-open");
   filterToggle.setAttribute("aria-expanded", String(isOpen));
@@ -1754,7 +1692,6 @@ filterToggle.addEventListener("click", () => {
   `;
 });
 
-/* CLEAR ALL FILTERS */
 document.getElementById("clearFilters").addEventListener("click", () => {
   searchForm.reset();
   renderListings(properties);
@@ -1762,14 +1699,12 @@ document.getElementById("clearFilters").addEventListener("click", () => {
   filterCount.textContent = getNestedValue(t, 'search.showingAll');
 });
 
-/* APPLY FILTERS */
 searchForm.addEventListener("submit", event => {
   event.preventDefault();
   filterProperties();
   document.getElementById("properties").scrollIntoView({ behavior: "smooth" });
 });
 
-/* SHOW ALL PROPERTIES */
 document.getElementById("showAllBtn").addEventListener("click", () => {
   searchType.value = "all";
   searchLocation.value = "";
@@ -1781,7 +1716,6 @@ document.getElementById("showAllBtn").addEventListener("click", () => {
   renderListings(properties);
 });
 
-/* CATEGORY FILTERS */
 document.querySelectorAll("[data-category]").forEach(link => {
   link.addEventListener("click", () => {
     searchType.value = link.dataset.category;
@@ -1792,7 +1726,6 @@ document.querySelectorAll("[data-category]").forEach(link => {
   });
 });
 
-/* FOOTER CATEGORY FILTERS */
 document.querySelectorAll("[data-footer-category]").forEach(link => {
   link.addEventListener("click", () => {
     searchType.value = link.dataset.footerCategory;
@@ -1803,7 +1736,6 @@ document.querySelectorAll("[data-footer-category]").forEach(link => {
   });
 });
 
-/* PROPERTY DETAILS MODAL */
 const modal = document.getElementById("propertyModal");
 const modalClose = document.getElementById("modalClose");
 
@@ -1857,7 +1789,6 @@ document.addEventListener("keydown", event => {
   if (event.key === "Escape") closeModal();
 });
 
-/* MOBILE NAVIGATION */
 const menuToggle = document.getElementById("menuToggle");
 const navLinks = document.getElementById("navLinks");
 
@@ -1876,7 +1807,6 @@ navLinks.querySelectorAll("a").forEach(link => {
   });
 });
 
-/* CONTACT FORM */
 document.getElementById("contactForm").addEventListener("submit", event => {
   event.preventDefault();
 
@@ -1900,10 +1830,8 @@ document.getElementById("contactForm").addEventListener("submit", event => {
     "mailto:hello@armatestate.am?subject=" + subject + "&body=" + body;
 });
 
-/* CURRENT YEAR */
 document.getElementById("year").textContent = new Date().getFullYear();
 
-/* INITIAL PROPERTY LISTINGS */
 renderListings(properties);
 </script>
 </body>
