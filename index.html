@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="hy">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#EDE0CE">
-<meta name="description" content="ARMAT Անշարժ Գույք — Հայտնաբերեք հողամասեր, բնակարաններ, տներ և առևտրային տարածքներ Հայաստանում։ Գտեք ձեր արմատները։">
-<title>ARMAT Real Estate | Գտեք Ձեր Տեղը</title>
+<meta name="description" content="ARMAT Real Estate — Discover land, apartments, houses and commercial spaces in Armenia. Find a place to put down roots.">
+<title>ARMAT Real Estate | Find Your Place</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -668,8 +668,8 @@ footer { background: #30241D; color: var(--ivory); padding: 55px 0 20px; }
 <header>
   <div class="container navbar">
     <a class="brand" href="#home" aria-label="ARMAT Real Estate home">
-      <!-- IMPORTANT: This is the ENGLISH LOGO URL -->
-      <img id="siteLogo" class="brand-logo" src="https://cdn.shopify.com/s/files/1/0825/4695/0390/files/Carved_Stone_A_Roots_Real_Estate_Logo.png?v=1793043014" alt="ARMAT Real Estate logo">
+      <!-- IMPORTANT: This is the ENGLISH LOGO URL (Elegant) -->
+      <img id="siteLogo" class="brand-logo" src="https://cdn.shopify.com/s/files/1/0825/4695/0390/files/Elegant_ARMAT_Real_Estate_Logo.png?v=1795093061" alt="ARMAT Real Estate logo">
     </a>
 
     <nav class="nav-links" id="navLinks" aria-label="Main navigation">
@@ -685,7 +685,7 @@ footer { background: #30241D; color: var(--ivory); padding: 55px 0 20px; }
       
       <!-- LANGUAGE SWITCHER BUTTON -->
       <button class="lang-switch" id="langSwitch" type="button" aria-label="Change Language">
-        EN
+        HY
       </button>
 
       <button class="menu-toggle" id="menuToggle" aria-label="Open navigation" aria-expanded="false">☰</button>
@@ -1015,7 +1015,7 @@ footer { background: #30241D; color: var(--ivory); padding: 55px 0 20px; }
       <div class="footer-brand">
         <a class="brand" href="#home">
           <!-- Footer Logo also uses the ID siteLogo -->
-          <img class="brand-logo" src="https://cdn.shopify.com/s/files/1/0825/4695/0390/files/Carved_Stone_A_Roots_Real_Estate_Logo.png?v=1793043014" alt="ARMAT Real Estate logo">
+          <img class="brand-logo" src="https://cdn.shopify.com/s/files/1/0825/4695/0390/files/Elegant_ARMAT_Real_Estate_Logo.png?v=1795093061" alt="ARMAT Real Estate logo">
         </a>
         <p data-i18n="footer.brandDesc">Rooted in trust. Built for your future. Helping you find land, apartments, houses and commercial spaces for the next chapter of your life.</p>
       </div>
@@ -1417,8 +1417,9 @@ const TRANSLATIONS = {
 // Do not edit unless you know what you're doing
 // ==========================================
 
+// CORRECTED LOGO URLS
 const armenianLogoUrl = "https://cdn.shopify.com/s/files/1/0825/4695/0390/files/Travertine_A_House_and_Tree_Roots_Logo.png?v=1795091459"; 
-const englishLogoUrl = "https://cdn.shopify.com/s/files/1/0825/4695/0390/files/Carved_Stone_A_Roots_Real_Estate_Logo.png?v=1793043014";
+const englishLogoUrl = "https://cdn.shopify.com/s/files/1/0825/4695/0390/files/Elegant_ARMAT_Real_Estate_Logo.png?v=1795093061";
 
 let currentLang = 'en';
 
@@ -1464,6 +1465,7 @@ function translatePage(lang) {
 }
 
 function updateLogo(lang) {
+  // Logic: If lang is 'hy', use Armenian logo. Otherwise use English logo.
   const targetUrl = lang === 'hy' ? armenianLogoUrl : englishLogoUrl;
   const targetAlt = lang === 'hy' ? "ARMAT Անշարժ Գույք լոգո" : "ARMAT Real Estate logo";
   
@@ -1483,6 +1485,7 @@ if (userLang.startsWith('hy')) {
 } else {
   langSwitch.textContent = 'HY';
   translatePage('en');
+  updateLogo('en');
 }
 
 // Toggle handler
