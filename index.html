@@ -1,4 +1,11 @@
 
+
+
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -732,6 +739,15 @@ footer { background: #30251E; color: var(--ivory); padding: 65px 0 25px; }
           <label>Full name</label>
           <input id="authName" autocomplete="name">
         </div>
+        <div class="field" id="authRoleField" style="display:none;margin-top:18px">
+          <label for="authRole">Register as</label>
+          <select id="authRole" autocomplete="off">
+            <option value="agent">Agent</option>
+            <option value="manager">Manager</option>
+            <option value="director">Director</option>
+          </select>
+          <small style="display:block;margin-top:7px;color:var(--muted);line-height:1.5">Manager and Director accounts require approval before receiving access.</small>
+        </div>
         <div class="field" style="margin-top:18px">
           <label>Email address</label>
           <input id="authEmail" type="email" required autocomplete="email">
@@ -1137,6 +1153,8 @@ function showAuth(mode = "login") {
     mode === "signup" ? "flex" : "none";
 
   $("authName").required = mode === "signup";
+  $("authRoleField").style.display = mode === "signup" ? "flex" : "none";
+  $("authRole").disabled = mode !== "signup";
 
   $("authSubmit").textContent =
     mode === "login" ? "Sign In ↗" : "Create Account ↗";
@@ -1180,22 +1198,30 @@ $("authForm").addEventListener("submit", async event => {
   try {
     if (authMode === "signup") {
       const fullName = $("authName").value.trim();
+      const requestedRole = $("authRole").value;
 
       const { data, error } = await db.auth.signUp({
         email,
         password,
         options: {
-          data: { full_name: fullName }
+          data: {
+            full_name: fullName,
+            requested_role: requestedRole
+          }
         }
       });
 
       if (error) throw error;
 
+      const approvalMessage = requestedRole === "agent"
+        ? ""
+        : ` Your ${requestedRole === "director" ? "Director" : "Manager"} access request must be approved by an authorized administrator. Until approval, your account does not have those permissions.`;
+
       if (!data.session) {
         $("authMessage").textContent =
-          "Account created. Please check your email to confirm your account, then sign in.";
+          "Account created. Please check your email to confirm your account, then sign in." + approvalMessage;
       } else {
-        $("authMessage").textContent = "Account created successfully.";
+        $("authMessage").textContent = "Account created successfully." + approvalMessage;
       }
     } else {
       const { error } = await db.auth.signInWithPassword({
@@ -1308,15 +1334,7 @@ async function loadAgentProperties() {
     .select("*, property_images(*)")
     .order("created_at", { ascending: false });
 
-  
-
-if (currentProfile?.role !== "admin") {
-  query = query.eq("owner_id", currentUser.id);
-}
-
-  query = query.eq("owner_id", currentUser.id);
-}
-
+  if (currentProfile?.role !== "admin") {
     query = query.eq("owner_id", currentUser.id);
   }
 
@@ -1771,3 +1789,6 @@ initializeARMAT();
 </script>
 </body>
 </html>
+
+
+
