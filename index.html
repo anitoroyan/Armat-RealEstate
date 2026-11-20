@@ -1308,7 +1308,11 @@ async function loadAgentProperties() {
     .select("*, property_images(*)")
     .order("created_at", { ascending: false });
 
-  if (currentProfile?.role !== "admin") {
+  
+if (!["admin", "director"].includes(currentProfile?.role)) {
+  query = query.eq("owner_id", currentUser.id);
+}
+
     query = query.eq("owner_id", currentUser.id);
   }
 
