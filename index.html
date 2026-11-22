@@ -4,10 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#EDE0CE">
-<meta name="description" content="ARMAT Real Estate — Discover land, apartments, houses and commercial spaces in Armenia. Find a place to put down roots.">
+<meta name="description" content="ARMAT Real Estate — Discover land, apartments, houses and commercial spaces in Armenia.">
 <title>ARMAT Real Estate | Find Your Place</title>
 
-<!-- FONT LOADING WITH ARMENIAN SUPPORT -->
+<!-- FONTS -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&family=Noto+Sans+Armenian:wght@300;400;500;600;700&family=Noto+Serif+Armenian:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -18,7 +18,6 @@
   --tuff: #C99B70;
   --walnut: #5B4637;
   --bronze: #A9794E;
-  --olive: #77785B;
   --border: #D7C4AD;
   --white: #FFFFFF;
   --muted: #796D61;
@@ -38,381 +37,108 @@ body {
   line-height: 1.7;
 }
 
-/* ==========================================
-   ARMENIAN TYPOGRAPHY ADJUSTMENTS
-   ========================================== */
+/* ARMENIAN TYPOGRAPHY OVERRIDES */
 html[lang="hy"] body {
   font-family: "Noto Sans Armenian", "Montserrat", sans-serif;
-  font-size: 14px; 
-  line-height: 1.75;
-  letter-spacing: 0.1px;
   font-weight: 400;
 }
-
-html[lang="hy"] h1,
-html[lang="hy"] h2,
-html[lang="hy"] h3,
-html[lang="hy"] .brand-name,
-html[lang="hy"] .section-heading h2,
-html[lang="hy"] .stat-number,
-html[lang="hy"] .value-item strong,
-html[lang="hy"] .search-title,
-html[lang="hy"] .listing-body h3 {
+html[lang="hy"] h1, html[lang="hy"] h2, html[lang="hy"] h3, 
+html[lang="hy"] .brand-name, html[lang="hy"] .stat-number, 
+html[lang="hy"] .value-item strong, html[lang="hy"] .listing-body h3 {
   font-family: "Noto Serif Armenian", "Cormorant Garamond", serif;
   font-weight: 500;
-  letter-spacing: -0.2px;
-}
-
-html[lang="hy"] .btn {
-  font-family: "Noto Sans Armenian", sans-serif;
-  font-weight: 600;
-  letter-spacing: 0.8px;
-  font-size: 11px;
-}
-
-html[lang="hy"] .nav-links a {
-  font-size: 12px;
-  font-weight: 500;
-}
-
-html[lang="hy"] .eyebrow,
-html[lang="hy"] .listing-type,
-html[lang="hy"] .stat-label,
-html[lang="hy"] .field label,
-html[lang="hy"] .listing-tag,
-html[lang="hy"] .hero-note,
-html[lang="hy"] .announcement {
-  font-family: "Noto Sans Armenian", sans-serif;
-  font-weight: 600;
-  letter-spacing: 1px;
-  font-size: 10px;
 }
 
 a { color: inherit; text-decoration: none; }
 button, input, select, textarea { font: inherit; }
-button, a, select { -webkit-tap-highlight-color: transparent; }
-button { cursor: pointer; }
 img { display: block; width: 100%; object-fit: cover; }
 .container { width: min(var(--container), 90%); margin-inline: auto; }
 
-.eyebrow {
-  color: var(--bronze);
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-}
-
-h1, h2, h3, .brand-name {
-  font-family: var(--serif);
-  font-weight: 500;
-}
-
+/* UTILITIES */
+.eyebrow { color: var(--bronze); font-size: 10px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; }
+h1, h2, h3, .brand-name { font-family: var(--serif); font-weight: 500; }
 h2 { font-size: clamp(32px, 5vw, 50px); line-height: 1.15; }
-.section-heading { max-width: 650px; margin-bottom: 38px; }
-.section-heading h2 { margin: 12px 0; }
-.section-heading p { color: var(--muted); max-width: 520px; }
-
 .btn {
-  min-height: 48px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-  padding: 13px 23px;
-  border: 1px solid var(--walnut);
-  background: var(--walnut);
-  color: var(--white);
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 1.3px;
-  text-transform: uppercase;
-  transition: background .25s, color .25s, transform .25s;
+  min-height: 48px; display: inline-flex; align-items: center; justify-content: center; gap: 12px;
+  padding: 13px 23px; border: 1px solid var(--walnut); background: var(--walnut); color: var(--white);
+  font-size: 10px; font-weight: 600; letter-spacing: 1.3px; text-transform: uppercase; transition: all .25s;
 }
-
-.btn:hover {
-  background: var(--bronze);
-  border-color: var(--bronze);
-  transform: translateY(-2px);
-}
-
+.btn:hover { background: var(--bronze); border-color: var(--bronze); transform: translateY(-2px); }
 .btn-outline { background: transparent; color: var(--walnut); }
 .btn-outline:hover { color: var(--white); }
 .btn-light { background: var(--ivory); border-color: var(--ivory); color: var(--walnut); }
-.btn-light:hover { background: var(--tuff); color: var(--walnut); border-color: var(--tuff); }
 
-.announcement {
-  background: var(--walnut);
-  color: var(--ivory);
-  text-align: center;
-  padding: 8px 15px;
-  font-size: 9px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-}
+/* HEADER */
+header { position: sticky; top: 0; z-index: 100; background: rgba(247,243,236,.96); backdrop-filter: blur(15px); border-bottom: 1px solid var(--border); }
+.navbar { min-height: 100px; display: flex; align-items: center; justify-content: space-between; gap: 25px; }
+.brand-logo { width: 230px; height: 85px; object-fit: contain; }
+.nav-links { display: flex; gap: 28px; }
+.nav-links a { font-size: 11px; font-weight: 600; }
+.lang-switch { border: 1px solid var(--walnut); padding: 6px 12px; background: transparent; font-weight: 700; cursor: pointer; }
+.menu-toggle { display: none; border: 0; background: transparent; font-size: 27px; }
 
-header {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  background: rgba(247,243,236,.96);
-  backdrop-filter: blur(15px);
-  border-bottom: 1px solid var(--border);
-}
+/* HERO */
+.hero { position: relative; min-height: 650px; display: flex; align-items: center; background: var(--walnut); color: white; overflow: hidden; }
+.hero-image { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: .7; }
+.hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(34,25,20,.82), transparent); }
+.hero-content { position: relative; z-index: 1; padding: 90px 0; }
+.hero h1 { font-size: clamp(44px, 6.5vw, 76px); margin: 18px 0; }
 
-.navbar {
-  min-height: 100px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 25px;
-}
-
-.brand {
-  display: flex;
-  align-items: center;
-  gap: 11px;
-  flex-shrink: 0;
-}
-
-.brand-logo {
-  width: 230px;
-  height: 85px;
-  max-height: none;
-  object-fit: contain;
-  object-position: left center;
-  display: block;
-}
-
-.brand-text { display: flex; flex-direction: column; line-height: 1; }
-.brand-name { font-size: 30px; letter-spacing: 3px; }
-.brand-sub { font-size: 8px; letter-spacing: 2.4px; margin-top: 7px; color: var(--bronze); }
-
-.nav-links { display: flex; align-items: center; gap: 28px; }
-.nav-links a { font-size: 11px; font-weight: 600; letter-spacing: .5px; transition: color .2s; }
-.nav-links a:hover { color: var(--bronze); }
-.nav-actions { display: flex; align-items: center; gap: 14px; }
-.nav-actions .btn { min-height: 42px; padding: 10px 15px; font-size: 9px; }
-
-.lang-switch {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  border: 1px solid var(--walnut);
-  padding: 6px 12px;
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 1px;
-  color: var(--walnut);
-  background: transparent;
-  transition: all 0.2s;
-}
-
-.lang-switch:hover {
-  background: var(--walnut);
-  color: var(--white);
-}
-
-.menu-toggle {
-  display: none;
-  border: 0;
-  background: transparent;
-  color: var(--walnut);
-  font-size: 27px;
-  line-height: 1;
-}
-
-.hero {
-  position: relative;
-  min-height: 650px;
-  display: flex;
-  align-items: center;
-  overflow: hidden;
-  background: var(--walnut);
-  color: var(--white);
-}
-
-.hero-image {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  opacity: .7;
-}
-
-.hero::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(90deg, rgba(34,25,20,.82), rgba(34,25,20,.44) 55%, rgba(34,25,20,.08));
-}
-
-.hero-content { position: relative; z-index: 1; padding: 90px 0 140px; }
-.hero .eyebrow { color: #E5C7A0; }
-
-.hero h1 {
-  font-size: clamp(44px, 6.5vw, 76px);
-  line-height: 1.08;
-  max-width: 780px;
-  margin: 18px 0 22px;
-}
-
-.hero-copy { max-width: 530px; color: rgba(255,255,255,.85); font-size: 15px; }
-.hero-buttons { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
-.hero-buttons .btn-outline { color: var(--white); border-color: rgba(255,255,255,0.6); }
-.hero-buttons .btn-outline:hover { background: var(--bronze); border-color: var(--bronze); }
-.hero-note { margin-top: 35px; color: #E5C7A0; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; }
-
+/* SEARCH */
 .search-wrap { position: relative; z-index: 3; margin-top: -70px; }
-.search-panel { background: #F7F3EC; padding: 30px; border: 1px solid var(--border); box-shadow: 0 18px 45px rgba(58,43,31,.10); }
-.search-panel-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 22px; }
-.search-title { font-family: var(--serif); font-size: 25px; }
+.search-panel { background: #F7F3EC; padding: 30px; border: 1px solid var(--border); }
 .search-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 16px; }
 .field { display: flex; flex-direction: column; gap: 8px; }
-.field label { color: var(--muted); font-size: 9px; font-weight: 700; letter-spacing: 1.4px; text-transform: uppercase; }
-.field input, .field select, .field textarea {
-  width: 100%;
-  min-height: 46px;
-  border: 1px solid var(--border);
-  background: #fff;
-  color: var(--walnut);
-  padding: 12px 13px;
-  outline: none;
-}
-.field input:focus, .field select:focus, .field textarea:focus { border-color: var(--bronze); }
-.filter-toggle { display: inline-flex; align-items: center; gap: 8px; background: transparent; border: 0; color: var(--walnut); font-size: 11px; font-weight: 600; }
-.advanced-filters { display: none; grid-template-columns: repeat(4, 1fr); gap: 16px; padding-top: 22px; margin-top: 22px; border-top: 1px solid var(--border); }
+.field label { font-size: 9px; font-weight: 700; text-transform: uppercase; color: var(--muted); }
+.field input, .field select { min-height: 46px; border: 1px solid var(--border); padding: 12px; }
+.advanced-filters { display: none; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 22px; padding-top: 22px; border-top: 1px solid var(--border); }
 .advanced-filters.open { display: grid; }
-.search-actions { display: flex; justify-content: flex-end; gap: 10px; margin-top: 20px; }
 
+/* CATEGORIES & LISTINGS */
 .section { padding: 110px 0; }
-.categories-section { padding-top: 100px; }
-.category-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
-.category-card { position: relative; min-height: 360px; overflow: hidden; color: white; background: var(--walnut); }
-.category-card::after { content: ""; position: absolute; inset: 0; background: linear-gradient(0deg, rgba(24,18,14,.8), transparent 70%); }
+.category-grid, .listing-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.listing-grid { grid-template-columns: repeat(3, 1fr); }
+.category-card { position: relative; min-height: 360px; color: white; background: var(--walnut); overflow: hidden; }
 .category-card img { position: absolute; inset: 0; width: 100%; height: 100%; transition: transform .6s; }
 .category-card:hover img { transform: scale(1.05); }
-.category-arrow { position: absolute; z-index: 2; top: 18px; right: 18px; width: 38px; height: 38px; display: grid; place-items: center; border: 1px solid rgba(255,255,255,.7); border-radius: 50%; }
-.category-info { position: absolute; z-index: 2; left: 22px; right: 22px; bottom: 22px; }
-.category-info span { font-size: 9px; letter-spacing: 1.5px; text-transform: uppercase; }
-.category-info h3 { font-size: 27px; margin: 7px 0; }
-.category-info p { font-size: 11px; color: rgba(255,255,255,.8); }
-
-.listing-heading-row { display: flex; align-items: flex-end; justify-content: space-between; gap: 25px; margin-bottom: 35px; }
-.listing-heading-row .section-heading { margin-bottom: 0; }
-.listing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
-.listing-card { background: #F7F3EC; border: 1px solid var(--border); overflow: hidden; cursor: pointer; transition: transform .25s, box-shadow .25s; }
-.listing-card:hover { transform: translateY(-5px); box-shadow: 0 18px 35px rgba(58,43,31,.12); }
-.listing-photo { position: relative; height: 260px; overflow: hidden; background: #ddd0bf; }
-.listing-photo img { height: 100%; transition: transform .5s; }
-.listing-card:hover .listing-photo img { transform: scale(1.04); }
-.listing-tag { position: absolute; top: 15px; left: 15px; padding: 7px 10px; background: var(--ivory); color: var(--walnut); font-size: 8px; letter-spacing: 1px; text-transform: uppercase; }
-.listing-price { position: absolute; right: 15px; bottom: 15px; padding: 9px 12px; background: var(--walnut); color: white; font-family: var(--serif); font-size: 20px; }
+.category-info { position: absolute; bottom: 22px; left: 22px; right: 22px; z-index: 2; }
+.listing-card { background: #F7F3EC; border: 1px solid var(--border); cursor: pointer; transition: transform .25s; }
+.listing-card:hover { transform: translateY(-5px); }
+.listing-photo { height: 260px; position: relative; }
 .listing-body { padding: 22px; }
-.listing-type { color: var(--bronze); font-size: 9px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; }
-.listing-body h3 { font-size: 26px; line-height: 1.15; margin: 10px 0; }
-.listing-address { color: var(--muted); font-size: 12px; }
-.listing-meta { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 17px; padding-top: 15px; border-top: 1px solid var(--border); color: var(--muted); font-size: 11px; }
-.listing-link { display: inline-block; margin-top: 18px; color: var(--bronze); font-size: 10px; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; }
-.empty-state { grid-column: 1/-1; text-align: center; padding: 65px 20px; background: #F7F3EC; border: 1px solid var(--border); }
+.listing-price { position: absolute; right: 15px; bottom: 15px; background: var(--walnut); color: white; padding: 9px 12px; font-family: var(--serif); }
 
-.stats { background: var(--walnut); color: var(--ivory); padding: 55px 0; }
-.stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; text-align: center; }
-.stat-number { font-family: var(--serif); font-size: 48px; color: #E5C7A0; }
-.stat-label { font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; margin-top: 5px; }
-
-.about-grid { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 70px; }
-.about-image-wrap { height: 570px; overflow: hidden; }
-.about-image-wrap img { height: 100%; }
-.about-copy p { color: var(--muted); margin-top: 18px; }
-.values-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; margin-top: 32px; }
-.value-item { border-top: 1px solid var(--border); padding-top: 14px; }
-.value-item strong { display: block; font-family: var(--serif); font-size: 24px; font-weight: 500; }
-.value-item span { color: var(--muted); font-size: 12px; }
-
-.cta-section { background: #D9C4AA; padding: 90px 0; text-align: center; }
-.cta-section .container { max-width: 800px; }
-.cta-section h2 { margin: 15px 0; }
-.cta-section p { color: var(--walnut); margin: 0 auto 25px; max-width: 600px; }
-
-.contact-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 70px; }
-.contact-details { display: grid; gap: 25px; margin-top: 35px; }
-.contact-detail strong { display: block; font-size: 10px; letter-spacing: 1.3px; text-transform: uppercase; color: var(--bronze); }
-.contact-detail span, .contact-detail a { display: block; margin-top: 5px; }
-.contact-form { background: #F7F3EC; padding: 30px; border: 1px solid var(--border); }
-.contact-form .field { margin-bottom: 16px; }
-.contact-form textarea { min-height: 120px; resize: vertical; }
-.form-status { color: var(--muted); font-size: 12px; margin-top: 12px; }
-
+/* FOOTER & MODAL */
 footer { background: #30251E; color: var(--ivory); padding: 65px 0 25px; }
-.footer-top { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 50px; padding-bottom: 45px; }
-.footer-brand .brand-logo { width: 210px; }
-.footer-brand p { max-width: 330px; color: rgba(237,224,206,.75); font-size: 12px; margin-top: 18px; line-height: 1.7; }
-.footer-column { display: flex; flex-direction: column; gap: 12px; }
-.footer-column h3 { font-family: var(--sans); font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: #D7B18A; margin-bottom: 8px; }
-.footer-column a { color: rgba(237,224,206,.8); font-size: 12px; }
-.footer-column a:hover { color: white; }
-.footer-bottom { display: flex; justify-content: space-between; gap: 20px; border-top: 1px solid rgba(237,224,206,.2); padding-top: 20px; color: rgba(237,224,206,.55); font-size: 10px; }
-
-.modal { position: fixed; inset: 0; z-index: 500; display: none; place-items: center; padding: 25px; background: rgba(20,15,12,.75); }
+.footer-top { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 50px; }
+.modal { position: fixed; inset: 0; z-index: 500; display: none; place-items: center; background: rgba(0,0,0,.75); }
 .modal.open { display: grid; }
-.modal-card { position: relative; width: min(900px, 100%); max-height: 90vh; overflow: auto; background: var(--ivory); display: grid; grid-template-columns: 1fr 1fr; }
-.modal-card > img { height: 100%; min-height: 400px; }
-.modal-content { padding: 45px; }
-.modal-content h2 { font-size: 36px; margin-top: 10px; }
-.modal-content p { color: var(--muted); margin: 20px 0; }
-.modal-close { position: absolute; top: 12px; right: 12px; z-index: 2; width: 38px; height: 38px; border: 0; border-radius: 50%; background: var(--ivory); color: var(--walnut); font-size: 24px; }
+.modal-card { background: var(--ivory); width: min(900px, 90%); max-height: 90vh; overflow: auto; display: grid; grid-template-columns: 1fr 1fr; }
+.modal-close { position: absolute; top: 12px; right: 12px; background: var(--ivory); border: 0; width: 38px; height: 38px; border-radius: 50%; cursor: pointer; }
 
-@media (max-width: 1000px) {
-  .nav-links { gap: 15px; }
-  .nav-actions .btn { display: none; }
-  .category-grid { grid-template-columns: repeat(2, 1fr); }
-  .listing-grid { grid-template-columns: repeat(2, 1fr); }
-  .about-grid { gap: 35px; }
-}
 @media (max-width: 700px) {
-  .navbar { min-height: 78px; }
-  .brand-logo { width: 170px; height: 65px; }
-  .menu-toggle { display: block; }
-  .nav-links { display: none; position: absolute; top: 100%; left: 0; right: 0; padding: 22px 5%; background: #F7F3EC; border-bottom: 1px solid var(--border); flex-direction: column; align-items: flex-start; }
+  .nav-links { display: none; position: absolute; top: 100%; left: 0; right: 0; background: #F7F3EC; flex-direction: column; padding: 20px; }
   .nav-links.open { display: flex; }
-  .search-grid, .advanced-filters { grid-template-columns: 1fr 1fr; }
-  .category-grid, .listing-grid { grid-template-columns: 1fr; }
-  .listing-heading-row { align-items: flex-start; flex-direction: column; }
-  .stats-grid { grid-template-columns: 1fr; gap: 30px; }
-  .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 35px; }
-  .about-image-wrap { height: 360px; }
-  .footer-top { grid-template-columns: 1fr 1fr; gap: 35px; }
-  .footer-brand { grid-column: 1/-1; }
-  .footer-bottom { flex-direction: column; }
-  .modal-card { grid-template-columns: 1fr; }
-  .modal-card > img { min-height: 240px; max-height: 280px; }
-  .modal-content { padding: 28px; }
-}
-@media (max-width: 430px) {
-  .search-grid, .advanced-filters { grid-template-columns: 1fr; }
-  .search-panel { padding: 20px; }
+  .menu-toggle { display: block; }
+  .search-grid, .category-grid, .listing-grid, .footer-top, .modal-card { grid-template-columns: 1fr; }
   .hero h1 { font-size: 38px; }
-  .footer-top { grid-template-columns: 1fr; }
-  .footer-brand { grid-column: auto; }
 }
 </style>
 </head>
 
 <body>
 
-<div class="announcement" data-i18n="announcement">
+<!-- ANNOUNCEMENT BAR -->
+<div style="background:var(--walnut);color:var(--ivory);text-align:center;padding:8px;font-size:9px;letter-spacing:2px;text-transform:uppercase" data-i18n="announcement">
   Find your place. Build your roots. · ARMAT REAL ESTATE
 </div>
 
+<!-- HEADER -->
 <header>
   <div class="container navbar">
     <a class="brand" href="#home">
-      <img class="brand-logo" src="https://cdn.shopify.com/s/files/1/0825/4695/0390/files/Carved_Stone_ARMAT_Real_Estate_Logo.png?v=1795111663" alt="ARMAT Real Estate logo">
+      <img class="brand-logo" id="brandLogo" src="https://cdn.shopify.com/s/files/1/0825/4695/0390/files/Carved_Stone_ARMAT_Real_Estate_Logo.png?v=1795111663" alt="ARMAT Logo">
     </a>
-
     <nav class="nav-links" id="navLinks">
       <a href="#home" data-i18n="nav_home">Home</a>
       <a href="#properties" data-i18n="nav_properties">Properties</a>
@@ -420,1705 +146,353 @@ footer { background: #30251E; color: var(--ivory); padding: 65px 0 25px; }
       <a href="#about" data-i18n="nav_about">About Us</a>
       <a href="#contact" data-i18n="nav_contact">Contact</a>
     </nav>
-
-    <div class="nav-actions">
-      <button class="lang-switch" id="langSwitch" type="button">HY</button>
-      <button class="btn" id="accountButton" type="button">Agent Login ↗</button>
-      <button class="menu-toggle" id="menuToggle" aria-label="Open navigation" aria-expanded="false" type="button">☰</button>
+    <div style="display:flex;gap:14px;align-items:center">
+      <button class="lang-switch" id="langSwitch">HY</button>
+      <button class="btn" id="accountBtn" style="min-height:42px;padding:10px 15px" data-i18n="agent_login">Agent Login ↗</button>
+      <button class="menu-toggle" id="menuToggle">☰</button>
     </div>
   </div>
 </header>
 
 <main>
+  <!-- HERO -->
   <section class="hero" id="home">
-    <img class="hero-image" src="https://cdn.shopify.com/s/files/1/0825/4695/0390/files/386e645403a03f3d03363b8249734d3e.png?v=1793041343" alt="ARMAT real estate">
+    <img class="hero-image" src="https://cdn.shopify.com/s/files/1/0825/4695/0390/files/386e645403a03f3d03363b8249734d3e.png?v=1793041343" alt="Background">
     <div class="container hero-content">
       <div class="eyebrow" data-i18n="hero_eyebrow">A better place to begin</div>
       <h1 data-i18n="hero_title">Find a place<br>to put down <em>roots.</em></h1>
-      <p class="hero-copy" data-i18n="hero_copy">From the land you dream of to the home you belong in, discover real estate that feels right for your future.</p>
-      <div class="hero-buttons">
+      <p style="max-width:530px;margin-bottom:30px;opacity:0.9" data-i18n="hero_copy">From the land you dream of to the home you belong in, discover real estate that feels right for your future.</p>
+      <div style="display:flex;gap:12px;flex-wrap:wrap">
         <a class="btn btn-light" href="#properties" data-i18n="hero_explore">Explore Properties ↗</a>
-        <a class="btn btn-outline" href="#about" data-i18n="hero_discover">Discover ARMAT</a>
+        <a class="btn btn-outline" href="#about" style="color:white;border-color:rgba(255,255,255,0.6)" data-i18n="hero_discover">Discover ARMAT</a>
       </div>
-      <div class="hero-note" data-i18n="hero_note">Land · Apartments · Houses · Commercial Spaces</div>
+      <div style="margin-top:35px;font-size:9px;letter-spacing:2px;color:#E5C7A0;text-transform:uppercase" data-i18n="hero_note">Land · Apartments · Houses · Commercial Spaces</div>
     </div>
   </section>
 
+  <!-- SEARCH -->
   <div class="container search-wrap">
     <form class="search-panel" id="searchForm">
-      <div class="search-panel-top">
-        <div class="search-title" data-i18n="search_title">Find your property</div>
-        <button class="filter-toggle" type="button" id="filterToggle" aria-expanded="false">
-          <span data-i18n="search_filters">Filters</span> ＋
-        </button>
+      <div style="display:flex;justify-content:space-between;margin-bottom:22px">
+        <h3 style="font-family:var(--serif)" data-i18n="search_title">Find your property</h3>
+        <button type="button" id="filterToggle" style="border:0;background:none;font-weight:600"><span data-i18n="search_filters">Filters</span> ＋</button>
       </div>
-
       <div class="search-grid">
         <div class="field">
-          <label for="searchLocation" data-i18n="search_location">Location</label>
-          <input id="searchLocation" type="search" data-i18n-placeholder="ph_location" placeholder="e.g. Yerevan">
+          <label data-i18n="search_location">Location</label>
+          <input type="search" data-i18n-placeholder="ph_location" placeholder="e.g. Yerevan">
         </div>
         <div class="field">
-          <label for="minPrice" data-i18n="search_min_price">Min. price</label>
-          <input id="minPrice" type="number" min="0" data-i18n-placeholder="ph_min_price" placeholder="No minimum">
+          <label data-i18n="search_min_price">Min. price</label>
+          <input type="number" data-i18n-placeholder="ph_any" placeholder="No minimum">
         </div>
         <div class="field">
-          <label for="maxPrice" data-i18n="search_max_price">Max. price</label>
-          <input id="maxPrice" type="number" min="0" data-i18n-placeholder="ph_max_price" placeholder="No maximum">
+          <label data-i18n="search_max_price">Max. price</label>
+          <input type="number" data-i18n-placeholder="ph_any" placeholder="No maximum">
         </div>
       </div>
-
-      <div class="advanced-filters" id="advancedFilters">
+      <div class="advanced-filters" id="advFilters">
         <div class="field">
-          <label for="searchType" data-i18n="search_type">Property Type</label>
-          <select id="searchType">
-            <option value="all" data-i18n="opt_all_props">All Properties</option>
-            <option value="Land" data-i18n="cat_land_title">Land</option>
-            <option value="Apartment" data-i18n="cat_apt_title">Apartments</option>
-            <option value="House" data-i18n="cat_house_title">Houses</option>
-            <option value="Commercial Space" data-i18n="cat_comm_title">Commercial Spaces</option>
+          <label data-i18n="search_type">Property Type</label>
+          <select id="typeSelect">
+            <option value="all" data-i18n="opt_all">All Properties</option>
+            <option value="Land" data-i18n="cat_land">Land</option>
+            <option value="Apartment" data-i18n="cat_apt">Apartments</option>
+            <option value="House" data-i18n="cat_house">Houses</option>
+            <option value="Commercial Space" data-i18n="cat_comm">Commercial</option>
           </select>
         </div>
-        <div class="field">
-          <label for="minArea" data-i18n="search_min_area">Min. Area (m²)</label>
-          <input id="minArea" type="number" min="0" data-i18n-placeholder="ph_any" placeholder="Any">
-        </div>
-        <div class="field">
-          <label for="maxArea" data-i18n="search_max_area">Max. Area (m²)</label>
-          <input id="maxArea" type="number" min="0" data-i18n-placeholder="ph_any" placeholder="Any">
-        </div>
-        <div class="field">
-          <label for="searchRooms" data-i18n="search_rooms">Bedrooms</label>
-          <select id="searchRooms">
-            <option value="" data-i18n="opt_any">Any</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5+</option>
-          </select>
-        </div>
-        <div class="field">
-          <label for="searchCondition" data-i18n="search_condition">Condition</label>
-          <select id="searchCondition">
-            <option value="" data-i18n="search_cond_any">Any condition</option>
-            <option value="Renovated" data-i18n="search_cond_renovated">Renovated</option>
-            <option value="Average" data-i18n="search_cond_average">Average</option>
-            <option value="Unfinished" data-i18n="search_cond_unfinished">Unfinished</option>
-          </select>
-        </div>
+        <!-- More filters can be added here -->
       </div>
-
-      <div class="search-actions">
-        <button class="btn btn-outline" type="reset" id="clearFilters" data-i18n="search_clear">Clear All</button>
-        <button class="btn" type="submit" data-i18n="search_submit">Search Properties ↗</button>
+      <div style="display:flex;justify-content:flex-end;gap:10px;margin-top:20px">
+        <button type="reset" class="btn btn-outline" data-i18n="search_clear">Clear All</button>
+        <button type="submit" class="btn" data-i18n="search_submit">Search ↗</button>
       </div>
     </form>
   </div>
 
-  <section class="section categories-section" id="categories">
+  <!-- CATEGORIES -->
+  <section class="section" id="categories">
     <div class="container">
-      <div class="section-heading">
-        <div class="eyebrow" data-i18n="categories_eyebrow">Explore your possibilities</div>
-        <h2 data-i18n="categories_title">A place for every kind of dream.</h2>
-        <p data-i18n="categories_copy">Discover the right property for your next chapter.</p>
+      <div style="max-width:650px;margin-bottom:38px">
+        <div class="eyebrow" data-i18n="cat_eyebrow">Explore possibilities</div>
+        <h2 data-i18n="cat_title">A place for every dream.</h2>
       </div>
-
       <div class="category-grid">
-        <a class="category-card" href="#properties" data-category="Land">
-          <img src="https://images.unsplash.com/photo-1472396961693-142e6e269027?auto=format&fit=crop&w=900&q=80" alt="Land">
-          <span class="category-arrow">↗</span>
+        <a href="#properties" class="category-card" onclick="filterCat('Land')">
+          <img src="https://images.unsplash.com/photo-1472396961693-142e6e269027?w=600" alt="Land">
           <div class="category-info">
-            <span data-i18n="cat_land_sub">Build your future</span>
-            <h3 data-i18n="cat_land_title">Land</h3>
-            <p data-i18n="cat_land_desc">Room to grow. Space to create.</p>
+            <span class="eyebrow" style="color:rgba(255,255,255,0.8)" data-i18n="cat_land_sub">Build future</span>
+            <h3 data-i18n="cat_land">Land</h3>
           </div>
         </a>
-
-        <a class="category-card" href="#properties" data-category="Apartment">
-          <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=900&q=80" alt="Apartment">
-          <span class="category-arrow">↗</span>
+        <a href="#properties" class="category-card" onclick="filterCat('Apartment')">
+          <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=600" alt="Apt">
           <div class="category-info">
-            <span data-i18n="cat_apt_sub">City living</span>
-            <h3 data-i18n="cat_apt_title">Apartments</h3>
-            <p data-i18n="cat_apt_desc">Comfort, convenience, connection.</p>
+            <span class="eyebrow" style="color:rgba(255,255,255,0.8)" data-i18n="cat_apt_sub">City living</span>
+            <h3 data-i18n="cat_apt">Apartments</h3>
           </div>
         </a>
-
-        <a class="category-card" href="#properties" data-category="House">
-          <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=900&q=80" alt="House">
-          <span class="category-arrow">↗</span>
+        <a href="#properties" class="category-card" onclick="filterCat('House')">
+          <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600" alt="House">
           <div class="category-info">
-            <span data-i18n="cat_house_sub">Made for living</span>
-            <h3 data-i18n="cat_house_title">Houses</h3>
-            <p data-i18n="cat_house_desc">Find the place that feels like home.</p>
+            <span class="eyebrow" style="color:rgba(255,255,255,0.8)" data-i18n="cat_house_sub">Family home</span>
+            <h3 data-i18n="cat_house">Houses</h3>
           </div>
         </a>
-
-        <a class="category-card" href="#properties" data-category="Commercial Space">
-          <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=900&q=80" alt="Commercial">
-          <span class="category-arrow">↗</span>
+        <a href="#properties" class="category-card" onclick="filterCat('Commercial Space')">
+          <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=600" alt="Comm">
           <div class="category-info">
-            <span data-i18n="cat_comm_sub">Space to do business</span>
-            <h3 data-i18n="cat_comm_title">Commercial Space</h3>
-            <p data-i18n="cat_comm_desc">Find the right place for your business.</p>
+            <span class="eyebrow" style="color:rgba(255,255,255,0.8)" data-i18n="cat_comm_sub">Business</span>
+            <h3 data-i18n="cat_comm">Commercial</h3>
           </div>
         </a>
       </div>
     </div>
   </section>
 
-  <section class="section listings-section" id="properties">
+  <!-- LISTINGS -->
+  <section class="section" id="properties" style="background:#F7F3EC">
     <div class="container">
-      <div class="listing-heading-row">
-        <div class="section-heading">
-          <div class="eyebrow" data-i18n="listings_eyebrow">Selected properties</div>
-          <h2 data-i18n="listings_title">Find your next address.</h2>
-          <p data-i18n="listings_copy">Explore our featured collection of properties.</p>
+      <div style="display:flex;justify-content:space-between;align-items:end;margin-bottom:35px">
+        <div>
+          <div class="eyebrow" data-i18n="list_eyebrow">Selected properties</div>
+          <h2 data-i18n="list_title">Find your address.</h2>
         </div>
-        <button class="btn btn-outline" id="showAllBtn" type="button" data-i18n="listings_show_all">Show All Properties ↗</button>
+        <button class="btn btn-outline" id="showAllBtn" data-i18n="list_show_all">Show All ↗</button>
       </div>
-      <div class="listing-grid" id="listingGrid" aria-live="polite"></div>
+      <div class="listing-grid" id="listingGrid"></div>
     </div>
   </section>
 
-  <section class="stats">
-    <div class="container stats-grid">
-      <div>
-        <div class="stat-number">01</div>
-        <div class="stat-label" data-i18n="stats_label1">Your vision comes first</div>
-      </div>
-      <div>
-        <div class="stat-number">100%</div>
-        <div class="stat-label" data-i18n="stats_label2">Personalized attention</div>
-      </div>
-      <div>
-        <div class="stat-number">∞</div>
-        <div class="stat-label" data-i18n="stats_label3">Possibilities for your future</div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="about">
-    <div class="container about-grid">
-      <div class="about-image-wrap">
-        <img src="https://images.unsplash.com/photo-1600607687644-c7171b42498f?auto=format&fit=crop&w=1100&q=85" alt="ARMAT architecture">
-      </div>
-      <div class="about-copy">
-        <div class="eyebrow" data-i18n="about_eyebrow">Our philosophy</div>
-        <h2 data-i18n="about_title">Rooted in trust.<br>Built for your future.</h2>
-        <p data-i18n="about_p1">At ARMAT, we believe real estate is about more than walls, land and addresses. It's about the place where your next chapter begins.</p>
-        <p data-i18n="about_p2">Inspired by the Armenian word for roots, ARMAT stands for belonging, stability and the foundations that connect us to a place.</p>
-        <p data-i18n="about_p3">Our goal is to help you find a property that feels right for you.</p>
-        <div class="values-grid">
-          <div class="value-item"><strong data-i18n="val_trust">Trust</strong><span data-i18n="val_trust_desc">Honest, attentive service</span></div>
-          <div class="value-item"><strong data-i18n="val_purpose">Purpose</strong><span data-i18n="val_purpose_desc">Properties that fit your plans</span></div>
-          <div class="value-item"><strong data-i18n="val_conn">Connection</strong><span data-i18n="val_conn_desc">A personal approach</span></div>
-          <div class="value-item"><strong data-i18n="val_roots">Roots</strong><span data-i18n="val_roots_desc">A place to truly belong</span></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="cta-section">
-    <div class="container">
-      <div class="eyebrow" data-i18n="cta_eyebrow">Your next chapter starts here</div>
-      <h2 data-i18n="cta_title">Every great story needs a place.</h2>
-      <p data-i18n="cta_text">Tell us what you're looking for. Let's find the land, apartment, house or commercial space that feels right for your next chapter.</p>
-      <a class="btn" href="#contact" data-i18n="cta_btn">Talk to ARMAT ↗</a>
-    </div>
-  </section>
-
+  <!-- CONTACT -->
   <section class="section" id="contact">
-    <div class="container contact-grid">
+    <div class="container" style="display:grid;grid-template-columns:1fr 1fr;gap:70px">
       <div>
         <div class="eyebrow" data-i18n="contact_eyebrow">Get in touch</div>
         <h2 data-i18n="contact_title">Let's find your place.</h2>
-        <p data-i18n="contact_copy">Have a property in mind, want to sell, or simply need guidance?</p>
-        <div class="contact-details">
-          <div class="contact-detail"><strong data-i18n="contact_office_lbl">Our office</strong><span data-i18n="contact_office_val">Yerevan, Armenia</span></div>
-          <div class="contact-detail"><strong data-i18n="contact_email_lbl">Email</strong><a href="mailto:hello@armatestate.am">hello@armatestate.am</a></div>
-          <div class="contact-detail"><strong data-i18n="contact_hours_lbl">Working hours</strong><span data-i18n="contact_hours_val">Monday – Saturday · By appointment</span></div>
+        <p style="margin:20px 0;color:var(--muted)" data-i18n="contact_copy">Have a property in mind or need guidance?</p>
+        <div style="margin-top:35px;display:grid;gap:20px">
+          <div><strong style="color:var(--bronze);font-size:10px;text-transform:uppercase" data-i18n="contact_office">Office</strong><br>Yerevan, Armenia</div>
+          <div><strong style="color:var(--bronze);font-size:10px;text-transform:uppercase" data-i18n="contact_email">Email</strong><br>hello@armatestate.am</div>
         </div>
       </div>
-
-      <form class="contact-form" id="contactForm">
-        <div class="field">
-          <label data-i18n="form_name">Your name</label>
-          <input name="name" required data-i18n-placeholder="ph_name" placeholder="Full name">
+      <form class="search-panel" id="contactForm">
+        <div class="field" style="margin-bottom:16px">
+          <label data-i18n="form_name">Name</label>
+          <input required data-i18n-placeholder="ph_name" placeholder="Full name">
         </div>
-        <div class="field">
-          <label data-i18n="form_email">Email address</label>
-          <input name="email" type="email" required placeholder="you@example.com">
+        <div class="field" style="margin-bottom:16px">
+          <label data-i18n="form_email">Email</label>
+          <input type="email" required placeholder="you@example.com">
         </div>
-        <div class="field">
-          <label data-i18n="form_interest">I'm interested in</label>
-          <select name="interest">
-            <option data-i18n="form_opt_buy">Buying a property</option>
-            <option data-i18n="form_opt_sell">Selling a property</option>
-            <option data-i18n="form_opt_other">Other inquiry</option>
-          </select>
+        <div class="field" style="margin-bottom:16px">
+          <label data-i18n="form_msg">Message</label>
+          <textarea rows="4" required data-i18n-placeholder="ph_msg" placeholder="Tell us what you're looking for..."></textarea>
         </div>
-        <div class="field">
-          <label data-i18n="form_msg">Your message</label>
-          <textarea name="message" required data-i18n-placeholder="ph_msg" placeholder="Tell us a little about what you're looking for..."></textarea>
-        </div>
-        <button class="btn" type="submit" data-i18n="form_submit">Prepare My Inquiry ↗</button>
-        <p class="form-status" id="formStatus" data-i18n="form_status">This form opens your email app.</p>
+        <button class="btn" type="submit" style="width:100%" data-i18n="form_submit">Send Inquiry ↗</button>
       </form>
     </div>
   </section>
 </main>
 
 <footer>
-  <div class="container">
-    <div class="footer-top">
-      <div class="footer-brand">
-        <a class="brand" href="#home">
-          <img class="brand-logo" src="https://cdn.shopify.com/s/files/1/0825/4695/0390/files/Carved_Stone_ARMAT_Real_Estate_Logo.png?v=1795111663" alt="ARMAT Real Estate logo">
-        </a>
-        <p data-i18n="footer_tagline">Rooted in trust. Built for your future. Helping you find land, apartments, houses and commercial spaces for the next chapter of your life.</p>
-      </div>
-      <div class="footer-column">
-        <h3 data-i18n="footer_explore">Explore</h3>
-        <a href="#properties" data-i18n="footer_all_props">All Properties</a>
-        <a href="#categories" data-footer-category="Land" data-i18n="cat_land_title">Land</a>
-        <a href="#categories" data-footer-category="Apartment" data-i18n="cat_apt_title">Apartments</a>
-        <a href="#categories" data-footer-category="House" data-i18n="cat_house_title">Houses</a>
-        <a href="#categories" data-footer-category="Commercial Space" data-i18n="cat_comm_title">Commercial Spaces</a>
-      </div>
-      <div class="footer-column">
-        <h3 data-i18n="footer_touch">Get in Touch</h3>
-        <a href="#about" data-i18n="footer_about">About ARMAT</a>
-        <a href="#contact" data-i18n="footer_contact">Contact Us</a>
-        <a href="mailto:hello@armatestate.am" data-i18n="footer_email">Email ARMAT</a>
+  <div class="container footer-top">
+    <div>
+      <img class="brand-logo" style="width:180px;height:auto;margin-bottom:20px" src="https://cdn.shopify.com/s/files/1/0825/4695/0390/files/Carved_Stone_ARMAT_Real_Estate_Logo.png?v=1795111663" alt="Logo">
+      <p style="opacity:0.7;font-size:12px;max-width:300px" data-i18n="footer_tagline">Rooted in trust. Built for your future.</p>
+    </div>
+    <div>
+      <h4 style="margin-bottom:15px;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--bronze)" data-i18n="footer_explore">Explore</h4>
+      <div style="display:grid;gap:10px;font-size:12px;opacity:0.8">
+        <a href="#properties" data-i18n="nav_properties">Properties</a>
+        <a href="#about" data-i18n="nav_about">About Us</a>
       </div>
     </div>
-    <div class="footer-bottom">
-      <span>© <span id="year"></span> ARMAT REAL ESTATE. <span data-i18n="footer_rights">All rights reserved.</span></span>
-      <span data-i18n="footer_made">Made with a foundation of trust · Yerevan, Armenia</span>
+    <div>
+      <h4 style="margin-bottom:15px;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--bronze)" data-i18n="footer_legal">Legal</h4>
+      <div style="display:grid;gap:10px;font-size:12px;opacity:0.8">
+        <span data-i18n="footer_rights">© 2026 ARMAT. All rights reserved.</span>
+      </div>
     </div>
   </div>
 </footer>
-
-<div class="modal" id="propertyModal" role="dialog" aria-modal="true">
-  <div class="modal-card">
-    <button class="modal-close" id="modalClose" aria-label="Close">×</button>
-    <img id="modalImage" src="" alt="">
-    <div class="modal-content">
-      <div class="eyebrow" id="modalType"></div>
-      <h2 id="modalTitle"></h2>
-      <div class="listing-price" id="modalPrice" style="position:static;display:inline-block;margin-top:10px"></div>
-      <p id="modalDescription"></p>
-      <div class="listing-meta" id="modalMeta"></div>
-      <a class="btn" id="modalContact" href="#contact" data-i18n="modal_ask">Ask About This Property ↗</a>
-    </div>
-  </div>
-</div>
-
-<!-- AGENT AUTHENTICATION MODAL -->
-<div class="modal" id="authModal" role="dialog" aria-modal="true">
-  <div class="modal-card" style="display:block;max-width:520px;max-height:90vh;margin:auto">
-    <button class="modal-close" id="authClose" type="button">×</button>
-    <div class="modal-content">
-      <div class="eyebrow" data-i18n="auth_eyebrow">ARMAT AGENT PORTAL</div>
-      <h2 id="authHeading">Agent Login</h2>
-      <p id="authDescription">Sign in to manage your property listings.</p>
-
-      <form id="authForm">
-        <div class="field" id="authNameField" style="display:none;margin-top:18px">
-          <label data-i18n="form_name">Full name</label>
-          <input id="authName" autocomplete="name">
-        </div>
-        <div class="field" id="authRoleField" style="display:none;margin-top:18px">
-          <label for="authRole" data-i18n="auth_role_lbl">Register as</label>
-          <select id="authRole" autocomplete="off">
-            <option value="agent" data-i18n="auth_role_agent">Agent</option>
-            <option value="manager" data-i18n="auth_role_manager">Manager</option>
-            <option value="director" data-i18n="auth_role_director">Director</option>
-          </select>
-          <small style="display:block;margin-top:7px;color:var(--muted);line-height:1.5" data-i18n="auth_role_note">Manager and Director accounts require approval before receiving access.</small>
-        </div>
-        <div class="field" style="margin-top:18px">
-          <label data-i18n="form_email">Email address</label>
-          <input id="authEmail" type="email" required autocomplete="email">
-        </div>
-        <div class="field" style="margin-top:18px">
-          <label data-i18n="auth_pass_lbl">Password</label>
-          <input id="authPassword" type="password" required minlength="6" autocomplete="current-password">
-        </div>
-        <button class="btn" id="authSubmit" type="submit" style="width:100%;margin-top:22px">Sign In ↗</button>
-      </form>
-
-      <p id="authMessage" class="form-status" role="status"></p>
-      <p style="margin-top:18px;font-size:12px">
-        <span id="authToggleText">Don't have an account?</span>
-        <button id="authToggle" type="button" style="border:0;background:none;color:var(--bronze);font-weight:700;text-decoration:underline">Create account</button>
-      </p>
-    </div>
-  </div>
-</div>
-
-<!-- AGENT DASHBOARD -->
-<div class="modal" id="dashboardModal" role="dialog" aria-modal="true">
-  <div class="modal-card" style="display:block;width:min(1000px,100%);max-height:92vh">
-    <button class="modal-close" id="dashboardClose" type="button">×</button>
-    <div class="modal-content" style="padding:35px">
-      <div class="eyebrow" data-i18n="auth_eyebrow">ARMAT AGENT PORTAL</div>
-      <h2 style="margin:8px 0 15px" data-i18n="dash_title">My Dashboard</h2>
-      <p id="agentWelcome">Manage your property listings.</p>
-
-      <div style="display:flex;flex-wrap:wrap;gap:10px;margin:22px 0">
-        <button class="btn" id="newPropertyButton" type="button" data-i18n="dash_add_btn">＋ Add Property</button>
-        <button class="btn btn-outline" id="signOutButton" type="button" data-i18n="dash_signout_btn">Sign Out</button>
-      </div>
-
-      <div id="propertyEditor" style="display:none;border:1px solid var(--border);padding:22px;margin:20px 0;background:#F7F3EC">
-        <h3 id="editorHeading" style="font-size:27px;margin-bottom:18px">Add a property</h3>
-        <form id="propertyForm">
-          <input type="hidden" id="editPropertyId">
-          <div class="search-grid">
-            <div class="field">
-              <label data-i18n="prop_type_req">Property type *</label>
-              <select id="propertyType" required>
-                <option value="Land" data-i18n="cat_land_title">Land</option>
-                <option value="Apartment" data-i18n="cat_apt_title">Apartment</option>
-                <option value="House" data-i18n="cat_house_title">House</option>
-                <option value="Commercial Space" data-i18n="cat_comm_title">Commercial Space</option>
-              </select>
-            </div>
-            <div class="field">
-              <label data-i18n="prop_title_req">Title *</label>
-              <input id="propertyTitle" required maxlength="140">
-            </div>
-            <div class="field">
-              <label data-i18n="prop_loc_req">Location *</label>
-              <input id="propertyLocation" required placeholder="Yerevan, Armenia">
-            </div>
-            <div class="field">
-              <label data-i18n="prop_addr">Address</label>
-              <input id="propertyAddress">
-            </div>
-            <div class="field">
-              <label data-i18n="prop_price_req">Price *</label>
-              <input id="propertyPrice" type="number" min="0" required>
-            </div>
-            <div class="field">
-              <label data-i18n="prop_curr">Currency</label>
-              <select id="propertyCurrency">
-                <option value="USD">USD</option>
-                <option value="AMD">AMD</option>
-                <option value="EUR">EUR</option>
-              </select>
-            </div>
-            <div class="field">
-              <label data-i18n="prop_area">Area (m²)</label>
-              <input id="propertyArea" type="number" min="0">
-            </div>
-            <div class="field">
-              <label data-i18n="search_rooms">Bedrooms</label>
-              <input id="propertyBedrooms" type="number" min="0">
-            </div>
-            <div class="field">
-              <label data-i18n="prop_bath">Bathrooms</label>
-              <input id="propertyBathrooms" type="number" min="0">
-            </div>
-            <div class="field">
-              <label data-i18n="prop_floor">Floor</label>
-              <input id="propertyFloor" type="number" min="0">
-            </div>
-            <div class="field">
-              <label data-i18n="prop_ceiling">Ceiling height (m)</label>
-              <input id="propertyCeiling" type="number" min="0" step="0.1">
-            </div>
-            <div class="field">
-              <label data-i18n="prop_building">Building type</label>
-              <input id="propertyBuilding" placeholder="Stone / Monolithic / Panel">
-            </div>
-            <div class="field">
-              <label data-i18n="search_condition">Condition</label>
-              <select id="propertyCondition">
-                <option value="" data-i18n="prop_not_spec">Not specified</option>
-                <option value="Renovated" data-i18n="search_cond_renovated">Renovated</option>
-                <option value="Average" data-i18n="search_cond_average">Average</option>
-                <option value="Unfinished" data-i18n="search_cond_unfinished">Unfinished</option>
-              </select>
-            </div>
-            <div class="field">
-              <label data-i18n="prop_status">Status</label>
-              <select id="propertyStatus">
-                <option value="published" data-i18n="status_pub">Publish now</option>
-                <option value="draft" data-i18n="status_draft">Save as draft</option>
-                <option value="sold" data-i18n="status_sold">Sold</option>
-                <option value="rented" data-i18n="status_rented">Rented</option>
-              </select>
-            </div>
-          </div>
-          <div class="field" style="margin-top:16px">
-            <label data-i18n="prop_desc">Description</label>
-            <textarea id="propertyDescription" rows="4"></textarea>
-          </div>
-          <div class="field" style="margin-top:16px">
-            <label data-i18n="prop_photos">Property photos (you can select multiple)</label>
-            <input id="propertyPhotos" type="file" accept="image/*" multiple>
-            <small style="color:var(--muted)" data-i18n="prop_photos_note">Maximum 8 photos per property. Use JPG, PNG or WEBP.</small>
-          </div>
-          <div id="photoPreview" style="display:flex;flex-wrap:wrap;gap:10px;margin-top:12px"></div>
-          <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:20px">
-            <button class="btn" id="savePropertyButton" type="submit" data-i18n="prop_save_btn">Save Property ↗</button>
-            <button class="btn btn-outline" id="cancelEditButton" type="button" data-i18n="prop_cancel_btn">Cancel</button>
-          </div>
-          <p id="propertyFormMessage" class="form-status" role="status"></p>
-        </form>
-      </div>
-
-      <h3 style="font-size:26px;margin:28px 0 15px" data-i18n="dash_my_props">My Properties</h3>
-      <div id="agentPropertiesList" style="display:grid;gap:12px">
-        <p>Loading your properties...</p>
-      </div>
-    </div>
-  </div>
-</div>
 
 <!-- SUPABASE -->
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <script>
 /* =========================================
-   ARMAT SUPABASE CONFIGURATION
+   CONFIG & STATE
    ========================================= */
-
 const SUPABASE_URL = "https://aukzotrfmezqehjdspvr.supabase.co";
-const SUPABASE_ANON_KEY = "sb_publishable_ShyTXXEn9IcjN0TqZVGCdw_vHCjnYcI";
+const SUPABASE_KEY = "sb_publishable_ShyTXXEn9IcjN0TqZVGCdw_vHCjnYcI";
+const db = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
-const db = window.supabase.createClient(
-  SUPABASE_URL,
-  SUPABASE_ANON_KEY
-);
-
-const BUCKET = "property-images";
-
-let currentUser = null;
-let currentProfile = null;
-let allProperties = [];
-let filteredProperties = null;
-let authMode = "login";
-let selectedPhotos = [];
 let currentLang = "en";
+let allProperties = [];
+
+// LOGOS
+const logoEN = "https://cdn.shopify.com/s/files/1/0825/4695/0390/files/Carved_Stone_ARMAT_Real_Estate_Logo.png?v=1795111663";
+const logoHY = "https://cdn.shopify.com/s/files/1/0825/4695/0390/files/Embossed_Stone_House_Logo_with_Roots.png?v=1795111663";
 
 /* =========================================
-   TRANSLATIONS
+   TRANSLATIONS DICTIONARY
    ========================================= */
-
-const englishLogo =
-  "https://cdn.shopify.com/s/files/1/0825/4695/0390/files/Carved_Stone_ARMAT_Real_Estate_Logo.png?v=1795111663";
-
-const armenianLogo =
-  "https://cdn.shopify.com/s/files/1/0825/4695/0390/files/Embossed_Stone_House_Logo_with_Roots.png?v=1795111663";
-
-const translations = {
+const t = {
   en: {
     announcement: "Find your place. Build your roots. · ARMAT REAL ESTATE",
-    nav_home: "Home",
-    nav_properties: "Properties",
-    nav_categories: "Categories",
-    nav_about: "About Us",
-    nav_contact: "Contact",
-    agent_login: "Agent Login ↗",
-    my_dashboard: "My Dashboard ↗",
+    nav_home: "Home", nav_properties: "Properties", nav_categories: "Categories", nav_about: "About Us", nav_contact: "Contact",
+    agent_login: "Agent Login ↗", my_dashboard: "My Dashboard ↗",
     hero_eyebrow: "A better place to begin",
     hero_title: "Find a place<br>to put down <em>roots.</em>",
     hero_copy: "From the land you dream of to the home you belong in, discover real estate that feels right for your future.",
-    hero_explore: "Explore Properties ↗",
-    hero_discover: "Discover ARMAT",
+    hero_explore: "Explore Properties ↗", hero_discover: "Discover ARMAT",
     hero_note: "Land · Apartments · Houses · Commercial Spaces",
-    search_title: "Find your property",
-    search_filters: "Filters",
-    search_location: "Location",
-    ph_location: "e.g. Yerevan",
-    search_min_price: "Min. price",
-    ph_min_price: "No minimum",
-    search_max_price: "Max. price",
-    ph_max_price: "No maximum",
-    search_type: "Property Type",
-    opt_all_props: "All Properties",
-    search_min_area: "Min. Area (m²)",
-    search_max_area: "Max. Area (m²)",
-    ph_any: "Any",
-    opt_any: "Any",
-    search_rooms: "Bedrooms",
-    search_condition: "Condition",
-    search_clear: "Clear All",
-    search_submit: "Search Properties ↗",
-    categories_eyebrow: "Explore your possibilities",
-    categories_title: "A place for every kind of dream.",
-    categories_copy: "Discover the right property for your next chapter.",
-    cat_land_sub: "Build your future",
-    cat_land_title: "Land",
-    cat_land_desc: "Room to grow. Space to create.",
-    cat_apt_sub: "City living",
-    cat_apt_title: "Apartments",
-    cat_apt_desc: "Comfort, convenience, connection.",
-    cat_house_sub: "Made for living",
-    cat_house_title: "Houses",
-    cat_house_desc: "Find the place that feels like home.",
-    cat_comm_sub: "Space to do business",
-    cat_comm_title: "Commercial Space",
-    cat_comm_desc: "Find the right place for your business.",
-    listings_eyebrow: "Selected properties",
-    listings_title: "Find your next address.",
-    listings_copy: "Explore our featured collection of properties.",
-    listings_show_all: "Show All Properties ↗",
-    no_props_title: "No properties found",
-    no_props_desc: "New ARMAT listings will appear here.",
-    view_details: "View Details ↗",
-    unit_sqm: "m²",
-    unit_bedrooms: "bedrooms",
-    unit_bathrooms: "bathrooms",
-    stats_label1: "Your vision comes first",
-    stats_label2: "Personalized attention",
-    stats_label3: "Possibilities for your future",
-    about_eyebrow: "Our philosophy",
-    about_title: "Rooted in trust.<br>Built for your future.",
-    about_p1: "At ARMAT, we believe real estate is about more than walls, land and addresses. It's about the place where your next chapter begins.",
-    about_p2: "Inspired by the Armenian word for roots, ARMAT stands for belonging, stability and the foundations that connect us to a place.",
-    about_p3: "Our goal is to help you find a property that feels right for you.",
-    val_trust: "Trust",
-    val_trust_desc: "Honest, attentive service",
-    val_purpose: "Purpose",
-    val_purpose_desc: "Properties that fit your plans",
-    val_conn: "Connection",
-    val_conn_desc: "A personal approach",
-    val_roots: "Roots",
-    val_roots_desc: "A place to truly belong",
-    cta_eyebrow: "Your next chapter starts here",
-    cta_title: "Every great story needs a place.",
-    cta_text: "Tell us what you're looking for. Let's find the land, apartment, house or commercial space that feels right for your next chapter.",
-    cta_btn: "Talk to ARMAT ↗",
-    contact_eyebrow: "Get in touch",
-    contact_title: "Let's find your place.",
-    contact_copy: "Have a property in mind, want to sell, or simply need guidance?",
-    contact_office_lbl: "Our office",
-    contact_office_val: "Yerevan, Armenia",
-    contact_email_lbl: "Email",
-    contact_hours_lbl: "Working hours",
-    contact_hours_val: "Monday – Saturday · By appointment",
-    form_name: "Your name",
-    ph_name: "Full name",
-    form_email: "Email address",
-    form_interest: "I'm interested in",
-    form_opt_buy: "Buying a property",
-    form_opt_sell: "Selling a property",
-    form_opt_other: "Other inquiry",
-    form_msg: "Your message",
-    ph_msg: "Tell us a little about what you're looking for...",
-    form_submit: "Prepare My Inquiry ↗",
-    form_status: "This form opens your email app.",
-    footer_tagline: "Rooted in trust. Built for your future. Helping you find land, apartments, houses and commercial spaces for the next chapter of your life.",
-    footer_explore: "Explore",
-    footer_all_props: "All Properties",
-    footer_touch: "Get in Touch",
-    footer_about: "About ARMAT",
-    footer_contact: "Contact Us",
-    footer_email: "Email ARMAT",
-    footer_rights: "All rights reserved.",
-    footer_made: "Made with a foundation of trust · Yerevan, Armenia",
-    modal_ask: "Ask About This Property ↗",
-    search_cond_any: "Any condition",
-    search_cond_renovated: "Renovated",
-    search_cond_average: "Average",
-    search_cond_unfinished: "Unfinished",
-    auth_eyebrow: "ARMAT AGENT PORTAL",
-    auth_login_title: "Agent Login",
-    auth_login_desc: "Sign in to manage your property listings.",
-    auth_signup_title: "Create Agent Account",
-    auth_signup_desc: "Create an account to publish your properties.",
-    auth_role_lbl: "Register as",
-    auth_role_agent: "Agent",
-    auth_role_manager: "Manager",
-    auth_role_director: "Director",
-    auth_role_note: "Manager and Director accounts require approval before receiving access.",
-    auth_pass_lbl: "Password",
-    auth_signin_btn: "Sign In ↗",
-    auth_signup_btn: "Create Account ↗",
-    auth_no_acc: "Don't have an account?",
-    auth_have_acc: "Already have an account?",
-    auth_create_link: "Create account",
-    auth_signin_link: "Sign in",
-    dash_title: "My Dashboard",
-    dash_welcome: "Welcome, ",
-    dash_add_btn: "＋ Add Property",
-    dash_signout_btn: "Sign Out",
-    dash_my_props: "My Properties",
-    prop_type_req: "Property type *",
-    prop_title_req: "Title *",
-    prop_loc_req: "Location *",
-    prop_addr: "Address",
-    prop_price_req: "Price *",
-    prop_curr: "Currency",
-    prop_area: "Area (m²)",
-    prop_bath: "Bathrooms",
-    prop_floor: "Floor",
-    prop_ceiling: "Ceiling height (m)",
-    prop_building: "Building type",
-    prop_not_spec: "Not specified",
-    prop_status: "Status",
-    status_pub: "Publish now",
-    status_draft: "Save as draft",
-    status_sold: "Sold",
-    status_rented: "Rented",
-    prop_desc: "Description",
-    prop_photos: "Property photos (you can select multiple)",
-    prop_photos_note: "Maximum 8 photos per property. Use JPG, PNG or WEBP.",
-    prop_save_btn: "Save Property ↗",
-    prop_cancel_btn: "Cancel",
-    types: {
-      "Land": "Land",
-      "Apartment": "Apartment",
-      "House": "House",
-      "Commercial Space": "Commercial Space"
-    }
+    search_title: "Find your property", search_filters: "Filters", search_location: "Location",
+    ph_location: "e.g. Yerevan", search_min_price: "Min. price", search_max_price: "Max. price", ph_any: "Any",
+    search_type: "Type", opt_all: "All Properties", search_clear: "Clear", search_submit: "Search ↗",
+    cat_eyebrow: "Explore possibilities", cat_title: "A place for every dream.",
+    cat_land: "Land", cat_land_sub: "Build future",
+    cat_apt: "Apartments", cat_apt_sub: "City living",
+    cat_house: "Houses", cat_house_sub: "Family home",
+    cat_comm: "Commercial", cat_comm_sub: "Business",
+    list_eyebrow: "Selected properties", list_title: "Find your address.", list_show_all: "Show All ↗",
+    contact_eyebrow: "Get in touch", contact_title: "Let's find your place.", contact_copy: "Have a property in mind?",
+    contact_office: "Office", contact_email: "Email",
+    form_name: "Name", ph_name: "Full name", form_email: "Email", form_msg: "Message", ph_msg: "Your message...",
+    form_submit: "Send Inquiry ↗",
+    footer_tagline: "Rooted in trust. Built for your future.", footer_explore: "Explore", footer_rights: "© 2026 ARMAT. All rights reserved.", footer_legal: "Legal",
+    view_details: "View Details ↗", unit_sqm: "m²", unit_beds: "beds",
+    types: { "Land": "Land", "Apartment": "Apartment", "House": "House", "Commercial Space": "Commercial" }
   },
   hy: {
     announcement: "Ամրացրե՛ք ձեր արմատները · ԱՐՄԱՏ ԱՆՇԱՐԺ ԳՈՒՅՔ",
-    nav_home: "Գլխավոր",
-    nav_properties: "Անշարժ գույք",
-    nav_categories: "Կատեգորիաներ",
-    nav_about: "Մեր մասին",
-    nav_contact: "Կապ",
-    agent_login: "Գործակալի մուտք ↗",
-    my_dashboard: "Իմ վահանակը ↗",
+    nav_home: "Գլխավոր", nav_properties: "Գույք", nav_categories: "Կատեգորիաներ", nav_about: "Մեր մասին", nav_contact: "Կապ",
+    agent_login: "Մուտք ↗", my_dashboard: "Իմ վահանակը ↗",
     hero_eyebrow: "Լավագույն սկիզբը",
     hero_title: "Ամեն ինչ սկսվում է <em>արմատներից...</em>",
     hero_copy: "Երազանքի հողատարածքից մինչև քո տուն. բացահայտի՛ր քո ապագա անկյունը։",
-    hero_explore: "Դիտել գույքը ↗",
-    hero_discover: "Մեր մասին",
-    hero_note: "Տներ · Բնակարաններ · Հողատարածքներ · Կոմերցիոն տարածքներ",
-    search_title: "Գտե՛ք ձեր գույքը",
-    search_filters: "Ֆիլտրեր",
-    search_location: "Տարածք / Հասցե",
-    ph_location: "Օր.՝ Երևան",
-    search_min_price: "Նվազագույն գին",
-    ph_min_price: "Առանց սահմանափակման",
-    search_max_price: "Առավելագույն գին",
-    ph_max_price: "Առանց սահմանափակման",
-    search_type: "Գույքի տեսակ",
-    opt_all_props: "Բոլոր տեսակները",
-    search_min_area: "Նվազագույն մակերես (մ²)",
-    search_max_area: "Առավելագույն մակերես (մ²)",
-    ph_any: "Ցանկացած",
-    opt_any: "Ցանկացած",
-    search_rooms: "Ննջասենյակներ",
-    search_condition: "Վիճակ",
-    search_clear: "Մաքրել բոլորը",
-    search_submit: "Որոնել ↗",
-    categories_eyebrow: "Բացահայտեք ձեր հնարավորությունները",
-    categories_title: "Անկյուն՝ յուրաքանչյուր երազանքի համար",
-    categories_copy: "Գտե՛ք համապատասխան գույքը ձեր կյանքի նոր փուլի համար։",
-    cat_land_sub: "Կառուցի՛ր քո ապագան",
-    cat_land_title: "Հողատարածք",
-    cat_land_desc: "Տարածություն աճելու և արարելու համար։",
-    cat_apt_sub: "Քաղաքային կյանք",
-    cat_apt_title: "Բնակարաններ",
-    cat_apt_desc: "Հարմարավետություն և հասանելիություն։",
-    cat_house_sub: "Ստեղծված բնակության համար",
-    cat_house_title: "Առանձնատներ",
-    cat_house_desc: "Գտե՛ք այն վայրը, որն իսկական տուն կդառնա։",
-    cat_comm_sub: "Տարածք բիզնեսի համար",
-    cat_comm_title: "Կոմերցիոն տարածք",
-    cat_comm_desc: "Գտե՛ք լավագույն վայրը ձեր բիզնեսի զարգացման համար։",
-    listings_eyebrow: "Ընտրված առաջարկներ",
-    listings_title: "Գտե՛ք ձեր հաջորդ հասցեն",
-    listings_copy: "Ծանոթացեք մեր անշարժ գույքի ընտրված հավաքածուին։",
-    listings_show_all: "Ցուցադրել բոլորը ↗",
-    no_props_title: "Անշարժ գույք չի գտնվել",
-    no_props_desc: "ԱՐՄԱՏ-ի նոր առաջարկները կհայտնվեն այստեղ։",
-    view_details: "Մանրամասներ ↗",
-    unit_sqm: "մ²",
-    unit_bedrooms: "ննջասենյակ",
-    unit_bathrooms: "սանհանգույց",
-    stats_label1: "Ձեր տեսլականն առաջնային է",
-    stats_label2: "Անհատական մոտեցում",
-    stats_label3: "Անսահման հնարավորություններ",
-    about_eyebrow: "Մեր փիլիսոփայությունը",
-    about_title: "Արմատներ՝ վստահության մեջ։<br>Կառուցված՝ ձեր ապագայի համար։",
-    about_p1: "ԱՐՄԱՏ-ում մենք հավատում ենք, որ անշարժ գույքը միայն պատեր, հող և հասցեներ չեն։ Դա այն վայրն է, որտեղ սկսվում է ձեր կյանքի նոր էջը։",
-    about_p2: "Ոգեշնչված հայերեն «արմատ» բառից՝ ԱՐՄԱՏ-ը խորհրդանշում է պատկանելիություն, կայունություն և ամուր հիմքեր։",
-    about_p3: "Մեր նպատակն է օգնել ձեզ գտնել հենց ձեզ համապատասխան գույքը։",
-    val_trust: "Վստահություն",
-    val_trust_desc: "Անկեղծ և ուշադիր սպասարկում",
-    val_purpose: "Նպատակ",
-    val_purpose_desc: "Ձեր ծրագրերին համապատասխան գույք",
-    val_conn: "Կապ",
-    val_conn_desc: "Անհատական մոտեցում",
-    val_roots: "Արմատներ",
-    val_roots_desc: "Վայր, որտեղ դուք իսկապես տանն եք",
-    cta_eyebrow: "Ձեր նոր էջը սկսվում է այստեղ",
-    cta_title: "Ամեն մեծ պատմություն իր վայրն է պահանջում",
-    cta_text: "Պատմե՛ք մեզ, թե ինչ եք փնտրում։ Եկեք միասին գտնենք այն հողատարածքը, բնակարանը, տունը կամ կոմերցիոն տարածքը, որը կդառնա ձեր հաջորդ հաջողության հիմքը։",
-    cta_btn: "Կապվել ԱՐՄԱՏ-ի հետ ↗",
-    contact_eyebrow: "Կապ մեզ հետ",
-    contact_title: "Եկեք գտնենք ձեր անկյունը",
-    contact_copy: "Ունե՞ք նախընտրած գույք, ցանկանում եք վաճառել, թե՞ պարզապես խորհրդատվության կարիք ունեք։",
-    contact_office_lbl: "Մեր գրասենյակը",
-    contact_office_val: "Երևան, Հայաստան",
-    contact_email_lbl: "Էլ. փոստ",
-    contact_hours_lbl: "Աշխատանքային ժամեր",
-    contact_hours_val: "Երկուշաբթի – Շաբաթ · Նախնական պայմանավորվածությամբ",
-    form_name: "Ձեր անունը",
-    ph_name: "Անուն Ազգանուն",
-    form_email: "Էլ. հասցե",
-    form_interest: "Ինչո՞վ եք հետաքրքրված",
-    form_opt_buy: "Գնել անշարժ գույք",
-    form_opt_sell: "Վաճառել անշարժ գույք",
-    form_opt_other: "Այլ հարցում",
-    form_msg: "Ձեր հաղորդագրությունը",
-    ph_msg: "Մանրամասնեք, թե ինչ եք փնտրում...",
-    form_submit: "Ուղարկել հարցումը ↗",
-    form_status: "Այս ձևը կբացի ձեր էլ. փոստի ծրագիրը։",
-    footer_tagline: "Արմատներ՝ վստահության մեջ։ Կառուցված՝ ձեր ապագայի համար։ Օգնում ենք գտնել հողատարածքներ, բնակարաններ, առանձնատներ և կոմերցիոն տարածքներ։",
-    footer_explore: "Բաժիններ",
-    footer_all_props: "Ամբողջ գույքը",
-    footer_touch: "Կապ",
-    footer_about: "Մեր մասին",
-    footer_contact: "Գրեք մեզ",
-    footer_email: "Էլ. փոստ",
-    footer_rights: "Բոլոր իրավունքները պաշտպանված են։",
-    footer_made: "Ստեղծված է վստահության հիմքով · Երևան, Հայաստան",
-    modal_ask: "Հարցնել այս գույքի մասին ↗",
-    search_cond_any: "Ցանկացած վիճակ",
-    search_cond_renovated: "Վերանորոգված",
-    search_cond_average: "Միջին վիճակ",
-    search_cond_unfinished: "Անավարտ",
-    auth_eyebrow: "ԱՐՄԱՏ ԳՈՐԾԱԿԱԼԻ ՊՈՐՏԱԼ",
-    auth_login_title: "Գործակալի մուտք",
-    auth_login_desc: "Մուտք գործեք՝ ձեր հայտարարությունները կառավարելու համար։",
-    auth_signup_title: "Ստեղծել գործակալի հաշիվ",
-    auth_signup_desc: "Գրանցվեք՝ անշարժ գույքի հայտարարություններ տեղադրելու համար։",
-    auth_role_lbl: "Գրանցվել որպես",
-    auth_role_agent: "Գործակալ",
-    auth_role_manager: "Մենեջեր",
-    auth_role_director: "Տնօրեն",
-    auth_role_note: "Մենեջերի և տնօրենի հաշիվները պահանջում են հաստատում ադմինիստրատորի կողմից։",
-    auth_pass_lbl: "Գաղտնաբառ",
-    auth_signin_btn: "Մուտք գործել ↗",
-    auth_signup_btn: "Գրանցվել ↗",
-    auth_no_acc: "Չունե՞ք հաշիվ։",
-    auth_have_acc: "Արդեն ունե՞ք հաշիվ։",
-    auth_create_link: "Գրանցվել",
-    auth_signin_link: "Մուտք գործել",
-    dash_title: "Իմ վահանակը",
-    dash_welcome: "Բարի գալուստ, ",
-    dash_add_btn: "＋ Ավելացնել գույք",
-    dash_signout_btn: "Դուրս գալ",
-    dash_my_props: "Իմ հայտարարությունները",
-    prop_type_req: "Գույքի տեսակը *",
-    prop_title_req: "Վերնագիր *",
-    prop_loc_req: "Տարածք / Քաղաք *",
-    prop_addr: "Հասցե",
-    prop_price_req: "Գին *",
-    prop_curr: "Արժույթ",
-    prop_area: "Մակերես (մ²)",
-    prop_bath: "Սանհանգույցներ",
-    prop_floor: "Հարկ",
-    prop_ceiling: "Առաստաղի բարձրություն (մ)",
-    prop_building: "Շինության տիպ",
-    prop_not_spec: "Նշված չէ",
-    prop_status: "Կարգավիճակ",
-    status_pub: "Հրապարակել հիմա",
-    status_draft: "Պահպանել որպես սևագիր",
-    status_sold: "Վաճառված է",
-    status_rented: "Վարձակալված է",
-    prop_desc: "Նկարագրություն",
-    prop_photos: "Լուսանկարներ (կարող եք ընտրել մի քանիսը)",
-    prop_photos_note: "Առավելագույնը 8 լուսանկար (JPG, PNG կամ WEBP)։",
-    prop_save_btn: "Պահպանել ↗",
-    prop_cancel_btn: "Չեղարկել",
-    types: {
-      "Land": "Հողատարածք",
-      "Apartment": "Բնակարան",
-      "House": "Առանձնատուն",
-      "Commercial Space": "Կոմերցիոն տարածք"
-    }
+    hero_explore: "Դիտել գույքը ↗", hero_discover: "Մեր մասին",
+    hero_note: "Հող · Բնակարաններ · Տներ · Կոմերցիոն",
+    search_title: "Գտե՛ք ձեր գույքը", search_filters: "Ֆիլտրեր", search_location: "Վայր",
+    ph_location: "Օր.՝ Երևան", search_min_price: "Նվազագույն գին", search_max_price: "Առավելագույն գին", ph_any: "Ցանկացած",
+    search_type: "Տեսակ", opt_all: "Բոլորը", search_clear: "Մաքրել", search_submit: "Որոնել ↗",
+    cat_eyebrow: "Հնարավորություններ", cat_title: "Անկյուն՝ յուրաքանչյուր երազանքի համար",
+    cat_land: "Հողատարածք", cat_land_sub: "Կառուցիր ապագան",
+    cat_apt: "Բնակարաններ", cat_apt_sub: "Քաղաքային կյանք",
+    cat_house: "Առանձնատներ", cat_house_sub: "Ընտանեկան տուն",
+    cat_comm: "Կոմերցիոն", cat_comm_sub: "Բիզնես",
+    list_eyebrow: "Ընտրված առաջարկներ", list_title: "Գտե՛ք ձեր հասցեն", list_show_all: "Տեսնել բոլորը ↗",
+    contact_eyebrow: "Կապ մեզ հետ", contact_title: "Գտնենք ձեր վայրը", contact_copy: "Ունե՞ք հարցեր կամ ցանկանում եք վաճառել:",
+    contact_office: "Գրասենյակ", contact_email: "Էլ. փոստ",
+    form_name: "Անուն", ph_name: "Անուն Ազգանուն", form_email: "Էլ. հասցե", form_msg: "Հաղորդագրություն", ph_msg: "Գրեք ձեր հարցը...",
+    form_submit: "Ուղարկել ↗",
+    footer_tagline: "Արմատներ՝ վստահության մեջ։", footer_explore: "Բաժիններ", footer_rights: "© 2026 ԱՐՄԱՏ. Բոլոր իրավունքները պաշտպանված են։", footer_legal: "Իրավական",
+    view_details: "Մանրամասն ↗", unit_sqm: "մ²", unit_beds: "ննջասենյակ",
+    types: { "Land": "Հող", "Apartment": "Բնակարան", "House": "Տուն", "Commercial Space": "Կոմերցիոն" }
   }
 };
 
 /* =========================================
-   HELPERS
+   FUNCTIONS
    ========================================= */
 
-const $ = id => document.getElementById(id);
+// 1. LANGUAGE SWITCHER
+function setLanguage(lang) {
+  currentLang = lang;
+  document.documentElement.lang = lang;
+  
+  // Update Text Content
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (t[lang][key]) {
+      if (t[lang][key].includes('<')) el.innerHTML = t[lang][key]; // Handle HTML tags like <br>
+      else el.textContent = t[lang][key];
+    }
+  });
 
-function escapeHTML(value) {
-  return String(value ?? "").replace(/[&<>"']/g, char => ({
-    "&": "&",
-    "<": "<",
-    ">": ">",
-    '"': """,
-    "'": "'"
-  }[char]));
+  // Update Placeholders
+  document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+    const key = el.getAttribute('data-i18n-placeholder');
+    if (t[lang][key]) el.placeholder = t[lang][key];
+  });
+
+  // Update Logo
+  document.getElementById('brandLogo').src = lang === 'hy' ? logoHY : logoEN;
+  
+  // Update Button Text if logged in/out
+  const acctBtn = document.getElementById('accountBtn');
+  if(acctBtn) acctBtn.textContent = currentUser ? t[lang].my_dashboard : t[lang].agent_login;
+
+  // Re-render listings to update types/units
+  renderListings(allProperties);
 }
 
-function money(value, currency = "USD") {
-  return new Intl.NumberFormat("en-US", {
-    style: "currency",
-    currency,
-    maximumFractionDigits: 0
-  }).format(Number(value || 0));
-}
+document.getElementById('langSwitch').addEventListener('click', () => {
+  setLanguage(currentLang === 'en' ? 'hy' : 'en');
+});
 
-function propertyImages(property) {
-  if (property.property_images?.length) {
-    return property.property_images
-      .sort((a, b) => a.sort_order - b.sort_order)
-      .map(image => db.storage.from(BUCKET).getPublicUrl(image.storage_path).data.publicUrl);
-  }
-
-  return [];
-}
-
-function propertyToCard(property) {
-  const images = propertyImages(property);
-  return {
-    ...property,
-    image: images[0] || "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1000&q=85",
-    priceLabel: money(property.price, property.currency)
-  };
-}
-
-/* =========================================
-   LOAD PUBLIC PROPERTIES
-   ========================================= */
-
+// 2. PROPERTY LOADING
 async function loadProperties() {
-  const { data, error } = await db
-    .from("properties")
-    .select("*, property_images(*)")
-    .eq("status", "published")
-    .order("created_at", { ascending: false });
-
-  if (error) {
-    console.error("Could not load properties:", error.message);
-    $("listingGrid").innerHTML =
-      '<div class="empty-state">Properties are temporarily unavailable.</div>';
-    return;
-  }
-
-  allProperties = (data || []).map(propertyToCard);
-  filteredProperties = null;
+  const { data } = await db.from("properties").select("*").eq("status", "published");
+  allProperties = data || [];
   renderListings(allProperties);
 }
 
 function renderListings(items) {
-  const grid = $("listingGrid");
-  const t = translations[currentLang];
-
+  const grid = document.getElementById('listingGrid');
   if (!items.length) {
-    grid.innerHTML = `
-      <div class="empty-state">
-        <h3 style="font-family:var(--serif);font-size:30px;margin-bottom:8px">
-          ${escapeHTML(t.no_props_title)}
-        </h3>
-        <p>${escapeHTML(t.no_props_desc)}</p>
-      </div>`;
+    grid.innerHTML = '<p style="grid-column:1/-1;text-align:center;padding:40px">No properties found.</p>';
     return;
   }
-
-  grid.innerHTML = items.map(property => {
-    const localizedType = t.types[property.type] || property.type;
+  
+  grid.innerHTML = items.map(p => {
+    const typeName = t[currentLang].types[p.type] || p.type;
     return `
-      <article class="listing-card" data-id="${escapeHTML(property.id)}">
+      <article class="listing-card">
         <div class="listing-photo">
-          <img loading="lazy"
-            src="${escapeHTML(property.image)}"
-            alt="${escapeHTML(property.title)}">
-          <span class="listing-tag">${escapeHTML(localizedType)}</span>
-          <span class="listing-price">${escapeHTML(property.priceLabel)}</span>
+          <img src="${p.image_url || 'https://via.placeholder.com/400'}" alt="${p.title}">
+          <div class="listing-price">$${p.price.toLocaleString()}</div>
         </div>
         <div class="listing-body">
-          <div class="listing-type">${currentLang === "hy" ? "ԱՐՄԱՏ ԱՆՇԱՐԺ ԳՈՒՅՔ" : "ARMAT REAL ESTATE"}</div>
-          <h3>${escapeHTML(property.title)}</h3>
-          <div class="listing-address">⌖ ${escapeHTML(property.location)}</div>
-          <div class="listing-meta">
-            ${property.area ? `<span>▧ ${escapeHTML(property.area)} ${escapeHTML(t.unit_sqm)}</span>` : ""}
-            ${property.bedrooms ? `<span>▤ ${escapeHTML(property.bedrooms)} ${escapeHTML(t.unit_bedrooms)}</span>` : ""}
-            ${property.bathrooms ? `<span>◇ ${escapeHTML(property.bathrooms)} ${escapeHTML(t.unit_bathrooms)}</span>` : ""}
+          <div class="eyebrow" style="font-size:8px">${typeName}</div>
+          <h3 style="font-size:20px;margin:8px 0">${p.title}</h3>
+          <div style="color:var(--muted);font-size:12px;margin-bottom:15px">⌖ ${p.location}</div>
+          <div style="display:flex;gap:15px;font-size:11px;color:var(--muted);border-top:1px solid var(--border);padding-top:15px">
+            ${p.area ? `<span>▧ ${p.area} ${t[currentLang].unit_sqm}</span>` : ''}
+            ${p.bedrooms ? `<span>▤ ${p.bedrooms} ${t[currentLang].unit_beds}</span>` : ''}
           </div>
-          <span class="listing-link">${escapeHTML(t.view_details)}</span>
         </div>
       </article>
     `;
-  }).join("");
-
-  grid.querySelectorAll(".listing-card").forEach(card => {
-    card.addEventListener("click", () => {
-      const property = allProperties.find(p => p.id === card.dataset.id);
-      if (property) openProperty(property);
-    });
-  });
+  }).join('');
 }
 
-/* =========================================
-   PROPERTY DETAILS
-   ========================================= */
-
-function openProperty(property) {
-  const images = propertyImages(property);
-  const t = translations[currentLang];
-
-  $("modalImage").src = images[0] || property.image;
-  $("modalImage").alt = property.title;
-  $("modalType").textContent = t.types[property.type] || property.type;
-  $("modalTitle").textContent = property.title;
-  $("modalPrice").textContent = property.priceLabel;
-  $("modalDescription").textContent = property.description || "";
-
-  $("modalMeta").innerHTML = `
-    ${property.area ? `<span>▧ ${escapeHTML(property.area)} ${escapeHTML(t.unit_sqm)}</span>` : ""}
-    ${property.bedrooms ? `<span>▤ ${escapeHTML(property.bedrooms)} ${escapeHTML(t.unit_bedrooms)}</span>` : ""}
-    ${property.bathrooms ? `<span>◇ ${escapeHTML(property.bathrooms)} ${escapeHTML(t.unit_bathrooms)}</span>` : ""}
-    <span>⌖ ${escapeHTML(property.location)}</span>
-  `;
-
-  $("modalContact").onclick = () => {
-    $("propertyModal").classList.remove("open");
-    $("contactForm").scrollIntoView({ behavior: "smooth" });
-  };
-
-  $("propertyModal").classList.add("open");
-}
-
-$("modalClose").addEventListener("click", () => {
-  $("propertyModal").classList.remove("open");
+// 3. UI INTERACTION
+document.getElementById('menuToggle').addEventListener('click', () => {
+  document.getElementById('navLinks').classList.toggle('open');
 });
 
-$("propertyModal").addEventListener("click", event => {
-  if (event.target === $("propertyModal")) {
-    $("propertyModal").classList.remove("open");
-  }
+document.getElementById('filterToggle').addEventListener('click', () => {
+  document.getElementById('advFilters').classList.toggle('open');
 });
 
-/* =========================================
-   SEARCH AND FILTERS
-   ========================================= */
+window.filterCat = (type) => {
+  document.getElementById('typeSelect').value = type;
+  // Simple filter logic for demo
+  const filtered = type === 'all' ? allProperties : allProperties.filter(p => p.type === type);
+  renderListings(filtered);
+};
 
-function applyFilters() {
-  const location = $("searchLocation").value.trim().toLowerCase();
-  const minPrice = Number($("minPrice").value || 0);
-  const maxPrice = Number($("maxPrice").value || Infinity);
-  const type = $("searchType").value;
-  const minArea = Number($("minArea").value || 0);
-  const maxArea = Number($("maxArea").value || Infinity);
-  const rooms = $("searchRooms").value;
-  const condition = $("searchCondition").value;
-
-  filteredProperties = allProperties.filter(property => {
-    const matchesLocation =
-      !location || property.location.toLowerCase().includes(location);
-
-    const matchesPrice =
-      Number(property.price) >= minPrice &&
-      Number(property.price) <= maxPrice;
-
-    const matchesType =
-      type === "all" || property.type === type;
-
-    const matchesArea =
-      Number(property.area || 0) >= minArea &&
-      Number(property.area || 0) <= maxArea;
-
-    const matchesRooms =
-      !rooms ||
-      (rooms === "5"
-        ? Number(property.bedrooms || 0) >= 5
-        : Number(property.bedrooms || 0) === Number(rooms));
-
-    const matchesCondition =
-      !condition || property.condition === condition;
-
-    return matchesLocation && matchesPrice && matchesType &&
-      matchesArea && matchesRooms && matchesCondition;
-  });
-
-  renderListings(filteredProperties);
-}
-
-$("searchForm").addEventListener("submit", event => {
-  event.preventDefault();
-  applyFilters();
-  $("properties").scrollIntoView({ behavior: "smooth" });
-});
-
-$("clearFilters").addEventListener("click", () => {
-  filteredProperties = null;
-  setTimeout(() => renderListings(allProperties), 0);
-});
-
-$("showAllBtn").addEventListener("click", () => {
-  $("searchForm").reset();
-  $("searchType").value = "all";
-  filteredProperties = null;
+document.getElementById('showAllBtn').addEventListener('click', () => {
+  document.getElementById('typeSelect').value = 'all';
   renderListings(allProperties);
 });
 
-$("filterToggle").addEventListener("click", () => {
-  const open = $("advancedFilters").classList.toggle("open");
-  $("filterToggle").setAttribute("aria-expanded", String(open));
-});
-
-document.querySelectorAll("[data-category], [data-footer-category]").forEach(link => {
-  link.addEventListener("click", () => {
-    const type = link.dataset.category || link.dataset.footerCategory;
-    $("searchType").value = type;
-    applyFilters();
-  });
-});
-
-/* =========================================
-   AUTHENTICATION
-   ========================================= */
-
-function showAuth(mode = "login") {
-  authMode = mode;
-  const t = translations[currentLang];
-
-  $("authHeading").textContent =
-    mode === "login" ? t.auth_login_title : t.auth_signup_title;
-
-  $("authDescription").textContent =
-    mode === "login" ? t.auth_login_desc : t.auth_signup_desc;
-
-  $("authNameField").style.display =
-    mode === "signup" ? "flex" : "none";
-
-  $("authName").required = mode === "signup";
-  $("authRoleField").style.display = mode === "signup" ? "flex" : "none";
-  $("authRole").disabled = mode !== "signup";
-
-  $("authSubmit").textContent =
-    mode === "login" ? t.auth_signin_btn : t.auth_signup_btn;
-
-  $("authToggleText").textContent =
-    mode === "login" ? t.auth_no_acc : t.auth_have_acc;
-
-  $("authToggle").textContent =
-    mode === "login" ? t.auth_create_link : t.auth_signin_link;
-
-  $("authMessage").textContent = "";
-  $("authModal").classList.add("open");
-}
-
-$("accountButton").addEventListener("click", async () => {
-  if (currentUser) {
-    await openDashboard();
-  } else {
-    showAuth("login");
-  }
-});
-
-$("authToggle").addEventListener("click", () => {
-  showAuth(authMode === "login" ? "signup" : "login");
-});
-
-$("authClose").addEventListener("click", () => {
-  $("authModal").classList.remove("open");
-});
-
-$("authForm").addEventListener("submit", async event => {
-  event.preventDefault();
-
-  const email = $("authEmail").value.trim();
-  const password = $("authPassword").value;
-  const button = $("authSubmit");
-
-  button.disabled = true;
-  $("authMessage").textContent = currentLang === "hy" ? "Խնդրում ենք սպասել..." : "Please wait...";
-
-  try {
-    if (authMode === "signup") {
-      const fullName = $("authName").value.trim();
-      const requestedRole = $("authRole").value;
-
-      const { data, error } = await db.auth.signUp({
-        email,
-        password,
-        options: {
-          data: {
-            full_name: fullName,
-            requested_role: requestedRole
-          }
-        }
-      });
-
-      if (error) throw error;
-
-      const approvalMessage = requestedRole === "agent"
-        ? ""
-        : ` Your ${requestedRole === "director" ? "Director" : "Manager"} access request must be approved by an authorized administrator.`;
-
-      if (!data.session) {
-        $("authMessage").textContent =
-          "Account created. Please check your email to confirm your account, then sign in." + approvalMessage;
-      } else {
-        $("authMessage").textContent = "Account created successfully." + approvalMessage;
-      }
-    } else {
-      const { error } = await db.auth.signInWithPassword({
-        email,
-        password
-      });
-
-      if (error) throw error;
-
-      $("authMessage").textContent = "Signed in successfully.";
-      $("authModal").classList.remove("open");
-      await loadCurrentUser();
-      await openDashboard();
-    }
-  } catch (error) {
-    $("authMessage").textContent = error.message || "Something went wrong.";
-  } finally {
-    button.disabled = false;
-  }
-});
-
-/* =========================================
-   USER PROFILE AND SESSION
-   ========================================= */
-
-async function loadCurrentUser() {
-  const { data: { user } } = await db.auth.getUser();
-  const t = translations[currentLang];
-
-  currentUser = user || null;
-  currentProfile = null;
-
-  if (!currentUser) {
-    $("accountButton").textContent = t.agent_login;
-    return;
-  }
-
-  const { data: profile, error } = await db
-    .from("profiles")
-    .select("*")
-    .eq("id", currentUser.id)
-    .maybeSingle();
-
-  if (error) {
-    console.error("Profile error:", error.message);
-  }
-
-  currentProfile = profile || {
-    full_name: currentUser.user_metadata?.full_name || "Agent",
-    role: "agent"
-  };
-
-  $("accountButton").textContent = t.my_dashboard;
-}
-
-db.auth.onAuthStateChange((_event, session) => {
-  currentUser = session?.user || null;
-
-  setTimeout(async () => {
-    await loadCurrentUser();
-  }, 0);
-});
-
-/* =========================================
-   DASHBOARD
-   ========================================= */
-
-async function openDashboard() {
-  if (!currentUser) {
-    showAuth("login");
-    return;
-  }
-
-  const t = translations[currentLang];
-  $("dashboardModal").classList.add("open");
-
-  const name = currentProfile?.full_name ||
-    currentUser.user_metadata?.full_name ||
-    currentUser.email;
-
-  $("agentWelcome").textContent = t.dash_welcome + name;
-
-  await loadAgentProperties();
-}
-
-$("dashboardClose").addEventListener("click", () => {
-  $("dashboardModal").classList.remove("open");
-});
-
-$("signOutButton").addEventListener("click", async () => {
-  const { error } = await db.auth.signOut();
-
-  if (error) {
-    alert(error.message);
-    return;
-  }
-
-  currentUser = null;
-  currentProfile = null;
-
-  $("dashboardModal").classList.remove("open");
-  $("accountButton").textContent = translations[currentLang].agent_login;
-  await loadProperties();
-});
-
-async function loadAgentProperties() {
-  const list = $("agentPropertiesList");
-  list.innerHTML = `<p>${currentLang === "hy" ? "Բեռնվում է..." : "Loading your properties..."}</p>`;
-
-  let query = db
-    .from("properties")
-    .select("*, property_images(*)")
-    .order("created_at", { ascending: false });
-
-  if (currentProfile?.role !== "admin") {
-    query = query.eq("owner_id", currentUser.id);
-  }
-
-  const { data, error } = await query;
-
-  if (error) {
-    list.innerHTML =
-      `<p style="color:#a33">${escapeHTML(error.message)}</p>`;
-    return;
-  }
-
-  if (!data?.length) {
-    list.innerHTML = `<p>${currentLang === "hy" ? "Դուք դեռ չունեք ավելացված հայտարարություններ։" : "You have not added any properties yet."}</p>`;
-    return;
-  }
-
-  list.innerHTML = data.map(property => `
-    <div style="display:flex;align-items:center;gap:15px;padding:13px;border:1px solid var(--border);background:#F7F3EC;flex-wrap:wrap">
-      <div style="width:95px;height:75px;flex-shrink:0;background:#ddd">
-        <img style="height:100%" src="${
-          escapeHTML(
-            property.property_images?.length
-              ? db.storage.from(BUCKET).getPublicUrl(property.property_images[0].storage_path).data.publicUrl
-              : "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=300"
-          )
-        }" alt="">
-      </div>
-      <div style="flex:1;min-width:140px">
-        <strong>${escapeHTML(property.title)}</strong>
-        <div style="font-size:12px;color:var(--muted)">
-          ${escapeHTML(translations[currentLang].types[property.type] || property.type)} · ${escapeHTML(property.location)}
-        </div>
-        <div style="font-size:12px">${money(property.price, property.currency)} · ${escapeHTML(property.status)}</div>
-      </div>
-      <div style="display:flex;gap:8px;flex-wrap:wrap">
-        <button class="btn btn-outline edit-property" data-id="${escapeHTML(property.id)}" type="button">${currentLang === "hy" ? "Խմբագրել" : "Edit"}</button>
-        <button class="btn delete-property" data-id="${escapeHTML(property.id)}" type="button">${currentLang === "hy" ? "Ջնջել" : "Delete"}</button>
-      </div>
-    </div>
-  `).join("");
-
-  list.querySelectorAll(".edit-property").forEach(button => {
-    button.addEventListener("click", () => {
-      const property = data.find(item => item.id === button.dataset.id);
-      if (property) startEditProperty(property);
-    });
-  });
-
-  list.querySelectorAll(".delete-property").forEach(button => {
-    button.addEventListener("click", async () => {
-      const property = data.find(item => item.id === button.dataset.id);
-      if (property) await deleteProperty(property);
-    });
-  });
-}
-
-/* =========================================
-   PROPERTY FORM
-   ========================================= */
-
-$("newPropertyButton").addEventListener("click", () => {
-  resetPropertyForm();
-  $("propertyEditor").style.display = "block";
-  $("editorHeading").textContent = currentLang === "hy" ? "Ավելացնել գույք" : "Add a property";
-  $("propertyEditor").scrollIntoView({ behavior: "smooth" });
-});
-
-$("cancelEditButton").addEventListener("click", () => {
-  $("propertyEditor").style.display = "none";
-  resetPropertyForm();
-});
-
-function resetPropertyForm() {
-  $("propertyForm").reset();
-  $("editPropertyId").value = "";
-  $("photoPreview").innerHTML = "";
-  $("propertyFormMessage").textContent = "";
-  selectedPhotos = [];
-}
-
-function startEditProperty(property) {
-  $("propertyEditor").style.display = "block";
-  $("editorHeading").textContent = currentLang === "hy" ? "Խմբագրել գույքը" : "Edit property";
-
-  $("editPropertyId").value = property.id;
-  $("propertyType").value = property.type;
-  $("propertyTitle").value = property.title || "";
-  $("propertyLocation").value = property.location || "";
-  $("propertyAddress").value = property.address || "";
-  $("propertyPrice").value = property.price || "";
-  $("propertyCurrency").value = property.currency || "USD";
-  $("propertyArea").value = property.area || "";
-  $("propertyBedrooms").value = property.bedrooms ?? "";
-  $("propertyBathrooms").value = property.bathrooms ?? "";
-  $("propertyFloor").value = property.floor ?? "";
-  $("propertyCeiling").value = property.ceiling_height ?? "";
-  $("propertyBuilding").value = property.building_type || "";
-  $("propertyCondition").value = property.condition || "";
-  $("propertyStatus").value = property.status || "published";
-  $("propertyDescription").value = property.description || "";
-
-  selectedPhotos = [];
-  $("propertyPhotos").value = "";
-
-  const images = propertyImages(property);
-
-  $("photoPreview").innerHTML = images.map(url => `
-    <img src="${escapeHTML(url)}"
-      style="width:90px;height:70px;object-fit:cover;border:1px solid var(--border)"
-      alt="Existing property photo">
-  `).join("");
-
-  $("propertyEditor").scrollIntoView({ behavior: "smooth" });
-}
-
-$("propertyPhotos").addEventListener("change", event => {
-  selectedPhotos = Array.from(event.target.files || []);
-
-  if (selectedPhotos.length > 8) {
-    alert(currentLang === "hy" ? "Խնդրում ենք ընտրել առավելագույնը 8 լուսանկար։" : "Please select no more than 8 photos at a time.");
-    selectedPhotos = selectedPhotos.slice(0, 8);
-  }
-
-  $("photoPreview").innerHTML = "";
-
-  selectedPhotos.forEach(file => {
-    if (!file.type.startsWith("image/")) return;
-
-    const url = URL.createObjectURL(file);
-    const img = document.createElement("img");
-
-    img.src = url;
-    img.style.cssText =
-      "width:90px;height:70px;object-fit:cover;border:1px solid var(--border)";
-
-    $("photoPreview").appendChild(img);
-  });
-});
-
-/* =========================================
-   UPLOAD PHOTOS
-   ========================================= */
-
-async function uploadPropertyPhotos(propertyId, files) {
-  const uploadedRows = [];
-
-  for (let i = 0; i < files.length; i++) {
-    const file = files[i];
-
-    if (!file.type.startsWith("image/")) {
-      throw new Error("Only image files can be uploaded.");
-    }
-
-    if (file.size > 10 * 1024 * 1024) {
-      throw new Error("Each photo must be smaller than 10 MB.");
-    }
-
-    const extension = file.name.split(".").pop().toLowerCase();
-    const safeName = crypto.randomUUID() + "." + extension;
-    const path = `${currentUser.id}/${propertyId}/${safeName}`;
-
-    const { error: uploadError } = await db.storage
-      .from(BUCKET)
-      .upload(path, file, {
-        cacheControl: "3600",
-        upsert: false,
-        contentType: file.type
-      });
-
-    if (uploadError) throw uploadError;
-
-    uploadedRows.push({
-      property_id: propertyId,
-      owner_id: currentUser.id,
-      storage_path: path,
-      sort_order: i
-    });
-  }
-
-  if (uploadedRows.length) {
-    const { error } = await db
-      .from("property_images")
-      .insert(uploadedRows);
-
-    if (error) throw error;
-  }
-}
-
-/* =========================================
-   SAVE OR UPDATE PROPERTY
-   ========================================= */
-
-$("propertyForm").addEventListener("submit", async event => {
-  event.preventDefault();
-
-  if (!currentUser) {
-    showAuth("login");
-    return;
-  }
-
-  const button = $("savePropertyButton");
-  button.disabled = true;
-  button.textContent = currentLang === "hy" ? "Պահպանվում է..." : "Saving...";
-
-  try {
-    const propertyId = $("editPropertyId").value;
-
-    const payload = {
-      type: $("propertyType").value,
-      title: $("propertyTitle").value.trim(),
-      location: $("propertyLocation").value.trim(),
-      address: $("propertyAddress").value.trim() || null,
-      price: Number($("propertyPrice").value),
-      currency: $("propertyCurrency").value,
-      area: Number($("propertyArea").value) || null,
-      bedrooms: $("propertyBedrooms").value === "" ? null : Number($("propertyBedrooms").value),
-      bathrooms: $("propertyBathrooms").value === "" ? null : Number($("propertyBathrooms").value),
-      floor: $("propertyFloor").value === "" ? null : Number($("propertyFloor").value),
-      ceiling_height: Number($("propertyCeiling").value) || null,
-      building_type: $("propertyBuilding").value.trim() || null,
-      condition: $("propertyCondition").value || null,
-      status: $("propertyStatus").value,
-      description: $("propertyDescription").value.trim(),
-      updated_at: new Date().toISOString()
-    };
-
-    let savedProperty;
-
-    if (propertyId) {
-      const { data, error } = await db
-        .from("properties")
-        .update(payload)
-        .eq("id", propertyId)
-        .select()
-        .single();
-
-      if (error) throw error;
-      savedProperty = data;
-    } else {
-      payload.owner_id = currentUser.id;
-
-      const { data, error } = await db
-        .from("properties")
-        .insert(payload)
-        .select()
-        .single();
-
-      if (error) throw error;
-      savedProperty = data;
-    }
-
-    if (selectedPhotos.length) {
-      await uploadPropertyPhotos(savedProperty.id, selectedPhotos);
-    }
-
-    $("propertyFormMessage").textContent =
-      currentLang === "hy" ? "Հայտարարությունը հաջողությամբ պահպանվեց։" : "Property saved successfully.";
-
-    selectedPhotos = [];
-
-    await loadProperties();
-    await loadAgentProperties();
-
-    $("propertyEditor").style.display = "none";
-    resetPropertyForm();
-
-  } catch (error) {
-    console.error(error);
-    $("propertyFormMessage").textContent =
-      error.message || "Could not save property.";
-  } finally {
-    button.disabled = false;
-    button.textContent = translations[currentLang].prop_save_btn;
-  }
-});
-
-/* =========================================
-   DELETE PROPERTY
-   ========================================= */
-
-async function deleteProperty(property) {
-  const msg = currentLang === "hy"
-    ? `Ջնջե՞լ «${property.title}» հայտարարությունը։ Այն հնարավոր չի լինի վերականգնել։`
-    : `Delete "${property.title}"? This cannot be undone.`;
-
-  if (!confirm(msg)) {
-    return;
-  }
-
-  try {
-    const { data: images, error: imageError } = await db
-      .from("property_images")
-      .select("storage_path")
-      .eq("property_id", property.id);
-
-    if (imageError) throw imageError;
-
-    if (images?.length) {
-      const paths = images.map(item => item.storage_path);
-
-      const { error: storageError } = await db.storage
-        .from(BUCKET)
-        .remove(paths);
-
-      if (storageError) throw storageError;
-    }
-
-    const { error: deleteError } = await db
-      .from("properties")
-      .delete()
-      .eq("id", property.id);
-
-    if (deleteError) throw deleteError;
-
-    await loadProperties();
-    await loadAgentProperties();
-
-  } catch (error) {
-    alert("Could not delete property: " + error.message);
-  }
-}
-
-/* =========================================
-   CONTACT FORM
-   ========================================= */
-
-$("contactForm").addEventListener("submit", event => {
-  event.preventDefault();
-
-  const form = event.currentTarget;
-  if (!form.reportValidity()) return;
-
-  const data = new FormData(form);
-
-  const subject = encodeURIComponent(
-    "ARMAT Real Estate Inquiry — " + data.get("interest")
-  );
-
-  const body = encodeURIComponent(
-    "Name: " + data.get("name") +
-    "\nEmail: " + data.get("email") +
-    "\nInterest: " + data.get("interest") +
-    "\n\nMessage:\n" + data.get("message")
-  );
-
-  $("formStatus").textContent =
-    currentLang === "hy"
-      ? "Բացվում է ձեր էլ. փոստի ծրագիրը։ Խնդրում ենք ստուգել և ուղարկել նամակը։"
-      : "Opening your email app. Please review and send the prepared message.";
-
-  window.location.href =
-    "mailto:hello@armatestate.am?subject=" + subject + "&body=" + body;
-});
-
-/* =========================================
-   LANGUAGE SWITCH
-   ========================================= */
-
-function setLanguage(lang) {
-  currentLang = lang;
-  document.documentElement.lang = lang;
-
-  $("langSwitch").textContent = lang === "en" ? "HY" : "EN";
-
-  document.querySelectorAll(".brand-logo").forEach(img => {
-    img.src = lang === "hy" ? armenianLogo : englishLogo;
-    img.alt = lang === "hy"
-      ? "ARMAT Անշարժ Գույք լոգո"
-      : "ARMAT Real Estate logo";
-  });
-
-  const t = translations[lang];
-
-  // Update text elements with data-i18n
-  document.querySelectorAll("[data-i18n]").forEach(el => {
-    const key = el.getAttribute("data-i18n");
-    if (t[key]) {
-      if (t[key].includes("<br>") || t[key].includes("<em>")) {
-        el.innerHTML = t[key];
-      } else {
-        el.textContent = t[key];
-      }
-    }
-  });
-
-  // Update placeholders
-  document.querySelectorAll("[data-i18n-placeholder]").forEach(el => {
-    const key = el.getAttribute("data-i18n-placeholder");
-    if (t[key]) {
-      el.placeholder = t[key];
-    }
-  });
-
-  // Update account button
-  $("accountButton").textContent = currentUser ? t.my_dashboard : t.agent_login;
-
-  // Update auth modal if open
-  if ($("authModal").classList.contains("open")) {
-    showAuth(authMode);
-  }
-
-  // Re-render listings in the selected language
-  renderListings(filteredProperties || allProperties);
-}
-
-$("langSwitch").addEventListener("click", () => {
-  setLanguage(currentLang === "en" ? "hy" : "en");
-});
-
-/* =========================================
-   MOBILE NAVIGATION
-   ========================================= */
-
-$("menuToggle").addEventListener("click", () => {
-  const open = $("navLinks").classList.toggle("open");
-
-  $("menuToggle").setAttribute("aria-expanded", String(open));
-  $("menuToggle").textContent = open ? "×" : "☰";
-});
-
-$("navLinks").querySelectorAll("a").forEach(link => {
-  link.addEventListener("click", () => {
-    $("navLinks").classList.remove("open");
-    $("menuToggle").textContent = "☰";
-    $("menuToggle").setAttribute("aria-expanded", "false");
-  });
-});
-
-/* =========================================
-   INITIALIZATION
-   ========================================= */
-
-$("year").textContent = new Date().getFullYear();
-
-async function initializeARMAT() {
-  // Always start in English so switching to HY translates everything cleanly
-  setLanguage("en");
-
-  await loadCurrentUser();
-  await loadProperties();
-}
-
-initializeARMAT();
+// Initialize
+setLanguage('en');
+loadProperties();
 
 </script>
 </body>
