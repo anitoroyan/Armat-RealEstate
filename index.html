@@ -62,20 +62,56 @@ h2 { font-size: clamp(32px, 5vw, 50px); line-height: 1.15; }
   min-height: 48px; display: inline-flex; align-items: center; justify-content: center; gap: 12px;
   padding: 13px 23px; border: 1px solid var(--walnut); background: var(--walnut); color: var(--white);
   font-size: 10px; font-weight: 600; letter-spacing: 1.3px; text-transform: uppercase; transition: all .25s;
+  cursor: pointer;
 }
 .btn:hover { background: var(--bronze); border-color: var(--bronze); transform: translateY(-2px); }
 .btn-outline { background: transparent; color: var(--walnut); }
 .btn-outline:hover { color: var(--white); }
 .btn-light { background: var(--ivory); border-color: var(--ivory); color: var(--walnut); }
 
-/* HEADER */
+/* =========================================
+   MARQUEE (running announcement text)
+   ========================================= */
+.marquee {
+  background: var(--walnut); color: var(--ivory); overflow: hidden; white-space: nowrap;
+  padding: 11px 0; font-size: 10px; font-weight: 500; letter-spacing: 3px; text-transform: uppercase;
+}
+.marquee-track { display: flex; width: max-content; animation: marquee 60s linear infinite; will-change: transform; }
+.marquee-group { display: flex; flex-shrink: 0; }
+.marquee-item { display: inline-flex; align-items: center; }
+.marquee-item::after {
+  content: ""; width: 5px; height: 5px; background: var(--tuff); transform: rotate(45deg);
+  margin: 0 38px; flex-shrink: 0;
+}
+@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) { .marquee-track { animation-duration: 180s; } }
+
+/* =========================================
+   HEADER
+   ========================================= */
 header { position: sticky; top: 0; z-index: 100; background: rgba(247,243,236,.96); backdrop-filter: blur(15px); border-bottom: 1px solid var(--border); }
-.navbar { min-height: 100px; display: flex; align-items: center; justify-content: space-between; gap: 25px; }
+.navbar { min-height: 100px; display: flex; align-items: center; justify-content: space-between; gap: 28px; }
 .brand-logo { width: 230px; height: 85px; object-fit: contain; }
-.nav-links { display: flex; gap: 28px; }
-.nav-links a { font-size: 11px; font-weight: 600; }
-.lang-switch { border: 1px solid var(--walnut); padding: 6px 12px; background: transparent; font-weight: 700; cursor: pointer; }
-.menu-toggle { display: none; border: 0; background: transparent; font-size: 27px; }
+.nav-links { display: flex; align-items: center; gap: 38px; }
+.nav-links a {
+  position: relative; font-size: 14px; font-weight: 600; letter-spacing: .4px; padding: 8px 0; white-space: nowrap;
+  transition: color .25s;
+}
+.nav-links a::after {
+  content: ""; position: absolute; left: 0; bottom: 0; height: 1px; width: 100%; background: var(--bronze);
+  transform: scaleX(0); transform-origin: left; transition: transform .3s ease;
+}
+.nav-links a:hover { color: var(--bronze); }
+.nav-links a:hover::after { transform: scaleX(1); }
+html[lang="hy"] .nav-links a { letter-spacing: 0; }
+.nav-actions { display: flex; gap: 14px; align-items: center; }
+.nav-actions .btn { min-height: 44px; padding: 10px 22px; font-size: 11px; }
+.lang-switch {
+  border: 1px solid var(--walnut); min-height: 44px; padding: 8px 15px; background: transparent; color: var(--walnut);
+  font-size: 12px; font-weight: 700; letter-spacing: 1px; cursor: pointer; transition: all .25s;
+}
+.lang-switch:hover { background: var(--walnut); color: var(--white); }
+.menu-toggle { display: none; border: 0; background: transparent; font-size: 27px; color: var(--walnut); cursor: pointer; }
 
 /* HERO */
 .hero { position: relative; min-height: 650px; display: flex; align-items: center; background: var(--walnut); color: white; overflow: hidden; }
@@ -83,16 +119,102 @@ header { position: sticky; top: 0; z-index: 100; background: rgba(247,243,236,.9
 .hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(34,25,20,.82), transparent); }
 .hero-content { position: relative; z-index: 1; padding: 90px 0; }
 .hero h1 { font-size: clamp(44px, 6.5vw, 76px); margin: 18px 0; }
+.hero-deals { margin-bottom: 18px; }
 
-/* SEARCH */
+/* =========================================
+   SEGMENTED DEAL TOGGLE (For Sale / For Rent)
+   ========================================= */
+.deal-toggle {
+  position: relative; display: inline-grid; grid-template-columns: 1fr 1fr; padding: 5px;
+  border: 1px solid rgba(255,255,255,.55); background: rgba(34,25,20,.38); backdrop-filter: blur(6px);
+}
+.deal-indicator {
+  position: absolute; top: 5px; bottom: 5px; left: 5px; width: calc(50% - 5px);
+  background: var(--ivory); box-shadow: 0 6px 18px rgba(0,0,0,.25);
+  transition: transform .5s cubic-bezier(.65, 0, .35, 1);
+}
+.deal-toggle[data-active="rent"] .deal-indicator { transform: translateX(100%); }
+.deal-opt {
+  position: relative; z-index: 1; min-height: 50px; min-width: 178px; padding: 0 24px; border: 0; background: transparent;
+  color: var(--white); display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  font-size: 11px; font-weight: 700; letter-spacing: 1.6px; text-transform: uppercase; cursor: pointer;
+  transition: color .4s ease;
+}
+.deal-opt svg { flex-shrink: 0; transition: transform .4s ease; }
+.deal-opt:hover svg { transform: scale(1.12) rotate(-6deg); }
+.deal-opt.active { color: var(--walnut); }
+/* light variant (inside the search panel) */
+.deal-toggle.deal-light { border-color: var(--border); background: var(--white); backdrop-filter: none; }
+.deal-toggle.deal-light .deal-indicator { background: var(--walnut); box-shadow: none; }
+.deal-toggle.deal-light .deal-opt { min-height: 42px; min-width: 150px; color: var(--walnut); padding: 0 18px; }
+.deal-toggle.deal-light .deal-opt.active { color: var(--white); }
+
+/* =========================================
+   SEARCH PANEL
+   ========================================= */
 .search-wrap { position: relative; z-index: 3; margin-top: -70px; }
 .search-panel { background: #F7F3EC; padding: 30px; border: 1px solid var(--border); }
-.search-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 16px; }
+.search-head { display: flex; justify-content: space-between; align-items: center; gap: 16px; margin-bottom: 24px; flex-wrap: wrap; }
+.filter-toggle-btn { border: 0; background: none; font-weight: 600; cursor: pointer; color: var(--walnut); }
+.search-grid { display: grid; grid-template-columns: 1.3fr 1fr 1fr 1.35fr; gap: 16px; align-items: end; }
 .field { display: flex; flex-direction: column; gap: 8px; }
-.field label { font-size: 9px; font-weight: 700; text-transform: uppercase; color: var(--muted); }
-.field input, .field select { min-height: 46px; border: 1px solid var(--border); padding: 12px; }
-.advanced-filters { display: none; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 22px; padding-top: 22px; border-top: 1px solid var(--border); }
-.advanced-filters.open { display: grid; }
+.field label, .filter-label { font-size: 9px; font-weight: 700; text-transform: uppercase; color: var(--muted); letter-spacing: .5px; }
+.field input, .field select, .range-row input { min-height: 46px; width: 100%; border: 1px solid var(--border); padding: 12px; color: var(--walnut); background: var(--white); }
+.search-grid .field input { min-height: 54px; }
+.field input:focus, .range-row input:focus { outline: 1px solid var(--bronze); border-color: var(--bronze); }
+
+/* Main search button */
+.btn-search {
+  width: 100%; min-height: 54px; gap: 16px; padding: 14px 30px; font-size: 12px; font-weight: 700; letter-spacing: 2.6px;
+  background: linear-gradient(135deg, #6a5242, #46362b); border-color: #46362b;
+  box-shadow: 0 12px 26px rgba(91,70,55,.28), inset 0 -3px 0 var(--bronze);
+}
+.btn-search svg { transition: transform .3s ease; }
+.btn-search:hover { background: linear-gradient(135deg, #B4845A, #A9794E); border-color: var(--bronze); box-shadow: 0 14px 30px rgba(169,121,78,.35), inset 0 -3px 0 var(--walnut); }
+.btn-search:hover svg { transform: scale(1.15); }
+
+/* Property type row */
+.type-row { margin-top: 24px; padding-top: 22px; border-top: 1px solid var(--border); display: flex; flex-direction: column; gap: 10px; }
+
+/* Advanced (dynamic) filters: smooth expand */
+.adv-wrap { display: grid; grid-template-rows: 0fr; margin-top: 0; transition: grid-template-rows .45s ease, margin-top .45s ease; }
+.adv-wrap.open { grid-template-rows: 1fr; margin-top: 22px; }
+.adv-inner { overflow: hidden; min-height: 0; visibility: hidden; transition: visibility 0s .45s; }
+.adv-wrap.open .adv-inner { visibility: visible; transition-delay: 0s; }
+.adv-content { padding-top: 24px; border-top: 1px solid var(--border); display: grid; gap: 28px; }
+.adv-hint { font-size: 12px; color: var(--muted); }
+
+.filter-section { display: flex; flex-direction: column; gap: 16px; }
+.section-title {
+  display: flex; align-items: center; gap: 14px; font-family: var(--sans); font-size: 10px; font-weight: 700;
+  letter-spacing: 2.4px; text-transform: uppercase; color: var(--bronze);
+}
+html[lang="hy"] .section-title { font-family: "Noto Sans Armenian", "Montserrat", sans-serif; letter-spacing: 1px; font-weight: 700; }
+.section-title::after { content: ""; flex: 1; height: 1px; background: var(--border); }
+.section-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 22px; }
+.filter-item { display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.filter-item.wide { grid-column: 1 / -1; }
+.type-panel { display: none; gap: 28px; }
+.type-panel.active { display: grid; animation: panelIn .4s ease; }
+@keyframes panelIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+
+/* Selectable chips */
+.chip-row { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip {
+  min-height: 42px; padding: 9px 16px; border: 1px solid var(--border); background: var(--white); color: var(--walnut);
+  font-size: 12px; font-weight: 600; letter-spacing: .3px; cursor: pointer; transition: all .2s;
+}
+.chip:hover { border-color: var(--bronze); color: var(--bronze); }
+.chip.active { background: var(--walnut); border-color: var(--walnut); color: var(--white); }
+.chip-square { width: 46px; height: 46px; min-height: 46px; padding: 0; display: inline-flex; align-items: center; justify-content: center; }
+.chip-link { border-style: dashed; background: transparent; }
+.floor-more { display: flex; flex-wrap: wrap; gap: 8px; max-height: 0; overflow: hidden; opacity: 0; transition: max-height .35s ease, opacity .25s ease; }
+.floor-more.open { max-height: 120px; opacity: 1; }
+.range-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.unit-wrap { position: relative; }
+.unit-wrap input { padding-right: 38px; }
+.unit-wrap .unit { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); font-size: 11px; color: var(--muted); pointer-events: none; }
+.filter-actions { display: flex; justify-content: flex-end; gap: 10px; flex-wrap: wrap; }
 
 /* CATEGORIES & LISTINGS */
 .section { padding: 110px 0; }
@@ -116,21 +238,54 @@ footer { background: #30251E; color: var(--ivory); padding: 65px 0 25px; }
 .modal-card { background: var(--ivory); width: min(900px, 90%); max-height: 90vh; overflow: auto; display: grid; grid-template-columns: 1fr 1fr; }
 .modal-close { position: absolute; top: 12px; right: 12px; background: var(--ivory); border: 0; width: 38px; height: 38px; border-radius: 50%; cursor: pointer; }
 
-@media (max-width: 700px) {
-  .nav-links { display: none; position: absolute; top: 100%; left: 0; right: 0; background: #F7F3EC; flex-direction: column; padding: 20px; }
+/* =========================================
+   RESPONSIVE
+   ========================================= */
+@media (max-width: 1200px) {
+  .nav-links { gap: 24px; }
+  .brand-logo { width: 195px; }
+}
+
+/* Tablet & below: collapsible navigation */
+@media (max-width: 1024px) {
+  .nav-links {
+    display: none; position: absolute; top: 100%; left: 0; right: 0; background: #F7F3EC; flex-direction: column;
+    align-items: flex-start; gap: 4px; padding: 18px 5%; border-bottom: 1px solid var(--border);
+  }
   .nav-links.open { display: flex; }
+  .nav-links a { font-size: 16px; padding: 10px 0; }
   .menu-toggle { display: block; }
+  .category-grid { grid-template-columns: repeat(2, 1fr); }
+  .listing-grid { grid-template-columns: repeat(2, 1fr); }
+  .search-grid { grid-template-columns: 1fr 1fr; }
+  .search-grid .btn-search-wrap { grid-column: 1 / -1; }
+}
+
+@media (max-width: 700px) {
+  .navbar { min-height: 84px; gap: 12px; }
+  .brand-logo { width: 150px; height: 70px; }
+  .nav-actions { gap: 8px; }
+  .nav-actions .btn { padding: 10px 14px; }
   .search-grid, .category-grid, .listing-grid, .footer-top, .modal-card { grid-template-columns: 1fr; }
+  .search-panel { padding: 22px 18px; }
   .hero h1 { font-size: 38px; }
+  .deal-toggle { display: grid; width: 100%; }
+  .deal-opt, .deal-toggle.deal-light .deal-opt { min-width: 0; padding: 0 10px; }
+  .search-head .deal-toggle { order: 3; }
+  .section-grid, .range-row { grid-template-columns: 1fr; }
+  .range-row { grid-template-columns: 1fr 1fr; }
+  .filter-actions .btn { flex: 1; }
 }
 </style>
 </head>
 
 <body>
 
-<!-- ANNOUNCEMENT BAR -->
-<div style="background:var(--walnut);color:var(--ivory);text-align:center;padding:8px;font-size:9px;letter-spacing:2px;text-transform:uppercase" data-i18n="announcement">
-  Find your place. Build your roots. · ARMAT REAL ESTATE
+<!-- ANNOUNCEMENT MARQUEE -->
+<div class="marquee" aria-label="ARMAT Real Estate">
+  <div class="marquee-track" id="marqueeTrack">
+    <div class="marquee-group"><span class="marquee-item">Find your place. Build your roots. · ARMAT REAL ESTATE</span></div>
+  </div>
 </div>
 
 <!-- HEADER -->
@@ -146,10 +301,10 @@ footer { background: #30251E; color: var(--ivory); padding: 65px 0 25px; }
       <a href="#about" data-i18n="nav_about">About Us</a>
       <a href="#contact" data-i18n="nav_contact">Contact</a>
     </nav>
-    <div style="display:flex;gap:14px;align-items:center">
+    <div class="nav-actions">
       <button class="lang-switch" id="langSwitch">HY</button>
-      <button class="btn" id="accountBtn" style="min-height:42px;padding:10px 15px" data-i18n="agent_login">Agent Login ↗</button>
-      <button class="menu-toggle" id="menuToggle">☰</button>
+      <button class="btn" id="accountBtn" data-i18n="agent_login">Login</button>
+      <button class="menu-toggle" id="menuToggle" aria-label="Menu">☰</button>
     </div>
   </div>
 </header>
@@ -162,6 +317,22 @@ footer { background: #30251E; color: var(--ivory); padding: 65px 0 25px; }
       <div class="eyebrow" data-i18n="hero_eyebrow">A better place to begin</div>
       <h1 data-i18n="hero_title">Find a place<br>to put down <em>roots.</em></h1>
       <p style="max-width:530px;margin-bottom:30px;opacity:0.9" data-i18n="hero_copy">From the land you dream of to the home you belong in, discover real estate that feels right for your future.</p>
+
+      <!-- Segmented toggle: For Sale / For Rent -->
+      <div class="hero-deals">
+        <div class="deal-toggle" data-active="sale" role="group">
+          <span class="deal-indicator" aria-hidden="true"></span>
+          <button type="button" class="deal-opt active" data-deal="sale" aria-pressed="true">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" aria-hidden="true"><path d="M3 12V4h8l10 10-8 8L3 12z"/><circle cx="7.5" cy="8.5" r="1.2"/></svg>
+            <span data-i18n="deal_sale">For Sale</span>
+          </button>
+          <button type="button" class="deal-opt" data-deal="rent" aria-pressed="false">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="15" r="4"/><path d="M11 12l9-9M16 7l3 3M14 9l2 2"/></svg>
+            <span data-i18n="deal_rent">For Rent</span>
+          </button>
+        </div>
+      </div>
+
       <div style="display:flex;gap:12px;flex-wrap:wrap">
         <a class="btn btn-light" href="#properties" data-i18n="hero_explore">Explore Properties ↗</a>
         <a class="btn btn-outline" href="#about" style="color:white;border-color:rgba(255,255,255,0.6)" data-i18n="hero_discover">Discover ARMAT</a>
@@ -173,40 +344,80 @@ footer { background: #30251E; color: var(--ivory); padding: 65px 0 25px; }
   <!-- SEARCH -->
   <div class="container search-wrap">
     <form class="search-panel" id="searchForm">
-      <div style="display:flex;justify-content:space-between;margin-bottom:22px">
+      <div class="search-head">
         <h3 style="font-family:var(--serif)" data-i18n="search_title">Find your property</h3>
-        <button type="button" id="filterToggle" style="border:0;background:none;font-weight:600"><span data-i18n="search_filters">Filters</span> ＋</button>
+
+        <div class="deal-toggle deal-light" data-active="sale" role="group">
+          <span class="deal-indicator" aria-hidden="true"></span>
+          <button type="button" class="deal-opt active" data-deal="sale" aria-pressed="true"><span data-i18n="deal_sale">For Sale</span></button>
+          <button type="button" class="deal-opt" data-deal="rent" aria-pressed="false"><span data-i18n="deal_rent">For Rent</span></button>
+        </div>
+
+        <button type="button" class="filter-toggle-btn" id="filterToggle" aria-expanded="false"><span data-i18n="search_filters">Filters</span> <span id="filterToggleIcon">＋</span></button>
       </div>
+
+      <!-- Primary row: location, price range, main search button -->
       <div class="search-grid">
         <div class="field">
           <label data-i18n="search_location">Location</label>
-          <input type="search" data-i18n-placeholder="ph_location" placeholder="e.g. Yerevan">
+          <input type="search" id="fLocation" data-i18n-placeholder="ph_location" placeholder="e.g. Yerevan">
         </div>
         <div class="field">
           <label data-i18n="search_min_price">Min. price</label>
-          <input type="number" data-i18n-placeholder="ph_any" placeholder="No minimum">
+          <input type="number" min="0" id="fMinPrice" data-i18n-placeholder="ph_min" placeholder="No minimum">
         </div>
         <div class="field">
           <label data-i18n="search_max_price">Max. price</label>
-          <input type="number" data-i18n-placeholder="ph_any" placeholder="No maximum">
+          <input type="number" min="0" id="fMaxPrice" data-i18n-placeholder="ph_max" placeholder="No maximum">
+        </div>
+        <div class="btn-search-wrap">
+          <button type="submit" class="btn btn-search">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>
+            <span data-i18n="search_submit">Search</span>
+          </button>
         </div>
       </div>
-      <div class="advanced-filters" id="advFilters">
-        <div class="field">
-          <label data-i18n="search_type">Property Type</label>
-          <select id="typeSelect">
-            <option value="all" data-i18n="opt_all">All Properties</option>
-            <option value="Land" data-i18n="cat_land">Land</option>
-            <option value="Apartment" data-i18n="cat_apt">Apartments</option>
-            <option value="House" data-i18n="cat_house">Houses</option>
-            <option value="Commercial Space" data-i18n="cat_comm">Commercial</option>
-          </select>
+
+      <!-- Property type (drives the dynamic filters below) -->
+      <div class="type-row">
+        <span class="filter-label" data-i18n="f_type">Property Type</span>
+        <div class="chip-row" id="typeChips">
+          <button type="button" class="chip active" data-type="all" data-i18n="f_all">All</button>
+          <button type="button" class="chip" data-type="House" data-i18n="f_house">House</button>
+          <button type="button" class="chip" data-type="Apartment" data-i18n="f_apartment">Apartment</button>
+          <button type="button" class="chip" data-type="Land" data-i18n="f_land">Land</button>
+          <button type="button" class="chip" data-type="Commercial Space" data-i18n="f_commercial">Commercial Property</button>
         </div>
-        <!-- More filters can be added here -->
       </div>
-      <div style="display:flex;justify-content:flex-end;gap:10px;margin-top:20px">
-        <button type="reset" class="btn btn-outline" data-i18n="search_clear">Clear All</button>
-        <button type="submit" class="btn" data-i18n="search_submit">Search ↗</button>
+
+      <!-- Dynamic filters (expand smoothly, relevant to the selected type) -->
+      <div class="adv-wrap" id="advWrap">
+        <div class="adv-inner">
+          <div class="adv-content">
+
+            <div class="filter-section">
+              <h4 class="section-title" data-i18n="sec_general">General</h4>
+              <div class="section-grid">
+                <div class="filter-item">
+                  <label class="filter-label" for="fStreet" data-i18n="f_street">Street</label>
+                  <div class="field">
+                    <input type="search" id="fStreet" data-i18n-placeholder="ph_street" placeholder="Street name">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <p class="adv-hint" id="advHint" data-i18n="hint_select_type">Select a property type to see more filters.</p>
+
+            <!-- Generated per property type by JS -->
+            <div id="typePanels"></div>
+
+            <div class="filter-actions">
+              <button type="reset" class="btn btn-outline" data-i18n="search_reset">Reset Filters</button>
+              <button type="submit" class="btn" data-i18n="search_apply">Apply Filters</button>
+            </div>
+          </div>
+        </div>
       </div>
     </form>
   </div>
@@ -330,7 +541,11 @@ const SUPABASE_KEY = "sb_publishable_ShyTXXEn9IcjN0TqZVGCdw_vHCjnYcI";
 const db = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
 let currentLang = "en";
+let currentUser = null; // set by the agent login system when a user is signed in
 let allProperties = [];
+let propertiesLoaded = false;
+let activeType = 'all';           // 'all' | 'House' | 'Apartment' | 'Land' | 'Commercial Space'
+const filters = { deal: 'sale' }; // 'sale' | 'rent'
 
 // LOGOS
 const logoEN = "https://cdn.shopify.com/s/files/1/0825/4695/0390/files/Carved_Stone_ARMAT_Real_Estate_Logo.png?v=1795111663";
@@ -343,15 +558,39 @@ const t = {
   en: {
     announcement: "Find your place. Build your roots. · ARMAT REAL ESTATE",
     nav_home: "Home", nav_properties: "Properties", nav_categories: "Categories", nav_about: "About Us", nav_contact: "Contact",
-    agent_login: "Agent Login ↗", my_dashboard: "My Dashboard ↗",
+    agent_login: "Login", my_dashboard: "My Dashboard",
     hero_eyebrow: "A better place to begin",
     hero_title: "Find a place<br>to put down <em>roots.</em>",
     hero_copy: "From the land you dream of to the home you belong in, discover real estate that feels right for your future.",
     hero_explore: "Explore Properties ↗", hero_discover: "Discover ARMAT",
     hero_note: "Land · Apartments · Houses · Commercial Spaces",
+    deal_sale: "For Sale", deal_rent: "For Rent",
     search_title: "Find your property", search_filters: "Filters", search_location: "Location",
     ph_location: "e.g. Yerevan", search_min_price: "Min. price", search_max_price: "Max. price", ph_any: "Any",
-    search_type: "Type", opt_all: "All Properties", search_clear: "Clear", search_submit: "Search ↗",
+    ph_min: "No minimum", ph_max: "No maximum", ph_from: "From", ph_to: "To",
+    search_type: "Type", opt_all: "All Properties", search_clear: "Clear", search_submit: "Search",
+    search_apply: "Apply Filters", search_reset: "Reset Filters",
+    hint_select_type: "Select a property type to see more filters.",
+    /* property types */
+    f_type: "Property Type", f_all: "All", f_house: "House", f_apartment: "Apartment", f_land: "Land", f_commercial: "Commercial Property",
+    /* section titles */
+    sec_general: "General", sec_layout: "Rooms & Bathrooms", sec_floors: "Floors", sec_area: "Area & Dimensions",
+    sec_building: "Building & Condition", sec_land: "Land Characteristics", sec_utilities: "Utilities",
+    sec_commercial: "Commercial Details", sec_features: "Features",
+    /* labels */
+    f_rooms: "Rooms", f_bathrooms: "Bathrooms", f_street: "Street", ph_street: "Street name",
+    f_floor: "Floor", f_total_floors: "Floors in Building", f_house_floors: "Number of Floors",
+    f_show_more: "Show More", f_show_less: "Show Less",
+    f_area: "Area", f_land_area: "Land Area", f_building_area: "Building Area", f_commercial_area: "Commercial Area",
+    f_ceiling: "Ceiling Height", ph_min_height: "Minimum height", ph_max_height: "Maximum height",
+    unit_m: "m",
+    f_building: "Building Type", f_stone: "Stone", f_monolithic: "Monolithic", f_panel: "Panel",
+    f_condition: "Property Condition", f_unrenovated: "Unrenovated", f_good: "Good Condition", f_new: "Newly Built",
+    f_land_use: "Land Use", use_residential: "Residential", use_agricultural: "Agricultural", use_commercial: "Commercial", use_industrial: "Industrial",
+    f_utilities: "Utilities Available", u_electricity: "Electricity", u_water: "Water", u_gas: "Gas", u_sewage: "Sewage",
+    f_space_type: "Space Type", c_office: "Office", c_retail: "Retail", c_food: "Café / Restaurant", c_warehouse: "Warehouse", c_production: "Production",
+    f_features: "Features", ft_entrance: "Separate Entrance", ft_parking: "Parking",
+    no_results: "No properties found.",
     cat_eyebrow: "Explore possibilities", cat_title: "A place for every dream.",
     cat_land: "Land", cat_land_sub: "Build future",
     cat_apt: "Apartments", cat_apt_sub: "City living",
@@ -364,20 +603,41 @@ const t = {
     form_submit: "Send Inquiry ↗",
     footer_tagline: "Rooted in trust. Built for your future.", footer_explore: "Explore", footer_rights: "© 2026 ARMAT. All rights reserved.", footer_legal: "Legal",
     view_details: "View Details ↗", unit_sqm: "m²", unit_beds: "beds",
-    types: { "Land": "Land", "Apartment": "Apartment", "House": "House", "Commercial Space": "Commercial" }
+    types: { "Land": "Land", "Apartment": "Apartment", "House": "House", "Commercial Space": "Commercial Property" }
   },
   hy: {
     announcement: "Ամրացրե՛ք ձեր արմատները · ԱՐՄԱՏ ԱՆՇԱՐԺ ԳՈՒՅՔ",
-    nav_home: "Գլխավոր", nav_properties: "Գույք", nav_categories: "Կատեգորիաներ", nav_about: "Մեր մասին", nav_contact: "Կապ",
-    agent_login: "Մուտք ↗", my_dashboard: "Իմ վահանակը ↗",
+    nav_home: "Գլխավոր", nav_properties: "Անշարժ գույք", nav_categories: "Կատեգորիաներ", nav_about: "Մեր մասին", nav_contact: "Կապ",
+    agent_login: "Մուտք", my_dashboard: "Իմ վահանակը",
     hero_eyebrow: "Լավագույն սկիզբը",
     hero_title: "Ամեն ինչ սկսվում է <em>արմատներից...</em>",
     hero_copy: "Երազանքի հողատարածքից մինչև քո տուն. բացահայտի՛ր քո ապագա անկյունը։",
     hero_explore: "Դիտել գույքը ↗", hero_discover: "Մեր մասին",
     hero_note: "Հող · Բնակարաններ · Տներ · Կոմերցիոն",
+    deal_sale: "Վաճառք", deal_rent: "Վարձակալություն",
     search_title: "Գտե՛ք ձեր գույքը", search_filters: "Ֆիլտրեր", search_location: "Վայր",
-    ph_location: "Օր.՝ Երևան", search_min_price: "Նվազագույն գին", search_max_price: "Առավելագույն գին", ph_any: "Ցանկացած",
-    search_type: "Տեսակ", opt_all: "Բոլորը", search_clear: "Մաքրել", search_submit: "Որոնել ↗",
+    ph_location: "Օր.՝ Երևան", search_min_price: "Գին", search_max_price: "Գին", ph_any: "Սկսած", ph_max_price: "Մինչև",
+    ph_min: "Նվազագույն", ph_max: "Առավելագույն", ph_from: "Սկսած", ph_to: "Մինչև",
+    search_type: "Տեսակ", opt_all: "Բոլորը", search_clear: "Մաքրել", search_submit: "Որոնել",
+    search_apply: "Կիրառել ֆիլտրերը", search_reset: "Մաքրել ֆիլտրերը",
+    hint_select_type: "Ընտրեք գույքի տիպը՝ լրացուցիչ ֆիլտրեր տեսնելու համար։",
+    f_type: "Գույքի տիպը", f_all: "Բոլորը", f_house: "Տուն", f_apartment: "Բնակարան", f_land: "Հողատարածք", f_commercial: "Կոմերցիոն տարածք",
+    sec_general: "Ընդհանուր", sec_layout: "Սենյակներ և սանհանգույցներ", sec_floors: "Հարկեր", sec_area: "Մակերես և չափեր",
+    sec_building: "Շենք և վիճակ", sec_land: "Հողատարածքի բնութագիր", sec_utilities: "Կոմունիկացիաներ",
+    sec_commercial: "Կոմերցիոն բնութագիր", sec_features: "Առանձնահատկություններ",
+    f_rooms: "Սենյակներ", f_bathrooms: "Սանհանգույցներ", f_street: "Փողոց", ph_street: "Օր. Աբովյան",
+    f_floor: "Հարկ", f_total_floors: "Շենքի հարկայնություն", f_house_floors: "Հարկերի քանակ",
+    f_show_more: "Ցույց տալ ավելին", f_show_less: "Ցույց տալ պակաս",
+    f_area: "Մակերես", f_land_area: "Հողատարածքի մակերես", f_building_area: "Շինության մակերես", f_commercial_area: "Կոմերցիոն մակերես",
+    f_ceiling: "Առաստաղի բարձրություն", ph_min_height: "Սկսած", ph_max_height: "Առավելագույն",
+    unit_m: "մ",
+    f_building: "Շենքի տիպը", f_stone: "Քարե", f_monolithic: "Մոնոլիտ", f_panel: "Պանելային",
+    f_condition: "Գույքի վիճակը", f_unrenovated: "Զրոյական վիճակ", f_good: "Լավ վիճակ", f_new: "Նորակառույց",
+    f_land_use: "Հողի նշանակություն", use_residential: "Բնակելի", use_agricultural: "Գյուղատնտեսական", use_commercial: "Կոմերցիոն", use_industrial: "Արդյունաբերական",
+    f_utilities: "Առկա կոմունիկացիաներ", u_electricity: "Էլեկտրաէներգիա", u_water: "Ջուր", u_gas: "Գազ", u_sewage: "Կոյուղի",
+    f_space_type: "Տարածքի տեսակ", c_office: "Գրասենյակ", c_retail: "Առևտրային", c_food: "Սրճարան / ռեստորան", c_warehouse: "Պահեստ", c_production: "Արտադրական",
+    f_features: "Առանձնահատկություններ", ft_entrance: "Առանձին մուտք", ft_parking: "Ավտոկայանատեղի",
+    no_results: "Գույք չի գտնվել։",
     cat_eyebrow: "Հնարավորություններ", cat_title: "Անկյուն՝ յուրաքանչյուր երազանքի համար",
     cat_land: "Հողատարածք", cat_land_sub: "Կառուցիր ապագան",
     cat_apt: "Բնակարաններ", cat_apt_sub: "Քաղաքային կյանք",
@@ -390,43 +650,156 @@ const t = {
     form_submit: "Ուղարկել ↗",
     footer_tagline: "Արմատներ՝ վստահության մեջ։", footer_explore: "Բաժիններ", footer_rights: "© 2026 ԱՐՄԱՏ. Բոլոր իրավունքները պաշտպանված են։", footer_legal: "Իրավական",
     view_details: "Մանրամասն ↗", unit_sqm: "մ²", unit_beds: "ննջասենյակ",
-    types: { "Land": "Հող", "Apartment": "Բնակարան", "House": "Տուն", "Commercial Space": "Կոմերցիոն" }
+    types: { "Land": "Հողատարածք", "Apartment": "Բնակարան", "House": "Տուն", "Commercial Space": "Կոմերցիոն տարածք" }
   }
 };
+
+/* =========================================
+   FILTER CONFIGURATION (per property type)
+   kinds: count (1,2,3,4+), range (min/max), enum (choose from values),
+          flags (all selected boolean columns must be true), floor (floor widget)
+   `fields` = candidate columns in the "properties" table (first non-empty one is used)
+   ========================================= */
+const FLOORS_MAIN = ['-1', '1', '2', '3', '4'];
+const FLOORS_MORE = ['5', '6', '7', '8', '9', '10', '11', '12+'];
+
+const rooms = { id: 'rooms', kind: 'count', label: 'f_rooms', fields: ['rooms', 'bedrooms'], options: ['1', '2', '3', '4', '5+'], square: true };
+const baths = { id: 'baths', kind: 'count', label: 'f_bathrooms', fields: ['bathrooms'], options: ['1', '2', '3', '4+'], square: true };
+const ceiling = { id: 'ceiling', kind: 'range', label: 'f_ceiling', fields: ['ceiling_height'], unit: 'unit_m', step: '0.1', ph: ['ph_min_height', 'ph_max_height'] };
+const building = { id: 'building', kind: 'enum', single: true, def: 'all', label: 'f_building', fields: ['building_type'],
+  options: [['stone', 'f_stone'], ['monolithic', 'f_monolithic'], ['panel', 'f_panel'], ['all', 'f_all']] };
+const condition = { id: 'condition', kind: 'enum', label: 'f_condition', fields: ['condition', 'property_condition'],
+  options: [['unrenovated', 'f_unrenovated'], ['good', 'f_good'], ['new', 'f_new']] };
+const floorItem = { id: 'floor', kind: 'floor', label: 'f_floor', fields: ['floor'], wide: true };
+
+const FILTER_CONFIG = {
+  Apartment: [
+    { title: 'sec_layout', items: [rooms, baths] },
+    { title: 'sec_floors', items: [floorItem,
+      { id: 'totalfloors', kind: 'range', label: 'f_total_floors', fields: ['floors_total'] }] },
+    { title: 'sec_area', items: [
+      { id: 'area', kind: 'range', label: 'f_area', fields: ['area'], unit: 'unit_sqm' }, ceiling] },
+    { title: 'sec_building', items: [building, condition] }
+  ],
+  House: [
+    { title: 'sec_area', items: [
+      { id: 'landarea', kind: 'range', label: 'f_land_area', fields: ['land_area'], unit: 'unit_sqm' },
+      { id: 'buildarea', kind: 'range', label: 'f_building_area', fields: ['building_area', 'area'], unit: 'unit_sqm' }, ceiling] },
+    { title: 'sec_layout', items: [rooms, baths,
+      { id: 'floors', kind: 'count', label: 'f_house_floors', fields: ['floors', 'floors_total'], options: ['1', '2', '3', '4+'], square: true }] },
+    { title: 'sec_building', items: [building, condition] }
+  ],
+  Land: [
+    { title: 'sec_area', items: [
+      { id: 'landarea', kind: 'range', label: 'f_land_area', fields: ['land_area', 'area'], unit: 'unit_sqm' }] },
+    { title: 'sec_land', items: [
+      { id: 'landuse', kind: 'enum', label: 'f_land_use', fields: ['land_use', 'land_purpose'],
+        options: [['residential', 'use_residential'], ['agricultural', 'use_agricultural'], ['commercial', 'use_commercial'], ['industrial', 'use_industrial']] }] },
+    { title: 'sec_utilities', items: [
+      { id: 'utilities', kind: 'flags', label: 'f_utilities', wide: true,
+        options: [['has_electricity', 'u_electricity'], ['has_water', 'u_water'], ['has_gas', 'u_gas'], ['has_sewage', 'u_sewage']] }] }
+  ],
+  'Commercial Space': [
+    { title: 'sec_commercial', items: [
+      { id: 'spacetype', kind: 'enum', label: 'f_space_type', fields: ['commercial_type'], wide: true,
+        options: [['office', 'c_office'], ['retail', 'c_retail'], ['food', 'c_food'], ['warehouse', 'c_warehouse'], ['production', 'c_production']] }] },
+    { title: 'sec_area', items: [
+      { id: 'commarea', kind: 'range', label: 'f_commercial_area', fields: ['commercial_area', 'area'], unit: 'unit_sqm' }, ceiling] },
+    { title: 'sec_floors', items: [floorItem] },
+    { title: 'sec_features', items: [
+      { id: 'features', kind: 'flags', label: 'f_features', wide: true,
+        options: [['has_separate_entrance', 'ft_entrance'], ['has_parking', 'ft_parking']] }, condition] }
+  ]
+};
+
+/* =========================================
+   RENDER DYNAMIC FILTER PANELS
+   ========================================= */
+function renderItem(type, it) {
+  let body = '';
+  if (it.kind === 'range') {
+    const ph = it.ph || ['ph_from', 'ph_to'];
+    body = '<div class="range-row">' + ['min', 'max'].map((b, i) =>
+      `<div class="unit-wrap"><input type="number" min="0" step="${it.step || 'any'}" data-bound="${b}" data-i18n-placeholder="${ph[i]}">` +
+      (it.unit ? `<span class="unit" data-i18n="${it.unit}"></span>` : '') + '</div>').join('') + '</div>';
+  } else if (it.kind === 'count') {
+    body = '<div class="chip-row">' + it.options.map(o =>
+      `<button type="button" class="chip ${it.square ? 'chip-square' : ''}" data-value="${o}">${o}</button>`).join('') + '</div>';
+  } else if (it.kind === 'floor') {
+    body = '<div class="chip-row">' + FLOORS_MAIN.map(o => `<button type="button" class="chip chip-square" data-value="${o}">${o}</button>`).join('') +
+      '<button type="button" class="chip chip-link floor-toggle" aria-expanded="false"></button></div>' +
+      '<div class="floor-more">' + FLOORS_MORE.map(o => `<button type="button" class="chip chip-square" data-value="${o}">${o}</button>`).join('') + '</div>';
+  } else { // enum / flags
+    body = '<div class="chip-row">' + it.options.map(([v, key]) =>
+      `<button type="button" class="chip ${it.def === v ? 'active' : ''}" data-value="${v}" ${it.def === v ? 'data-default="true"' : ''} data-i18n="${key}"></button>`).join('') + '</div>';
+  }
+  return `<div class="filter-item${it.wide ? ' wide' : ''}" data-id="${type}.${it.id}" data-kind="${it.kind}" data-single="${it.single ? 'true' : 'false'}">
+    <span class="filter-label" data-i18n="${it.label}"></span>${body}</div>`;
+}
+
+function buildPanels() {
+  document.getElementById('typePanels').innerHTML = Object.keys(FILTER_CONFIG).map(type =>
+    `<div class="type-panel" data-type="${type}">` + FILTER_CONFIG[type].map(sec =>
+      `<div class="filter-section"><h4 class="section-title" data-i18n="${sec.title}"></h4><div class="section-grid">` +
+      sec.items.map(it => renderItem(type, it)).join('') + '</div></div>').join('') + '</div>').join('');
+}
 
 /* =========================================
    FUNCTIONS
    ========================================= */
 
+// 0. MARQUEE — two identical groups => seamless loop at translateX(-50%)
+function buildMarquee() {
+  const text = t[currentLang].announcement;
+  const group = '<div class="marquee-group">' + Array(10).fill(`<span class="marquee-item">${text}</span>`).join('') + '</div>';
+  const track = document.getElementById('marqueeTrack');
+  track.innerHTML = group + group.replace('class="marquee-group"', 'class="marquee-group" aria-hidden="true"');
+}
+
 // 1. LANGUAGE SWITCHER
+function translateDOM() {
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (t[currentLang][key]) {
+      if (t[currentLang][key].includes('<')) el.innerHTML = t[currentLang][key]; // Handle HTML tags like <br>
+      else el.textContent = t[currentLang][key];
+    }
+  });
+  document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+    const key = el.getAttribute('data-i18n-placeholder');
+    if (t[currentLang][key]) el.placeholder = t[currentLang][key];
+  });
+}
+
+function updateFloorToggles() {
+  document.querySelectorAll('.floor-toggle').forEach(btn => {
+    const open = btn.closest('.filter-item').querySelector('.floor-more').classList.contains('open');
+    btn.textContent = open ? t[currentLang].f_show_less : t[currentLang].f_show_more;
+    btn.setAttribute('aria-expanded', open);
+  });
+}
+
 function setLanguage(lang) {
   currentLang = lang;
   document.documentElement.lang = lang;
-  
-  // Update Text Content
-  document.querySelectorAll('[data-i18n]').forEach(el => {
-    const key = el.getAttribute('data-i18n');
-    if (t[lang][key]) {
-      if (t[lang][key].includes('<')) el.innerHTML = t[lang][key]; // Handle HTML tags like <br>
-      else el.textContent = t[lang][key];
-    }
-  });
 
-  // Update Placeholders
-  document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
-    const key = el.getAttribute('data-i18n-placeholder');
-    if (t[lang][key]) el.placeholder = t[lang][key];
-  });
+  translateDOM();
 
   // Update Logo
   document.getElementById('brandLogo').src = lang === 'hy' ? logoHY : logoEN;
-  
+
+  // Language button shows the language you can switch to
+  document.getElementById('langSwitch').textContent = lang === 'en' ? 'HY' : 'EN';
+
   // Update Button Text if logged in/out
   const acctBtn = document.getElementById('accountBtn');
-  if(acctBtn) acctBtn.textContent = currentUser ? t[lang].my_dashboard : t[lang].agent_login;
+  if (acctBtn) acctBtn.textContent = currentUser ? t[lang].my_dashboard : t[lang].agent_login;
+
+  updateFloorToggles();
+  buildMarquee();
 
   // Re-render listings to update types/units
-  renderListings(allProperties);
+  renderListings(getFilteredProperties());
 }
 
 document.getElementById('langSwitch').addEventListener('click', () => {
@@ -437,13 +810,15 @@ document.getElementById('langSwitch').addEventListener('click', () => {
 async function loadProperties() {
   const { data } = await db.from("properties").select("*").eq("status", "published");
   allProperties = data || [];
-  renderListings(allProperties);
+  propertiesLoaded = true;
+  renderListings(getFilteredProperties());
 }
 
 function renderListings(items) {
   const grid = document.getElementById('listingGrid');
+  if (!propertiesLoaded) { grid.innerHTML = ''; return; }
   if (!items.length) {
-    grid.innerHTML = '<p style="grid-column:1/-1;text-align:center;padding:40px">No properties found.</p>';
+    grid.innerHTML = `<p style="grid-column:1/-1;text-align:center;padding:40px">${t[currentLang].no_results}</p>`;
     return;
   }
   
@@ -469,28 +844,201 @@ function renderListings(items) {
   }).join('');
 }
 
+/* =========================================
+   FILTER ENGINE
+   Optional columns in "properties":
+   deal_type ('sale'|'rent'; missing = sale), street, rooms|bedrooms, bathrooms, floor, floors_total, floors,
+   area, land_area, building_area, commercial_area, ceiling_height (m),
+   building_type ('stone'|'monolithic'|'panel'), condition ('unrenovated'|'good'|'new'),
+   land_use ('residential'|'agricultural'|'commercial'|'industrial'),
+   has_electricity, has_water, has_gas, has_sewage,
+   commercial_type ('office'|'retail'|'food'|'warehouse'|'production'),
+   has_separate_entrance, has_parking
+   ========================================= */
+const norm = v => (v === null || v === undefined) ? '' : String(v).trim().toLowerCase();
+const num = v => (v === null || v === undefined || v === '') ? NaN : Number(v);
+const isOn = v => v === true || v === 'true' || v === 1 || v === '1';
+const pick = (p, fields) => { for (const f of fields) if (p[f] !== null && p[f] !== undefined && p[f] !== '') return p[f]; return null; };
+const ALIAS = { shell_core: 'unrenovated', zero: 'unrenovated', newly_built: 'new', good_condition: 'good', cafe: 'food', restaurant: 'food', cafe_restaurant: 'food' };
+const enumKey = v => { const k = norm(v).replace(/[\s&\/-]+/g, '_'); return ALIAS[k] || k; };
+
+function matchCount(value, selected) {
+  const n = num(value);
+  if (isNaN(n)) return false;
+  return selected.some(s => s.endsWith('+') ? n >= parseInt(s, 10) : n === parseInt(s, 10));
+}
+
+// Build the list of tests for the active property type's filters
+function buildTests() {
+  const tests = [];
+  if (activeType === 'all') return tests;
+  FILTER_CONFIG[activeType].flatMap(s => s.items).forEach(it => {
+    const el = document.querySelector(`.filter-item[data-id="${activeType}.${it.id}"]`);
+    if (!el) return;
+
+    if (it.kind === 'range') {
+      const ins = el.querySelectorAll('input');
+      const min = num(ins[0].value), max = num(ins[1].value);
+      if (isNaN(min) && isNaN(max)) return;
+      tests.push(p => {
+        const v = num(pick(p, it.fields));
+        if (isNaN(v)) return false;
+        if (!isNaN(min) && v < min) return false;
+        if (!isNaN(max) && v > max) return false;
+        return true;
+      });
+      return;
+    }
+
+    const sel = [...el.querySelectorAll('.chip.active[data-value]')].map(c => c.dataset.value);
+    if (!sel.length) return;
+    if (it.single && sel[0] === 'all') return;
+
+    if (it.kind === 'count') tests.push(p => matchCount(pick(p, it.fields), sel));
+    else if (it.kind === 'floor') tests.push(p => matchCount(pick(p, it.fields), sel));
+    else if (it.kind === 'enum') tests.push(p => sel.includes(enumKey(pick(p, it.fields))));
+    else if (it.kind === 'flags') tests.push(p => sel.every(f => isOn(p[f])));
+  });
+  return tests;
+}
+
+function getFilteredProperties() {
+  const location = norm(document.getElementById('fLocation').value);
+  const street = norm(document.getElementById('fStreet').value);
+  const minPrice = num(document.getElementById('fMinPrice').value);
+  const maxPrice = num(document.getElementById('fMaxPrice').value);
+  const tests = buildTests();
+
+  return allProperties.filter(p => {
+    // Sale / Rent (properties without deal_type are treated as for sale)
+    const deal = norm(p.deal_type || p.listing_type);
+    const isRent = deal === 'rent' || deal === 'for_rent' || deal === 'for rent';
+    if (filters.deal === 'rent' ? !isRent : isRent) return false;
+
+    // Property type
+    if (activeType !== 'all' && p.type !== activeType) return false;
+
+    // Location & street
+    if (location && !norm(p.location).includes(location)) return false;
+    if (street && !(norm(p.street) + ' ' + norm(p.address) + ' ' + norm(p.location)).includes(street)) return false;
+
+    // Price range
+    const price = num(p.price);
+    if (!isNaN(minPrice) && (isNaN(price) || price < minPrice)) return false;
+    if (!isNaN(maxPrice) && (isNaN(price) || price > maxPrice)) return false;
+
+    // Type-specific filters
+    return tests.every(fn => fn(p));
+  });
+}
+
+function applyFilters(scroll) {
+  renderListings(getFilteredProperties());
+  if (scroll) document.getElementById('properties').scrollIntoView({ behavior: 'smooth' });
+}
+
+/* =========================================
+   FILTER UI
+   ========================================= */
+
+// Sale / Rent segmented toggles (hero + search panel stay in sync)
+function setDeal(deal, scroll) {
+  filters.deal = deal;
+  document.querySelectorAll('.deal-toggle').forEach(tg => {
+    tg.dataset.active = deal;
+    tg.querySelectorAll('.deal-opt').forEach(b => {
+      const on = b.dataset.deal === deal;
+      b.classList.toggle('active', on);
+      b.setAttribute('aria-pressed', on);
+    });
+  });
+  applyFilters(false);
+  if (scroll) setTimeout(() => document.getElementById('properties').scrollIntoView({ behavior: 'smooth' }), 450);
+}
+
+document.querySelectorAll('.deal-opt').forEach(btn => {
+  btn.addEventListener('click', () => {
+    if (btn.dataset.deal === filters.deal) { if (btn.closest('.hero')) applyFilters(true); return; }
+    setDeal(btn.dataset.deal, !!btn.closest('.hero'));
+  });
+});
+
+// Expand / collapse the dynamic filters
+function setAdvanced(open) {
+  document.getElementById('advWrap').classList.toggle('open', open);
+  document.getElementById('filterToggle').setAttribute('aria-expanded', open);
+  document.getElementById('filterToggleIcon').textContent = open ? '－' : '＋';
+}
+document.getElementById('filterToggle').addEventListener('click', () => {
+  setAdvanced(!document.getElementById('advWrap').classList.contains('open'));
+});
+
+// Property type selection -> shows only relevant filters
+function setType(type, autoOpen) {
+  activeType = type;
+  document.querySelectorAll('#typeChips .chip').forEach(c => c.classList.toggle('active', c.dataset.type === type));
+  document.querySelectorAll('.type-panel').forEach(p => p.classList.toggle('active', p.dataset.type === type));
+  document.getElementById('advHint').hidden = type !== 'all';
+  if (type !== 'all' && autoOpen) setAdvanced(true);
+}
+document.querySelectorAll('#typeChips .chip').forEach(chip => {
+  chip.addEventListener('click', () => setType(chip.dataset.type, true));
+});
+
+// Chips inside dynamic filters (multi-select, or single-select for building type) + floor "show more"
+document.addEventListener('click', (e) => {
+  const toggle = e.target.closest('.floor-toggle');
+  if (toggle) {
+    toggle.closest('.filter-item').querySelector('.floor-more').classList.toggle('open');
+    updateFloorToggles();
+    return;
+  }
+  const chip = e.target.closest('.filter-item .chip[data-value]');
+  if (!chip) return;
+  const item = chip.closest('.filter-item');
+  if (item.dataset.single === 'true') {
+    item.querySelectorAll('.chip').forEach(c => c.classList.toggle('active', c === chip));
+  } else {
+    chip.classList.toggle('active');
+  }
+});
+
+// Apply / Search
+document.getElementById('searchForm').addEventListener('submit', (e) => {
+  e.preventDefault();
+  applyFilters(true);
+});
+
+// Reset Filters (keeps the Sale / Rent choice)
+document.getElementById('searchForm').addEventListener('reset', () => {
+  setTimeout(() => {
+    document.querySelectorAll('.filter-item .chip').forEach(c => c.classList.remove('active'));
+    document.querySelectorAll('.filter-item .chip[data-default="true"]').forEach(c => c.classList.add('active'));
+    setType('all', false);
+    renderListings(getFilteredProperties());
+  }, 0);
+});
+
 // 3. UI INTERACTION
 document.getElementById('menuToggle').addEventListener('click', () => {
   document.getElementById('navLinks').classList.toggle('open');
 });
-
-document.getElementById('filterToggle').addEventListener('click', () => {
-  document.getElementById('advFilters').classList.toggle('open');
+document.querySelectorAll('#navLinks a').forEach(a => {
+  a.addEventListener('click', () => document.getElementById('navLinks').classList.remove('open'));
 });
 
 window.filterCat = (type) => {
-  document.getElementById('typeSelect').value = type;
-  // Simple filter logic for demo
-  const filtered = type === 'all' ? allProperties : allProperties.filter(p => p.type === type);
-  renderListings(filtered);
+  setType(type, true);
+  applyFilters(false);
 };
 
 document.getElementById('showAllBtn').addEventListener('click', () => {
-  document.getElementById('typeSelect').value = 'all';
-  renderListings(allProperties);
+  document.getElementById('searchForm').reset();
 });
 
 // Initialize
+buildPanels();
+setType('all', false);
 setLanguage('en');
 loadProperties();
 
